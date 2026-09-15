@@ -1,0 +1,180 @@
+{
+  "@@locale": "en",
+
+  "appName": "Puffree",
+  "tagline": "Freedom from smoking",
+
+  "today": "Today",
+  "streak": "Streak",
+  "saved": "Saved",
+  "avoided": "Avoided",
+  "totalDays": "Total days",
+  "dailyMotivation": "Daily motivation",
+  "checkIn": "I didn't smoke today",
+  "missions": "Daily missions",
+  "completedOf": "Completed {completed} of {total}",
+  "@completedOf": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+
+  "premium": "Premium",
+  "tryFree": "Try 3 days free",
+  "buyPremium": "Buy Premium",
+  "restore": "Restore purchases",
+
+  "settings": "Settings",
+  "progress": "Your progress",
+  "statistics": "Statistics",
+  "currentStreak": "Current streak",
+  "record": "Record",
+  "bodyChanges": "What happens to your body",
+
+  "resetProgress": "Reset progress",
+  "resetConfirm": "All data about days, streak and statistics will be deleted. This cannot be undone.",
+  "cancel": "Cancel",
+  "reset": "Reset",
+
+
+
+  "journalTitle": "Journal",
+  "journalHint": "Write down your thoughts",
+  "journalPlaceholder": "How are you feeling today?",
+  "save": "Save",
+
+  "version": "Version",
+  "privacy": "Privacy Policy",
+  "terms": "Terms of Use",
+  "disclaimer": "Puffree is a motivational app. It is not a medical device and does not replace professional medical advice. If you have a strong nicotine addiction, please consult a specialist.",
+
+  "level": "Level {number}",
+  "@level": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+
+  "daysSmokeFree": "{count} days smoke-free",
+  "@daysSmokeFree": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+
+  "nextLevelProgress": "{percent}% to next level",
+  "@nextLevelProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+
+  "onboardingTitle1": "Breathe freely",
+  "onboardingDesc1": "Puffree helps you quit smoking step by step — without pressure and with support.",
+  "onboardingTitle2": "Levels and progress",
+  "onboardingDesc2": "Every day without a cigarette unlocks a new level. Watch your strength and health grow.",
+  "onboardingTitle3": "Daily support",
+  "onboardingDesc3": "Motivation, missions and progress tracking. You are not alone on this path.",
+
+  "aboutYou": "A little about you",
+  "aboutYouDesc": "This helps calculate money and cigarettes saved",
+  "cigsPerDay": "Cigarettes per day before",
+  "pricePerPack": "Price per pack",
+  "startJourney": "Start the journey",
+  "next": "Next",
+  "skip": "Skip",
+
+  "home": "Home",
+  "tasks": "Tasks",
+
+  "missionBreathe": "Deep breathing",
+  "missionWater": "Drink water",
+  "missionWalk": "10 min walk",
+  "missionJournal": "Write a thought",
+  "missionMeditation": "5 min meditation",
+  "missionFocus": "Focus without phone",
+  "missionReflect": "Day reflection",
+  "missionHelp": "Support someone",
+
+  "chatIntroStress": "It sounds like you're feeling stressed. Let's get through this moment together.",
+  "chatIntroBoredom": "Boredom can make cravings feel stronger. Let's find something else to focus on.",
+  "chatIntroCraving": "A craving can feel intense, but it will pass. Let's take it one moment at a time.",
+
+  "chatReplyStress": "Try taking a few slow breaths and give yourself a short break. You don't have to act on the craving.",
+  "chatReplyBoredom": "Let's change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.",
+  "chatReplyCraving": "Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.",
+
+  "sosTip1": "Take a few slow, deep breaths.",
+  "sosTip2": "Drink a glass of water.",
+  "sosTip3": "Move to a different place.",
+  "sosTip4": "Keep your hands busy.",
+  "sosTip5": "Think about why you started.",
+  "sosTip6": "Give the craving a few minutes to pass.",
+
+  "sosTitle": "SOS Support",
+  "sosTimer": "Craving timer",
+  "sosBreathe": "Breathe",
+  "sosChat": "Talk",
+  "sosWon": "You won!",
+  "sosLeft": "left",
+  "sosDone": "Done",
+  "sosStart": "Start",
+  "sosManaged": "You managed the craving!",
+
+  "breatheIn": "Breathe in",
+  "breatheHold": "Hold",
+  "breatheOut": "Breathe out",
+  "breatheHint": "Follow the circle and breathe slowly.",
+  "breatheStart": "Start breathing",
+
+  "chatPick": "What are you feeling right now?",
+  "chatCraving": "I'm having a craving",
+  "chatStress": "I'm stressed",
+  "chatBoredom": "I'm bored",
+  "chatNeedWalk": "I need a walk",
+  "chatNeedWater": "I need some water",
+  "chatNeedBreathe": "I need to breathe",
+
+  "moodCheck": "How are you feeling?",
+  "moodCheckHint": "Take a moment to check in with yourself.",
+
+  "missionBreatheDesc": "Take a few slow, deep breaths.",
+  "missionWaterDesc": "Drink a glass of water.",
+  "missionWalkDesc": "Take a 10-minute walk.",
+  "missionJournalDesc": "Write down one thought about your day.",
+  "missionMeditationDesc": "Take 5 minutes to meditate.",
+  "missionFocusDesc": "Spend some time focusing without your phone.",
+  "missionReflectDesc": "Think about how your day went.",
+  "missionHelpDesc": "Do something kind to support someone.",
+
+  "friend": "Friend",
+  "helloName": "Hello, {name}!",
+  "@helloName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+
+  "pathToFreedom": "Your path to freedom",
+  "withoutCigs": "without cigarettes",
+  "premiumHint": "Unlock all features with Premium",
+  "checkedInToday": "Checked in today",
+
+  "iSmoked": "I smoked",
+  "relapseTitle": "It's okay",
+  "relapseBody": "One cigarette does not erase your progress. Learn from this moment and keep moving forward.",
+  "relapseDone": "Continue"
+}
