@@ -11,16 +11,13 @@
   "totalDays": "Total days",
   "dailyMotivation": "Daily motivation",
   "checkIn": "I didn't smoke today",
+  "checkedInToday": "Checked in today",
   "missions": "Daily missions",
   "completedOf": "Completed {completed} of {total}",
   "@completedOf": {
     "placeholders": {
-      "completed": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
     }
   },
 
@@ -28,6 +25,7 @@
   "tryFree": "Try 3 days free",
   "buyPremium": "Buy Premium",
   "restore": "Restore purchases",
+  "premiumHint": "Unlock all features with Premium",
 
   "settings": "Settings",
   "progress": "Your progress",
@@ -41,12 +39,12 @@
   "cancel": "Cancel",
   "reset": "Reset",
 
-
-
   "journalTitle": "Journal",
   "journalHint": "Write down your thoughts",
   "journalPlaceholder": "How are you feeling today?",
   "save": "Save",
+  "moodCheck": "How are you feeling?",
+  "moodCheckHint": "Take a moment to check in with yourself.",
 
   "version": "Version",
   "privacy": "Privacy Policy",
@@ -56,29 +54,98 @@
   "level": "Level {number}",
   "@level": {
     "placeholders": {
-      "number": {
-        "type": "int"
-      }
+      "number": { "type": "int" }
     }
   },
 
   "daysSmokeFree": "{count} days smoke-free",
   "@daysSmokeFree": {
     "placeholders": {
-      "count": {
-        "type": "int"
-      }
+      "count": { "type": "int" }
     }
   },
 
   "nextLevelProgress": "{percent}% to next level",
   "@nextLevelProgress": {
     "placeholders": {
-      "percent": {
-        "type": "int"
-      }
+      "percent": { "type": "int" }
     }
   },
+
+  "friend": "Friend",
+  "helloName": "Hello, {name}!",
+  "@helloName": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "pathToFreedom": "Your path to freedom",
+  "withoutCigs": "without cigarettes",
+
+  "iSmoked": "I smoked",
+  "relapseTitle": "It's okay",
+  "relapseBody": "One cigarette does not erase your progress. Learn from this moment and keep moving forward.",
+  "relapseDone": "Continue",
+
+  "home": "Home",
+  "tasks": "Tasks",
+
+  "missionBreathe": "Deep breathing",
+  "missionWater": "Drink water",
+  "missionWalk": "10 min walk",
+  "missionJournal": "Write a thought",
+  "missionMeditation": "5 min meditation",
+  "missionFocus": "Focus without phone",
+  "missionReflect": "Day reflection",
+  "missionHelp": "Support someone",
+
+  "missionBreatheDesc": "Take a few slow, deep breaths.",
+  "missionWaterDesc": "Drink a glass of water.",
+  "missionWalkDesc": "Take a 10-minute walk.",
+  "missionJournalDesc": "Write down one thought about your day.",
+  "missionMeditationDesc": "Take 5 minutes to meditate.",
+  "missionFocusDesc": "Spend some time focusing without your phone.",
+  "missionReflectDesc": "Think about how your day went.",
+  "missionHelpDesc": "Do something kind to support someone.",
+
+  "sosTitle": "SOS Support",
+  "sosTimer": "Craving timer",
+  "sosBreathe": "Breathe",
+  "sosChat": "Talk",
+  "sosStart": "Start",
+  "sosDone": "Done",
+  "sosManaged": "You managed the craving!",
+  "sosWon": "You won!",
+  "sosLeft": "left",
+
+  "sosTip1": "Take a few slow, deep breaths.",
+  "sosTip2": "Drink a glass of water.",
+  "sosTip3": "Move to a different place.",
+  "sosTip4": "Keep your hands busy.",
+  "sosTip5": "Think about why you started.",
+  "sosTip6": "Give the craving a few minutes to pass.",
+
+  "breatheIn": "Breathe in",
+  "breatheHold": "Hold",
+  "breatheOut": "Breathe out",
+  "breatheHint": "Follow the circle and breathe slowly.",
+  "breatheStart": "Start breathing",
+
+  "chatPick": "What are you feeling right now?",
+  "chatCraving": "I'm having a craving",
+  "chatStress": "I'm stressed",
+  "chatBoredom": "I'm bored",
+  "chatNeedWalk": "I need a walk",
+  "chatNeedWater": "I need some water",
+  "chatNeedBreathe": "I need to breathe",
+
+  "chatIntroStress": "It sounds like you're feeling stressed. Let's get through this moment together.",
+  "chatIntroBoredom": "Boredom can make cravings feel stronger. Let's find something else to focus on.",
+  "chatIntroCraving": "A craving can feel intense, but it will pass. Let's take it one moment at a time.",
+
+  "chatReplyStress": "Try taking a few slow breaths and give yourself a short break. You don't have to act on the craving.",
+  "chatReplyBoredom": "Let's change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.",
+  "chatReplyCraving": "Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.",
 
   "onboardingTitle1": "Breathe freely",
   "onboardingDesc1": "Puffree helps you quit smoking step by step — without pressure and with support.",
@@ -95,86 +162,81 @@
   "next": "Next",
   "skip": "Skip",
 
-  "home": "Home",
-  "tasks": "Tasks",
+  "youGotThis": "You got this. One moment at a time.",
+  "waitTheWave": "Ride out the craving wave",
+  "youPassedThis": "You made it through this moment",
+  "greatJob": "Great job. You're in control.",
+  "giveYourselfMinutes": "Give yourself a few minutes and focus on the present moment.",
+  "keepGoing": "KEEP GOING",
+  "done": "DONE",
+  "breatheSlowly": "Breathe slowly",
+  "followTheCircle": "Follow the circle rhythm",
+  "chooseWhatFits": "Choose what matches how you feel right now.",
 
-  "missionBreathe": "Deep breathing",
-  "missionWater": "Drink water",
-  "missionWalk": "10 min walk",
-  "missionJournal": "Write a thought",
-  "missionMeditation": "5 min meditation",
-  "missionFocus": "Focus without phone",
-  "missionReflect": "Day reflection",
-  "missionHelp": "Support someone",
+  "yourResults": "Your results",
+  "whatChanged": "What has already changed thanks to you",
+  "recoveryPath": "Recovery path",
+  "everyMilestone": "Every milestone is another step forward",
+  "levelProgress": "Progress to next level",
+  "yourPathContinues": "Your path continues",
+  "daysWordOne": "day",
+  "daysWordFew": "days",
+  "daysWordMany": "days",
 
-  "chatIntroStress": "It sounds like you're feeling stressed. Let's get through this moment together.",
-  "chatIntroBoredom": "Boredom can make cravings feel stronger. Let's find something else to focus on.",
-  "chatIntroCraving": "A craving can feel intense, but it will pass. Let's take it one moment at a time.",
-
-  "chatReplyStress": "Try taking a few slow breaths and give yourself a short break. You don't have to act on the craving.",
-  "chatReplyBoredom": "Let's change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.",
-  "chatReplyCraving": "Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.",
-
-  "sosTip1": "Take a few slow, deep breaths.",
-  "sosTip2": "Drink a glass of water.",
-  "sosTip3": "Move to a different place.",
-  "sosTip4": "Keep your hands busy.",
-  "sosTip5": "Think about why you started.",
-  "sosTip6": "Give the craving a few minutes to pass.",
-
-  "sosTitle": "SOS Support",
-  "sosTimer": "Craving timer",
-  "sosBreathe": "Breathe",
-  "sosChat": "Talk",
-  "sosWon": "You won!",
-  "sosLeft": "left",
-  "sosDone": "Done",
-  "sosStart": "Start",
-  "sosManaged": "You managed the craving!",
-
-  "breatheIn": "Breathe in",
-  "breatheHold": "Hold",
-  "breatheOut": "Breathe out",
-  "breatheHint": "Follow the circle and breathe slowly.",
-  "breatheStart": "Start breathing",
-
-  "chatPick": "What are you feeling right now?",
-  "chatCraving": "I'm having a craving",
-  "chatStress": "I'm stressed",
-  "chatBoredom": "I'm bored",
-  "chatNeedWalk": "I need a walk",
-  "chatNeedWater": "I need some water",
-  "chatNeedBreathe": "I need to breathe",
-
-  "moodCheck": "How are you feeling?",
-  "moodCheckHint": "Take a moment to check in with yourself.",
-
-  "missionBreatheDesc": "Take a few slow, deep breaths.",
-  "missionWaterDesc": "Drink a glass of water.",
-  "missionWalkDesc": "Take a 10-minute walk.",
-  "missionJournalDesc": "Write down one thought about your day.",
-  "missionMeditationDesc": "Take 5 minutes to meditate.",
-  "missionFocusDesc": "Spend some time focusing without your phone.",
-  "missionReflectDesc": "Think about how your day went.",
-  "missionHelpDesc": "Do something kind to support someone.",
-
-  "friend": "Friend",
-  "helloName": "Hello, {name}!",
-  "@helloName": {
+  "momentum": "MOMENTUM",
+  "missionsLeft": "{count} missions left",
+  "@missionsLeft": {
     "placeholders": {
-      "name": {
-        "type": "String"
-      }
+      "count": { "type": "int" }
     }
   },
+  "allMissionsDone": "All missions completed",
+  "dayComplete": "Day complete",
+  "keepGoingShort": "Keep going",
+  "inProgress": "IN PROGRESS",
+  "complete": "COMPLETE",
+  "yourPlanToday": "Your plan for today",
+  "everythingDone": "Everything completed",
 
-  "pathToFreedom": "Your path to freedom",
-  "withoutCigs": "without cigarettes",
-  "premiumHint": "Unlock all features with Premium",
-  "checkedInToday": "Checked in today",
+  "theme": "Theme",
+  "language": "Language",
+  "notifications": "Notifications",
+  "notificationsHint": "Reminders and motivation",
+  "data": "Data",
+  "aboutApp": "About the app",
+  "appTheme": "App theme",
+  "chooseTheme": "Choose how Puffree should look.",
+  "systemTheme": "System",
+  "systemThemeDesc": "Follow phone settings",
+  "lightTheme": "Light",
+  "lightThemeDesc": "Always use light theme",
+  "darkTheme": "Dark",
+  "darkThemeDesc": "Always use dark theme",
 
-  "iSmoked": "I smoked",
-  "relapseTitle": "It's okay",
-  "relapseBody": "One cigarette does not erase your progress. Learn from this moment and keep moving forward.",
-  "relapseDone": "Continue"
+  "premiumActive": "Premium is active",
+  "trialActive": "Trial period is active",
+  "fullAccess": "Full access to all features",
+  "openPremium": "Open Premium and subscription options",
+
+  "resetProgressTitle": "Reset progress?",
+  "resetProgressBody": "All data about days, streak and statistics will be deleted. This action cannot be undone.",
+
+  "excellent": "Excellent!",
+  "anotherDayFree": "Another day without cigarettes",
+  "continueBtn": "Continue",
+  "newAchievement": "NEW ACHIEVEMENT",
+  "newLevel": "New level!",
+  "levelUpMessage": "Keep going — you're doing great!",
+
+  "freeFor": "FREE FOR",
+  "toNextLevel": "To next level",
+  "keyResults": "KEY RESULTS",
+  "progressSystem": "PROGRESS SYSTEM",
+  "everyDayCloser": "Every day moves you closer to the next level",
+  "current": "Current",
+  "nextLevel": "Next",
+
+  "smallSteps": "Small steps. Big changes.",
+  "youAreFurther": "You are already further than yesterday",
+  "madeForFuture": "Made for a smoke-free future"
 }

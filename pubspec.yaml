@@ -55,8 +55,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/fonts/
 
-# Иконка приложения (положи файл assets/images/app_icon.png 1024x1024)
+# Иконка приложения
 flutter_launcher_icons:
   android: true
   ios: true

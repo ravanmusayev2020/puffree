@@ -12,357 +12,554 @@ class AppLocalizationsAz extends AppLocalizations {
   String get appName => 'Puffree';
 
   @override
-  String get tagline => 'Freedom from smoking';
+  String get tagline => 'Siqaretsiz azadlıq';
 
   @override
-  String get today => 'Today';
+  String get today => 'Bu gün';
 
   @override
-  String get streak => 'Streak';
+  String get streak => 'Seriya';
 
   @override
-  String get saved => 'Saved';
+  String get saved => 'Qənaət';
 
   @override
-  String get avoided => 'Avoided';
+  String get avoided => 'Qaçınılıb';
 
   @override
-  String get totalDays => 'Total days';
+  String get totalDays => 'Ümumi günlər';
 
   @override
-  String get dailyMotivation => 'Daily motivation';
+  String get dailyMotivation => 'Günün motivasiyası';
 
   @override
-  String get checkIn => 'I didn\'t smoke today';
+  String get checkIn => 'Bu gün siqaret çəkmədim';
 
   @override
-  String get missions => 'Daily missions';
+  String get checkedInToday => 'Bu gün qeyd olundu';
+
+  @override
+  String get missions => 'Günün tapşırıqları';
 
   @override
   String completedOf(int completed, int total) {
-    return 'Completed $completed of $total';
+    return '$completed / $total tamamlanıb';
   }
 
   @override
   String get premium => 'Premium';
 
   @override
-  String get tryFree => 'Try 3 days free';
+  String get tryFree => '3 gün pulsuz sına';
 
   @override
-  String get buyPremium => 'Buy Premium';
+  String get buyPremium => 'Premium al';
 
   @override
-  String get restore => 'Restore purchases';
+  String get restore => 'Satınalmaları bərpa et';
 
   @override
-  String get settings => 'Settings';
+  String get premiumHint => 'Premium ilə bütün funksiyaları aç';
 
   @override
-  String get progress => 'Your progress';
+  String get settings => 'Ayarlar';
 
   @override
-  String get statistics => 'Statistics';
+  String get progress => 'İnkişafın';
 
   @override
-  String get currentStreak => 'Current streak';
+  String get statistics => 'Statistika';
 
   @override
-  String get record => 'Record';
+  String get currentStreak => 'Cari seriya';
 
   @override
-  String get bodyChanges => 'What happens to your body';
+  String get record => 'Rekord';
 
   @override
-  String get resetProgress => 'Reset progress';
+  String get bodyChanges => 'Bədəndə nələr baş verir';
+
+  @override
+  String get resetProgress => 'İnkişafı sıfırla';
 
   @override
   String get resetConfirm =>
-      'All data about days, streak and statistics will be deleted. This cannot be undone.';
+      'Bütün günlər, seriya və statistika silinəcək. Bu əməliyyat geri qaytarıla bilməz.';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Ləğv et';
 
   @override
-  String get reset => 'Reset';
+  String get reset => 'Sıfırla';
 
   @override
-  String get journalTitle => 'Journal';
+  String get journalTitle => 'Gündəlik';
 
   @override
-  String get journalHint => 'Write down your thoughts';
+  String get journalHint => 'Düşüncələrini yaz';
 
   @override
-  String get journalPlaceholder => 'How are you feeling today?';
+  String get journalPlaceholder => 'Bu gün özünü necə hiss edirsən?';
 
   @override
-  String get save => 'Save';
+  String get save => 'Yadda saxla';
 
   @override
-  String get version => 'Version';
+  String get moodCheck => 'Özünü necə hiss edirsən?';
 
   @override
-  String get privacy => 'Privacy Policy';
+  String get moodCheckHint => 'Bir dəqiqə özünə diqqət yetir.';
 
   @override
-  String get terms => 'Terms of Use';
+  String get version => 'Versiya';
+
+  @override
+  String get privacy => 'Məxfilik siyasəti';
+
+  @override
+  String get terms => 'İstifadə şərtləri';
 
   @override
   String get disclaimer =>
-      'Puffree is a motivational app. It is not a medical device and does not replace professional medical advice. If you have a strong nicotine addiction, please consult a specialist.';
+      'Puffree motivasiya tətbiqidir. Tibbi vasitə deyil və həkim məsləhətini əvəz etmir. Güclü nikotin asılılığı varsa, mütəxəssisə müraciət et.';
 
   @override
   String level(int number) {
-    return 'Level $number';
+    return 'Səviyyə $number';
   }
 
   @override
   String daysSmokeFree(int count) {
-    return '$count days smoke-free';
+    return '$count gün siqaretsiz';
   }
 
   @override
   String nextLevelProgress(int percent) {
-    return '$percent% to next level';
+    return 'Növbəti səviyyəyə $percent%';
   }
 
   @override
-  String get onboardingTitle1 => 'Breathe freely';
-
-  @override
-  String get onboardingDesc1 =>
-      'Puffree helps you quit smoking step by step — without pressure and with support.';
-
-  @override
-  String get onboardingTitle2 => 'Levels and progress';
-
-  @override
-  String get onboardingDesc2 =>
-      'Every day without a cigarette unlocks a new level. Watch your strength and health grow.';
-
-  @override
-  String get onboardingTitle3 => 'Daily support';
-
-  @override
-  String get onboardingDesc3 =>
-      'Motivation, missions and progress tracking. You are not alone on this path.';
-
-  @override
-  String get aboutYou => 'A little about you';
-
-  @override
-  String get aboutYouDesc => 'This helps calculate money and cigarettes saved';
-
-  @override
-  String get cigsPerDay => 'Cigarettes per day before';
-
-  @override
-  String get pricePerPack => 'Price per pack';
-
-  @override
-  String get startJourney => 'Start the journey';
-
-  @override
-  String get next => 'Next';
-
-  @override
-  String get skip => 'Skip';
-
-  @override
-  String get home => 'Home';
-
-  @override
-  String get tasks => 'Tasks';
-
-  @override
-  String get missionBreathe => 'Deep breathing';
-
-  @override
-  String get missionWater => 'Drink water';
-
-  @override
-  String get missionWalk => '10 min walk';
-
-  @override
-  String get missionJournal => 'Write a thought';
-
-  @override
-  String get missionMeditation => '5 min meditation';
-
-  @override
-  String get missionFocus => 'Focus without phone';
-
-  @override
-  String get missionReflect => 'Day reflection';
-
-  @override
-  String get missionHelp => 'Support someone';
-
-  @override
-  String get chatIntroStress =>
-      'It sounds like you\'re feeling stressed. Let\'s get through this moment together.';
-
-  @override
-  String get chatIntroBoredom =>
-      'Boredom can make cravings feel stronger. Let\'s find something else to focus on.';
-
-  @override
-  String get chatIntroCraving =>
-      'A craving can feel intense, but it will pass. Let\'s take it one moment at a time.';
-
-  @override
-  String get chatReplyStress =>
-      'Try taking a few slow breaths and give yourself a short break. You don\'t have to act on the craving.';
-
-  @override
-  String get chatReplyBoredom =>
-      'Let\'s change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.';
-
-  @override
-  String get chatReplyCraving =>
-      'Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.';
-
-  @override
-  String get sosTip1 => 'Take a few slow, deep breaths.';
-
-  @override
-  String get sosTip2 => 'Drink a glass of water.';
-
-  @override
-  String get sosTip3 => 'Move to a different place.';
-
-  @override
-  String get sosTip4 => 'Keep your hands busy.';
-
-  @override
-  String get sosTip5 => 'Think about why you started.';
-
-  @override
-  String get sosTip6 => 'Give the craving a few minutes to pass.';
-
-  @override
-  String get sosTitle => 'SOS Support';
-
-  @override
-  String get sosTimer => 'Craving timer';
-
-  @override
-  String get sosBreathe => 'Breathe';
-
-  @override
-  String get sosChat => 'Talk';
-
-  @override
-  String get sosWon => 'You won!';
-
-  @override
-  String get sosLeft => 'left';
-
-  @override
-  String get sosDone => 'Done';
-
-  @override
-  String get sosStart => 'Start';
-
-  @override
-  String get sosManaged => 'You managed the craving!';
-
-  @override
-  String get breatheIn => 'Breathe in';
-
-  @override
-  String get breatheHold => 'Hold';
-
-  @override
-  String get breatheOut => 'Breathe out';
-
-  @override
-  String get breatheHint => 'Follow the circle and breathe slowly.';
-
-  @override
-  String get breatheStart => 'Start breathing';
-
-  @override
-  String get chatPick => 'What are you feeling right now?';
-
-  @override
-  String get chatCraving => 'I\'m having a craving';
-
-  @override
-  String get chatStress => 'I\'m stressed';
-
-  @override
-  String get chatBoredom => 'I\'m bored';
-
-  @override
-  String get chatNeedWalk => 'I need a walk';
-
-  @override
-  String get chatNeedWater => 'I need some water';
-
-  @override
-  String get chatNeedBreathe => 'I need to breathe';
-
-  @override
-  String get moodCheck => 'How are you feeling?';
-
-  @override
-  String get moodCheckHint => 'Take a moment to check in with yourself.';
-
-  @override
-  String get missionBreatheDesc => 'Take a few slow, deep breaths.';
-
-  @override
-  String get missionWaterDesc => 'Drink a glass of water.';
-
-  @override
-  String get missionWalkDesc => 'Take a 10-minute walk.';
-
-  @override
-  String get missionJournalDesc => 'Write down one thought about your day.';
-
-  @override
-  String get missionMeditationDesc => 'Take 5 minutes to meditate.';
-
-  @override
-  String get missionFocusDesc => 'Spend some time focusing without your phone.';
-
-  @override
-  String get missionReflectDesc => 'Think about how your day went.';
-
-  @override
-  String get missionHelpDesc => 'Do something kind to support someone.';
-
-  @override
-  String get friend => 'Friend';
+  String get friend => 'Dost';
 
   @override
   String helloName(String name) {
-    return 'Hello, $name!';
+    return 'Salam, $name!';
   }
 
   @override
-  String get pathToFreedom => 'Your path to freedom';
+  String get pathToFreedom => 'Azadlığa yolun';
 
   @override
-  String get withoutCigs => 'without cigarettes';
+  String get withoutCigs => 'siqaretsiz';
 
   @override
-  String get premiumHint => 'Unlock all features with Premium';
+  String get iSmoked => 'Siqaret çəkdim';
 
   @override
-  String get checkedInToday => 'Checked in today';
-
-  @override
-  String get iSmoked => 'I smoked';
-
-  @override
-  String get relapseTitle => 'It\'s okay';
+  String get relapseTitle => 'Problem yoxdur';
 
   @override
   String get relapseBody =>
-      'One cigarette does not erase your progress. Learn from this moment and keep moving forward.';
+      'Bir siqaret inkişafını silmir. Bu andan dərs çıxar və irəli getməyə davam et.';
 
   @override
-  String get relapseDone => 'Continue';
+  String get relapseDone => 'Davam et';
+
+  @override
+  String get home => 'Əsas';
+
+  @override
+  String get tasks => 'Tapşırıqlar';
+
+  @override
+  String get missionBreathe => 'Dərin nəfəs';
+
+  @override
+  String get missionWater => 'Su iç';
+
+  @override
+  String get missionWalk => '10 dəq gəzinti';
+
+  @override
+  String get missionJournal => 'Düşüncə yaz';
+
+  @override
+  String get missionMeditation => '5 dəq meditasiya';
+
+  @override
+  String get missionFocus => 'Telefonsuz fokus';
+
+  @override
+  String get missionReflect => 'Günü düşün';
+
+  @override
+  String get missionHelp => 'Kiməsə dəstək ol';
+
+  @override
+  String get missionBreatheDesc => 'Bir neçə yavaş və dərin nəfəs al.';
+
+  @override
+  String get missionWaterDesc => 'Bir stəkan su iç.';
+
+  @override
+  String get missionWalkDesc => '10 dəqiqə gəz.';
+
+  @override
+  String get missionJournalDesc => 'Günün haqqında bir düşüncə yaz.';
+
+  @override
+  String get missionMeditationDesc => '5 dəqiqə meditasiya et.';
+
+  @override
+  String get missionFocusDesc => 'Telefonsuz fokuslan.';
+
+  @override
+  String get missionReflectDesc => 'Günün necə keçdiyini düşün.';
+
+  @override
+  String get missionHelpDesc => 'Kiməsə kömək etmək üçün bir şey et.';
+
+  @override
+  String get sosTitle => 'SOS Dəstək';
+
+  @override
+  String get sosTimer => 'Həvəs taymeri';
+
+  @override
+  String get sosBreathe => 'Nəfəs';
+
+  @override
+  String get sosChat => 'Söhbət';
+
+  @override
+  String get sosStart => 'Başla';
+
+  @override
+  String get sosDone => 'Hazır';
+
+  @override
+  String get sosManaged => 'Həvəsi idarə etdin!';
+
+  @override
+  String get sosWon => 'Qalib gəldin!';
+
+  @override
+  String get sosLeft => 'qalıb';
+
+  @override
+  String get sosTip1 => 'Bir neçə yavaş dərin nəfəs al.';
+
+  @override
+  String get sosTip2 => 'Bir stəkan su iç.';
+
+  @override
+  String get sosTip3 => 'Başqa yerə keç.';
+
+  @override
+  String get sosTip4 => 'Əllərini məşğul et.';
+
+  @override
+  String get sosTip5 => 'Niyə başladığını xatırla.';
+
+  @override
+  String get sosTip6 => 'Həvəsin keçməsi üçün bir neçə dəqiqə ver.';
+
+  @override
+  String get breatheIn => 'Nəfəs al';
+
+  @override
+  String get breatheHold => 'Saxla';
+
+  @override
+  String get breatheOut => 'Nəfəs ver';
+
+  @override
+  String get breatheHint => 'Dairəyə əməl et və yavaş nəfəs al.';
+
+  @override
+  String get breatheStart => 'Nəfəsə başla';
+
+  @override
+  String get chatPick => 'İndi nə hiss edirsən?';
+
+  @override
+  String get chatCraving => 'Həvəsim var';
+
+  @override
+  String get chatStress => 'Stressdəyəm';
+
+  @override
+  String get chatBoredom => 'Canım darıxır';
+
+  @override
+  String get chatNeedWalk => 'Gəzmək istəyirəm';
+
+  @override
+  String get chatNeedWater => 'Su istəyirəm';
+
+  @override
+  String get chatNeedBreathe => 'Nəfəs almaq istəyirəm';
+
+  @override
+  String get chatIntroStress =>
+      'Stress hiss etdiyin görünür. Gəl bu anı birlikdə keçək.';
+
+  @override
+  String get chatIntroBoredom =>
+      'Darıxmaq həvəsi gücləndirə bilər. Gəl başqa şeyə fokuslanaq.';
+
+  @override
+  String get chatIntroCraving =>
+      'Həvəs güclü ola bilər, amma keçəcək. Gəl addım-addım gedək.';
+
+  @override
+  String get chatReplyStress =>
+      'Bir neçə yavaş nəfəs al və özünə qısa fasilə ver. Həvəsə tabe olmaq məcburi deyil.';
+
+  @override
+  String get chatReplyBoredom =>
+      'Mühiti dəyişək. Qısa gəzinti et, su iç və ya əllərini məşğul et.';
+
+  @override
+  String get chatReplyCraving =>
+      'Qərar verməzdən əvvəl bir neçə dəqiqə gözlə. Su iç, yavaş nəfəs al və niyə başladığını xatırla.';
+
+  @override
+  String get onboardingTitle1 => 'Azad nəfəs al';
+
+  @override
+  String get onboardingDesc1 =>
+      'Puffree siqareti tərk etməyə addım-addım kömək edir — təzyiqsiz və dəstəklə.';
+
+  @override
+  String get onboardingTitle2 => 'Səviyyələr və inkişaf';
+
+  @override
+  String get onboardingDesc2 =>
+      'Hər siqaretsiz gün yeni səviyyə açır. Gücün və sağlamlığın artdığını gör.';
+
+  @override
+  String get onboardingTitle3 => 'Gündəlik dəstək';
+
+  @override
+  String get onboardingDesc3 =>
+      'Motivasiya, tapşırıqlar və inkişaf izləməsi. Bu yolda tək deyilsən.';
+
+  @override
+  String get aboutYou => 'Bir az sənin haqqında';
+
+  @override
+  String get aboutYouDesc =>
+      'Bu, qənaət edilən pul və siqaretləri hesablamağa kömək edir';
+
+  @override
+  String get cigsPerDay => 'Əvvəl gündə siqaret sayı';
+
+  @override
+  String get pricePerPack => 'Paket qiyməti';
+
+  @override
+  String get startJourney => 'Yola başla';
+
+  @override
+  String get next => 'Növbəti';
+
+  @override
+  String get skip => 'Keç';
+
+  @override
+  String get youGotThis => 'Sən bacararsan. Bir an bir dəfə.';
+
+  @override
+  String get waitTheWave => 'Həvəs dalğasını keç';
+
+  @override
+  String get youPassedThis => 'Bu anı keçdin';
+
+  @override
+  String get greatJob => 'Əla iş. Vəziyyəti sən idarə edirsən.';
+
+  @override
+  String get giveYourselfMinutes =>
+      'Özünə bir neçə dəqiqə ver və indiki ana fokuslan.';
+
+  @override
+  String get keepGoing => 'DAVAM ET';
+
+  @override
+  String get done => 'HAZIR';
+
+  @override
+  String get breatheSlowly => 'Yavaş nəfəs al';
+
+  @override
+  String get followTheCircle => 'Dairənin ritminə əməl et';
+
+  @override
+  String get chooseWhatFits => 'İndi hiss etdiyinə uyğun olanı seç.';
+
+  @override
+  String get yourResults => 'Nəticələrin';
+
+  @override
+  String get whatChanged => 'Sənin sayəndə artıq dəyişənlər';
+
+  @override
+  String get recoveryPath => 'Bərpa yolu';
+
+  @override
+  String get everyMilestone => 'Hər mərhələ irəli atılan daha bir addımdır';
+
+  @override
+  String get levelProgress => 'Növbəti səviyyəyə irəliləyiş';
+
+  @override
+  String get yourPathContinues => 'Yolun davam edir';
+
+  @override
+  String get daysWordOne => 'gün';
+
+  @override
+  String get daysWordFew => 'gün';
+
+  @override
+  String get daysWordMany => 'gün';
+
+  @override
+  String get momentum => 'İMPULS';
+
+  @override
+  String missionsLeft(int count) {
+    return '$count tapşırıq qalıb';
+  }
+
+  @override
+  String get allMissionsDone => 'Bütün tapşırıqlar tamamlandı';
+
+  @override
+  String get dayComplete => 'Gün tamamlandı';
+
+  @override
+  String get keepGoingShort => 'Davam et';
+
+  @override
+  String get inProgress => 'DAVAM EDİR';
+
+  @override
+  String get complete => 'TAMAMLANDI';
+
+  @override
+  String get yourPlanToday => 'Bu günün planı';
+
+  @override
+  String get everythingDone => 'Hər şey tamamlandı';
+
+  @override
+  String get theme => 'Tema';
+
+  @override
+  String get language => 'Dil';
+
+  @override
+  String get notifications => 'Bildirişlər';
+
+  @override
+  String get notificationsHint => 'Xatırlatmalar və motivasiya';
+
+  @override
+  String get data => 'Məlumatlar';
+
+  @override
+  String get aboutApp => 'Tətbiq haqqında';
+
+  @override
+  String get appTheme => 'Tətbiq teması';
+
+  @override
+  String get chooseTheme => 'Puffree-nin necə görünəcəyini seç.';
+
+  @override
+  String get systemTheme => 'Sistem';
+
+  @override
+  String get systemThemeDesc => 'Telefon ayarlarına əməl et';
+
+  @override
+  String get lightTheme => 'İşıqlı';
+
+  @override
+  String get lightThemeDesc => 'Həmişə işıqlı tema';
+
+  @override
+  String get darkTheme => 'Qaranlıq';
+
+  @override
+  String get darkThemeDesc => 'Həmişə qaranlıq tema';
+
+  @override
+  String get premiumActive => 'Premium aktivdir';
+
+  @override
+  String get trialActive => 'Sınaq müddəti aktivdir';
+
+  @override
+  String get fullAccess => 'Bütün funksiyalara tam giriş';
+
+  @override
+  String get openPremium => 'Premium və abunəlik seçimlərini aç';
+
+  @override
+  String get resetProgressTitle => 'İnkişafı sıfırlamaq istəyirsən?';
+
+  @override
+  String get resetProgressBody =>
+      'Bütün günlər, seriya və statistika silinəcək. Bu əməliyyat geri qaytarıla bilməz.';
+
+  @override
+  String get excellent => 'Əla!';
+
+  @override
+  String get anotherDayFree => 'Daha bir gün siqaretsiz';
+
+  @override
+  String get continueBtn => 'Davam et';
+
+  @override
+  String get newAchievement => 'YENİ UĞUR';
+
+  @override
+  String get newLevel => 'Yeni səviyyə!';
+
+  @override
+  String get levelUpMessage => 'Davam et — sən əla gedirsən!';
+
+  @override
+  String get freeFor => 'ARTIQ AZADSAN';
+
+  @override
+  String get toNextLevel => 'Növbəti səviyyəyə';
+
+  @override
+  String get keyResults => 'ƏSAS NƏTİCƏLƏR';
+
+  @override
+  String get progressSystem => 'İNKIŞAF SİSTEMİ';
+
+  @override
+  String get everyDayCloser => 'Hər gün növbəti səviyyəyə yaxınlaşdırır';
+
+  @override
+  String get current => 'İndi';
+
+  @override
+  String get nextLevel => 'Növbəti';
+
+  @override
+  String get smallSteps => 'Kiçik addımlar. Böyük dəyişikliklər.';
+
+  @override
+  String get youAreFurther => 'Sən artıq dünəndən irəlidəsən';
+
+  @override
+  String get madeForFuture => 'Siqaretsiz gələcək üçün yaradılıb';
 }

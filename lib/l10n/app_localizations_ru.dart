@@ -36,6 +36,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get checkIn => 'Я не курил сегодня';
 
   @override
+  String get checkedInToday => 'Отмечено сегодня';
+
+  @override
   String get missions => 'Задания дня';
 
   @override
@@ -54,6 +57,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get restore => 'Восстановить покупки';
+
+  @override
+  String get premiumHint => 'Открой все функции с Premium';
 
   @override
   String get settings => 'Настройки';
@@ -87,16 +93,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get reset => 'Сбросить';
 
   @override
-  String get journalTitle => 'Journal';
+  String get journalTitle => 'Дневник';
 
   @override
-  String get journalHint => 'Write down your thoughts';
+  String get journalHint => 'Запиши свои мысли';
 
   @override
-  String get journalPlaceholder => 'How are you feeling today?';
+  String get journalPlaceholder => 'Как ты себя чувствуешь сегодня?';
 
   @override
-  String get save => 'Save';
+  String get save => 'Сохранить';
+
+  @override
+  String get moodCheck => 'Как ты себя чувствуешь?';
+
+  @override
+  String get moodCheckHint => 'Удели минуту, чтобы проверить своё состояние.';
 
   @override
   String get version => 'Версия';
@@ -125,6 +137,194 @@ class AppLocalizationsRu extends AppLocalizations {
   String nextLevelProgress(int percent) {
     return '$percent% до следующего уровня';
   }
+
+  @override
+  String get friend => 'Друг';
+
+  @override
+  String helloName(String name) {
+    return 'Привет, $name!';
+  }
+
+  @override
+  String get pathToFreedom => 'Твой путь к свободе';
+
+  @override
+  String get withoutCigs => 'без сигарет';
+
+  @override
+  String get iSmoked => 'Я закурил';
+
+  @override
+  String get relapseTitle => 'Всё в порядке';
+
+  @override
+  String get relapseBody =>
+      'Одна сигарета не перечёркивает твой прогресс. Извлеки урок из этого момента и продолжай двигаться вперёд.';
+
+  @override
+  String get relapseDone => 'Продолжить';
+
+  @override
+  String get home => 'Главная';
+
+  @override
+  String get tasks => 'Задания';
+
+  @override
+  String get missionBreathe => 'Глубокое дыхание';
+
+  @override
+  String get missionWater => 'Выпей воду';
+
+  @override
+  String get missionWalk => 'Прогулка 10 минут';
+
+  @override
+  String get missionJournal => 'Запиши мысль';
+
+  @override
+  String get missionMeditation => 'Медитация 5 мин';
+
+  @override
+  String get missionFocus => 'Фокус без телефона';
+
+  @override
+  String get missionReflect => 'Рефлексия дня';
+
+  @override
+  String get missionHelp => 'Поддержи кого-то';
+
+  @override
+  String get missionBreatheDesc =>
+      'Сделай несколько медленных глубоких вдохов.';
+
+  @override
+  String get missionWaterDesc => 'Выпей стакан воды.';
+
+  @override
+  String get missionWalkDesc => 'Прогуляйся 10 минут.';
+
+  @override
+  String get missionJournalDesc => 'Запиши одну мысль о своём дне.';
+
+  @override
+  String get missionMeditationDesc => 'Удели 5 минут медитации.';
+
+  @override
+  String get missionFocusDesc => 'Проведи время в фокусе без телефона.';
+
+  @override
+  String get missionReflectDesc => 'Подумай, как прошёл твой день.';
+
+  @override
+  String get missionHelpDesc =>
+      'Сделай что-то доброе, чтобы поддержать кого-то.';
+
+  @override
+  String get sosTitle => 'SOS Поддержка';
+
+  @override
+  String get sosTimer => 'Таймер тяги';
+
+  @override
+  String get sosBreathe => 'Дыхание';
+
+  @override
+  String get sosChat => 'Разговор';
+
+  @override
+  String get sosStart => 'Начать';
+
+  @override
+  String get sosDone => 'Готово';
+
+  @override
+  String get sosManaged => 'Ты справился с тягой!';
+
+  @override
+  String get sosWon => 'Ты победил!';
+
+  @override
+  String get sosLeft => 'осталось';
+
+  @override
+  String get sosTip1 => 'Сделай несколько медленных глубоких вдохов.';
+
+  @override
+  String get sosTip2 => 'Выпей стакан воды.';
+
+  @override
+  String get sosTip3 => 'Перейди в другое место.';
+
+  @override
+  String get sosTip4 => 'Займи руки чем-нибудь.';
+
+  @override
+  String get sosTip5 => 'Вспомни, зачем ты начал.';
+
+  @override
+  String get sosTip6 => 'Дай тяге несколько минут, чтобы пройти.';
+
+  @override
+  String get breatheIn => 'Вдох';
+
+  @override
+  String get breatheHold => 'Задержка';
+
+  @override
+  String get breatheOut => 'Выдох';
+
+  @override
+  String get breatheHint => 'Следуй за кругом и дыши медленно.';
+
+  @override
+  String get breatheStart => 'Начать дыхание';
+
+  @override
+  String get chatPick => 'Что ты чувствуешь сейчас?';
+
+  @override
+  String get chatCraving => 'У меня тяга';
+
+  @override
+  String get chatStress => 'Я в стрессе';
+
+  @override
+  String get chatBoredom => 'Мне скучно';
+
+  @override
+  String get chatNeedWalk => 'Мне нужна прогулка';
+
+  @override
+  String get chatNeedWater => 'Мне нужна вода';
+
+  @override
+  String get chatNeedBreathe => 'Мне нужно подышать';
+
+  @override
+  String get chatIntroStress =>
+      'Похоже, ты чувствуешь стресс. Давай пройдём этот момент вместе.';
+
+  @override
+  String get chatIntroBoredom =>
+      'Скука может усиливать тягу. Давай найдём, на чём ещё сфокусироваться.';
+
+  @override
+  String get chatIntroCraving =>
+      'Тяга может быть сильной, но она пройдёт. Давай по одному моменту.';
+
+  @override
+  String get chatReplyStress =>
+      'Попробуй сделать несколько медленных вдохов и дай себе короткую паузу. Тебе не обязательно поддаваться тяге.';
+
+  @override
+  String get chatReplyBoredom =>
+      'Давай сменим обстановку. Прогуляйся, выпей воды или займи руки чем-нибудь.';
+
+  @override
+  String get chatReplyCraving =>
+      'Подожди несколько минут, прежде чем принимать решение. Выпей воды, подыши медленно и вспомни, зачем ты начал.';
 
   @override
   String get onboardingTitle1 => 'Дыши свободно';
@@ -170,200 +370,199 @@ class AppLocalizationsRu extends AppLocalizations {
   String get skip => 'Пропустить';
 
   @override
-  String get home => 'Главная';
+  String get youGotThis => 'Ты справишься. Один момент за раз.';
 
   @override
-  String get tasks => 'Задания';
+  String get waitTheWave => 'Пережди волну тяги';
 
   @override
-  String get missionBreathe => 'Глубокое дыхание';
+  String get youPassedThis => 'Ты прошёл этот момент';
 
   @override
-  String get missionWater => 'Выпей воду';
+  String get greatJob => 'Отличная работа. Ты контролируешь ситуацию.';
 
   @override
-  String get missionWalk => 'Прогулка 10 минут';
+  String get giveYourselfMinutes =>
+      'Дай себе несколько минут и сосредоточься на настоящем моменте.';
 
   @override
-  String get missionJournal => 'Запиши мысль';
+  String get keepGoing => 'ПРОДОЛЖАЙ';
 
   @override
-  String get missionMeditation => 'Медитация 5 мин';
+  String get done => 'ГОТОВО';
 
   @override
-  String get missionFocus => 'Фокус без телефона';
+  String get breatheSlowly => 'Дыши медленно';
 
   @override
-  String get missionReflect => 'Рефлексия дня';
+  String get followTheCircle => 'Следуй ритму круга';
 
   @override
-  String get missionHelp => 'Поддержи кого-то';
+  String get chooseWhatFits =>
+      'Выбери то, что ближе к твоему состоянию сейчас.';
 
   @override
-  String get chatIntroStress =>
-      'It sounds like you\'re feeling stressed. Let\'s get through this moment together.';
+  String get yourResults => 'Твои результаты';
 
   @override
-  String get chatIntroBoredom =>
-      'Boredom can make cravings feel stronger. Let\'s find something else to focus on.';
+  String get whatChanged => 'То, что уже изменилось благодаря тебе';
 
   @override
-  String get chatIntroCraving =>
-      'A craving can feel intense, but it will pass. Let\'s take it one moment at a time.';
+  String get recoveryPath => 'Путь восстановления';
 
   @override
-  String get chatReplyStress =>
-      'Try taking a few slow breaths and give yourself a short break. You don\'t have to act on the craving.';
+  String get everyMilestone => 'Каждая веха — ещё один шаг вперёд';
 
   @override
-  String get chatReplyBoredom =>
-      'Let\'s change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.';
+  String get levelProgress => 'Прогресс до следующего уровня';
 
   @override
-  String get chatReplyCraving =>
-      'Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.';
+  String get yourPathContinues => 'Твой путь продолжается';
 
   @override
-  String get sosTip1 => 'Take a few slow, deep breaths.';
+  String get daysWordOne => 'день';
 
   @override
-  String get sosTip2 => 'Drink a glass of water.';
+  String get daysWordFew => 'дня';
 
   @override
-  String get sosTip3 => 'Move to a different place.';
+  String get daysWordMany => 'дней';
 
   @override
-  String get sosTip4 => 'Keep your hands busy.';
+  String get momentum => 'ИМПУЛЬС';
 
   @override
-  String get sosTip5 => 'Think about why you started.';
-
-  @override
-  String get sosTip6 => 'Give the craving a few minutes to pass.';
-
-  @override
-  String get sosTitle => 'SOS Support';
-
-  @override
-  String get sosTimer => 'Craving timer';
-
-  @override
-  String get sosBreathe => 'Breathe';
-
-  @override
-  String get sosChat => 'Talk';
-
-  @override
-  String get sosWon => 'You won!';
-
-  @override
-  String get sosLeft => 'left';
-
-  @override
-  String get sosDone => 'Done';
-
-  @override
-  String get sosStart => 'Start';
-
-  @override
-  String get sosManaged => 'You managed the craving!';
-
-  @override
-  String get breatheIn => 'Breathe in';
-
-  @override
-  String get breatheHold => 'Hold';
-
-  @override
-  String get breatheOut => 'Breathe out';
-
-  @override
-  String get breatheHint => 'Follow the circle and breathe slowly.';
-
-  @override
-  String get breatheStart => 'Start breathing';
-
-  @override
-  String get chatPick => 'What are you feeling right now?';
-
-  @override
-  String get chatCraving => 'I\'m having a craving';
-
-  @override
-  String get chatStress => 'I\'m stressed';
-
-  @override
-  String get chatBoredom => 'I\'m bored';
-
-  @override
-  String get chatNeedWalk => 'I need a walk';
-
-  @override
-  String get chatNeedWater => 'I need some water';
-
-  @override
-  String get chatNeedBreathe => 'I need to breathe';
-
-  @override
-  String get moodCheck => 'How are you feeling?';
-
-  @override
-  String get moodCheckHint => 'Take a moment to check in with yourself.';
-
-  @override
-  String get missionBreatheDesc => 'Take a few slow, deep breaths.';
-
-  @override
-  String get missionWaterDesc => 'Drink a glass of water.';
-
-  @override
-  String get missionWalkDesc => 'Take a 10-minute walk.';
-
-  @override
-  String get missionJournalDesc => 'Write down one thought about your day.';
-
-  @override
-  String get missionMeditationDesc => 'Take 5 minutes to meditate.';
-
-  @override
-  String get missionFocusDesc => 'Spend some time focusing without your phone.';
-
-  @override
-  String get missionReflectDesc => 'Think about how your day went.';
-
-  @override
-  String get missionHelpDesc => 'Do something kind to support someone.';
-
-  @override
-  String get friend => 'Friend';
-
-  @override
-  String helloName(String name) {
-    return 'Hello, $name!';
+  String missionsLeft(int count) {
+    return 'Осталось $count миссий';
   }
 
   @override
-  String get pathToFreedom => 'Your path to freedom';
+  String get allMissionsDone => 'Все миссии завершены';
 
   @override
-  String get withoutCigs => 'without cigarettes';
+  String get dayComplete => 'День завершён';
 
   @override
-  String get premiumHint => 'Unlock all features with Premium';
+  String get keepGoingShort => 'Продолжай';
 
   @override
-  String get checkedInToday => 'Checked in today';
+  String get inProgress => 'В ПРОЦЕССЕ';
 
   @override
-  String get iSmoked => 'I smoked';
+  String get complete => 'ЗАВЕРШЕНО';
 
   @override
-  String get relapseTitle => 'It\'s okay';
+  String get yourPlanToday => 'Твой план на сегодня';
 
   @override
-  String get relapseBody =>
-      'One cigarette does not erase your progress. Learn from this moment and keep moving forward.';
+  String get everythingDone => 'Всё выполнено';
 
   @override
-  String get relapseDone => 'Continue';
+  String get theme => 'Тема';
+
+  @override
+  String get language => 'Язык';
+
+  @override
+  String get notifications => 'Уведомления';
+
+  @override
+  String get notificationsHint => 'Напоминания и мотивация';
+
+  @override
+  String get data => 'Данные';
+
+  @override
+  String get aboutApp => 'О приложении';
+
+  @override
+  String get appTheme => 'Тема приложения';
+
+  @override
+  String get chooseTheme => 'Выбери, как Puffree должен выглядеть.';
+
+  @override
+  String get systemTheme => 'Системная';
+
+  @override
+  String get systemThemeDesc => 'Следовать настройкам телефона';
+
+  @override
+  String get lightTheme => 'Светлая';
+
+  @override
+  String get lightThemeDesc => 'Всегда использовать светлую тему';
+
+  @override
+  String get darkTheme => 'Тёмная';
+
+  @override
+  String get darkThemeDesc => 'Всегда использовать тёмную тему';
+
+  @override
+  String get premiumActive => 'Premium активен';
+
+  @override
+  String get trialActive => 'Пробный период активен';
+
+  @override
+  String get fullAccess => 'Полный доступ ко всем функциям';
+
+  @override
+  String get openPremium => 'Открыть Premium и варианты подписки';
+
+  @override
+  String get resetProgressTitle => 'Сбросить прогресс?';
+
+  @override
+  String get resetProgressBody =>
+      'Все данные о днях, стрике и статистике будут удалены. Это действие нельзя отменить.';
+
+  @override
+  String get excellent => 'Отлично!';
+
+  @override
+  String get anotherDayFree => 'Ещё один день без сигарет';
+
+  @override
+  String get continueBtn => 'Продолжить';
+
+  @override
+  String get newAchievement => 'НОВОЕ ДОСТИЖЕНИЕ';
+
+  @override
+  String get newLevel => 'Новый уровень!';
+
+  @override
+  String get levelUpMessage => 'Продолжай — у тебя отлично получается!';
+
+  @override
+  String get freeFor => 'СВОБОДЕН УЖЕ';
+
+  @override
+  String get toNextLevel => 'До следующего уровня';
+
+  @override
+  String get keyResults => 'КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ';
+
+  @override
+  String get progressSystem => 'СИСТЕМА ПРОГРЕССА';
+
+  @override
+  String get everyDayCloser => 'Каждый день приближает к следующему уровню';
+
+  @override
+  String get current => 'Сейчас';
+
+  @override
+  String get nextLevel => 'Следующий';
+
+  @override
+  String get smallSteps => 'Маленькие шаги. Большие изменения.';
+
+  @override
+  String get youAreFurther => 'Ты уже дальше, чем вчера';
+
+  @override
+  String get madeForFuture => 'Создано для будущего без сигарет';
 }

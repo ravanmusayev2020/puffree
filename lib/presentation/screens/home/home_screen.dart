@@ -1,6 +1,5 @@
-
 import 'dart:async';
-import 'dart:ui';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,1350 +15,1895 @@ import '../../../data/bloc/progress/progress_state.dart';
 import '../../../data/models/currency_option.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../widgets/check_in_success.dart';
-import '../../widgets/puff_ui.dart';
 import '../premium/premium_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-const HomeScreen({super.key});
+  const HomeScreen({super.key});
 
-@override
-State<HomeScreen> createState() => _HomeScreenState();
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-Timer? _clock;
+  @override
+  Widget build(BuildContext context) {
+    final isDark =
+        Theme.of(context).brightness == Brightness.dark;
 
-@override
-void initState() {
-super.initState();
+    return Scaffold(
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
+      body: BlocBuilder<ProgressBloc, ProgressState>(
+        builder: (context, state) {
+          if (state is ProgressLoading ||
+              state is ProgressInitial) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: AppColors.primary,
+              ),
+            );
+          }
 
-_clock = Timer.periodic(const Duration(seconds: 1), (_) {
-if (mounted) {
-setState(() {});
-}
-});
-}
+          if (state is ProgressError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Text(
+                  state.message,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: isDark
+                        ? AppColors.textPrimaryDark
+                        : AppColors.textPrimaryLight,
+                  ),
+                ),
+              ),
+            );
+          }
 
-@override
-void dispose() {
-_clock?.cancel();
-super.dispose();
-}
+          if (state is ProgressLoaded) {
+            return _HomeBody(state: state);
+          }
 
-@override
-Widget build(BuildContext context) {
-final isDark = Theme.of(context).brightness == Brightness.dark;
-
-return Scaffold(
-backgroundColor: isDark
-? const Color(0xFF071412)
-    : const Color(0xFFF5F8F7),
-body: BlocBuilder<ProgressBloc, ProgressState>(
-builder: (context, state) {
-if (state is ProgressLoading || state is ProgressInitial) {
-return const Center(
-child: CircularProgressIndicator(
-color: AppColors.primary,
-),
-);
-}
-
-if (state is ProgressError) {
-return Center(
-child: Text(
-state.message,
-textAlign: TextAlign.center,
-),
-);
-}
-
-if (state is ProgressLoaded) {
-return _HomeBody(state: state);
-}
-
-return const SizedBox.shrink();
-},
-),
-);
-}
+          return const SizedBox.shrink();
+        },
+      ),
+    );
+  }
 }
 
 class _HomeBody extends StatelessWidget {
-const _HomeBody({
-required this.state,
-});
+  const _HomeBody({
+    required this.state,
+  });
 
-final ProgressLoaded state;
+  final ProgressLoaded state;
 
-@override
-Widget build(BuildContext context) {
-final l10n = AppLocalizations.of(context);
-final isDark = Theme.of(context).brightness == Brightness.dark;
-final ru = Localizations.localeOf(context).languageCode == 'ru';
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final isDark =
+        Theme.of(context).brightness == Brightness.dark;
 
-final progress = state.progress;
-final level = state.currentLevel;
+    final ru =
+        Localizations.localeOf(context).languageCode
+            .toLowerCase() ==
+            'ru';
 
-final name = progress.displayName.isEmpty
-? l10n.friend
-    : progress.displayName;
+    final progress = state.progress;
+    final level = state.currentLevel;
 
-final duration = progress.smokeFreeDuration;
+    final name = progress.displayName.isEmpty
+        ? l10n.friend
+        : progress.displayName;
 
-final money = CurrencyOption.formatPrice(
-progress.moneySaved,
-code: progress.currencyCode,
-locale: ru ? 'ru' : 'en',
-);
+    final money = CurrencyOption.formatPrice(
+      progress.moneySaved,
+      code: progress.currencyCode,
+      locale: ru ? 'ru' : 'en',
+    );
 
-return Stack(
-children: [
-_BackgroundGlow(isDark: isDark),
+    return SafeArea(
+      child: ListView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.fromLTRB(
+          18,
+          12,
+          18,
+          128,
+        ),
+        children: [
+          _buildTopBar(
+            name,
+            l10n,
+            progress.avatarEmoji,
+            isDark,
+          ),
+          const SizedBox(height: 20),
+          _buildHeroDashboard(
+            state,
+            l10n,
+            isDark,
+            ru,
+            level,
+          ),
+          const SizedBox(height: 16),
+          _buildQuickStats(
+            progress,
+            money,
+            l10n,
+            isDark,
+            ru,
+          ),
+          const SizedBox(height: 18),
+          _buildProgressOverview(
+            state,
+            isDark,
+            ru,
+          ),
+          const SizedBox(height: 18),
+          _buildMotivation(
+            state,
+            l10n,
+            isDark,
+          ),
+          const SizedBox(height: 18),
+          _buildPremium(
+            context,
+            l10n,
+            isDark,
+          ),
+          if (progress.quitDate != null) ...[
+            const SizedBox(height: 18),
+            _buildDailyCheckIn(
+              context,
+              progress,
+              l10n,
+              isDark,
+            ),
+            const SizedBox(height: 12),
+            _buildRelapseButton(
+              context,
+              l10n,
+              isDark,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
 
-SafeArea(
-child: ListView(
-physics: const BouncingScrollPhysics(),
-padding: const EdgeInsets.fromLTRB(
-18,
-12,
-18,
-120,
-),
-children: [
-_buildHeader(
-context,
-name,
-l10n,
-progress.avatarEmoji,
-isDark,
-),
+  Widget _buildTopBar(
+      String name,
+      AppLocalizations l10n,
+      String avatar,
+      bool isDark,
+      ) {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment:
+            CrossAxisAlignment.start,
+            children: [
+              Text(
+                l10n.helloName(name),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.inter(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: isDark
+                      ? AppColors.textSecondaryDark
+                      : AppColors.textSecondaryLight,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                l10n.pathToFreedom,
+                style: GoogleFonts.outfit(
+                  fontSize: 29,
+                  height: 1,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -1.2,
+                  color: isDark
+                      ? AppColors.textPrimaryDark
+                      : AppColors.textPrimaryLight,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 14),
+        _LuxuryAvatar(
+          emoji: avatar,
+          isDark: isDark,
+        ),
+      ],
+    ).animate().fadeIn(
+      duration: 400.ms,
+    ).slideY(
+      begin: -0.05,
+      curve: Curves.easeOutCubic,
+    );
+  }
 
-const SizedBox(height: 22),
+  Widget _buildHeroDashboard(
+      ProgressLoaded state,
+      AppLocalizations l10n,
+      bool isDark,
+      bool ru,
+      dynamic level,
+      ) {
+    final progress = state.progress;
 
-_buildHeroCard(
-context,
-state,
-duration,
-l10n,
-isDark,
-ru,
-level,
-),
+    return Container(
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: isDark
+              ? [
+            AppColors.surfaceDark,
+            AppColors.cardDark,
+          ]
+              : [
+            AppColors.cardLight,
+            const Color(0xFFF0F7F4),
+          ],
+        ),
+        border: Border.all(
+          color: isDark
+              ? Colors.white.withValues(alpha: 0.055)
+              : AppColors.primary.withValues(
+            alpha: 0.08,
+          ),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(
+              alpha: isDark ? 0.08 : 0.06,
+            ),
+            blurRadius: 28,
+            offset: const Offset(0, 14),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(
+          20,
+          18,
+          20,
+          20,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                _LevelChip(
+                  level: level.level,
+                  l10n: l10n,
+                  isDark: isDark,
+                ),
+                const Spacer(),
+                Text(
+                  LevelCopy.title(
+                    level.level,
+                    ru: ru,
+                  ),
+                  style: GoogleFonts.inter(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w700,
+                    color: isDark
+                        ? AppColors.textSecondaryDark
+                        : AppColors.textSecondaryLight,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+            Row(
+              crossAxisAlignment:
+              CrossAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        ru
+                            ? 'ТВОЙ ПРОГРЕСС'
+                            : 'YOUR PROGRESS',
+                        style: GoogleFonts.inter(
+                          fontSize: 9,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.5,
+                          color: isDark
+                              ? AppColors.textSecondaryDark
+                              : AppColors.textSecondaryLight,
+                        ),
+                      ),
+                      const SizedBox(height: 9),
+                      Text(
+                        '${progress.daysSinceQuit}',
+                        style: GoogleFonts.outfit(
+                          fontSize: 68,
+                          height: 0.84,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: -3.8,
+                          color: isDark
+                              ? AppColors.textPrimaryDark
+                              : AppColors.textPrimaryLight,
+                        ),
+                      ),
+                      const SizedBox(height: 7),
+                      Text(
+                        '${LevelCopy.daysWord(progress.daysSinceQuit, ru: ru)} ${l10n.withoutCigs}',
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: isDark
+                              ? AppColors.textSecondaryDark
+                              : AppColors.textSecondaryLight,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 14),
+                _ProgressOrb(
+                  progress: state.levelProgress,
+                  isDark: isDark,
+                  percentage:
+                  (state.levelProgress * 100)
+                      .clamp(0, 100)
+                      .toInt(),
+                ),
+              ],
+            ),
+            const SizedBox(height: 18),
+            _LiveFreedomClock(
+              duration: progress.smokeFreeDuration,
+              isDark: isDark,
+              ru: ru,
+            ),
+            const SizedBox(height: 18),
+            _LevelProgressBar(
+              progress: state.levelProgress,
+              isDark: isDark,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                Text(
+                  ru
+                      ? 'До следующего уровня'
+                      : 'To next level',
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                    color: isDark
+                        ? AppColors.textSecondaryDark
+                        : AppColors.textSecondaryLight,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  '${(state.levelProgress * 100).toInt()}%',
+                  style: GoogleFonts.inter(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ).animate().fadeIn(
+      duration: 500.ms,
+    ).slideY(
+      begin: 0.05,
+      curve: Curves.easeOutCubic,
+    );
+  }
 
-const SizedBox(height: 16),
+  Widget _buildQuickStats(
+      dynamic progress,
+      String money,
+      AppLocalizations l10n,
+      bool isDark,
+      bool ru,
+      ) {
+    return Column(
+      crossAxisAlignment:
+      CrossAxisAlignment.start,
+      children: [
+        _SectionHeader(
+          title: ru
+              ? 'КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ'
+              : 'KEY RESULTS',
+          isDark: isDark,
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            Expanded(
+              child: _ResultCard(
+                value: '${progress.currentStreak}',
+                label: l10n.streak,
+                caption: ru
+                    ? 'дней подряд'
+                    : 'day streak',
+                color: AppColors.amber,
+                isDark: isDark,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: _ResultCard(
+                value: money,
+                label: l10n.saved,
+                caption: ru
+                    ? 'сэкономлено'
+                    : 'saved',
+                color: AppColors.success,
+                isDark: isDark,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            Expanded(
+              child: _ResultCard(
+                value:
+                '${progress.cigarettesAvoided}',
+                label: l10n.avoided,
+                caption: ru
+                    ? 'не выкурено'
+                    : 'avoided',
+                color: AppColors.primary,
+                isDark: isDark,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: _ResultCard(
+                value:
+                '${progress.totalSmokeFreeDays}',
+                label: l10n.totalDays,
+                caption: ru
+                    ? 'дней свободы'
+                    : 'free days',
+                color: AppColors.accent,
+                isDark: isDark,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ).animate().fadeIn(
+      delay: 100.ms,
+    );
+  }
 
-_buildStatsGrid(
-context,
-state,
-money,
-l10n,
-ru,
-isDark,
-),
+  Widget _buildProgressOverview(
+      ProgressLoaded state,
+      bool isDark,
+      bool ru,
+      ) {
+    final progress = state.progress;
 
-const SizedBox(height: 18),
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: isDark
+            ? AppColors.cardDark
+            : AppColors.cardLight,
+        borderRadius: BorderRadius.circular(26),
+        border: Border.all(
+          color: isDark
+              ? Colors.white.withValues(alpha: 0.05)
+              : Colors.black.withValues(alpha: 0.035),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(
+              alpha: isDark ? 0.10 : 0.025,
+            ),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment:
+        CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment:
+                  CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      ru
+                          ? 'СИСТЕМА ПРОГРЕССА'
+                          : 'PROGRESS SYSTEM',
+                      style: GoogleFonts.inter(
+                        fontSize: 9,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.4,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      ru
+                          ? 'Каждый день приближает к следующему уровню'
+                          : 'Every day moves you closer to the next level',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.inter(
+                        fontSize: 12,
+                        height: 1.35,
+                        fontWeight: FontWeight.w600,
+                        color: isDark
+                            ? AppColors.textPrimaryDark
+                            : AppColors.textPrimaryLight,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              _MiniLineChart(
+                color: AppColors.primary,
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Text(
+                ru ? 'Уровень' : 'Level',
+                style: GoogleFonts.inter(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                  color: isDark
+                      ? AppColors.textSecondaryDark
+                      : AppColors.textSecondaryLight,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '${state.levelProgress * 100 ~/ 1}%',
+                style: GoogleFonts.inter(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w800,
+                  color: AppColors.primary,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          _LevelProgressBar(
+            progress: state.levelProgress,
+            isDark: isDark,
+          ),
+          const SizedBox(height: 13),
+          Row(
+            children: [
+              _Milestone(
+                title: ru ? 'Сейчас' : 'Current',
+                value: '${progress.daysSinceQuit}d',
+                isActive: true,
+                isDark: isDark,
+              ),
+              const Spacer(),
+              _MilestoneConnector(
+                progress: state.levelProgress,
+                isDark: isDark,
+              ),
+              const Spacer(),
+              _Milestone(
+                title: ru ? 'Следующий' : 'Next',
+                value: '${progress.daysSinceQuit + 7}d',
+                isActive: false,
+                isDark: isDark,
+              ),
+            ],
+          ),
+        ],
+      ),
+    ).animate().fadeIn(
+      delay: 150.ms,
+    );
+  }
 
-_buildMotivationCard(
-context,
-state,
-l10n,
-isDark,
-),
+  Widget _buildMotivation(
+      ProgressLoaded state,
+      AppLocalizations l10n,
+      bool isDark,
+      ) {
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: AppColors.journalGradient,
+        ),
+        borderRadius: BorderRadius.circular(27),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.accent.withValues(
+              alpha: 0.18,
+            ),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ],
+      ),
+      child: Row(
+        crossAxisAlignment:
+        CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(
+                alpha: 0.14,
+              ),
+              borderRadius:
+              BorderRadius.circular(14),
+            ),
+            child: const Icon(
+              Iconsax.quote_down,
+              color: Colors.white,
+              size: 20,
+            ),
+          ),
+          const SizedBox(width: 13),
+          Expanded(
+            child: Column(
+              crossAxisAlignment:
+              CrossAxisAlignment.start,
+              children: [
+                Text(
+                  l10n.dailyMotivation,
+                  style: GoogleFonts.inter(
+                    fontSize: 9,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.2,
+                    color: Colors.white.withValues(
+                      alpha: 0.78,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  state.dailyMotivation,
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    height: 1.45,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ).animate().fadeIn(
+      delay: 200.ms,
+    );
+  }
 
-const SizedBox(height: 18),
+  Widget _buildPremium(
+      BuildContext context,
+      AppLocalizations l10n,
+      bool isDark,
+      ) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => const PremiumScreen(),
+          ),
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: isDark
+              ? const Color(0xFF211C12)
+              : const Color(0xFFFFF8E8),
+          borderRadius: BorderRadius.circular(27),
+          border: Border.all(
+            color: AppColors.amber.withValues(
+              alpha: 0.18,
+            ),
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColors.amber,
+                    Color(0xFFF2C263),
+                  ],
+                ),
+                borderRadius:
+                BorderRadius.circular(16),
+              ),
+              child: const Icon(
+                Iconsax.crown_1,
+                color: Colors.white,
+                size: 21,
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment:
+                CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.tryFree,
+                    style: GoogleFonts.inter(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      color: isDark
+                          ? AppColors.textPrimaryDark
+                          : AppColors.textPrimaryLight,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    l10n.premiumHint,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.inter(
+                      fontSize: 11,
+                      height: 1.35,
+                      color: isDark
+                          ? AppColors.textSecondaryDark
+                          : AppColors.textSecondaryLight,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 10),
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                color: AppColors.amber.withValues(
+                  alpha: 0.12,
+                ),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(
+                Icons.arrow_forward_rounded,
+                color: AppColors.amber,
+                size: 18,
+              ),
+            ),
+          ],
+        ),
+      ),
+    ).animate().fadeIn(
+      delay: 250.ms,
+    );
+  }
 
-_buildPremiumCard(
-context,
-l10n,
-isDark,
-),
+  Widget _buildDailyCheckIn(
+      BuildContext context,
+      dynamic progress,
+      AppLocalizations l10n,
+      bool isDark,
+      ) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: AppColors.levelGradient,
+        ),
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(
+              alpha: 0.20,
+            ),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(25),
+          onTap: progress.hasCheckedInToday
+              ? null
+              : () {
+            context
+                .read<ProgressBloc>()
+                .add(
+              const CheckInToday(
+                stayedSmokeFree: true,
+              ),
+            );
 
-if (progress.quitDate != null) ...[
-const SizedBox(height: 18),
+            Future.delayed(
+              const Duration(
+                milliseconds: 250,
+              ),
+                  () {
+                if (!context.mounted) {
+                  return;
+                }
 
-_buildDailyCheckIn(
-context,
-progress,
-l10n,
-isDark,
-),
+                final current = context
+                    .read<ProgressBloc>()
+                    .state;
 
-const SizedBox(height: 10),
+                if (current
+                is ProgressLoaded) {
+                  CheckInSuccessDialog.show(
+                    context,
+                    streak: current
+                        .progress
+                        .currentStreak,
+                    days: current
+                        .progress
+                        .totalSmokeFreeDays,
+                  );
+                }
+              },
+            );
+          },
+          child: Padding(
+            padding:
+            const EdgeInsets.symmetric(
+              horizontal: 18,
+              vertical: 16,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    color: Colors.white
+                        .withValues(alpha: 0.12),
+                    borderRadius:
+                    BorderRadius.circular(
+                      14,
+                    ),
+                  ),
+                  child: Icon(
+                    progress.hasCheckedInToday
+                        ? Iconsax.tick_circle
+                        : Iconsax.tick_square,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        progress
+                            .hasCheckedInToday
+                            ? l10n.checkedInToday
+                            : l10n.checkIn,
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight:
+                          FontWeight.w800,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        progress
+                            .hasCheckedInToday
+                            ? '✓'
+                            : 'Keep your streak alive',
+                        style: GoogleFonts.inter(
+                          fontSize: 10,
+                          fontWeight:
+                          FontWeight.w600,
+                          color: Colors.white
+                              .withValues(
+                            alpha: 0.65,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                if (!progress.hasCheckedInToday)
+                  Container(
+                    width: 34,
+                    height: 34,
+                    decoration: BoxDecoration(
+                      color: Colors.white
+                          .withValues(
+                        alpha: 0.10,
+                      ),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward_rounded,
+                      color: Colors.white,
+                      size: 17,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ).animate().fadeIn(
+      delay: 300.ms,
+    );
+  }
 
-_buildRelapseButton(
-context,
-l10n,
-isDark,
-),
-],
-],
-),
-),
-],
-);
+  Widget _buildRelapseButton(
+      BuildContext context,
+      AppLocalizations l10n,
+      bool isDark,
+      ) {
+    return SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: OutlinedButton.icon(
+        onPressed: () => _confirmRelapse(
+          context,
+          l10n,
+        ),
+        icon: const Icon(
+          Iconsax.close_circle,
+          size: 17,
+        ),
+        label: Text(
+          l10n.iSmoked,
+          style: GoogleFonts.inter(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppColors.coral,
+          side: BorderSide(
+            color: AppColors.coral.withValues(
+              alpha: 0.32,
+            ),
+          ),
+          backgroundColor:
+          AppColors.coral.withValues(
+            alpha: isDark ? 0.025 : 0.018,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.circular(18),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _confirmRelapse(
+      BuildContext context,
+      AppLocalizations l10n,
+      ) {
+    final isDark =
+        Theme.of(context).brightness ==
+            Brightness.dark;
+
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: isDark
+              ? AppColors.surfaceDark
+              : AppColors.surfaceLight,
+          shape: RoundedRectangleBorder(
+            borderRadius:
+            BorderRadius.circular(26),
+          ),
+          title: Text(
+            l10n.relapseTitle,
+            style: GoogleFonts.inter(
+              fontWeight: FontWeight.w800,
+              color: isDark
+                  ? AppColors.textPrimaryDark
+                  : AppColors.textPrimaryLight,
+            ),
+          ),
+          content: Text(
+            l10n.relapseBody,
+            style: GoogleFonts.inter(
+              height: 1.5,
+              color: isDark
+                  ? AppColors.textSecondaryDark
+                  : AppColors.textSecondaryLight,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () =>
+                  Navigator.pop(ctx),
+              child: Text(
+                l10n.cancel,
+                style: const TextStyle(
+                  color: AppColors.primary,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                context
+                    .read<ProgressBloc>()
+                    .add(
+                  const CheckInToday(
+                    stayedSmokeFree: false,
+                  ),
+                );
+
+                Navigator.pop(ctx);
+
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(
+                  SnackBar(
+                    behavior:
+                    SnackBarBehavior.floating,
+                    backgroundColor:
+                    isDark
+                        ? AppColors.surfaceDark
+                        : AppColors.surfaceLight,
+                    shape:
+                    RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(
+                        16,
+                      ),
+                    ),
+                    content: Text(
+                      l10n.relapseDone,
+                      style: TextStyle(
+                        color: isDark
+                            ? AppColors.textPrimaryDark
+                            : AppColors.textPrimaryLight,
+                      ),
+                    ),
+                  ),
+                );
+              },
+              child: const Text(
+                'Continue',
+                style: TextStyle(
+                  color: AppColors.coral,
+                  fontWeight:
+                  FontWeight.w700,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
 
-Widget _buildHeader(
-BuildContext context,
-String name,
-AppLocalizations l10n,
-String avatar,
-bool isDark,
-) {
-return Row(
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-Expanded(
-child: Column(
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Text(
-l10n.helloName(name),
-maxLines: 1,
-overflow: TextOverflow.ellipsis,
-style: GoogleFonts.inter(
-fontSize: 14,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(alpha: 0.56)
-    : const Color(0xFF64748B),
-),
-),
-const SizedBox(height: 4),
-Text(
-l10n.pathToFreedom,
-style: GoogleFonts.inter(
-fontSize: 28,
-height: 1.05,
-fontWeight: FontWeight.w800,
-letterSpacing: -1.1,
-color: isDark
-? Colors.white
-    : const Color(0xFF10201D),
-),
-),
-],
-),
-),
+// ═══════════════════════════════════════════════════════════════════════════
+// RESULT CARD
+// ═══════════════════════════════════════════════════════════════════════════
 
-const SizedBox(width: 14),
+class _ResultCard extends StatelessWidget {
+  const _ResultCard({
+    required this.value,
+    required this.label,
+    required this.caption,
+    required this.color,
+    required this.isDark,
+  });
 
-_GlassAvatar(
-emoji: avatar,
-isDark: isDark,
-),
-],
-).animate().fadeIn(duration: 450.ms).slideY(
-begin: -0.08,
-curve: Curves.easeOutCubic,
-);
+  final String value;
+  final String label;
+  final String caption;
+  final Color color;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(
+        15,
+        15,
+        14,
+        14,
+      ),
+      decoration: BoxDecoration(
+        color: isDark
+            ? AppColors.cardDark
+            : AppColors.cardLight,
+        borderRadius: BorderRadius.circular(23),
+        border: Border.all(
+          color: isDark
+              ? Colors.white.withValues(
+            alpha: 0.045,
+          )
+              : Colors.black.withValues(
+            alpha: 0.035,
+          ),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(
+              alpha: isDark ? 0.08 : 0.02,
+            ),
+            blurRadius: 16,
+            offset: const Offset(0, 7),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 7,
+            height: 36,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius:
+              BorderRadius.circular(99),
+            ),
+          ),
+          const SizedBox(width: 11),
+          Expanded(
+            child: Column(
+              crossAxisAlignment:
+              CrossAxisAlignment.start,
+              children: [
+                Text(
+                  value,
+                  maxLines: 1,
+                  overflow:
+                  TextOverflow.ellipsis,
+                  style: GoogleFonts.outfit(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -0.8,
+                    color: isDark
+                        ? AppColors.textPrimaryDark
+                        : AppColors.textPrimaryLight,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  label,
+                  maxLines: 1,
+                  overflow:
+                  TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontSize: 10.5,
+                    fontWeight: FontWeight.w700,
+                    color: isDark
+                        ? AppColors.textPrimaryDark
+                        : AppColors.textPrimaryLight,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  caption,
+                  maxLines: 1,
+                  overflow:
+                  TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontSize: 9,
+                    fontWeight: FontWeight.w500,
+                    color: isDark
+                        ? AppColors.textSecondaryDark
+                        : AppColors.textSecondaryLight,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-Widget _buildHeroCard(
-BuildContext context,
-ProgressLoaded state,
-Duration duration,
-AppLocalizations l10n,
-bool isDark,
-bool ru,
-dynamic level,
-) {
-final progress = state.progress;
+// ═══════════════════════════════════════════════════════════════════════════
+// LEVEL CHIP
+// ═══════════════════════════════════════════════════════════════════════════
 
-return Container(
-clipBehavior: Clip.antiAlias,
-decoration: BoxDecoration(
-borderRadius: BorderRadius.circular(32),
-gradient: LinearGradient(
-begin: Alignment.topLeft,
-end: Alignment.bottomRight,
-colors: isDark
-? const [
-Color(0xFF123F36),
-Color(0xFF0C2925),
-Color(0xFF0A1D1B),
-]
-    : const [
-Color(0xFFE0F7F0),
-Color(0xFFD8F1EA),
-Color(0xFFF1F7F4),
-],
-),
-border: Border.all(
-color: isDark
-? Colors.white.withValues(alpha: 0.08)
-    : Colors.white.withValues(alpha: 0.9),
-),
-boxShadow: [
-BoxShadow(
-color: AppColors.primary.withValues(
-alpha: isDark ? 0.16 : 0.10,
-),
-blurRadius: 35,
-offset: const Offset(0, 18),
-),
-],
-),
-child: Stack(
-children: [
-Positioned(
-top: -90,
-right: -70,
-child: _GlowCircle(
-size: 230,
-color: AppColors.primary.withValues(
-alpha: isDark ? 0.14 : 0.16,
-),
-),
-),
-Positioned(
-bottom: -100,
-left: -90,
-child: _GlowCircle(
-size: 220,
-color: const Color(0xFF7DD3FC).withValues(
-alpha: isDark ? 0.07 : 0.10,
-),
-),
-),
+class _LevelChip extends StatelessWidget {
+  const _LevelChip({
+    required this.level,
+    required this.l10n,
+    required this.isDark,
+  });
 
-Padding(
-padding: const EdgeInsets.fromLTRB(
-22,
-20,
-22,
-22,
-),
-child: Column(
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Row(
-children: [
-Container(
-padding: const EdgeInsets.symmetric(
-horizontal: 10,
-vertical: 7,
-),
-decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.08)
-    : Colors.white.withValues(alpha: 0.68),
-borderRadius: BorderRadius.circular(999),
-),
-child: Row(
-mainAxisSize: MainAxisSize.min,
-children: [
-Icon(
-Iconsax.flash_15,
-size: 14,
-color: AppColors.primary,
-),
-const SizedBox(width: 6),
-Text(
-l10n.level(level.level),
-style: GoogleFonts.inter(
-fontSize: 11,
-fontWeight: FontWeight.w800,
-color: isDark
-? Colors.white
-    : const Color(0xFF173A34),
-),
-),
-],
-),
-),
+  final int level;
+  final AppLocalizations l10n;
+  final bool isDark;
 
-const Spacer(),
-
-Text(
-LevelCopy.title(
-level.level,
-ru: ru,
-),
-style: GoogleFonts.inter(
-fontSize: 12,
-fontWeight: FontWeight.w700,
-color: isDark
-? Colors.white.withValues(alpha: 0.62)
-    : const Color(0xFF55736C),
-),
-),
-],
-),
-
-const SizedBox(height: 24),
-
-Text(
-'${progress.daysSinceQuit}',
-style: GoogleFonts.outfit(
-fontSize: 64,
-height: 0.9,
-fontWeight: FontWeight.w800,
-letterSpacing: -3,
-color: isDark
-? Colors.white
-    : const Color(0xFF102A25),
-),
-),
-
-const SizedBox(height: 6),
-
-Text(
-'${LevelCopy.daysWord(progress.daysSinceQuit, ru: ru)} ${l10n.withoutCigs}',
-style: GoogleFonts.inter(
-fontSize: 15,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(alpha: 0.62)
-    : const Color(0xFF54716A),
-),
-),
-
-const SizedBox(height: 22),
-
-Container(
-padding: const EdgeInsets.symmetric(
-horizontal: 16,
-vertical: 14,
-),
-decoration: BoxDecoration(
-color: isDark
-? Colors.black.withValues(alpha: 0.14)
-    : Colors.white.withValues(alpha: 0.56),
-borderRadius: BorderRadius.circular(20),
-border: Border.all(
-color: isDark
-? Colors.white.withValues(alpha: 0.05)
-    : Colors.white.withValues(alpha: 0.75),
-),
-),
-child: Row(
-children: [
-Container(
-width: 38,
-height: 38,
-decoration: BoxDecoration(
-color: AppColors.primary.withValues(
-alpha: isDark ? 0.18 : 0.12,
-),
-shape: BoxShape.circle,
-),
-child: const Icon(
-Iconsax.timer_1,
-size: 19,
-color: AppColors.primary,
-),
-),
-const SizedBox(width: 12),
-Expanded(
-child: Column(
-crossAxisAlignment:
-CrossAxisAlignment.start,
-children: [
-Text(
-ru
-? 'Ты свободен уже'
-    : 'You have been free for',
-style: GoogleFonts.inter(
-fontSize: 11,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(
-alpha: 0.45,
-)
-    : const Color(0xFF6B817C),
-),
-),
-const SizedBox(height: 3),
-Text(
-_liveClock(duration),
-style: GoogleFonts.outfit(
-fontSize: 22,
-fontWeight: FontWeight.w800,
-letterSpacing: -0.5,
-color: isDark
-? Colors.white
-    : const Color(0xFF173A34),
-),
-),
-],
-),
-),
-_PulseDot(isDark: isDark),
-],
-),
-),
-
-const SizedBox(height: 20),
-
-Row(
-mainAxisAlignment:
-MainAxisAlignment.spaceBetween,
-children: [
-Text(
-ru ? 'Следующий уровень' : 'Next level',
-style: GoogleFonts.inter(
-fontSize: 11,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(alpha: 0.48)
-    : const Color(0xFF6A817B),
-),
-),
-Text(
-'${(state.levelProgress * 100).toInt()}%',
-style: GoogleFonts.inter(
-fontSize: 12,
-fontWeight: FontWeight.w800,
-color: AppColors.primary,
-),
-),
-],
-),
-
-const SizedBox(height: 8),
-
-ClipRRect(
-borderRadius: BorderRadius.circular(999),
-child: SizedBox(
-height: 9,
-child: Stack(
-children: [
-Container(
-color: isDark
-? Colors.white.withValues(alpha: 0.08)
-    : Colors.black.withValues(alpha: 0.06),
-),
-FractionallySizedBox(
-widthFactor: state.levelProgress
-    .clamp(0.0, 1.0),
-child: Container(
-decoration: const BoxDecoration(
-gradient: LinearGradient(
-colors: [
-AppColors.primary,
-AppColors.primaryLight,
-],
-),
-),
-),
-),
-],
-),
-),
-),
-],
-),
-),
-],
-),
-)
-    .animate()
-    .fadeIn(duration: 550.ms)
-    .slideY(
-begin: 0.08,
-curve: Curves.easeOutCubic,
-);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10,
+        vertical: 7,
+      ),
+      decoration: BoxDecoration(
+        color: isDark
+            ? Colors.white.withValues(
+          alpha: 0.055,
+        )
+            : AppColors.primary.withValues(
+          alpha: 0.07,
+        ),
+        borderRadius:
+        BorderRadius.circular(999),
+        border: Border.all(
+          color: AppColors.primary.withValues(
+            alpha: 0.10,
+          ),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 7,
+            height: 7,
+            decoration:
+            const BoxDecoration(
+              color: AppColors.primary,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 7),
+          Text(
+            l10n.level(level),
+            style: GoogleFonts.inter(
+              fontSize: 10,
+              fontWeight: FontWeight.w800,
+              color: isDark
+                  ? AppColors.textPrimaryDark
+                  : AppColors.textPrimaryLight,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-Widget _buildStatsGrid(
-BuildContext context,
-ProgressLoaded state,
-String money,
-AppLocalizations l10n,
-bool ru,
-bool isDark,
-) {
-final progress = state.progress;
+// ═══════════════════════════════════════════════════════════════════════════
+// PROGRESS ORB
+// ═══════════════════════════════════════════════════════════════════════════
 
-return Column(
-children: [
-Row(
-children: [
-Expanded(
-child: _ModernStatCard(
-icon: Iconsax.flash_1,
-iconColor: AppColors.amber,
-value: '${progress.currentStreak}',
-label: l10n.streak,
-suffix: ru ? 'дн' : 'd',
-isDark: isDark,
-),
-),
-const SizedBox(width: 12),
-Expanded(
-child: _ModernStatCard(
-icon: Iconsax.money_recive,
-iconColor: AppColors.success,
-value: money,
-label: l10n.saved,
-isDark: isDark,
-),
-),
-],
-),
-const SizedBox(height: 12),
-Row(
-children: [
-Expanded(
-child: _ModernStatCard(
-icon: Iconsax.health,
-iconColor: AppColors.primary,
-value: '${progress.cigarettesAvoided}',
-label: l10n.avoided,
-suffix: ru ? 'шт' : '',
-isDark: isDark,
-),
-),
-const SizedBox(width: 12),
-Expanded(
-child: _ModernStatCard(
-icon: Iconsax.calendar,
-iconColor: AppColors.accent,
-value: '${progress.totalSmokeFreeDays}',
-label: l10n.totalDays,
-isDark: isDark,
-),
-),
-],
-),
-],
-)
-    .animate()
-    .fadeIn(delay: 150.ms)
-    .slideY(begin: 0.06);
+class _ProgressOrb extends StatelessWidget {
+  const _ProgressOrb({
+    required this.progress,
+    required this.isDark,
+    required this.percentage,
+  });
+
+  final double progress;
+  final bool isDark;
+  final int percentage;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 108,
+      height: 108,
+      child: CustomPaint(
+        painter: _ProgressOrbPainter(
+          progress: progress.clamp(0.0, 1.0),
+          trackColor: isDark
+              ? Colors.white.withValues(alpha: 0.075)
+              : AppColors.primary.withValues(alpha: 0.08),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                '$percentage%',
+                style: GoogleFonts.outfit(
+                  fontSize: 23,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -0.6,
+                  color: isDark
+                      ? AppColors.textPrimaryDark
+                      : AppColors.textPrimaryLight,
+                ),
+              ),
+              Text(
+                'LEVEL',
+                style: GoogleFonts.inter(
+                  fontSize: 8,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1.3,
+                  color: isDark
+                      ? AppColors.textSecondaryDark
+                      : AppColors.textSecondaryLight,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-Widget _buildMotivationCard(
-BuildContext context,
-ProgressLoaded state,
-AppLocalizations l10n,
-bool isDark,
-) {
-return ClipRRect(
-borderRadius: BorderRadius.circular(28),
-child: BackdropFilter(
-filter: ImageFilter.blur(
-sigmaX: 16,
-sigmaY: 16,
-),
-child: Container(
-padding: const EdgeInsets.all(20),
-decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.045)
-    : Colors.white.withValues(alpha: 0.82),
-borderRadius: BorderRadius.circular(28),
-border: Border.all(
-color: isDark
-? Colors.white.withValues(alpha: 0.07)
-    : Colors.white,
-),
-),
-child: Row(
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Container(
-width: 46,
-height: 46,
-decoration: BoxDecoration(
-gradient: const LinearGradient(
-colors: [
-AppColors.primary,
-AppColors.primaryLight,
-],
-),
-borderRadius: BorderRadius.circular(15),
-),
-child: const Icon(
-Iconsax.message_text_1,
-color: Colors.white,
-size: 21,
-),
-),
-const SizedBox(width: 14),
-Expanded(
-child: Column(
-crossAxisAlignment:
-CrossAxisAlignment.start,
-children: [
-Text(
-l10n.dailyMotivation,
-style: GoogleFonts.inter(
-fontSize: 12,
-fontWeight: FontWeight.w800,
-color: AppColors.primary,
-letterSpacing: 0.2,
-),
-),
-const SizedBox(height: 8),
-Text(
-state.dailyMotivation,
-style: GoogleFonts.inter(
-fontSize: 15,
-height: 1.5,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(alpha: 0.88)
-    : const Color(0xFF243A36),
-),
-),
-],
-),
-),
-],
-),
-),
-),
-).animate().fadeIn(delay: 220.ms);
+// ═══════════════════════════════════════════════════════════════════════════
+// LEVEL BAR
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _LevelProgressBar extends StatelessWidget {
+  const _LevelProgressBar({
+    required this.progress,
+    required this.isDark,
+  });
+
+  final double progress;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius:
+      BorderRadius.circular(999),
+      child: SizedBox(
+        height: 7,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                color: isDark
+                    ? Colors.white.withValues(
+                  alpha: 0.065,
+                )
+                    : AppColors.primary
+                    .withValues(
+                  alpha: 0.07,
+                ),
+              ),
+            ),
+            FractionallySizedBox(
+              widthFactor: progress
+                  .clamp(0.0, 1.0),
+              child: Container(
+                decoration:
+                const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:
+                    AppColors.levelGradient,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
-Widget _buildPremiumCard(
-BuildContext context,
-AppLocalizations l10n,
-bool isDark,
-) {
-return GestureDetector(
-onTap: () {
-Navigator.push(
-context,
-MaterialPageRoute(
-builder: (_) => const PremiumScreen(),
-),
-);
-},
-child: Container(
-padding: const EdgeInsets.all(18),
-decoration: BoxDecoration(
-gradient: LinearGradient(
-begin: Alignment.topLeft,
-end: Alignment.bottomRight,
-colors: isDark
-? const [
-Color(0xFF302511),
-Color(0xFF201A10),
-]
-    : const [
-Color(0xFFFFF5D8),
-Color(0xFFFFFAEC),
-],
-),
-borderRadius: BorderRadius.circular(26),
-border: Border.all(
-color: AppColors.amber.withValues(
-alpha: isDark ? 0.15 : 0.20,
-),
-),
-),
-child: Row(
-children: [
-Container(
-width: 48,
-height: 48,
-decoration: BoxDecoration(
-gradient: const LinearGradient(
-colors: [
-Color(0xFFF7C948),
-Color(0xFFF59E0B),
-],
-),
-borderRadius: BorderRadius.circular(15),
-boxShadow: [
-BoxShadow(
-color: AppColors.amber.withValues(
-alpha: 0.22,
-),
-blurRadius: 16,
-offset: const Offset(0, 8),
-),
-],
-),
-child: const Icon(
-Iconsax.crown_1,
-color: Colors.white,
-size: 22,
-),
-),
-const SizedBox(width: 14),
-Expanded(
-child: Column(
-crossAxisAlignment:
-CrossAxisAlignment.start,
-children: [
-Text(
-l10n.tryFree,
-style: GoogleFonts.inter(
-fontSize: 15,
-fontWeight: FontWeight.w800,
-color: isDark
-? Colors.white
-    : const Color(0xFF3A2E13),
-),
-),
-const SizedBox(height: 4),
-Text(
-l10n.premiumHint,
-maxLines: 2,
-overflow: TextOverflow.ellipsis,
-style: GoogleFonts.inter(
-fontSize: 12,
-height: 1.35,
-color: isDark
-? Colors.white.withValues(
-alpha: 0.52,
-)
-    : const Color(0xFF806C3E),
-),
-),
-],
-),
-),
-const SizedBox(width: 10),
-Container(
-width: 38,
-height: 38,
-decoration: BoxDecoration(
-color: AppColors.amber.withValues(
-alpha: isDark ? 0.12 : 0.14,
-),
-shape: BoxShape.circle,
-),
-child: const Icon(
-Icons.arrow_forward_rounded,
-color: AppColors.amber,
-size: 19,
-),
-),
-],
-),
-),
-).animate().fadeIn(delay: 280.ms).slideX(begin: 0.04);
+// ═══════════════════════════════════════════════════════════════════════════
+// LIVE CLOCK
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _LiveFreedomClock
+    extends StatefulWidget {
+  const _LiveFreedomClock({
+    required this.duration,
+    required this.isDark,
+    required this.ru,
+  });
+
+  final Duration duration;
+  final bool isDark;
+  final bool ru;
+
+  @override
+  State<_LiveFreedomClock> createState() =>
+      _LiveFreedomClockState();
 }
 
-Widget _buildDailyCheckIn(
-BuildContext context,
-dynamic progress,
-AppLocalizations l10n,
-bool isDark,
-) {
-return Container(
-decoration: BoxDecoration(
-gradient: const LinearGradient(
-colors: [
-AppColors.primary,
-AppColors.primaryLight,
-],
-),
-borderRadius: BorderRadius.circular(24),
-boxShadow: [
-BoxShadow(
-color: AppColors.primary.withValues(
-alpha: 0.22,
-),
-blurRadius: 24,
-offset: const Offset(0, 12),
-),
-],
-),
-child: Material(
-color: Colors.transparent,
-child: InkWell(
-borderRadius: BorderRadius.circular(24),
-onTap: progress.hasCheckedInToday
-? null
-    : () {
-context.read<ProgressBloc>().add(
-const CheckInToday(
-stayedSmokeFree: true,
-),
-);
+class _LiveFreedomClockState
+    extends State<_LiveFreedomClock> {
+  Timer? _timer;
+  late DateTime _startedAt;
 
-Future.delayed(
-const Duration(milliseconds: 250),
-() {
-if (!context.mounted) return;
+  @override
+  void initState() {
+    super.initState();
 
-final current = context
-    .read<ProgressBloc>()
-    .state;
+    _startedAt =
+        DateTime.now().subtract(
+          widget.duration,
+        );
 
-if (current is ProgressLoaded) {
-CheckInSuccessDialog.show(
-context,
-streak:
-current.progress.currentStreak,
-days: current
-    .progress.totalSmokeFreeDays,
-);
-}
-},
-);
-},
-child: SizedBox(
-height: 60,
-child: Padding(
-padding: const EdgeInsets.symmetric(
-horizontal: 18,
-),
-child: Row(
-children: [
-Container(
-width: 38,
-height: 38,
-decoration: BoxDecoration(
-color: Colors.white.withValues(
-alpha: 0.16,
-),
-shape: BoxShape.circle,
-),
-child: Icon(
-progress.hasCheckedInToday
-? Iconsax.tick_circle
-    : Iconsax.tick_square,
-color: Colors.white,
-size: 20,
-),
-),
-const SizedBox(width: 12),
-Expanded(
-child: Text(
-progress.hasCheckedInToday
-? l10n.checkedInToday
-    : l10n.checkIn,
-style: GoogleFonts.inter(
-fontSize: 15,
-fontWeight: FontWeight.w800,
-color: Colors.white,
-),
-),
-),
-if (!progress.hasCheckedInToday)
-const Icon(
-Icons.arrow_forward_rounded,
-color: Colors.white,
-),
-],
-),
-),
-),
-),
-),
-).animate().fadeIn(delay: 330.ms);
-}
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+          (_) {
+        if (mounted) {
+          setState(() {});
+        }
+      },
+    );
+  }
 
-Widget _buildRelapseButton(
-BuildContext context,
-AppLocalizations l10n,
-bool isDark,
-) {
-return SizedBox(
-width: double.infinity,
-height: 52,
-child: OutlinedButton.icon(
-onPressed: () => _confirmRelapse(
-context,
-l10n,
-),
-icon: const Icon(
-Iconsax.close_circle,
-size: 18,
-),
-label: Text(
-l10n.iSmoked,
-style: GoogleFonts.inter(
-fontWeight: FontWeight.w700,
-),
-),
-style: OutlinedButton.styleFrom(
-foregroundColor: AppColors.coral,
-side: BorderSide(
-color: AppColors.coral.withValues(
-alpha: 0.38,
-),
-),
-backgroundColor: AppColors.coral.withValues(
-alpha: isDark ? 0.035 : 0.025,
-),
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(18),
-),
-),
-),
-);
+  @override
+  void didUpdateWidget(
+      covariant _LiveFreedomClock oldWidget,
+      ) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.duration !=
+        widget.duration) {
+      _startedAt =
+          DateTime.now().subtract(
+            widget.duration,
+          );
+    }
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final elapsed =
+    DateTime.now().difference(
+      _startedAt,
+    );
+
+    final h = elapsed.inHours.remainder(24);
+    final m =
+    elapsed.inMinutes.remainder(60);
+    final s =
+    elapsed.inSeconds.remainder(60);
+
+    final clock =
+        '${elapsed.inDays}d  ${h.toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 13,
+        vertical: 11,
+      ),
+      decoration: BoxDecoration(
+        color: widget.isDark
+            ? Colors.black.withValues(
+          alpha: 0.10,
+        )
+            : AppColors.backgroundLight,
+        borderRadius:
+        BorderRadius.circular(18),
+        border: Border.all(
+          color: AppColors.primary
+              .withValues(alpha: 0.07),
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 8,
+            decoration:
+            const BoxDecoration(
+              color: AppColors.success,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 8),
+          Column(
+            crossAxisAlignment:
+            CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.ru
+                    ? 'СВОБОДЕН УЖЕ'
+                    : 'FREE FOR',
+                style: GoogleFonts.inter(
+                  fontSize: 8,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1,
+                  color: widget.isDark
+                      ? AppColors.textSecondaryDark
+                      : AppColors.textSecondaryLight,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                clock,
+                style: GoogleFonts.outfit(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -0.3,
+                  color: widget.isDark
+                      ? AppColors.textPrimaryDark
+                      : AppColors.textPrimaryLight,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
 
-String _liveClock(Duration d) {
-final h = d.inHours.remainder(24).toString().padLeft(2, '0');
-final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
-final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+// ═══════════════════════════════════════════════════════════════════════════
+// MILESTONES
+// ═══════════════════════════════════════════════════════════════════════════
 
-return '${d.inDays}d  $h:$m:$s';
+class _Milestone extends StatelessWidget {
+  const _Milestone({
+    required this.title,
+    required this.value,
+    required this.isActive,
+    required this.isDark,
+  });
+
+  final String title;
+  final String value;
+  final bool isActive;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            color: isActive
+                ? AppColors.primary
+                : isDark
+                ? AppColors.textSecondaryDark
+                : AppColors.textSecondaryLight,
+            shape: BoxShape.circle,
+          ),
+        ),
+        const SizedBox(width: 7),
+        Column(
+          crossAxisAlignment:
+          CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: GoogleFonts.inter(
+                fontSize: 8,
+                fontWeight: FontWeight.w600,
+                color: isDark
+                    ? AppColors.textSecondaryDark
+                    : AppColors.textSecondaryLight,
+              ),
+            ),
+            const SizedBox(height: 1),
+            Text(
+              value,
+              style: GoogleFonts.outfit(
+                fontSize: 13,
+                fontWeight: FontWeight.w800,
+                color: isDark
+                    ? AppColors.textPrimaryDark
+                    : AppColors.textPrimaryLight,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 }
 
-void _confirmRelapse(
-BuildContext context,
-AppLocalizations l10n,
-) {
-final isDark =
-Theme.of(context).brightness == Brightness.dark;
+class _MilestoneConnector
+    extends StatelessWidget {
+  const _MilestoneConnector({
+    required this.progress,
+    required this.isDark,
+  });
 
-showDialog(
-context: context,
-builder: (ctx) {
-return AlertDialog(
-backgroundColor: isDark
-? const Color(0xFF16211F)
-    : Colors.white,
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(28),
-),
-title: Text(
-l10n.relapseTitle,
-style: GoogleFonts.inter(
-fontWeight: FontWeight.w800,
-),
-),
-content: Text(
-l10n.relapseBody,
-style: GoogleFonts.inter(
-height: 1.5,
-),
-),
-actions: [
-TextButton(
-onPressed: () => Navigator.pop(ctx),
-child: Text(l10n.cancel),
-),
-TextButton(
-onPressed: () {
-context.read<ProgressBloc>().add(
-const CheckInToday(
-stayedSmokeFree: false,
-),
-);
+  final double progress;
+  final bool isDark;
 
-Navigator.pop(ctx);
-
-ScaffoldMessenger.of(context).showSnackBar(
-SnackBar(
-behavior: SnackBarBehavior.floating,
-shape: RoundedRectangleBorder(
-borderRadius: BorderRadius.circular(16),
-),
-content: Text(l10n.relapseDone),
-),
-);
-},
-child: Text(
-l10n.iSmoked,
-style: const TextStyle(
-color: AppColors.coral,
-fontWeight: FontWeight.w700,
-),
-),
-),
-],
-);
-},
-);
-}
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: ClipRRect(
+        borderRadius:
+        BorderRadius.circular(999),
+        child: SizedBox(
+          height: 4,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Container(
+                  color: isDark
+                      ? Colors.white.withValues(
+                    alpha: 0.06,
+                  )
+                      : AppColors.primary
+                      .withValues(
+                    alpha: 0.06,
+                  ),
+                ),
+              ),
+              FractionallySizedBox(
+                widthFactor: progress
+                    .clamp(0.0, 1.0),
+                child: Container(
+                  color: AppColors.primary,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-class _ModernStatCard extends StatelessWidget {
-const _ModernStatCard({
-required this.icon,
-required this.iconColor,
-required this.value,
-required this.label,
-required this.isDark,
-this.suffix,
-});
+// ═══════════════════════════════════════════════════════════════════════════
+// MINI CHART
+// ═══════════════════════════════════════════════════════════════════════════
 
-final IconData icon;
-final Color iconColor;
-final String value;
-final String label;
-final bool isDark;
-final String? suffix;
+class _MiniLineChart
+    extends StatelessWidget {
+  const _MiniLineChart({
+    required this.color,
+  });
 
-@override
-Widget build(BuildContext context) {
-return Container(
-padding: const EdgeInsets.all(16),
-decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.045)
-    : Colors.white.withValues(alpha: 0.90),
-borderRadius: BorderRadius.circular(24),
-border: Border.all(
-color: isDark
-? Colors.white.withValues(alpha: 0.06)
-    : Colors.white,
-),
-boxShadow: [
-if (!isDark)
-BoxShadow(
-color: Colors.black.withValues(alpha: 0.025),
-blurRadius: 20,
-offset: const Offset(0, 8),
-),
-],
-),
-child: Row(
-children: [
-Container(
-width: 42,
-height: 42,
-decoration: BoxDecoration(
-color: iconColor.withValues(alpha: 0.12),
-borderRadius: BorderRadius.circular(14),
-),
-child: Icon(
-icon,
-size: 20,
-color: iconColor,
-),
-),
-const SizedBox(width: 11),
-Expanded(
-child: Column(
-crossAxisAlignment:
-CrossAxisAlignment.start,
-children: [
-Row(
-crossAxisAlignment:
-CrossAxisAlignment.end,
-children: [
-Flexible(
-child: Text(
-value,
-maxLines: 1,
-overflow: TextOverflow.ellipsis,
-style: GoogleFonts.outfit(
-fontSize: 20,
-fontWeight: FontWeight.w800,
-letterSpacing: -0.5,
-color: isDark
-? Colors.white
-    : const Color(0xFF172724),
-),
-),
-),
-if (suffix != null &&
-suffix!.isNotEmpty) ...[
-const SizedBox(width: 3),
-Text(
-suffix!,
-style: GoogleFonts.inter(
-fontSize: 10,
-fontWeight: FontWeight.w700,
-color: isDark
-? Colors.white.withValues(
-alpha: 0.42,
-)
-    : const Color(0xFF71827F),
-),
-),
-],
-],
-),
-const SizedBox(height: 3),
-Text(
-label,
-maxLines: 1,
-overflow: TextOverflow.ellipsis,
-style: GoogleFonts.inter(
-fontSize: 11,
-fontWeight: FontWeight.w600,
-color: isDark
-? Colors.white.withValues(alpha: 0.45)
-    : const Color(0xFF71827F),
-),
-),
-],
-),
-),
-],
-),
-);
-}
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      size: const Size(65, 35),
+      painter: _MiniLineChartPainter(
+        color: color,
+      ),
+    );
+  }
 }
 
-class _GlassAvatar extends StatelessWidget {
-const _GlassAvatar({
-required this.emoji,
-required this.isDark,
-});
+class _MiniLineChartPainter
+    extends CustomPainter {
+  _MiniLineChartPainter({
+    required this.color,
+  });
 
-final String emoji;
-final bool isDark;
+  final Color color;
 
-@override
-Widget build(BuildContext context) {
-return Container(
-width: 48,
-height: 48,
-decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.06)
-    : Colors.white.withValues(alpha: 0.90),
-shape: BoxShape.circle,
-border: Border.all(
-color: isDark
-? Colors.white.withValues(alpha: 0.08)
-    : Colors.white,
-),
-boxShadow: [
-BoxShadow(
-color: Colors.black.withValues(
-alpha: isDark ? 0.12 : 0.05,
-),
-blurRadius: 16,
-offset: const Offset(0, 7),
-),
-],
-),
-child: Center(
-child: Text(
-emoji,
-style: const TextStyle(fontSize: 23),
-),
-),
-);
-}
-}
+  @override
+  void paint(
+      Canvas canvas,
+      Size size,
+      ) {
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.2
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = color;
 
-class _PulseDot extends StatefulWidget {
-const _PulseDot({
-required this.isDark,
-});
+    final points = <Offset>[
+      Offset(0, size.height * 0.72),
+      Offset(size.width * 0.18, size.height * 0.62),
+      Offset(size.width * 0.33, size.height * 0.67),
+      Offset(size.width * 0.48, size.height * 0.42),
+      Offset(size.width * 0.64, size.height * 0.50),
+      Offset(size.width * 0.80, size.height * 0.25),
+      Offset(size.width, size.height * 0.12),
+    ];
 
-final bool isDark;
+    final path = Path()
+      ..moveTo(
+        points.first.dx,
+        points.first.dy,
+      );
 
-@override
-State<_PulseDot> createState() => _PulseDotState();
-}
+    for (var i = 1;
+    i < points.length;
+    i++) {
+      path.lineTo(
+        points[i].dx,
+        points[i].dy,
+      );
+    }
 
-class _PulseDotState extends State<_PulseDot>
-with SingleTickerProviderStateMixin {
-late final AnimationController _controller;
+    canvas.drawPath(path, paint);
+  }
 
-@override
-void initState() {
-super.initState();
-
-_controller = AnimationController(
-vsync: this,
-duration: const Duration(milliseconds: 1400),
-)..repeat(reverse: true);
+  @override
+  bool shouldRepaint(
+      covariant _MiniLineChartPainter oldDelegate,
+      ) {
+    return oldDelegate.color != color;
+  }
 }
 
-@override
-void dispose() {
-_controller.dispose();
-super.dispose();
+// ═══════════════════════════════════════════════════════════════════════════
+// AVATAR
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _LuxuryAvatar extends StatelessWidget {
+  const _LuxuryAvatar({
+    required this.emoji,
+    required this.isDark,
+  });
+
+  final String emoji;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 48,
+      height: 48,
+      decoration: BoxDecoration(
+        color: isDark
+            ? AppColors.surfaceDark
+            : AppColors.surfaceLight,
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: AppColors.primary.withValues(
+            alpha: 0.08,
+          ),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(
+              alpha: isDark ? 0.12 : 0.045,
+            ),
+            blurRadius: 16,
+            offset: const Offset(0, 7),
+          ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          emoji,
+          style: const TextStyle(
+            fontSize: 22,
+          ),
+        ),
+      ),
+    );
+  }
 }
 
-@override
-Widget build(BuildContext context) {
-return AnimatedBuilder(
-animation: _controller,
-builder: (_, __) {
-final opacity =
-0.45 + (_controller.value * 0.55);
+// ═══════════════════════════════════════════════════════════════════════════
+// SECTION
+// ═══════════════════════════════════════════════════════════════════════════
 
-return Container(
-width: 10,
-height: 10,
-decoration: BoxDecoration(
-color: AppColors.primary.withValues(
-alpha: opacity,
-),
-shape: BoxShape.circle,
-boxShadow: [
-BoxShadow(
-color: AppColors.primary.withValues(
-alpha: 0.35 * opacity,
-),
-blurRadius: 10,
-),
-],
-),
-);
-},
-);
-}
-}
+class _SectionHeader
+    extends StatelessWidget {
+  const _SectionHeader({
+    required this.title,
+    required this.isDark,
+  });
 
-class _GlowCircle extends StatelessWidget {
-const _GlowCircle({
-required this.size,
-required this.color,
-});
+  final String title;
+  final bool isDark;
 
-final double size;
-final Color color;
-
-@override
-Widget build(BuildContext context) {
-return Container(
-width: size,
-height: size,
-decoration: BoxDecoration(
-color: color,
-shape: BoxShape.circle,
-),
-);
-}
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: GoogleFonts.inter(
+        fontSize: 9,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 1.5,
+        color: isDark
+            ? AppColors.textSecondaryDark
+            : AppColors.textSecondaryLight,
+      ),
+    );
+  }
 }
 
-class _BackgroundGlow extends StatelessWidget {
-const _BackgroundGlow({
-required this.isDark,
-});
+// ═══════════════════════════════════════════════════════════════════════════
+// PROGRESS PAINTER
+// ═══════════════════════════════════════════════════════════════════════════
 
-final bool isDark;
+class _ProgressOrbPainter extends CustomPainter {
+  _ProgressOrbPainter({
+    required this.progress,
+    required this.trackColor,
+  });
 
-@override
-Widget build(BuildContext context) {
-return IgnorePointer(
-child: Stack(
-children: [
-Positioned(
-top: -120,
-right: -90,
-child: ImageFiltered(
-imageFilter: ImageFilter.blur(
-sigmaX: 70,
-sigmaY: 70,
-),
-child: _GlowCircle(
-size: 260,
-color: AppColors.primary.withValues(
-alpha: isDark ? 0.10 : 0.08,
-),
-),
-),
-),
-Positioned(
-top: 420,
-left: -150,
-child: ImageFiltered(
-imageFilter: ImageFilter.blur(
-sigmaX: 80,
-sigmaY: 80,
-),
-child: _GlowCircle(
-size: 300,
-color: const Color(0xFF7DD3FC).withValues(
-alpha: isDark ? 0.04 : 0.06,
-),
-),
-),
-),
-],
-),
-);
+  final double progress;
+  final Color trackColor;
+
+  @override
+  void paint(
+      Canvas canvas,
+      Size size,
+      ) {
+    final center = size.center(Offset.zero);
+    final radius = size.width / 2 - 8;
+
+    final trackPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round
+      ..color = trackColor;
+
+    canvas.drawCircle(
+      center,
+      radius,
+      trackPaint,
+    );
+
+    if (progress <= 0) {
+      return;
+    }
+
+    final rect = Rect.fromCircle(
+      center: center,
+      radius: radius,
+    );
+
+    final progressPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 7
+      ..strokeCap = StrokeCap.round
+      ..shader = const LinearGradient(
+        colors: AppColors.levelGradient,
+      ).createShader(rect);
+
+    canvas.drawArc(
+      rect,
+      -math.pi / 2,
+      math.pi * 2 * progress,
+      false,
+      progressPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(
+      covariant _ProgressOrbPainter oldDelegate,
+      ) {
+    return oldDelegate.progress != progress ||
+        oldDelegate.trackColor != trackColor;
+  }
 }
-}
-

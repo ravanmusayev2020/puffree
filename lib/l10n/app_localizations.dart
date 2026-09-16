@@ -176,6 +176,12 @@ abstract class AppLocalizations {
   /// **'I didn\'t smoke today'**
   String get checkIn;
 
+  /// No description provided for @checkedInToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Checked in today'**
+  String get checkedInToday;
+
   /// No description provided for @missions.
   ///
   /// In en, this message translates to:
@@ -211,6 +217,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restore purchases'**
   String get restore;
+
+  /// No description provided for @premiumHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock all features with Premium'**
+  String get premiumHint;
 
   /// No description provided for @settings.
   ///
@@ -296,6 +308,18 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// No description provided for @moodCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling?'**
+  String get moodCheck;
+
+  /// No description provided for @moodCheckHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a moment to check in with yourself.'**
+  String get moodCheckHint;
+
   /// No description provided for @version.
   ///
   /// In en, this message translates to:
@@ -337,6 +361,360 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{percent}% to next level'**
   String nextLevelProgress(int percent);
+
+  /// No description provided for @friend.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend'**
+  String get friend;
+
+  /// No description provided for @helloName.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello, {name}!'**
+  String helloName(String name);
+
+  /// No description provided for @pathToFreedom.
+  ///
+  /// In en, this message translates to:
+  /// **'Your path to freedom'**
+  String get pathToFreedom;
+
+  /// No description provided for @withoutCigs.
+  ///
+  /// In en, this message translates to:
+  /// **'without cigarettes'**
+  String get withoutCigs;
+
+  /// No description provided for @iSmoked.
+  ///
+  /// In en, this message translates to:
+  /// **'I smoked'**
+  String get iSmoked;
+
+  /// No description provided for @relapseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s okay'**
+  String get relapseTitle;
+
+  /// No description provided for @relapseBody.
+  ///
+  /// In en, this message translates to:
+  /// **'One cigarette does not erase your progress. Learn from this moment and keep moving forward.'**
+  String get relapseBody;
+
+  /// No description provided for @relapseDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get relapseDone;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @tasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks'**
+  String get tasks;
+
+  /// No description provided for @missionBreathe.
+  ///
+  /// In en, this message translates to:
+  /// **'Deep breathing'**
+  String get missionBreathe;
+
+  /// No description provided for @missionWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink water'**
+  String get missionWater;
+
+  /// No description provided for @missionWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'10 min walk'**
+  String get missionWalk;
+
+  /// No description provided for @missionJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Write a thought'**
+  String get missionJournal;
+
+  /// No description provided for @missionMeditation.
+  ///
+  /// In en, this message translates to:
+  /// **'5 min meditation'**
+  String get missionMeditation;
+
+  /// No description provided for @missionFocus.
+  ///
+  /// In en, this message translates to:
+  /// **'Focus without phone'**
+  String get missionFocus;
+
+  /// No description provided for @missionReflect.
+  ///
+  /// In en, this message translates to:
+  /// **'Day reflection'**
+  String get missionReflect;
+
+  /// No description provided for @missionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Support someone'**
+  String get missionHelp;
+
+  /// No description provided for @missionBreatheDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a few slow, deep breaths.'**
+  String get missionBreatheDesc;
+
+  /// No description provided for @missionWaterDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink a glass of water.'**
+  String get missionWaterDesc;
+
+  /// No description provided for @missionWalkDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a 10-minute walk.'**
+  String get missionWalkDesc;
+
+  /// No description provided for @missionJournalDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Write down one thought about your day.'**
+  String get missionJournalDesc;
+
+  /// No description provided for @missionMeditationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Take 5 minutes to meditate.'**
+  String get missionMeditationDesc;
+
+  /// No description provided for @missionFocusDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend some time focusing without your phone.'**
+  String get missionFocusDesc;
+
+  /// No description provided for @missionReflectDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Think about how your day went.'**
+  String get missionReflectDesc;
+
+  /// No description provided for @missionHelpDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Do something kind to support someone.'**
+  String get missionHelpDesc;
+
+  /// No description provided for @sosTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SOS Support'**
+  String get sosTitle;
+
+  /// No description provided for @sosTimer.
+  ///
+  /// In en, this message translates to:
+  /// **'Craving timer'**
+  String get sosTimer;
+
+  /// No description provided for @sosBreathe.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe'**
+  String get sosBreathe;
+
+  /// No description provided for @sosChat.
+  ///
+  /// In en, this message translates to:
+  /// **'Talk'**
+  String get sosChat;
+
+  /// No description provided for @sosStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get sosStart;
+
+  /// No description provided for @sosDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get sosDone;
+
+  /// No description provided for @sosManaged.
+  ///
+  /// In en, this message translates to:
+  /// **'You managed the craving!'**
+  String get sosManaged;
+
+  /// No description provided for @sosWon.
+  ///
+  /// In en, this message translates to:
+  /// **'You won!'**
+  String get sosWon;
+
+  /// No description provided for @sosLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'left'**
+  String get sosLeft;
+
+  /// No description provided for @sosTip1.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a few slow, deep breaths.'**
+  String get sosTip1;
+
+  /// No description provided for @sosTip2.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink a glass of water.'**
+  String get sosTip2;
+
+  /// No description provided for @sosTip3.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to a different place.'**
+  String get sosTip3;
+
+  /// No description provided for @sosTip4.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your hands busy.'**
+  String get sosTip4;
+
+  /// No description provided for @sosTip5.
+  ///
+  /// In en, this message translates to:
+  /// **'Think about why you started.'**
+  String get sosTip5;
+
+  /// No description provided for @sosTip6.
+  ///
+  /// In en, this message translates to:
+  /// **'Give the craving a few minutes to pass.'**
+  String get sosTip6;
+
+  /// No description provided for @breatheIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe in'**
+  String get breatheIn;
+
+  /// No description provided for @breatheHold.
+  ///
+  /// In en, this message translates to:
+  /// **'Hold'**
+  String get breatheHold;
+
+  /// No description provided for @breatheOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe out'**
+  String get breatheOut;
+
+  /// No description provided for @breatheHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow the circle and breathe slowly.'**
+  String get breatheHint;
+
+  /// No description provided for @breatheStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start breathing'**
+  String get breatheStart;
+
+  /// No description provided for @chatPick.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you feeling right now?'**
+  String get chatPick;
+
+  /// No description provided for @chatCraving.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m having a craving'**
+  String get chatCraving;
+
+  /// No description provided for @chatStress.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m stressed'**
+  String get chatStress;
+
+  /// No description provided for @chatBoredom.
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m bored'**
+  String get chatBoredom;
+
+  /// No description provided for @chatNeedWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'I need a walk'**
+  String get chatNeedWalk;
+
+  /// No description provided for @chatNeedWater.
+  ///
+  /// In en, this message translates to:
+  /// **'I need some water'**
+  String get chatNeedWater;
+
+  /// No description provided for @chatNeedBreathe.
+  ///
+  /// In en, this message translates to:
+  /// **'I need to breathe'**
+  String get chatNeedBreathe;
+
+  /// No description provided for @chatIntroStress.
+  ///
+  /// In en, this message translates to:
+  /// **'It sounds like you\'re feeling stressed. Let\'s get through this moment together.'**
+  String get chatIntroStress;
+
+  /// No description provided for @chatIntroBoredom.
+  ///
+  /// In en, this message translates to:
+  /// **'Boredom can make cravings feel stronger. Let\'s find something else to focus on.'**
+  String get chatIntroBoredom;
+
+  /// No description provided for @chatIntroCraving.
+  ///
+  /// In en, this message translates to:
+  /// **'A craving can feel intense, but it will pass. Let\'s take it one moment at a time.'**
+  String get chatIntroCraving;
+
+  /// No description provided for @chatReplyStress.
+  ///
+  /// In en, this message translates to:
+  /// **'Try taking a few slow breaths and give yourself a short break. You don\'t have to act on the craving.'**
+  String get chatReplyStress;
+
+  /// No description provided for @chatReplyBoredom.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.'**
+  String get chatReplyBoredom;
+
+  /// No description provided for @chatReplyCraving.
+  ///
+  /// In en, this message translates to:
+  /// **'Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.'**
+  String get chatReplyCraving;
 
   /// No description provided for @onboardingTitle1.
   ///
@@ -416,383 +794,389 @@ abstract class AppLocalizations {
   /// **'Skip'**
   String get skip;
 
-  /// No description provided for @home.
+  /// No description provided for @youGotThis.
   ///
   /// In en, this message translates to:
-  /// **'Home'**
-  String get home;
+  /// **'You got this. One moment at a time.'**
+  String get youGotThis;
 
-  /// No description provided for @tasks.
+  /// No description provided for @waitTheWave.
   ///
   /// In en, this message translates to:
-  /// **'Tasks'**
-  String get tasks;
+  /// **'Ride out the craving wave'**
+  String get waitTheWave;
 
-  /// No description provided for @missionBreathe.
+  /// No description provided for @youPassedThis.
   ///
   /// In en, this message translates to:
-  /// **'Deep breathing'**
-  String get missionBreathe;
+  /// **'You made it through this moment'**
+  String get youPassedThis;
 
-  /// No description provided for @missionWater.
+  /// No description provided for @greatJob.
   ///
   /// In en, this message translates to:
-  /// **'Drink water'**
-  String get missionWater;
+  /// **'Great job. You\'re in control.'**
+  String get greatJob;
 
-  /// No description provided for @missionWalk.
+  /// No description provided for @giveYourselfMinutes.
   ///
   /// In en, this message translates to:
-  /// **'10 min walk'**
-  String get missionWalk;
+  /// **'Give yourself a few minutes and focus on the present moment.'**
+  String get giveYourselfMinutes;
 
-  /// No description provided for @missionJournal.
+  /// No description provided for @keepGoing.
   ///
   /// In en, this message translates to:
-  /// **'Write a thought'**
-  String get missionJournal;
+  /// **'KEEP GOING'**
+  String get keepGoing;
 
-  /// No description provided for @missionMeditation.
+  /// No description provided for @done.
   ///
   /// In en, this message translates to:
-  /// **'5 min meditation'**
-  String get missionMeditation;
+  /// **'DONE'**
+  String get done;
 
-  /// No description provided for @missionFocus.
+  /// No description provided for @breatheSlowly.
   ///
   /// In en, this message translates to:
-  /// **'Focus without phone'**
-  String get missionFocus;
+  /// **'Breathe slowly'**
+  String get breatheSlowly;
 
-  /// No description provided for @missionReflect.
+  /// No description provided for @followTheCircle.
   ///
   /// In en, this message translates to:
-  /// **'Day reflection'**
-  String get missionReflect;
+  /// **'Follow the circle rhythm'**
+  String get followTheCircle;
 
-  /// No description provided for @missionHelp.
+  /// No description provided for @chooseWhatFits.
   ///
   /// In en, this message translates to:
-  /// **'Support someone'**
-  String get missionHelp;
+  /// **'Choose what matches how you feel right now.'**
+  String get chooseWhatFits;
 
-  /// No description provided for @chatIntroStress.
+  /// No description provided for @yourResults.
   ///
   /// In en, this message translates to:
-  /// **'It sounds like you\'re feeling stressed. Let\'s get through this moment together.'**
-  String get chatIntroStress;
+  /// **'Your results'**
+  String get yourResults;
 
-  /// No description provided for @chatIntroBoredom.
+  /// No description provided for @whatChanged.
   ///
   /// In en, this message translates to:
-  /// **'Boredom can make cravings feel stronger. Let\'s find something else to focus on.'**
-  String get chatIntroBoredom;
+  /// **'What has already changed thanks to you'**
+  String get whatChanged;
 
-  /// No description provided for @chatIntroCraving.
+  /// No description provided for @recoveryPath.
   ///
   /// In en, this message translates to:
-  /// **'A craving can feel intense, but it will pass. Let\'s take it one moment at a time.'**
-  String get chatIntroCraving;
+  /// **'Recovery path'**
+  String get recoveryPath;
 
-  /// No description provided for @chatReplyStress.
+  /// No description provided for @everyMilestone.
   ///
   /// In en, this message translates to:
-  /// **'Try taking a few slow breaths and give yourself a short break. You don\'t have to act on the craving.'**
-  String get chatReplyStress;
+  /// **'Every milestone is another step forward'**
+  String get everyMilestone;
 
-  /// No description provided for @chatReplyBoredom.
+  /// No description provided for @levelProgress.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s change your environment. Take a short walk, drink some water, or do something that keeps your hands busy.'**
-  String get chatReplyBoredom;
+  /// **'Progress to next level'**
+  String get levelProgress;
 
-  /// No description provided for @chatReplyCraving.
+  /// No description provided for @yourPathContinues.
   ///
   /// In en, this message translates to:
-  /// **'Wait a few minutes before making any decision. Drink some water, breathe slowly, and remind yourself why you started.'**
-  String get chatReplyCraving;
+  /// **'Your path continues'**
+  String get yourPathContinues;
 
-  /// No description provided for @sosTip1.
+  /// No description provided for @daysWordOne.
   ///
   /// In en, this message translates to:
-  /// **'Take a few slow, deep breaths.'**
-  String get sosTip1;
+  /// **'day'**
+  String get daysWordOne;
 
-  /// No description provided for @sosTip2.
+  /// No description provided for @daysWordFew.
   ///
   /// In en, this message translates to:
-  /// **'Drink a glass of water.'**
-  String get sosTip2;
+  /// **'days'**
+  String get daysWordFew;
 
-  /// No description provided for @sosTip3.
+  /// No description provided for @daysWordMany.
   ///
   /// In en, this message translates to:
-  /// **'Move to a different place.'**
-  String get sosTip3;
+  /// **'days'**
+  String get daysWordMany;
 
-  /// No description provided for @sosTip4.
+  /// No description provided for @momentum.
   ///
   /// In en, this message translates to:
-  /// **'Keep your hands busy.'**
-  String get sosTip4;
+  /// **'MOMENTUM'**
+  String get momentum;
 
-  /// No description provided for @sosTip5.
+  /// No description provided for @missionsLeft.
   ///
   /// In en, this message translates to:
-  /// **'Think about why you started.'**
-  String get sosTip5;
+  /// **'{count} missions left'**
+  String missionsLeft(int count);
 
-  /// No description provided for @sosTip6.
+  /// No description provided for @allMissionsDone.
   ///
   /// In en, this message translates to:
-  /// **'Give the craving a few minutes to pass.'**
-  String get sosTip6;
+  /// **'All missions completed'**
+  String get allMissionsDone;
 
-  /// No description provided for @sosTitle.
+  /// No description provided for @dayComplete.
   ///
   /// In en, this message translates to:
-  /// **'SOS Support'**
-  String get sosTitle;
+  /// **'Day complete'**
+  String get dayComplete;
 
-  /// No description provided for @sosTimer.
+  /// No description provided for @keepGoingShort.
   ///
   /// In en, this message translates to:
-  /// **'Craving timer'**
-  String get sosTimer;
+  /// **'Keep going'**
+  String get keepGoingShort;
 
-  /// No description provided for @sosBreathe.
+  /// No description provided for @inProgress.
   ///
   /// In en, this message translates to:
-  /// **'Breathe'**
-  String get sosBreathe;
+  /// **'IN PROGRESS'**
+  String get inProgress;
 
-  /// No description provided for @sosChat.
+  /// No description provided for @complete.
   ///
   /// In en, this message translates to:
-  /// **'Talk'**
-  String get sosChat;
+  /// **'COMPLETE'**
+  String get complete;
 
-  /// No description provided for @sosWon.
+  /// No description provided for @yourPlanToday.
   ///
   /// In en, this message translates to:
-  /// **'You won!'**
-  String get sosWon;
+  /// **'Your plan for today'**
+  String get yourPlanToday;
 
-  /// No description provided for @sosLeft.
+  /// No description provided for @everythingDone.
   ///
   /// In en, this message translates to:
-  /// **'left'**
-  String get sosLeft;
+  /// **'Everything completed'**
+  String get everythingDone;
 
-  /// No description provided for @sosDone.
+  /// No description provided for @theme.
   ///
   /// In en, this message translates to:
-  /// **'Done'**
-  String get sosDone;
+  /// **'Theme'**
+  String get theme;
 
-  /// No description provided for @sosStart.
+  /// No description provided for @language.
   ///
   /// In en, this message translates to:
-  /// **'Start'**
-  String get sosStart;
+  /// **'Language'**
+  String get language;
 
-  /// No description provided for @sosManaged.
+  /// No description provided for @notifications.
   ///
   /// In en, this message translates to:
-  /// **'You managed the craving!'**
-  String get sosManaged;
+  /// **'Notifications'**
+  String get notifications;
 
-  /// No description provided for @breatheIn.
+  /// No description provided for @notificationsHint.
   ///
   /// In en, this message translates to:
-  /// **'Breathe in'**
-  String get breatheIn;
+  /// **'Reminders and motivation'**
+  String get notificationsHint;
 
-  /// No description provided for @breatheHold.
+  /// No description provided for @data.
   ///
   /// In en, this message translates to:
-  /// **'Hold'**
-  String get breatheHold;
+  /// **'Data'**
+  String get data;
 
-  /// No description provided for @breatheOut.
+  /// No description provided for @aboutApp.
   ///
   /// In en, this message translates to:
-  /// **'Breathe out'**
-  String get breatheOut;
+  /// **'About the app'**
+  String get aboutApp;
 
-  /// No description provided for @breatheHint.
+  /// No description provided for @appTheme.
   ///
   /// In en, this message translates to:
-  /// **'Follow the circle and breathe slowly.'**
-  String get breatheHint;
+  /// **'App theme'**
+  String get appTheme;
 
-  /// No description provided for @breatheStart.
+  /// No description provided for @chooseTheme.
   ///
   /// In en, this message translates to:
-  /// **'Start breathing'**
-  String get breatheStart;
+  /// **'Choose how Puffree should look.'**
+  String get chooseTheme;
 
-  /// No description provided for @chatPick.
+  /// No description provided for @systemTheme.
   ///
   /// In en, this message translates to:
-  /// **'What are you feeling right now?'**
-  String get chatPick;
+  /// **'System'**
+  String get systemTheme;
 
-  /// No description provided for @chatCraving.
+  /// No description provided for @systemThemeDesc.
   ///
   /// In en, this message translates to:
-  /// **'I\'m having a craving'**
-  String get chatCraving;
+  /// **'Follow phone settings'**
+  String get systemThemeDesc;
 
-  /// No description provided for @chatStress.
+  /// No description provided for @lightTheme.
   ///
   /// In en, this message translates to:
-  /// **'I\'m stressed'**
-  String get chatStress;
+  /// **'Light'**
+  String get lightTheme;
 
-  /// No description provided for @chatBoredom.
+  /// No description provided for @lightThemeDesc.
   ///
   /// In en, this message translates to:
-  /// **'I\'m bored'**
-  String get chatBoredom;
+  /// **'Always use light theme'**
+  String get lightThemeDesc;
 
-  /// No description provided for @chatNeedWalk.
+  /// No description provided for @darkTheme.
   ///
   /// In en, this message translates to:
-  /// **'I need a walk'**
-  String get chatNeedWalk;
+  /// **'Dark'**
+  String get darkTheme;
 
-  /// No description provided for @chatNeedWater.
+  /// No description provided for @darkThemeDesc.
   ///
   /// In en, this message translates to:
-  /// **'I need some water'**
-  String get chatNeedWater;
+  /// **'Always use dark theme'**
+  String get darkThemeDesc;
 
-  /// No description provided for @chatNeedBreathe.
+  /// No description provided for @premiumActive.
   ///
   /// In en, this message translates to:
-  /// **'I need to breathe'**
-  String get chatNeedBreathe;
+  /// **'Premium is active'**
+  String get premiumActive;
 
-  /// No description provided for @moodCheck.
+  /// No description provided for @trialActive.
   ///
   /// In en, this message translates to:
-  /// **'How are you feeling?'**
-  String get moodCheck;
+  /// **'Trial period is active'**
+  String get trialActive;
 
-  /// No description provided for @moodCheckHint.
+  /// No description provided for @fullAccess.
   ///
   /// In en, this message translates to:
-  /// **'Take a moment to check in with yourself.'**
-  String get moodCheckHint;
+  /// **'Full access to all features'**
+  String get fullAccess;
 
-  /// No description provided for @missionBreatheDesc.
+  /// No description provided for @openPremium.
   ///
   /// In en, this message translates to:
-  /// **'Take a few slow, deep breaths.'**
-  String get missionBreatheDesc;
+  /// **'Open Premium and subscription options'**
+  String get openPremium;
 
-  /// No description provided for @missionWaterDesc.
+  /// No description provided for @resetProgressTitle.
   ///
   /// In en, this message translates to:
-  /// **'Drink a glass of water.'**
-  String get missionWaterDesc;
+  /// **'Reset progress?'**
+  String get resetProgressTitle;
 
-  /// No description provided for @missionWalkDesc.
+  /// No description provided for @resetProgressBody.
   ///
   /// In en, this message translates to:
-  /// **'Take a 10-minute walk.'**
-  String get missionWalkDesc;
+  /// **'All data about days, streak and statistics will be deleted. This action cannot be undone.'**
+  String get resetProgressBody;
 
-  /// No description provided for @missionJournalDesc.
+  /// No description provided for @excellent.
   ///
   /// In en, this message translates to:
-  /// **'Write down one thought about your day.'**
-  String get missionJournalDesc;
+  /// **'Excellent!'**
+  String get excellent;
 
-  /// No description provided for @missionMeditationDesc.
+  /// No description provided for @anotherDayFree.
   ///
   /// In en, this message translates to:
-  /// **'Take 5 minutes to meditate.'**
-  String get missionMeditationDesc;
+  /// **'Another day without cigarettes'**
+  String get anotherDayFree;
 
-  /// No description provided for @missionFocusDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Spend some time focusing without your phone.'**
-  String get missionFocusDesc;
-
-  /// No description provided for @missionReflectDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Think about how your day went.'**
-  String get missionReflectDesc;
-
-  /// No description provided for @missionHelpDesc.
-  ///
-  /// In en, this message translates to:
-  /// **'Do something kind to support someone.'**
-  String get missionHelpDesc;
-
-  /// No description provided for @friend.
-  ///
-  /// In en, this message translates to:
-  /// **'Friend'**
-  String get friend;
-
-  /// No description provided for @helloName.
-  ///
-  /// In en, this message translates to:
-  /// **'Hello, {name}!'**
-  String helloName(String name);
-
-  /// No description provided for @pathToFreedom.
-  ///
-  /// In en, this message translates to:
-  /// **'Your path to freedom'**
-  String get pathToFreedom;
-
-  /// No description provided for @withoutCigs.
-  ///
-  /// In en, this message translates to:
-  /// **'without cigarettes'**
-  String get withoutCigs;
-
-  /// No description provided for @premiumHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock all features with Premium'**
-  String get premiumHint;
-
-  /// No description provided for @checkedInToday.
-  ///
-  /// In en, this message translates to:
-  /// **'Checked in today'**
-  String get checkedInToday;
-
-  /// No description provided for @iSmoked.
-  ///
-  /// In en, this message translates to:
-  /// **'I smoked'**
-  String get iSmoked;
-
-  /// No description provided for @relapseTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'It\'s okay'**
-  String get relapseTitle;
-
-  /// No description provided for @relapseBody.
-  ///
-  /// In en, this message translates to:
-  /// **'One cigarette does not erase your progress. Learn from this moment and keep moving forward.'**
-  String get relapseBody;
-
-  /// No description provided for @relapseDone.
+  /// No description provided for @continueBtn.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
-  String get relapseDone;
+  String get continueBtn;
+
+  /// No description provided for @newAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'NEW ACHIEVEMENT'**
+  String get newAchievement;
+
+  /// No description provided for @newLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'New level!'**
+  String get newLevel;
+
+  /// No description provided for @levelUpMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going — you\'re doing great!'**
+  String get levelUpMessage;
+
+  /// No description provided for @freeFor.
+  ///
+  /// In en, this message translates to:
+  /// **'FREE FOR'**
+  String get freeFor;
+
+  /// No description provided for @toNextLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'To next level'**
+  String get toNextLevel;
+
+  /// No description provided for @keyResults.
+  ///
+  /// In en, this message translates to:
+  /// **'KEY RESULTS'**
+  String get keyResults;
+
+  /// No description provided for @progressSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'PROGRESS SYSTEM'**
+  String get progressSystem;
+
+  /// No description provided for @everyDayCloser.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day moves you closer to the next level'**
+  String get everyDayCloser;
+
+  /// No description provided for @current.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get current;
+
+  /// No description provided for @nextLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get nextLevel;
+
+  /// No description provided for @smallSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Small steps. Big changes.'**
+  String get smallSteps;
+
+  /// No description provided for @youAreFurther.
+  ///
+  /// In en, this message translates to:
+  /// **'You are already further than yesterday'**
+  String get youAreFurther;
+
+  /// No description provided for @madeForFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'Made for a smoke-free future'**
+  String get madeForFuture;
 }
 
 class _AppLocalizationsDelegate

@@ -12,6 +12,7 @@ import '../../../data/bloc/premium/premium_state.dart';
 import '../../../data/bloc/progress/progress_bloc.dart';
 import '../../../data/bloc/progress/progress_event.dart';
 import '../premium/premium_screen.dart';
+import 'language_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
 const SettingsScreen({
@@ -20,15 +21,12 @@ super.key,
 
 @override
 Widget build(BuildContext context) {
-final theme = Theme.of(context);
-final isDark = theme.brightness == Brightness.dark;
-
-final background = isDark
-? const Color(0xFF020911)
-    : const Color(0xFFF6F8FC);
+final isDark = Theme.of(context).brightness == Brightness.dark;
 
 return Scaffold(
-backgroundColor: background,
+backgroundColor: isDark
+? AppColors.backgroundDark
+    : AppColors.backgroundLight,
 body: SafeArea(
 child: CustomScrollView(
 physics: const BouncingScrollPhysics(
@@ -36,15 +34,13 @@ parent: AlwaysScrollableScrollPhysics(),
 ),
 slivers: [
 SliverToBoxAdapter(
-child: _Header(
-isDark: isDark,
-)
+child: const _Header()
     .animate()
     .fadeIn(
 duration: 450.ms,
 )
     .slideY(
-begin: -0.08,
+begin: -0.06,
 end: 0,
 curve: Curves.easeOutCubic,
 ),
@@ -64,7 +60,6 @@ BlocBuilder<PremiumBloc, PremiumState>(
 builder: (context, state) {
 return _PremiumCard(
 state: state,
-isDark: isDark,
 )
     .animate()
     .fadeIn(
@@ -72,7 +67,7 @@ delay: 80.ms,
 duration: 500.ms,
 )
     .slideY(
-begin: 0.08,
+begin: 0.06,
 end: 0,
 delay: 80.ms,
 duration: 500.ms,
@@ -81,75 +76,63 @@ curve: Curves.easeOutCubic,
 },
 ),
 
-const SizedBox(height: 30),
+const SizedBox(height: 32),
 
-_SectionHeader(
+const _SectionHeader(
 title: 'Приложение',
 icon: Iconsax.setting_2,
-isDark: isDark,
 ),
 
 const SizedBox(height: 12),
 
-_SettingsGroup(
-isDark: isDark,
+const _SettingsGroup(
 children: [
-_ThemeTile(
-isDark: isDark,
-),
-_SettingsTile(
-icon: Iconsax.language_circle,
-title: 'Язык',
-subtitle: 'Русский',
-isDark: isDark,
-accent: AppColors.accent,
-onTap: () {},
-),
+_ThemeTile(),
+  LanguageTile(),
 _SettingsTile(
 icon: Iconsax.notification,
 title: 'Уведомления',
 subtitle: 'Напоминания и мотивация',
-isDark: isDark,
-accent: AppColors.amber,
-onTap: () {},
+accent: AppColors.primary,
 showDivider: false,
 ),
+
 ],
 )
     .animate()
     .fadeIn(
-delay: 160.ms,
+delay: 150.ms,
 duration: 500.ms,
 )
     .slideY(
-begin: 0.06,
+begin: 0.05,
 end: 0,
-delay: 160.ms,
+delay: 150.ms,
+duration: 500.ms,
+curve: Curves.easeOutCubic,
 ),
 
-const SizedBox(height: 28),
+const SizedBox(height: 30),
 
-_SectionHeader(
+const _SectionHeader(
 title: 'Данные',
 icon: Iconsax.chart_2,
-isDark: isDark,
 ),
 
 const SizedBox(height: 12),
 
 _SettingsGroup(
-isDark: isDark,
 children: [
 _SettingsTile(
 icon: Iconsax.refresh,
 title: 'Сбросить прогресс',
 subtitle: 'Начать путь заново',
 accent: AppColors.error,
-isDark: isDark,
-onTap: () => _showResetDialog(
+onTap: () {
+_showResetDialog(
 context,
-isDark,
-),
+);
+},
 showDivider: false,
 ),
 ],
@@ -157,84 +140,77 @@ showDivider: false,
     .animate()
     .fadeIn(
 delay: 220.ms,
-duration: 500.ms,
-)
-    .slideY(
-begin: 0.06,
-end: 0,
-delay: 220.ms,
-),
-
-const SizedBox(height: 28),
-
-_SectionHeader(
-title: 'О приложении',
-icon: Iconsax.info_circle,
-isDark: isDark,
-),
-
-const SizedBox(height: 12),
-
-_SettingsGroup(
-isDark: isDark,
-children: [
-_SettingsTile(
-icon: Iconsax.mobile,
-title: 'Версия',
-subtitle: '1.0.0',
-isDark: isDark,
-accent: AppColors.primary,
-onTap: () {},
-),
-_SettingsTile(
-icon: Iconsax.document_text,
-title: 'Политика конфиденциальности',
-isDark: isDark,
-accent: AppColors.accent,
-onTap: () {},
-),
-_SettingsTile(
-icon: Iconsax.document,
-title: 'Условия использования',
-isDark: isDark,
-accent: AppColors.amber,
-onTap: () {},
-showDivider: false,
-),
-],
-)
-    .animate()
-    .fadeIn(
-delay: 280.ms,
-duration: 500.ms,
-)
-    .slideY(
-begin: 0.06,
-end: 0,
-delay: 280.ms,
-),
-
-const SizedBox(height: 28),
-
-_DisclaimerCard(
-isDark: isDark,
-)
-    .animate()
-    .fadeIn(
-delay: 340.ms,
 duration: 500.ms,
 )
     .slideY(
 begin: 0.05,
 end: 0,
-delay: 340.ms,
+delay: 220.ms,
+duration: 500.ms,
+curve: Curves.easeOutCubic,
+),
+
+const SizedBox(height: 30),
+
+const _SectionHeader(
+title: 'О приложении',
+icon: Iconsax.info_circle,
+),
+
+const SizedBox(height: 12),
+
+const _SettingsGroup(
+children: [
+_SettingsTile(
+icon: Iconsax.mobile,
+title: 'Версия',
+subtitle: '1.0.0',
+accent: AppColors.primary,
+),
+_SettingsTile(
+icon: Iconsax.document_text,
+title: 'Политика конфиденциальности',
+accent: AppColors.primary,
+),
+_SettingsTile(
+icon: Iconsax.document,
+title: 'Условия использования',
+accent: AppColors.primary,
+showDivider: false,
+),
+],
+)
+    .animate()
+    .fadeIn(
+delay: 280.ms,
+duration: 500.ms,
+)
+    .slideY(
+begin: 0.05,
+end: 0,
+delay: 280.ms,
+duration: 500.ms,
+curve: Curves.easeOutCubic,
 ),
 
 const SizedBox(height: 28),
 
-_Footer(
-isDark: isDark,
+const _DisclaimerCard()
+    .animate()
+    .fadeIn(
+delay: 340.ms,
+duration: 500.ms,
+)
+    .slideY(
+begin: 0.04,
+end: 0,
+delay: 340.ms,
+duration: 500.ms,
 ),
+
+const SizedBox(height: 30),
+
+const _Footer(),
 
 const SizedBox(height: 36),
 ],
@@ -249,11 +225,13 @@ const SizedBox(height: 36),
 
 void _showResetDialog(
 BuildContext context,
-bool isDark,
 ) {
 showDialog<void>(
 context: context,
 barrierDismissible: true,
+barrierColor: Colors.black.withValues(
+alpha: 0.55,
+),
 builder: (dialogContext) {
 return Dialog(
 backgroundColor: Colors.transparent,
@@ -261,7 +239,6 @@ insetPadding: const EdgeInsets.symmetric(
 horizontal: 24,
 ),
 child: _ResetDialog(
-isDark: isDark,
 onCancel: () {
 Navigator.pop(dialogContext);
 },
@@ -279,22 +256,16 @@ Navigator.pop(dialogContext);
 }
 }
 
-class _Header extends StatelessWidget {
-const _Header({
-required this.isDark,
-});
+/// ─────────────────────────────────────────────────────────────
+/// HEADER
+/// ─────────────────────────────────────────────────────────────
 
-final bool isDark;
+class _Header extends StatelessWidget {
+const _Header();
 
 @override
 Widget build(BuildContext context) {
-final primaryText = isDark
-? Colors.white
-    : AppColors.textPrimaryLight;
-
-final secondaryText = isDark
-? Colors.white54
-    : AppColors.textSecondaryLight;
+final isDark = Theme.of(context).brightness == Brightness.dark;
 
 return Padding(
 padding: const EdgeInsets.fromLTRB(
@@ -304,7 +275,6 @@ padding: const EdgeInsets.fromLTRB(
 0,
 ),
 child: Row(
-crossAxisAlignment: CrossAxisAlignment.center,
 children: [
 Expanded(
 child: Column(
@@ -312,12 +282,14 @@ crossAxisAlignment: CrossAxisAlignment.start,
 children: [
 Text(
 'Настройки',
-style: GoogleFonts.inter(
-fontSize: 31,
-height: 1.05,
-fontWeight: FontWeight.w800,
-letterSpacing: -1.1,
-color: primaryText,
+style: GoogleFonts.outfit(
+fontSize: 32,
+height: 1.02,
+fontWeight: FontWeight.w700,
+letterSpacing: -1.2,
+color: isDark
+? AppColors.textPrimaryDark
+    : AppColors.textPrimaryLight,
 ),
 ),
 const SizedBox(height: 7),
@@ -326,80 +298,92 @@ Text(
 style: GoogleFonts.inter(
 fontSize: 13,
 fontWeight: FontWeight.w500,
-color: secondaryText,
+color: isDark
+? AppColors.textSecondaryDark
+    : AppColors.textSecondaryLight,
 ),
 ),
 ],
 ),
 ),
-_HeaderIcon(
-icon: Iconsax.setting_2,
-isDark: isDark,
-),
+
+const SizedBox(width: 16),
+
+_PremiumHeaderIcon(),
 ],
 ),
 );
 }
 }
 
-class _HeaderIcon extends StatelessWidget {
-const _HeaderIcon({
-required this.icon,
-required this.isDark,
-});
+/// ─────────────────────────────────────────────────────────────
+/// HEADER ICON
+/// ─────────────────────────────────────────────────────────────
 
-final IconData icon;
-final bool isDark;
-
+class _PremiumHeaderIcon extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
 return Container(
 width: 48,
 height: 48,
 decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.045)
-    : Colors.white,
-borderRadius: BorderRadius.circular(16),
+shape: BoxShape.circle,
+gradient: LinearGradient(
+begin: Alignment.topLeft,
+end: Alignment.bottomRight,
+colors: isDark
+? [
+Colors.white.withValues(alpha: 0.075),
+Colors.white.withValues(alpha: 0.025),
+]
+    : [
+Colors.white,
+AppColors.primary.withValues(alpha: 0.035),
+],
+),
 border: Border.all(
 color: isDark
-? Colors.white.withValues(alpha: 0.07)
-    : Colors.black.withValues(alpha: 0.055),
+? Colors.white.withValues(alpha: 0.08)
+    : AppColors.primary.withValues(alpha: 0.07),
 ),
-boxShadow: isDark
-? null
-    : [
+boxShadow: [
 BoxShadow(
-color: Colors.black.withValues(
-alpha: 0.05,
+color: AppColors.primary.withValues(
+alpha: isDark ? 0.10 : 0.055,
 ),
 blurRadius: 18,
+spreadRadius: -5,
 offset: const Offset(0, 7),
 ),
 ],
 ),
 child: Icon(
-icon,
+Iconsax.setting_2,
 size: 20,
 color: isDark
-? Colors.white
-    : AppColors.textPrimaryLight,
+? AppColors.primaryLight
+    : AppColors.primary,
 ),
 );
 }
 }
 
+/// ─────────────────────────────────────────────────────────────
+/// PREMIUM CARD
+/// ─────────────────────────────────────────────────────────────
+
 class _PremiumCard extends StatelessWidget {
 const _PremiumCard({
 required this.state,
-required this.isDark,
 });
 
 final PremiumState state;
-final bool isDark;
 
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
 final active = state.hasAccess;
 
 return Material(
@@ -422,75 +406,80 @@ alpha: 0.025,
 child: Ink(
 decoration: BoxDecoration(
 borderRadius: BorderRadius.circular(28),
+
 gradient: LinearGradient(
-colors: isDark
-? const [
-Color(0xFF172B49),
-Color(0xFF0C182A),
-Color(0xFF07111F),
-]
-    : const [
-Color(0xFFEAF1FF),
-Color(0xFFF7F9FF),
-Colors.white,
-],
 begin: Alignment.topLeft,
 end: Alignment.bottomRight,
+colors: isDark
+? [
+const Color(0xFF12332F),
+const Color(0xFF0D2420),
+const Color(0xFF0A1917),
+]
+    : [
+const Color(0xFFE8F7F4),
+const Color(0xFFF4FBF9),
+Colors.white,
+],
 ),
+
 border: Border.all(
 color: isDark
-? Colors.white.withValues(alpha: 0.07)
-    : AppColors.primary.withValues(alpha: 0.08),
+? AppColors.primaryLight.withValues(
+alpha: 0.14,
+)
+    : AppColors.primary.withValues(
+alpha: 0.10,
 ),
+),
+
 boxShadow: [
 BoxShadow(
 color: AppColors.primary.withValues(
-alpha: isDark ? 0.12 : 0.08,
+alpha: isDark ? 0.16 : 0.075,
 ),
 blurRadius: 32,
+spreadRadius: -8,
 offset: const Offset(0, 14),
 ),
 ],
 ),
+child: ClipRRect(
+borderRadius: BorderRadius.circular(28),
 child: Stack(
 children: [
+/// Emerald glow
 Positioned(
-top: -55,
-right: -45,
-child: Container(
-width: 150,
-height: 150,
-decoration: BoxDecoration(
-shape: BoxShape.circle,
-color: AppColors.primary.withValues(
-alpha: 0.10,
+top: -70,
+right: -50,
+child: _GlowCircle(
+size: 180,
+color: AppColors.primary,
+opacity: isDark ? 0.12 : 0.07,
 ),
 ),
-),
-),
+
+/// Violet premium glow
 Positioned(
-bottom: -80,
-left: 30,
-child: Container(
-width: 150,
-height: 150,
-decoration: BoxDecoration(
-shape: BoxShape.circle,
-color: AppColors.accent.withValues(
-alpha: 0.055,
+bottom: -95,
+left: 55,
+child: _GlowCircle(
+size: 180,
+color: AppColors.accent,
+opacity: isDark ? 0.075 : 0.045,
 ),
 ),
-),
-),
+
 Padding(
 padding: const EdgeInsets.all(20),
 child: Row(
 children: [
-_PremiumIcon(
+_PremiumCrown(
 active: active,
-isDark: isDark,
 ),
+
 const SizedBox(width: 15),
+
 Expanded(
 child: Column(
 crossAxisAlignment:
@@ -506,34 +495,44 @@ active
 maxLines: 1,
 overflow:
 TextOverflow.ellipsis,
-style: GoogleFonts.inter(
-fontSize: 17,
-fontWeight: FontWeight.w800,
-letterSpacing: -0.3,
+style: GoogleFonts.outfit(
+fontSize: 18,
+fontWeight:
+FontWeight.w700,
+letterSpacing: -0.35,
 color: isDark
-? Colors.white
+? AppColors
+    .textPrimaryDark
     : AppColors
     .textPrimaryLight,
 ),
 ),
 ),
+
+if (active) ...[
 const SizedBox(width: 8),
-if (active)
 Container(
 padding:
 const EdgeInsets
     .symmetric(
-horizontal: 7,
+horizontal: 8,
 vertical: 4,
 ),
-decoration: BoxDecoration(
+decoration:
+BoxDecoration(
 color: AppColors.success
     .withValues(
-alpha: 0.13,
+alpha: 0.12,
 ),
 borderRadius:
 BorderRadius.circular(
-8,
+999,
+),
+border: Border.all(
+color: AppColors.success
+    .withValues(
+alpha: 0.15,
+),
 ),
 ),
 child: Text(
@@ -543,15 +542,18 @@ GoogleFonts.inter(
 fontSize: 8,
 fontWeight:
 FontWeight.w800,
-letterSpacing: 0.7,
+letterSpacing: 0.8,
 color:
 AppColors.success,
 ),
 ),
 ),
 ],
+],
 ),
+
 const SizedBox(height: 6),
+
 Text(
 active
 ? (state.isPremium
@@ -559,13 +561,15 @@ active
     : 'Пробный период активен')
     : 'Открыть Premium и варианты подписки',
 maxLines: 2,
-overflow: TextOverflow.ellipsis,
+overflow:
+TextOverflow.ellipsis,
 style: GoogleFonts.inter(
 fontSize: 12,
-height: 1.35,
+height: 1.4,
 fontWeight: FontWeight.w500,
 color: isDark
-? Colors.white60
+? AppColors
+    .textSecondaryDark
     : AppColors
     .textSecondaryLight,
 ),
@@ -573,25 +577,37 @@ color: isDark
 ],
 ),
 ),
+
 const SizedBox(width: 10),
+
 Container(
-width: 34,
-height: 34,
+width: 36,
+height: 36,
 decoration: BoxDecoration(
+shape: BoxShape.circle,
+color: isDark
+? Colors.white.withValues(
+alpha: 0.055,
+)
+    : AppColors.primary.withValues(
+alpha: 0.065,
+),
+border: Border.all(
 color: isDark
 ? Colors.white.withValues(
 alpha: 0.06,
 )
-    : AppColors.primary.withValues(
+    : AppColors.primary
+    .withValues(
 alpha: 0.07,
 ),
-shape: BoxShape.circle,
+),
 ),
 child: Icon(
 Iconsax.arrow_right_3,
 size: 17,
 color: isDark
-? Colors.white70
+? AppColors.primaryLight
     : AppColors.primary,
 ),
 ),
@@ -602,41 +618,72 @@ color: isDark
 ),
 ),
 ),
+),
 );
 }
 }
 
-class _PremiumIcon extends StatelessWidget {
-const _PremiumIcon({
-required this.active,
-required this.isDark,
+class _GlowCircle extends StatelessWidget {
+const _GlowCircle({
+required this.size,
+required this.color,
+required this.opacity,
 });
 
-final bool active;
-final bool isDark;
+final double size;
+final Color color;
+final double opacity;
 
 @override
 Widget build(BuildContext context) {
 return Container(
-width: 50,
-height: 50,
+width: size,
+height: size,
 decoration: BoxDecoration(
-gradient: LinearGradient(
-colors: [
-AppColors.primary.withValues(alpha: 0.95),
-AppColors.primaryLight.withValues(alpha: 0.8),
-],
+shape: BoxShape.circle,
+color: color.withValues(
+alpha: opacity,
+),
+),
+);
+}
+}
+
+class _PremiumCrown extends StatelessWidget {
+const _PremiumCrown({
+required this.active,
+});
+
+final bool active;
+
+@override
+Widget build(BuildContext context) {
+return Container(
+width: 52,
+height: 52,
+decoration: BoxDecoration(
+shape: BoxShape.circle,
+gradient: const LinearGradient(
 begin: Alignment.topLeft,
 end: Alignment.bottomRight,
+colors: [
+AppColors.primary,
+AppColors.primaryLight,
+],
 ),
-borderRadius: BorderRadius.circular(16),
+border: Border.all(
+color: Colors.white.withValues(
+alpha: 0.14,
+),
+),
 boxShadow: [
 BoxShadow(
 color: AppColors.primary.withValues(
-alpha: 0.25,
+alpha: 0.28,
 ),
-blurRadius: 18,
-offset: const Offset(0, 7),
+blurRadius: 20,
+spreadRadius: -5,
+offset: const Offset(0, 8),
 ),
 ],
 ),
@@ -649,12 +696,12 @@ size: 22,
 }
 }
 
-class _ThemeTile extends StatelessWidget {
-const _ThemeTile({
-required this.isDark,
-});
+/// ─────────────────────────────────────────────────────────────
+/// THEME TILE
+/// ─────────────────────────────────────────────────────────────
 
-final bool isDark;
+class _ThemeTile extends StatelessWidget {
+const _ThemeTile();
 
 @override
 Widget build(BuildContext context) {
@@ -664,10 +711,11 @@ return AnimatedBuilder(
 animation: controller,
 builder: (context, _) {
 return _SettingsTile(
-icon: _themeIcon(controller.mode),
+icon: _themeIcon(
+controller.mode,
+),
 title: 'Тема',
 subtitle: controller.themeLabel,
-isDark: isDark,
 accent: AppColors.primary,
 onTap: () {
 _showThemeSheet(
@@ -698,7 +746,9 @@ return inherited.controller;
 }
 }
 
-IconData _themeIcon(AppThemeMode mode) {
+IconData _themeIcon(
+AppThemeMode mode,
+) {
 switch (mode) {
 case AppThemeMode.system:
 return Iconsax.monitor;
@@ -708,6 +758,10 @@ case AppThemeMode.dark:
 return Iconsax.moon;
 }
 }
+
+/// ─────────────────────────────────────────────────────────────
+/// THEME BOTTOM SHEET
+/// ─────────────────────────────────────────────────────────────
 
 void _showThemeSheet(
 BuildContext context,
@@ -732,16 +786,25 @@ padding: const EdgeInsets.fromLTRB(
 ),
 decoration: BoxDecoration(
 color: isDark
-? const Color(0xFF101B24)
-    : Colors.white,
+? AppColors.surfaceDark
+    : AppColors.surfaceLight,
 borderRadius: const BorderRadius.vertical(
 top: Radius.circular(30),
 ),
 border: Border.all(
 color: isDark
-? Colors.white.withValues(alpha: 0.06)
-    : Colors.black.withValues(alpha: 0.05),
+? Colors.white.withValues(alpha: 0.065)
+    : AppColors.primary.withValues(alpha: 0.055),
 ),
+boxShadow: [
+BoxShadow(
+color: Colors.black.withValues(
+alpha: isDark ? 0.30 : 0.10,
+),
+blurRadius: 40,
+offset: const Offset(0, -10),
+),
+],
 ),
 child: Column(
 mainAxisSize: MainAxisSize.min,
@@ -751,28 +814,36 @@ width: 42,
 height: 4,
 decoration: BoxDecoration(
 color: isDark
-? Colors.white.withValues(alpha: 0.14)
-    : Colors.black.withValues(alpha: 0.10),
+? Colors.white.withValues(
+alpha: 0.13,
+)
+    : Colors.black.withValues(
+alpha: 0.10,
+),
 borderRadius:
-BorderRadius.circular(99),
+BorderRadius.circular(999),
 ),
 ),
+
 const SizedBox(height: 22),
+
 Align(
 alignment: Alignment.centerLeft,
 child: Text(
 'Тема приложения',
-style: GoogleFonts.inter(
-fontSize: 21,
-fontWeight: FontWeight.w800,
+style: GoogleFonts.outfit(
+fontSize: 22,
+fontWeight: FontWeight.w700,
 letterSpacing: -0.5,
 color: isDark
-? Colors.white
+? AppColors.textPrimaryDark
     : AppColors.textPrimaryLight,
 ),
 ),
 ),
+
 const SizedBox(height: 6),
+
 Align(
 alignment: Alignment.centerLeft,
 child: Text(
@@ -786,14 +857,18 @@ color: isDark
 ),
 ),
 ),
+
 const SizedBox(height: 18),
+
 _ThemeOption(
 icon: Iconsax.monitor,
 title: 'Системная',
-subtitle: 'Следовать настройкам телефона',
+subtitle:
+'Следовать настройкам телефона',
 mode: AppThemeMode.system,
 selected:
-controller.mode == AppThemeMode.system,
+controller.mode ==
+AppThemeMode.system,
 isDark: isDark,
 onTap: () async {
 await controller.setMode(
@@ -805,14 +880,18 @@ Navigator.pop(sheetContext);
 }
 },
 ),
-const SizedBox(height: 10),
+
+const SizedBox(height: 9),
+
 _ThemeOption(
 icon: Iconsax.sun_1,
 title: 'Светлая',
-subtitle: 'Всегда использовать светлую тему',
+subtitle:
+'Всегда использовать светлую тему',
 mode: AppThemeMode.light,
 selected:
-controller.mode == AppThemeMode.light,
+controller.mode ==
+AppThemeMode.light,
 isDark: isDark,
 onTap: () async {
 await controller.setMode(
@@ -824,14 +903,18 @@ Navigator.pop(sheetContext);
 }
 },
 ),
-const SizedBox(height: 10),
+
+const SizedBox(height: 9),
+
 _ThemeOption(
 icon: Iconsax.moon,
 title: 'Тёмная',
-subtitle: 'Всегда использовать тёмную тему',
+subtitle:
+'Всегда использовать тёмную тему',
 mode: AppThemeMode.dark,
 selected:
-controller.mode == AppThemeMode.dark,
+controller.mode ==
+AppThemeMode.dark,
 isDark: isDark,
 onTap: () async {
 await controller.setMode(
@@ -843,6 +926,7 @@ Navigator.pop(sheetContext);
 }
 },
 ),
+
 const SizedBox(height: 8),
 ],
 ),
@@ -851,6 +935,10 @@ const SizedBox(height: 8),
 },
 );
 }
+
+/// ─────────────────────────────────────────────────────────────
+/// THEME OPTION
+/// ─────────────────────────────────────────────────────────────
 
 class _ThemeOption extends StatelessWidget {
 const _ThemeOption({
@@ -879,24 +967,34 @@ return Material(
 color: Colors.transparent,
 child: InkWell(
 onTap: onTap,
-borderRadius: BorderRadius.circular(18),
+borderRadius: BorderRadius.circular(19),
+splashColor: accent.withValues(alpha: 0.06),
+highlightColor: accent.withValues(alpha: 0.025),
 child: Ink(
-padding: const EdgeInsets.all(15),
+padding: const EdgeInsets.all(14),
 decoration: BoxDecoration(
 color: selected
 ? accent.withValues(
-alpha: isDark ? 0.13 : 0.07,
+alpha: isDark ? 0.12 : 0.055,
 )
     : isDark
-? Colors.white.withValues(alpha: 0.035)
-    : Colors.black.withValues(alpha: 0.025),
-borderRadius: BorderRadius.circular(18),
+? Colors.white.withValues(
+alpha: 0.025,
+)
+    : Colors.black.withValues(
+alpha: 0.018,
+),
+borderRadius: BorderRadius.circular(19),
 border: Border.all(
 color: selected
-? accent.withValues(alpha: 0.35)
+? accent.withValues(alpha: 0.30)
     : isDark
-? Colors.white.withValues(alpha: 0.045)
-    : Colors.black.withValues(alpha: 0.045),
+? Colors.white.withValues(
+alpha: 0.045,
+)
+    : Colors.black.withValues(
+alpha: 0.04,
+),
 ),
 ),
 child: Row(
@@ -905,16 +1003,20 @@ Container(
 width: 44,
 height: 44,
 decoration: BoxDecoration(
-color: accent.withValues(alpha: 0.10),
-borderRadius: BorderRadius.circular(14),
+shape: BoxShape.circle,
+color: accent.withValues(
+alpha: isDark ? 0.11 : 0.065,
+),
 ),
 child: Icon(
 icon,
-size: 20,
+size: 19,
 color: accent,
 ),
 ),
+
 const SizedBox(width: 13),
+
 Expanded(
 child: Column(
 crossAxisAlignment:
@@ -926,7 +1028,7 @@ style: GoogleFonts.inter(
 fontSize: 14.5,
 fontWeight: FontWeight.w700,
 color: isDark
-? Colors.white
+? AppColors.textPrimaryDark
     : AppColors.textPrimaryLight,
 ),
 ),
@@ -944,6 +1046,9 @@ color: isDark
 ],
 ),
 ),
+
+const SizedBox(width: 10),
+
 AnimatedContainer(
 duration:
 const Duration(milliseconds: 180),
@@ -955,13 +1060,13 @@ color: selected
 ? accent
     : Colors.transparent,
 border: Border.all(
-width: selected ? 0 : 1.5,
+width: selected ? 0 : 1.4,
 color: isDark
 ? Colors.white.withValues(
-alpha: 0.16,
+alpha: 0.15,
 )
     : Colors.black.withValues(
-alpha: 0.12,
+alpha: 0.11,
 ),
 ),
 ),
@@ -981,37 +1086,45 @@ color: Colors.white,
 }
 }
 
+/// ─────────────────────────────────────────────────────────────
+/// SECTION HEADER
+/// ─────────────────────────────────────────────────────────────
+
 class _SectionHeader extends StatelessWidget {
 const _SectionHeader({
 required this.title,
 required this.icon,
-required this.isDark,
 });
 
 final String title;
 final IconData icon;
-final bool isDark;
 
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
 return Row(
 children: [
 Container(
-width: 28,
-height: 28,
+width: 30,
+height: 30,
 decoration: BoxDecoration(
+shape: BoxShape.circle,
 color: AppColors.primary.withValues(
-alpha: 0.10,
+alpha: isDark ? 0.11 : 0.065,
 ),
-borderRadius: BorderRadius.circular(9),
 ),
 child: Icon(
 icon,
 size: 14,
-color: AppColors.primary,
+color: isDark
+? AppColors.primaryLight
+    : AppColors.primary,
 ),
 ),
+
 const SizedBox(width: 9),
+
 Text(
 title,
 style: GoogleFonts.inter(
@@ -1019,7 +1132,7 @@ fontSize: 13,
 fontWeight: FontWeight.w800,
 letterSpacing: 0.15,
 color: isDark
-? Colors.white70
+? AppColors.textSecondaryDark
     : AppColors.textSecondaryLight,
 ),
 ),
@@ -1028,37 +1141,41 @@ color: isDark
 }
 }
 
+/// ─────────────────────────────────────────────────────────────
+/// SETTINGS GROUP
+/// ─────────────────────────────────────────────────────────────
+
 class _SettingsGroup extends StatelessWidget {
 const _SettingsGroup({
 required this.children,
-required this.isDark,
 });
 
 final List<Widget> children;
-final bool isDark;
 
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
 return Container(
 clipBehavior: Clip.antiAlias,
 decoration: BoxDecoration(
 color: isDark
-? const Color(0xFF091522)
-    : Colors.white,
+? AppColors.cardDark
+    : AppColors.cardLight,
 borderRadius: BorderRadius.circular(22),
 border: Border.all(
 color: isDark
 ? Colors.white.withValues(alpha: 0.055)
-    : Colors.black.withValues(alpha: 0.045),
+    : AppColors.primary.withValues(alpha: 0.045),
 ),
-boxShadow: isDark
-? null
-    : [
+boxShadow: [
+if (!isDark)
 BoxShadow(
-color: Colors.black.withValues(
+color: AppColors.primary.withValues(
 alpha: 0.035,
 ),
 blurRadius: 24,
+spreadRadius: -7,
 offset: const Offset(0, 8),
 ),
 ],
@@ -1070,41 +1187,47 @@ children: children,
 }
 }
 
+/// ─────────────────────────────────────────────────────────────
+/// SETTINGS TILE
+/// ─────────────────────────────────────────────────────────────
+
 class _SettingsTile extends StatelessWidget {
 const _SettingsTile({
 required this.icon,
 required this.title,
-required this.isDark,
-required this.onTap,
 required this.accent,
 this.subtitle,
 this.showDivider = true,
+this.onTap,
 });
 
 final IconData icon;
 final String title;
 final String? subtitle;
-final bool isDark;
-final bool showDivider;
 final Color accent;
-final VoidCallback onTap;
+final bool showDivider;
+final VoidCallback? onTap;
 
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
 final titleColor = isDark
-? Colors.white
+? AppColors.textPrimaryDark
     : AppColors.textPrimaryLight;
 
 final subtitleColor = isDark
-? Colors.white.withValues(alpha: 0.42)
+? AppColors.textSecondaryDark
     : AppColors.textSecondaryLight;
+
+final actualOnTap = onTap ?? () {};
 
 return Material(
 color: Colors.transparent,
 child: InkWell(
-onTap: onTap,
-splashColor: accent.withValues(alpha: 0.06),
-highlightColor: accent.withValues(alpha: 0.025),
+onTap: actualOnTap,
+splashColor: accent.withValues(alpha: 0.055),
+highlightColor: accent.withValues(alpha: 0.02),
 child: Column(
 children: [
 Padding(
@@ -1120,11 +1243,10 @@ Container(
 width: 43,
 height: 43,
 decoration: BoxDecoration(
+shape: BoxShape.circle,
 color: accent.withValues(
-alpha: 0.095,
+alpha: isDark ? 0.11 : 0.065,
 ),
-borderRadius:
-BorderRadius.circular(13),
 ),
 child: Icon(
 icon,
@@ -1132,7 +1254,9 @@ size: 19,
 color: accent,
 ),
 ),
+
 const SizedBox(width: 14),
+
 Expanded(
 child: Column(
 crossAxisAlignment:
@@ -1141,7 +1265,8 @@ children: [
 Text(
 title,
 maxLines: 1,
-overflow: TextOverflow.ellipsis,
+overflow:
+TextOverflow.ellipsis,
 style: GoogleFonts.inter(
 fontSize: 14,
 fontWeight: FontWeight.w600,
@@ -1165,7 +1290,9 @@ color: subtitleColor,
 ],
 ),
 ),
+
 const SizedBox(width: 10),
+
 Icon(
 Iconsax.arrow_right_3,
 size: 17,
@@ -1173,13 +1300,13 @@ color: isDark
 ? Colors.white.withValues(
 alpha: 0.20,
 )
-    : Colors.black.withValues(
-alpha: 0.20,
-),
+    : AppColors.textSecondaryLight
+    .withValues(alpha: 0.50),
 ),
 ],
 ),
 ),
+
 if (showDivider)
 Padding(
 padding: const EdgeInsets.only(
@@ -1204,26 +1331,28 @@ alpha: 0.045,
 }
 }
 
-class _DisclaimerCard extends StatelessWidget {
-const _DisclaimerCard({
-required this.isDark,
-});
+/// ─────────────────────────────────────────────────────────────
+/// DISCLAIMER
+/// ─────────────────────────────────────────────────────────────
 
-final bool isDark;
+class _DisclaimerCard extends StatelessWidget {
+const _DisclaimerCard();
 
 @override
 Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
 return Container(
 padding: const EdgeInsets.all(17),
 decoration: BoxDecoration(
 color: isDark
-? const Color(0xFF07121E)
-    : const Color(0xFFF0F3F8),
+? AppColors.surfaceDark
+    : AppColors.cardLight,
 borderRadius: BorderRadius.circular(20),
 border: Border.all(
 color: isDark
 ? Colors.white.withValues(alpha: 0.045)
-    : Colors.black.withValues(alpha: 0.045),
+    : AppColors.primary.withValues(alpha: 0.045),
 ),
 ),
 child: Row(
@@ -1231,30 +1360,38 @@ crossAxisAlignment:
 CrossAxisAlignment.start,
 children: [
 Container(
-width: 34,
-height: 34,
+width: 36,
+height: 36,
 decoration: BoxDecoration(
+shape: BoxShape.circle,
 color: AppColors.primary.withValues(
-alpha: 0.10,
+alpha: isDark ? 0.11 : 0.065,
 ),
-borderRadius: BorderRadius.circular(10),
 ),
-child: const Icon(
+child: Icon(
 Iconsax.info_circle,
 size: 17,
-color: AppColors.primary,
+color: isDark
+? AppColors.primaryLight
+    : AppColors.primary,
 ),
 ),
+
 const SizedBox(width: 12),
+
 Expanded(
 child: Text(
-'Puffree — мотивационное приложение. Оно не является медицинским средством и не заменяет консультацию врача. При вопросах о здоровье обратись к квалифицированному специалисту.',
+'Puffree — мотивационное приложение. '
+'Оно не является медицинским средством '
+'и не заменяет консультацию врача. '
+'При вопросах о здоровье обратись к '
+'квалифицированному специалисту.',
 style: GoogleFonts.inter(
 fontSize: 11.5,
 height: 1.55,
 fontWeight: FontWeight.w500,
 color: isDark
-? Colors.white.withValues(alpha: 0.42)
+? AppColors.textSecondaryDark
     : AppColors.textSecondaryLight,
 ),
 ),
@@ -1265,76 +1402,33 @@ color: isDark
 }
 }
 
-class _Footer extends StatelessWidget {
-const _Footer({
-required this.isDark,
-});
-
-final bool isDark;
-
-@override
-Widget build(BuildContext context) {
-return Column(
-children: [
-Container(
-width: 42,
-height: 4,
-decoration: BoxDecoration(
-color: isDark
-? Colors.white.withValues(alpha: 0.08)
-    : Colors.black.withValues(alpha: 0.07),
-borderRadius: BorderRadius.circular(10),
-),
-),
-const SizedBox(height: 14),
-Text(
-'PUFFREE',
-style: GoogleFonts.inter(
-fontSize: 10,
-fontWeight: FontWeight.w900,
-letterSpacing: 3.2,
-color: isDark
-? Colors.white.withValues(alpha: 0.18)
-    : Colors.black.withValues(alpha: 0.18),
-),
-),
-const SizedBox(height: 6),
-Text(
-'Made for a smoke-free future',
-style: GoogleFonts.inter(
-fontSize: 9.5,
-fontWeight: FontWeight.w500,
-color: isDark
-? Colors.white.withValues(alpha: 0.18)
-    : Colors.black.withValues(alpha: 0.18),
-),
-),
-],
-);
-}
-}
+/// ─────────────────────────────────────────────────────────────
+/// RESET DIALOG
+/// ─────────────────────────────────────────────────────────────
 
 class _ResetDialog extends StatelessWidget {
 const _ResetDialog({
-required this.isDark,
 required this.onCancel,
 required this.onConfirm,
 });
 
-final bool isDark;
 final VoidCallback onCancel;
 final VoidCallback onConfirm;
 
 @override
 Widget build(BuildContext context) {
-final background =
-isDark ? const Color(0xFF0B1724) : Colors.white;
+final isDark = Theme.of(context).brightness == Brightness.dark;
 
-final titleColor =
-isDark ? Colors.white : AppColors.textPrimaryLight;
+final background = isDark
+? AppColors.surfaceDark
+    : AppColors.surfaceLight;
+
+final titleColor = isDark
+? AppColors.textPrimaryDark
+    : AppColors.textPrimaryLight;
 
 final bodyColor = isDark
-? Colors.white.withValues(alpha: 0.55)
+? AppColors.textSecondaryDark
     : AppColors.textSecondaryLight;
 
 return Container(
@@ -1349,13 +1443,13 @@ color: background,
 borderRadius: BorderRadius.circular(28),
 border: Border.all(
 color: isDark
-? Colors.white.withValues(alpha: 0.07)
-    : Colors.black.withValues(alpha: 0.05),
+? Colors.white.withValues(alpha: 0.065)
+    : AppColors.primary.withValues(alpha: 0.055),
 ),
 boxShadow: [
 BoxShadow(
 color: Colors.black.withValues(
-alpha: isDark ? 0.45 : 0.15,
+alpha: isDark ? 0.45 : 0.14,
 ),
 blurRadius: 40,
 offset: const Offset(0, 20),
@@ -1369,10 +1463,15 @@ Container(
 width: 58,
 height: 58,
 decoration: BoxDecoration(
+shape: BoxShape.circle,
+color: AppColors.error.withValues(
+alpha: isDark ? 0.12 : 0.075,
+),
+border: Border.all(
 color: AppColors.error.withValues(
 alpha: 0.10,
 ),
-borderRadius: BorderRadius.circular(18),
+),
 ),
 child: const Icon(
 Iconsax.refresh,
@@ -1380,20 +1479,25 @@ color: AppColors.error,
 size: 25,
 ),
 ),
+
 const SizedBox(height: 18),
+
 Text(
 'Сбросить прогресс?',
 textAlign: TextAlign.center,
-style: GoogleFonts.inter(
-fontSize: 19,
-fontWeight: FontWeight.w800,
-letterSpacing: -0.35,
+style: GoogleFonts.outfit(
+fontSize: 21,
+fontWeight: FontWeight.w700,
+letterSpacing: -0.45,
 color: titleColor,
 ),
 ),
+
 const SizedBox(height: 9),
+
 Text(
-'Все данные о днях, стрике и статистике будут удалены. Это действие нельзя отменить.',
+'Все данные о днях, стрике и статистике '
+'будут удалены. Это действие нельзя отменить.',
 textAlign: TextAlign.center,
 style: GoogleFonts.inter(
 fontSize: 12.5,
@@ -1402,15 +1506,18 @@ fontWeight: FontWeight.w500,
 color: bodyColor,
 ),
 ),
+
 const SizedBox(height: 22),
+
 Row(
 children: [
 Expanded(
 child: SizedBox(
-height: 48,
+height: 49,
 child: OutlinedButton(
 onPressed: onCancel,
 style: OutlinedButton.styleFrom(
+foregroundColor: titleColor,
 side: BorderSide(
 color: isDark
 ? Colors.white.withValues(
@@ -1430,16 +1537,17 @@ child: Text(
 style: GoogleFonts.inter(
 fontSize: 13,
 fontWeight: FontWeight.w700,
-color: titleColor,
 ),
 ),
 ),
 ),
 ),
+
 const SizedBox(width: 10),
+
 Expanded(
 child: SizedBox(
-height: 48,
+height: 49,
 child: ElevatedButton(
 onPressed: onConfirm,
 style: ElevatedButton.styleFrom(
@@ -1447,6 +1555,7 @@ backgroundColor:
 AppColors.error,
 foregroundColor: Colors.white,
 elevation: 0,
+shadowColor: Colors.transparent,
 shape: RoundedRectangleBorder(
 borderRadius:
 BorderRadius.circular(15),
@@ -1470,3 +1579,66 @@ fontWeight: FontWeight.w800,
 }
 }
 
+/// ─────────────────────────────────────────────────────────────
+/// FOOTER
+/// ─────────────────────────────────────────────────────────────
+
+class _Footer extends StatelessWidget {
+const _Footer();
+
+@override
+Widget build(BuildContext context) {
+final isDark = Theme.of(context).brightness == Brightness.dark;
+
+return Column(
+children: [
+Container(
+width: 38,
+height: 3,
+decoration: BoxDecoration(
+color: isDark
+? Colors.white.withValues(alpha: 0.08)
+    : AppColors.primary.withValues(
+alpha: 0.10,
+),
+borderRadius: BorderRadius.circular(99),
+),
+),
+
+const SizedBox(height: 14),
+
+Text(
+'PUFFREE',
+style: GoogleFonts.inter(
+fontSize: 10,
+fontWeight: FontWeight.w900,
+letterSpacing: 3.4,
+color: isDark
+? Colors.white.withValues(alpha: 0.16)
+    : AppColors.primary.withValues(
+alpha: 0.20,
+),
+),
+),
+
+const SizedBox(height: 6),
+
+Text(
+'Made for a smoke-free future',
+style: GoogleFonts.inter(
+fontSize: 9.5,
+fontWeight: FontWeight.w500,
+color: isDark
+? Colors.white.withValues(alpha: 0.16)
+    : AppColors.textSecondaryLight
+    .withValues(alpha: 0.65),
+),
+),
+],
+);
+
+
+}
+
+
+}
