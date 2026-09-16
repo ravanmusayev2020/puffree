@@ -205,5 +205,60 @@
 
   "smallSteps": "Kleine Schritte. Große Veränderungen.",
   "youAreFurther": "Du bist schon weiter als gestern",
-  "madeForFuture": "Gemacht für eine rauchfreie Zukunft"
+  "madeForFuture": "Gemacht für eine rauchfreie Zukunft",
+
+  "dayStreakCaption": "Tage in Folge",
+  "cigarettesAvoidedCaption": "vermieden",
+  "freeDaysCaption": "rauchfreie Tage",
+  "levelLabel": "Stufe",
+  "keepStreakAlive": "Halte deine Serie aufrecht",
+
+  "failedToLoadProgress": "Fortschritt konnte nicht geladen werden",
+  "levelTitle1": "Erster Atemzug",
+  "levelTitle2": "Keimling",
+  "levelTitle3": "Wachstum",
+  "levelTitle4": "Wurzeln",
+  "levelTitle5": "Stamm",
+  "levelTitle6": "Kraft",
+  "levelTitle7": "Feuer",
+  "levelTitle8": "Funke",
+  "levelTitle9": "Champion",
+  "levelTitle10": "Meister",
+  "levelTitle11": "Diamant",
+  "levelTitle12": "Stern",
+  "levelTitle13": "Rakete",
+  "levelTitle14": "Legende",
+  "levelTitleDefault": "Pfad",
+
+  "milestone1Title": "Beginn eines neuen Weges",
+  "milestone1Desc": "Du hast bereits den ersten Schritt getan und gehst weiter voran.",
+  "milestone2Title": "Erste Veränderungen",
+  "milestone2Desc": "Der Körper passt sich allmählich an ein Leben ohne Zigaretten an.",
+  "milestone3Title": "Neue Etappe",
+  "milestone3Desc": "Allmählich bildet sich ein neuer Rhythmus ohne die Gewohnheit.",
+  "milestone4Title": "Zuversichtlicher Fortschritt",
+  "milestone4Desc": "Zwei Wochen sind ein bemerkenswerter Meilenstein auf dem Weg zu einer neuen Gewohnheit.",
+  "milestone5Title": "Große Gewohnheit ändert sich",
+  "milestone5Desc": "Ein Monat Beständigkeit ist ein ernsthaftes persönliches Ergebnis.",
+  "milestone6Title": "Großer Meilenstein",
+  "milestone6Desc": "Den Weg fortzusetzen hilft, einen neuen Lebensstil zu festigen.",
+  "milestone7Title": "Jahr der Freiheit",
+  "milestone7Desc": "Ein Jahr ohne Zigaretten ist ein großer Meilenstein auf deinem Weg.",
+  "navProgress": "Fortschritt",
+  "more": "Mehr",
+  "settingsSubtitle": "Passe Puffree an dich an",
+  "sectionApp": "App",
+  "sectionData": "Daten",
+  "sectionAbout": "Über die App",
+  "resetProgressSubtitle": "Reise neu starten",
+  "premiumActiveBadge": "AKTIV",
+  "splashCaption": "Freiheit vom Rauchen",
+  "todayStartJourney": "Heute beginnt deine neue Reise.",
+  "realResultKeepGoing": "{count} {daysWord} ist bereits ein echtes Ergebnis. Mach weiter.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

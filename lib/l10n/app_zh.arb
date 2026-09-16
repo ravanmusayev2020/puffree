@@ -20,7 +20,12 @@
   "buyPremium": "购买 Premium",
   "restore": "恢复购买",
   "premiumHint": "使用 Premium 解锁全部功能",
-
+  "settingsSubtitle": "按自己的喜好设置 Puffree",
+  "sectionApp": "应用",
+  "sectionData": "数据",
+  "sectionAbout": "关于",
+  "resetProgressSubtitle": "重新开始旅程",
+  "premiumActiveBadge": "已激活",
   "settings": "设置",
   "progress": "你的进度",
   "statistics": "统计",
@@ -194,7 +199,9 @@
   "newAchievement": "新成就",
   "newLevel": "新等级！",
   "levelUpMessage": "继续加油——你做得很好！",
-
+  "navProgress": "进度",
+  "more": "更多",
+  "splashCaption": "远离吸烟的自由",
   "freeFor": "已自由",
   "toNextLevel": "到下一级",
   "keyResults": "关键结果",
@@ -205,5 +212,52 @@
 
   "smallSteps": "小步前进。大变化。",
   "youAreFurther": "你已经比昨天走得更远",
-  "madeForFuture": "为无烟的未来而生"
+  "madeForFuture": "为无烟的未来而生",
+
+  "dayStreakCaption": "连续天数",
+  "cigarettesAvoidedCaption": "已避免",
+  "freeDaysCaption": "自由天数",
+  "levelLabel": "等级",
+  "keepStreakAlive": "保持连续记录",
+
+  "failedToLoadProgress": "进度加载失败",
+  "levelTitle1": "第一口呼吸",
+  "levelTitle2": "幼苗",
+  "levelTitle3": "生长",
+  "levelTitle4": "扎根",
+  "levelTitle5": "树干",
+  "levelTitle6": "力量",
+  "levelTitle7": "火焰",
+  "levelTitle8": "火花",
+  "levelTitle9": "冠军",
+  "levelTitle10": "大师",
+  "levelTitle11": "钻石",
+  "levelTitle12": "星辰",
+  "levelTitle13": "火箭",
+  "levelTitle14": "传奇",
+  "levelTitleDefault": "路径",
+
+  "milestone1Title": "新旅程的开始",
+  "milestone1Desc": "你已经迈出了第一步，正在继续前进。",
+  "milestone2Title": "初步变化",
+  "milestone2Desc": "身体正逐渐适应无烟生活。",
+  "milestone3Title": "新阶段",
+  "milestone3Desc": "无烟生活的新节奏正逐渐形成。",
+  "milestone4Title": "稳步进展",
+  "milestone4Desc": "两周是养成新习惯道路上的一个显著里程碑。",
+  "milestone5Title": "习惯大转变",
+  "milestone5Desc": "坚持一个月是一个重大的个人成就。",
+  "milestone6Title": "重要关口",
+  "milestone6Desc": "继续前行有助于巩固新的生活方式。",
+  "milestone7Title": "自由周年",
+  "milestone7Desc": "无烟一年是你人生旅程中的一个重大里程碑。",
+
+  "todayStartJourney": "今天是你新旅程的开始。",
+  "realResultKeepGoing": "{count} {daysWord} 已经是真实的成果。请继续保持。",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

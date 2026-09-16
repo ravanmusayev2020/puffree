@@ -562,4 +562,151 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get madeForFuture => 'Siqaretsiz gələcək üçün yaradılıb';
+
+  @override
+  String get dayStreakCaption => 'gün ardıcıl';
+
+  @override
+  String get cigarettesAvoidedCaption => 'çəkilməyib';
+
+  @override
+  String get freeDaysCaption => 'azadlıq günü';
+
+  @override
+  String get levelLabel => 'Səviyyə';
+
+  @override
+  String get keepStreakAlive => 'Seriyanı davam etdir';
+
+  @override
+  String get failedToLoadProgress => 'İnkişafı yükləmək mümkün olmadı';
+
+  @override
+  String get levelTitle1 => 'İlk Nəfəs';
+
+  @override
+  String get levelTitle2 => 'Cücərti';
+
+  @override
+  String get levelTitle3 => 'Böyümə';
+
+  @override
+  String get levelTitle4 => 'Köklər';
+
+  @override
+  String get levelTitle5 => 'Gövda';
+
+  @override
+  String get levelTitle6 => 'Güc';
+
+  @override
+  String get levelTitle7 => 'Atəş';
+
+  @override
+  String get levelTitle8 => 'Qığılcım';
+
+  @override
+  String get levelTitle9 => 'Çempion';
+
+  @override
+  String get levelTitle10 => 'Usta';
+
+  @override
+  String get levelTitle11 => 'Almaz';
+
+  @override
+  String get levelTitle12 => 'Ulduz';
+
+  @override
+  String get levelTitle13 => 'Raket';
+
+  @override
+  String get levelTitle14 => 'Əfsanə';
+
+  @override
+  String get levelTitleDefault => 'Yol';
+
+  @override
+  String get milestone1Title => 'Yeni yolun başlanğıcı';
+
+  @override
+  String get milestone1Desc =>
+      'Artıq ilk addımı atmısınız və irəliləməyə davam edirsiniz.';
+
+  @override
+  String get milestone2Title => 'İlk dəyişikliklər';
+
+  @override
+  String get milestone2Desc =>
+      'Orqanizm tədricən siqaretsiz həyata uyğunlaşır.';
+
+  @override
+  String get milestone3Title => 'Yeni mərhələ';
+
+  @override
+  String get milestone3Desc =>
+      'Vərdiş olmadan tədricən yeni bir ritm formalaşır.';
+
+  @override
+  String get milestone4Title => 'Əmin tərəqqi';
+
+  @override
+  String get milestone4Desc =>
+      'İki həftə yeni bir vərdiş yolunda nəzərəçarpacaq bir mərhələdir.';
+
+  @override
+  String get milestone5Title => 'Böyük vərdiş dəyişir';
+
+  @override
+  String get milestone5Desc =>
+      'Bir aylıq ardıcıllıq ciddi bir şəxsi nəticədir.';
+
+  @override
+  String get milestone6Title => 'Böyük mərhələ';
+
+  @override
+  String get milestone6Desc =>
+      'Yolu davam etdirmək yeni həyat tərzini möhkəmləndirməyə kömək edir.';
+
+  @override
+  String get milestone7Title => 'Azadlıq ili';
+
+  @override
+  String get milestone7Desc =>
+      'Siqaretsiz bir il yolunuzda böyük bir mərhələdir.';
+
+  @override
+  String get navProgress => 'İrəliləyiş';
+
+  @override
+  String get more => 'Daha çox';
+
+  @override
+  String get settingsSubtitle => 'Puffree-ni özünə uyğunlaşdır';
+
+  @override
+  String get sectionApp => 'Tətbiq';
+
+  @override
+  String get sectionData => 'Məlumatlar';
+
+  @override
+  String get sectionAbout => 'Haqqında';
+
+  @override
+  String get resetProgressSubtitle => 'Yolu yenidən başla';
+
+  @override
+  String get premiumActiveBadge => 'ACTIVE';
+
+  @override
+  String get splashCaption => 'Siqaretdən azadlıq';
+
+  @override
+  String get todayStartJourney => 'Bu gün yeni səyahətinizin başlanğıcıdır.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord artıq real nəticədir. Davam edin.';
+  }
 }

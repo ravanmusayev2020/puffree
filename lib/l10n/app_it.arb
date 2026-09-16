@@ -194,7 +194,9 @@
   "newAchievement": "NUOVO TRAGUARDO",
   "newLevel": "Nuovo livello!",
   "levelUpMessage": "Continua così — stai andando alla grande!",
-
+  "navProgress": "Progresso",
+  "more": "Altro",
+  "splashCaption": "Libertà dal fumo",
   "freeFor": "LIBERO DA",
   "toNextLevel": "Al livello successivo",
   "keyResults": "RISULTATI CHIAVE",
@@ -202,8 +204,60 @@
   "everyDayCloser": "Ogni giorno ti avvicina al livello successivo",
   "current": "Attuale",
   "nextLevel": "Prossimo",
-
+  "settingsSubtitle": "Personalizza Puffree per te",
+  "sectionApp": "App",
+  "sectionData": "Dati",
+  "sectionAbout": "Informazioni",
+  "resetProgressSubtitle": "Ricomincia il percorso",
+  "premiumActiveBadge": "ATTIVO",
   "smallSteps": "Piccoli passi. Grandi cambiamenti.",
   "youAreFurther": "Sei già più avanti di ieri",
-  "madeForFuture": "Creato per un futuro senza fumo"
+  "madeForFuture": "Creato per un futuro senza fumo",
+
+  "dayStreakCaption": "giorni di fila",
+  "cigarettesAvoidedCaption": "evitate",
+  "freeDaysCaption": "giorni di libertà",
+  "levelLabel": "Livello",
+  "keepStreakAlive": "Mantieni attiva la tua serie",
+
+  "failedToLoadProgress": "Impossibile caricare i progressi",
+  "levelTitle1": "Primo Respiro",
+  "levelTitle2": "Germoglio",
+  "levelTitle3": "Crescita",
+  "levelTitle4": "Radici",
+  "levelTitle5": "Tronco",
+  "levelTitle6": "Forza",
+  "levelTitle7": "Fuoco",
+  "levelTitle8": "Scintilla",
+  "levelTitle9": "Campione",
+  "levelTitle10": "Maestro",
+  "levelTitle11": "Diamante",
+  "levelTitle12": "Stella",
+  "levelTitle13": "Razzo",
+  "levelTitle14": "Leggenda",
+  "levelTitleDefault": "Percorso",
+
+  "milestone1Title": "Inizio di un nuovo percorso",
+  "milestone1Desc": "Hai già fatto il primo passo e continui ad avanzare.",
+  "milestone2Title": "Primi cambiamenti",
+  "milestone2Desc": "Il corpo si adatta gradualmente alla vita senza sigarette.",
+  "milestone3Title": "Nuova tappa",
+  "milestone3Desc": "Si forma gradualmente un nuovo ritmo senza l'abitudine.",
+  "milestone4Title": "Progresso sicuro",
+  "milestone4Desc": "Due settimane sono un traguardo notevole nel cammino verso una nuova abitudine.",
+  "milestone5Title": "La grande abitudine cambia",
+  "milestone5Desc": "Un mese di costanza è un risultato personale serio.",
+  "milestone6Title": "Grande traguardo",
+  "milestone6Desc": "Continuare il percorso aiuta a consolidare un nuovo stile di vita.",
+  "milestone7Title": "Anno di libertà",
+  "milestone7Desc": "Un anno senza sigarette è un grande traguardo sul tuo cammino.",
+
+  "todayStartJourney": "Oggi inizia il tuo nuovo viaggio.",
+  "realResultKeepGoing": "{count} {daysWord} è già un risultato reale. Continua.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

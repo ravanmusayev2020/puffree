@@ -205,5 +205,60 @@
 
   "smallSteps": "خطوات صغيرة. تغييرات كبيرة.",
   "youAreFurther": "أنت بالفعل أبعد مما كنت عليه بالأمس",
-  "madeForFuture": "صُنع من أجل مستقبل خالٍ من التدخين"
+  "madeForFuture": "صُنع من أجل مستقبل خالٍ من التدخين",
+
+  "dayStreakCaption": "أيام متتالية",
+  "cigarettesAvoidedCaption": "تجنبها",
+  "freeDaysCaption": "أيام الحرية",
+  "levelLabel": "المستوى",
+  "keepStreakAlive": "حافظ على استمرار أيامك المتتالية",
+
+  "failedToLoadProgress": "فشل في تحميل التقدم",
+  "levelTitle1": "النفس الأول",
+  "levelTitle2": "برعم",
+  "levelTitle3": "نمو",
+  "levelTitle4": "جذور",
+  "levelTitle5": "جذع",
+  "levelTitle6": "قوة",
+  "levelTitle7": "نار",
+  "levelTitle8": "شرارة",
+  "levelTitle9": "بطل",
+  "levelTitle10": "ماهر",
+  "levelTitle11": "ألماس",
+  "levelTitle12": "نجمة",
+  "levelTitle13": "صاروخ",
+  "levelTitle14": "أسطورة",
+  "levelTitleDefault": "مسار",
+
+  "milestone1Title": "بداية مسار جديد",
+  "milestone1Desc": "لقد اتخذت الخطوة الأولى بالفعل وتستمر في المضي قدماً.",
+  "milestone2Title": "التغييرات الأولى",
+  "milestone2Desc": "يتكيف الجسم تدريجياً مع الحياة بدون سجائر.",
+  "milestone3Title": "مرحلة جديدة",
+  "milestone3Desc": "يتشكل إيقاع جديد تدريجياً بدون العادة.",
+  "milestone4Title": "تقدم واثق",
+  "milestone4Desc": "أسبوعان هما معلم بارز في الطريق إلى عادة جديدة.",
+  "milestone5Title": "العادة الكبيرة تتغير",
+  "milestone5Desc": "شهر من الاستمرارية هو نتيجة شخصية جادة.",
+  "milestone6Title": "معلم كبير",
+  "milestone6Desc": "الاستمرار في المسار يساعد في ترسيخ نمط حياة جديد.",
+  "milestone7Title": "عام من الحرية",
+  "milestone7Desc": "عام بدون سجائر هو معلم كبير في مسارك.",
+  "navProgress": "التقدم",
+  "more": "المزيد",
+  "settingsSubtitle": "خصص Puffree لنفسك",
+  "sectionApp": "التطبيق",
+  "sectionData": "البيانات",
+  "sectionAbout": "حول التطبيق",
+  "resetProgressSubtitle": "ابدأ الرحلة من جديد",
+  "premiumActiveBadge": "نشط",
+  "splashCaption": "التحرر من التدخين",
+  "todayStartJourney": "اليوم هو بداية رحلتك الجديدة.",
+  "realResultKeepGoing": "{count} {daysWord} هي بالفعل نتيجة حقيقية. استمر.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

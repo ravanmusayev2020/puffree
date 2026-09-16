@@ -567,4 +567,151 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get madeForFuture => 'Gemacht für eine rauchfreie Zukunft';
+
+  @override
+  String get dayStreakCaption => 'Tage in Folge';
+
+  @override
+  String get cigarettesAvoidedCaption => 'vermieden';
+
+  @override
+  String get freeDaysCaption => 'rauchfreie Tage';
+
+  @override
+  String get levelLabel => 'Stufe';
+
+  @override
+  String get keepStreakAlive => 'Halte deine Serie aufrecht';
+
+  @override
+  String get failedToLoadProgress => 'Fortschritt konnte nicht geladen werden';
+
+  @override
+  String get levelTitle1 => 'Erster Atemzug';
+
+  @override
+  String get levelTitle2 => 'Keimling';
+
+  @override
+  String get levelTitle3 => 'Wachstum';
+
+  @override
+  String get levelTitle4 => 'Wurzeln';
+
+  @override
+  String get levelTitle5 => 'Stamm';
+
+  @override
+  String get levelTitle6 => 'Kraft';
+
+  @override
+  String get levelTitle7 => 'Feuer';
+
+  @override
+  String get levelTitle8 => 'Funke';
+
+  @override
+  String get levelTitle9 => 'Champion';
+
+  @override
+  String get levelTitle10 => 'Meister';
+
+  @override
+  String get levelTitle11 => 'Diamant';
+
+  @override
+  String get levelTitle12 => 'Stern';
+
+  @override
+  String get levelTitle13 => 'Rakete';
+
+  @override
+  String get levelTitle14 => 'Legende';
+
+  @override
+  String get levelTitleDefault => 'Pfad';
+
+  @override
+  String get milestone1Title => 'Beginn eines neuen Weges';
+
+  @override
+  String get milestone1Desc =>
+      'Du hast bereits den ersten Schritt getan und gehst weiter voran.';
+
+  @override
+  String get milestone2Title => 'Erste Veränderungen';
+
+  @override
+  String get milestone2Desc =>
+      'Der Körper passt sich allmählich an ein Leben ohne Zigaretten an.';
+
+  @override
+  String get milestone3Title => 'Neue Etappe';
+
+  @override
+  String get milestone3Desc =>
+      'Allmählich bildet sich ein neuer Rhythmus ohne die Gewohnheit.';
+
+  @override
+  String get milestone4Title => 'Zuversichtlicher Fortschritt';
+
+  @override
+  String get milestone4Desc =>
+      'Zwei Wochen sind ein bemerkenswerter Meilenstein auf dem Weg zu einer neuen Gewohnheit.';
+
+  @override
+  String get milestone5Title => 'Große Gewohnheit ändert sich';
+
+  @override
+  String get milestone5Desc =>
+      'Ein Monat Beständigkeit ist ein ernsthaftes persönliches Ergebnis.';
+
+  @override
+  String get milestone6Title => 'Großer Meilenstein';
+
+  @override
+  String get milestone6Desc =>
+      'Den Weg fortzusetzen hilft, einen neuen Lebensstil zu festigen.';
+
+  @override
+  String get milestone7Title => 'Jahr der Freiheit';
+
+  @override
+  String get milestone7Desc =>
+      'Ein Jahr ohne Zigaretten ist ein großer Meilenstein auf deinem Weg.';
+
+  @override
+  String get navProgress => 'Fortschritt';
+
+  @override
+  String get more => 'Mehr';
+
+  @override
+  String get settingsSubtitle => 'Passe Puffree an dich an';
+
+  @override
+  String get sectionApp => 'App';
+
+  @override
+  String get sectionData => 'Daten';
+
+  @override
+  String get sectionAbout => 'Über die App';
+
+  @override
+  String get resetProgressSubtitle => 'Reise neu starten';
+
+  @override
+  String get premiumActiveBadge => 'AKTIV';
+
+  @override
+  String get splashCaption => 'Freiheit vom Rauchen';
+
+  @override
+  String get todayStartJourney => 'Heute beginnt deine neue Reise.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord ist bereits ein echtes Ergebnis. Mach weiter.';
+  }
 }

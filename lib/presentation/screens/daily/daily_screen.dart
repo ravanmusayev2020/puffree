@@ -379,7 +379,7 @@ class _DailyTopBar extends StatelessWidget {
             CrossAxisAlignment.start,
             children: [
               Text(
-                'TODAY',
+                l10n.today.toUpperCase(),
                 style: GoogleFonts.inter(
                   fontSize: 9,
                   fontWeight: FontWeight.w800,
@@ -402,7 +402,7 @@ class _DailyTopBar extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Text(
-                'Маленькие шаги. Большие изменения.',
+                l10n.smallSteps,
                 style: GoogleFonts.inter(
                   fontSize: 11.5,
                   fontWeight: FontWeight.w500,
@@ -534,8 +534,8 @@ class _DailyHero extends StatelessWidget {
                     ? Iconsax.tick_circle5
                     : Iconsax.flash_15,
                 text: finished
-                    ? 'COMPLETE'
-                    : 'IN PROGRESS',
+                    ? l10n.complete
+                    : l10n.inProgress,
                 isDark: isDark,
               ),
               const Spacer(),
@@ -564,8 +564,8 @@ class _DailyHero extends StatelessWidget {
                   children: [
                     Text(
                       finished
-                          ? 'Всё выполнено'
-                          : 'Твой план на сегодня',
+                          ? l10n.everythingDone
+                          : l10n.yourPlanToday,
                       style:
                       GoogleFonts.outfit(
                         fontSize: 22,
@@ -614,7 +614,7 @@ class _DailyHero extends StatelessWidget {
                           width: 6,
                         ),
                         Text(
-                          'TODAY',
+                          l10n.today.toUpperCase(),
                           style:
                           GoogleFonts.inter(
                             fontSize: 8,
@@ -652,8 +652,8 @@ class _DailyHero extends StatelessWidget {
             children: [
               Text(
                 finished
-                    ? 'Day complete'
-                    : 'Keep going',
+                    ? l10n.dayComplete
+                    : l10n.keepGoingShort,
                 style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight:
@@ -1004,6 +1004,7 @@ class _DailyMomentum
   Widget build(BuildContext context) {
     final remaining =
         total - completed;
+    final l10n = AppLocalizations.of(context);
 
     return Container(
       padding:
@@ -1069,7 +1070,7 @@ class _DailyMomentum
               CrossAxisAlignment.start,
               children: [
                 Text(
-                  'MOMENTUM',
+                  l10n.momentum,
                   style:
                   GoogleFonts.inter(
                     fontSize: 9,
@@ -1083,8 +1084,8 @@ class _DailyMomentum
                 const SizedBox(height: 4),
                 Text(
                   remaining <= 0
-                      ? 'Все миссии завершены'
-                      : '$remaining миссий осталось',
+                      ? l10n.allMissionsDone
+                      : l10n.missionsLeft(remaining),
                   style:
                   GoogleFonts.inter(
                     fontSize: 12,
@@ -1749,6 +1750,7 @@ class _DailyCompletionPanel
 
     final finished =
         completed == total;
+    final l10n = AppLocalizations.of(context);
 
     return Container(
       padding:
@@ -1800,8 +1802,8 @@ class _DailyCompletionPanel
                   children: [
                     Text(
                       finished
-                          ? 'День завершён'
-                          : 'Продолжай в том же духе',
+                          ? l10n.dayComplete
+                          : l10n.keepGoingShort,
                       style:
                       GoogleFonts.inter(
                         fontSize: 13,
@@ -1818,7 +1820,7 @@ class _DailyCompletionPanel
                       height: 3,
                     ),
                     Text(
-                      '$completed из $total выполнено',
+                      l10n.completedOf(completed, total),
                       style:
                       GoogleFonts.inter(
                         fontSize: 10.5,

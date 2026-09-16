@@ -565,4 +565,150 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get madeForFuture => 'Создано для будущего без сигарет';
+
+  @override
+  String get dayStreakCaption => 'дней подряд';
+
+  @override
+  String get cigarettesAvoidedCaption => 'не выкурено';
+
+  @override
+  String get freeDaysCaption => 'дней свободы';
+
+  @override
+  String get levelLabel => 'Уровень';
+
+  @override
+  String get keepStreakAlive => 'Поддерживай свой стрик';
+
+  @override
+  String get failedToLoadProgress => 'Не удалось загрузить прогресс';
+
+  @override
+  String get levelTitle1 => 'Первый вдох';
+
+  @override
+  String get levelTitle2 => 'Росток';
+
+  @override
+  String get levelTitle3 => 'Рост';
+
+  @override
+  String get levelTitle4 => 'Корни';
+
+  @override
+  String get levelTitle5 => 'Ствол';
+
+  @override
+  String get levelTitle6 => 'Сила';
+
+  @override
+  String get levelTitle7 => 'Огонь';
+
+  @override
+  String get levelTitle8 => 'Искра';
+
+  @override
+  String get levelTitle9 => 'Чемпион';
+
+  @override
+  String get levelTitle10 => 'Мастер';
+
+  @override
+  String get levelTitle11 => 'Алмаз';
+
+  @override
+  String get levelTitle12 => 'Звезда';
+
+  @override
+  String get levelTitle13 => 'Ракета';
+
+  @override
+  String get levelTitle14 => 'Легенда';
+
+  @override
+  String get levelTitleDefault => 'Путь';
+
+  @override
+  String get milestone1Title => 'Начало нового пути';
+
+  @override
+  String get milestone1Desc =>
+      'Ты уже сделал первый шаг и продолжаешь двигаться вперёд.';
+
+  @override
+  String get milestone2Title => 'Первые изменения';
+
+  @override
+  String get milestone2Desc =>
+      'Организм постепенно адаптируется к жизни без сигарет.';
+
+  @override
+  String get milestone3Title => 'Новый этап';
+
+  @override
+  String get milestone3Desc =>
+      'Постепенно формируется новый ритм без привычки.';
+
+  @override
+  String get milestone4Title => 'Уверенный прогресс';
+
+  @override
+  String get milestone4Desc =>
+      'Две недели — заметная веха на пути к новой привычке.';
+
+  @override
+  String get milestone5Title => 'Большая привычка меняется';
+
+  @override
+  String get milestone5Desc =>
+      'Месяц последовательности — серьёзный личный результат.';
+
+  @override
+  String get milestone6Title => 'Большой рубеж';
+
+  @override
+  String get milestone6Desc =>
+      'Продолжение пути помогает закреплять новый образ жизни.';
+
+  @override
+  String get milestone7Title => 'Год свободы';
+
+  @override
+  String get milestone7Desc => 'Год без сигарет — большая веха на твоём пути.';
+
+  @override
+  String get navProgress => 'Прогресс';
+
+  @override
+  String get more => 'Ещё';
+
+  @override
+  String get settingsSubtitle => 'Настрой Puffree под себя';
+
+  @override
+  String get sectionApp => 'Приложение';
+
+  @override
+  String get sectionData => 'Данные';
+
+  @override
+  String get sectionAbout => 'О приложении';
+
+  @override
+  String get resetProgressSubtitle => 'Начать путь заново';
+
+  @override
+  String get premiumActiveBadge => 'ACTIVE';
+
+  @override
+  String get splashCaption => 'Свобода от курения';
+
+  @override
+  String get todayStartJourney => 'Сегодня — начало твоего нового пути.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord — это уже реальный результат. Продолжай.';
+  }
 }

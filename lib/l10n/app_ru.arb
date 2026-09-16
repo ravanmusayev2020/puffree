@@ -3,7 +3,9 @@
 
   "appName": "Puffree",
   "tagline": "Свобода от курения",
-
+  "navProgress": "Прогресс",
+  "more": "Ещё",
+  "splashCaption": "Свобода от курения",
   "today": "Сегодня",
   "streak": "Стрик",
   "saved": "Сэкономлено",
@@ -14,7 +16,12 @@
   "checkedInToday": "Отмечено сегодня",
   "missions": "Задания дня",
   "completedOf": "Выполнено {completed} из {total}",
-
+  "settingsSubtitle": "Настрой Puffree под себя",
+  "sectionApp": "Приложение",
+  "sectionData": "Данные",
+  "sectionAbout": "О приложении",
+  "resetProgressSubtitle": "Начать путь заново",
+  "premiumActiveBadge": "ACTIVE",
   "premium": "Premium",
   "tryFree": "Попробовать 3 дня бесплатно",
   "buyPremium": "Купить Premium",
@@ -205,5 +212,52 @@
 
   "smallSteps": "Маленькие шаги. Большие изменения.",
   "youAreFurther": "Ты уже дальше, чем вчера",
-  "madeForFuture": "Создано для будущего без сигарет"
+  "madeForFuture": "Создано для будущего без сигарет",
+
+  "dayStreakCaption": "дней подряд",
+  "cigarettesAvoidedCaption": "не выкурено",
+  "freeDaysCaption": "дней свободы",
+  "levelLabel": "Уровень",
+  "keepStreakAlive": "Поддерживай свой стрик",
+
+  "failedToLoadProgress": "Не удалось загрузить прогресс",
+  "levelTitle1": "Первый вдох",
+  "levelTitle2": "Росток",
+  "levelTitle3": "Рост",
+  "levelTitle4": "Корни",
+  "levelTitle5": "Ствол",
+  "levelTitle6": "Сила",
+  "levelTitle7": "Огонь",
+  "levelTitle8": "Искра",
+  "levelTitle9": "Чемпион",
+  "levelTitle10": "Мастер",
+  "levelTitle11": "Алмаз",
+  "levelTitle12": "Звезда",
+  "levelTitle13": "Ракета",
+  "levelTitle14": "Легенда",
+  "levelTitleDefault": "Путь",
+
+  "milestone1Title": "Начало нового пути",
+  "milestone1Desc": "Ты уже сделал первый шаг и продолжаешь двигаться вперёд.",
+  "milestone2Title": "Первые изменения",
+  "milestone2Desc": "Организм постепенно адаптируется к жизни без сигарет.",
+  "milestone3Title": "Новый этап",
+  "milestone3Desc": "Постепенно формируется новый ритм без привычки.",
+  "milestone4Title": "Уверенный прогресс",
+  "milestone4Desc": "Две недели — заметная веха на пути к новой привычке.",
+  "milestone5Title": "Большая привычка меняется",
+  "milestone5Desc": "Месяц последовательности — серьёзный личный результат.",
+  "milestone6Title": "Большой рубеж",
+  "milestone6Desc": "Продолжение пути помогает закреплять новый образ жизни.",
+  "milestone7Title": "Год свободы",
+  "milestone7Desc": "Год без сигарет — большая веха на твоём пути.",
+
+  "todayStartJourney": "Сегодня — начало твоего нового пути.",
+  "realResultKeepGoing": "{count} {daysWord} — это уже реальный результат. Продолжай.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

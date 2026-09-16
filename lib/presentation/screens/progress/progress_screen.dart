@@ -6,12 +6,14 @@ import 'package:iconsax/iconsax.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/progress/progress_bloc.dart';
 import '../../../data/bloc/progress/progress_state.dart';
+import '../../../l10n/app_localizations.dart';
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final isDark =
         Theme.of(context).brightness == Brightness.dark;
 
@@ -79,6 +81,7 @@ class ProgressScreen extends StatelessWidget {
                           level: level.level,
                           levelTitle: _getLevelTitle(
                             level.level,
+                            l10n,
                           ),
                           progress: state.levelProgress,
                           isDark: isDark,
@@ -87,9 +90,8 @@ class ProgressScreen extends StatelessWidget {
                         const SizedBox(height: 28),
 
                         _SectionHeader(
-                          title: 'Твои результаты',
-                          subtitle:
-                          'То, что уже изменилось благодаря тебе',
+                          title: l10n.yourResults,
+                          subtitle: l10n.whatChanged,
                           isDark: isDark,
                         ),
 
@@ -108,9 +110,8 @@ class ProgressScreen extends StatelessWidget {
                         const SizedBox(height: 29),
 
                         _SectionHeader(
-                          title: 'Путь восстановления',
-                          subtitle:
-                          'Каждая веха — ещё один шаг вперёд',
+                          title: l10n.recoveryPath,
+                          subtitle: l10n.everyMilestone,
                           isDark: isDark,
                         ),
 
@@ -139,25 +140,24 @@ class ProgressScreen extends StatelessWidget {
     );
   }
 
-  String _getLevelTitle(int level) {
-    const titles = {
-      1: 'Первый вдох',
-      2: 'Росток',
-      3: 'Рост',
-      4: 'Корни',
-      5: 'Ствол',
-      6: 'Сила',
-      7: 'Огонь',
-      8: 'Искра',
-      9: 'Чемпион',
-      10: 'Мастер',
-      11: 'Алмаз',
-      12: 'Звезда',
-      13: 'Ракета',
-      14: 'Легенда',
+  String _getLevelTitle(int level, AppLocalizations l10n) {
+    return switch (level) {
+      1 => l10n.levelTitle1,
+      2 => l10n.levelTitle2,
+      3 => l10n.levelTitle3,
+      4 => l10n.levelTitle4,
+      5 => l10n.levelTitle5,
+      6 => l10n.levelTitle6,
+      7 => l10n.levelTitle7,
+      8 => l10n.levelTitle8,
+      9 => l10n.levelTitle9,
+      10 => l10n.levelTitle10,
+      11 => l10n.levelTitle11,
+      12 => l10n.levelTitle12,
+      13 => l10n.levelTitle13,
+      14 => l10n.levelTitle14,
+      _ => l10n.levelTitleDefault,
     };
-
-    return titles[level] ?? 'Путь';
   }
 }
 
@@ -192,7 +192,7 @@ class _ErrorState extends StatelessWidget {
         ),
         const SizedBox(height: 14),
         Text(
-          'Не удалось загрузить прогресс',
+          AppLocalizations.of(context).failedToLoadProgress,
           textAlign: TextAlign.center,
           style: GoogleFonts.outfit(
             fontSize: 18,
@@ -259,7 +259,7 @@ class _TopBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Твой прогресс',
+                AppLocalizations.of(context).progress,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.outfit(
@@ -272,7 +272,7 @@ class _TopBar extends StatelessWidget {
               ),
               const SizedBox(height: 6),
               Text(
-                'Ты уже дальше, чем вчера',
+                AppLocalizations.of(context).youAreFurther,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.inter(
@@ -334,7 +334,7 @@ class _LevelBadge extends StatelessWidget {
           ),
           const SizedBox(width: 6),
           Text(
-            'LVL $level',
+            '${AppLocalizations.of(context).levelLabel.toUpperCase()} $level',
             style: GoogleFonts.inter(
               fontSize: 10,
               fontWeight: FontWeight.w800,
@@ -437,7 +437,7 @@ class _ProgressHero extends StatelessWidget {
                     const SizedBox(height: 7),
 
                     Text(
-                      'Твой путь продолжается',
+                      AppLocalizations.of(context).yourPathContinues,
                       style: GoogleFonts.inter(
                         fontSize: 12,
                         height: 1.2,
@@ -483,7 +483,7 @@ class _ProgressHero extends StatelessWidget {
                   bottom: 5,
                 ),
                 child: Text(
-                  _daysWord(days),
+                  _daysWord(days, AppLocalizations.of(context)),
                   style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
@@ -532,7 +532,7 @@ class _ProgressHero extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'Прогресс до следующего уровня',
+                  AppLocalizations.of(context).levelProgress,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.inter(
@@ -557,17 +557,17 @@ class _ProgressHero extends StatelessWidget {
     );
   }
 
-  static String _daysWord(int days) {
+  static String _daysWord(int days, AppLocalizations l10n) {
     if (days % 10 == 1 && days % 100 != 11) {
-      return 'день';
+      return l10n.daysWordOne;
     }
 
     if ([2, 3, 4].contains(days % 10) &&
         ![12, 13, 14].contains(days % 100)) {
-      return 'дня';
+      return l10n.daysWordFew;
     }
 
-    return 'дней';
+    return l10n.daysWordMany;
   }
 }
 
@@ -614,7 +614,7 @@ class _LevelPill extends StatelessWidget {
           ),
           const SizedBox(width: 5),
           Text(
-            'УРОВЕНЬ $level',
+            '${AppLocalizations.of(context).levelLabel.toUpperCase()} $level',
             style: GoogleFonts.inter(
               fontSize: 9,
               fontWeight: FontWeight.w800,
@@ -843,6 +843,7 @@ class _StatsGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       children: [
         Row(
@@ -850,9 +851,9 @@ class _StatsGrid extends StatelessWidget {
             Expanded(
               child: _ModernStatCard(
                 icon: Iconsax.flash_15,
-                title: 'Стрик',
+                title: l10n.streak,
                 value: '$streak',
-                unit: 'дн',
+                unit: l10n.daysWordMany.substring(0, 1),
                 color: AppColors.primary,
                 isDark: isDark,
               ),
@@ -861,9 +862,9 @@ class _StatsGrid extends StatelessWidget {
             Expanded(
               child: _ModernStatCard(
                 icon: Iconsax.cup5,
-                title: 'Рекорд',
+                title: l10n.record,
                 value: '$longestStreak',
-                unit: 'дн',
+                unit: l10n.daysWordMany.substring(0, 1),
                 color: AppColors.primaryLight,
                 isDark: isDark,
               ),
@@ -876,9 +877,9 @@ class _StatsGrid extends StatelessWidget {
             Expanded(
               child: _ModernStatCard(
                 icon: Iconsax.money_recive,
-                title: 'Сэкономлено',
+                title: l10n.saved,
                 value: moneySaved.toStringAsFixed(0),
-                unit: '₽',
+                unit: '',
                 color: AppColors.success,
                 isDark: isDark,
               ),
@@ -887,9 +888,9 @@ class _StatsGrid extends StatelessWidget {
             Expanded(
               child: _ModernStatCard(
                 icon: Iconsax.health,
-                title: 'Не выкурено',
+                title: l10n.avoided,
                 value: '$cigarettesAvoided',
-                unit: 'шт',
+                unit: '',
                 color: AppColors.primaryLight,
                 isDark: isDark,
               ),
@@ -1115,47 +1116,41 @@ class _HealthTimeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final milestones = [
       _Milestone(
-        title: 'Начало нового пути',
-        desc:
-        'Ты уже сделал первый шаг и продолжаешь двигаться вперёд.',
+        title: l10n.milestone1Title,
+        desc: l10n.milestone1Desc,
         unlocked: days >= 0,
       ),
       _Milestone(
-        title: 'Первые изменения',
-        desc:
-        'Организм постепенно адаптируется к жизни без сигарет.',
+        title: l10n.milestone2Title,
+        desc: l10n.milestone2Desc,
         unlocked: days >= 1,
       ),
       _Milestone(
-        title: 'Новый этап',
-        desc:
-        'Постепенно формируется новый ритм без привычки.',
+        title: l10n.milestone3Title,
+        desc: l10n.milestone3Desc,
         unlocked: days >= 3,
       ),
       _Milestone(
-        title: 'Уверенный прогресс',
-        desc:
-        'Две недели — заметная веха на пути к новой привычке.',
+        title: l10n.milestone4Title,
+        desc: l10n.milestone4Desc,
         unlocked: days >= 14,
       ),
       _Milestone(
-        title: 'Большая привычка меняется',
-        desc:
-        'Месяц последовательности — серьёзный личный результат.',
+        title: l10n.milestone5Title,
+        desc: l10n.milestone5Desc,
         unlocked: days >= 30,
       ),
       _Milestone(
-        title: 'Большой рубеж',
-        desc:
-        'Продолжение пути помогает закреплять новый образ жизни.',
+        title: l10n.milestone6Title,
+        desc: l10n.milestone6Desc,
         unlocked: days >= 90,
       ),
       _Milestone(
-        title: 'Год свободы',
-        desc:
-        'Год без сигарет — большая веха на твоём пути.',
+        title: l10n.milestone7Title,
+        desc: l10n.milestone7Desc,
         unlocked: days >= 365,
       ),
     ];
@@ -1496,8 +1491,11 @@ class _BottomMessage extends StatelessWidget {
           Expanded(
             child: Text(
               days == 0
-                  ? 'Сегодня — начало твоего нового пути.'
-                  : '$days ${_daysWord(days)} — это уже реальный результат. Продолжай.',
+                  ? AppLocalizations.of(context).todayStartJourney
+                  : AppLocalizations.of(context).realResultKeepGoing(
+                days,
+                _daysWord(days, AppLocalizations.of(context)),
+              ),
               style: GoogleFonts.inter(
                 fontSize: 13,
                 height: 1.4,
@@ -1511,17 +1509,17 @@ class _BottomMessage extends StatelessWidget {
     );
   }
 
-  String _daysWord(int days) {
+  String _daysWord(int days, AppLocalizations l10n) {
     if (days % 10 == 1 && days % 100 != 11) {
-      return 'день';
+      return l10n.daysWordOne;
     }
 
     if ([2, 3, 4].contains(days % 10) &&
         ![12, 13, 14].contains(days % 100)) {
-      return 'дня';
+      return l10n.daysWordFew;
     }
 
-    return 'дней';
+    return l10n.daysWordMany;
   }
 }
 

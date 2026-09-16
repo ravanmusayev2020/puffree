@@ -1177,6 +1177,282 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Made for a smoke-free future'**
   String get madeForFuture;
+
+  /// No description provided for @dayStreakCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'day streak'**
+  String get dayStreakCaption;
+
+  /// No description provided for @cigarettesAvoidedCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'avoided'**
+  String get cigarettesAvoidedCaption;
+
+  /// No description provided for @freeDaysCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'free days'**
+  String get freeDaysCaption;
+
+  /// No description provided for @levelLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get levelLabel;
+
+  /// No description provided for @keepStreakAlive.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your streak alive'**
+  String get keepStreakAlive;
+
+  /// No description provided for @failedToLoadProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load progress'**
+  String get failedToLoadProgress;
+
+  /// No description provided for @levelTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'First Breath'**
+  String get levelTitle1;
+
+  /// No description provided for @levelTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Sprout'**
+  String get levelTitle2;
+
+  /// No description provided for @levelTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get levelTitle3;
+
+  /// No description provided for @levelTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Roots'**
+  String get levelTitle4;
+
+  /// No description provided for @levelTitle5.
+  ///
+  /// In en, this message translates to:
+  /// **'Trunk'**
+  String get levelTitle5;
+
+  /// No description provided for @levelTitle6.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get levelTitle6;
+
+  /// No description provided for @levelTitle7.
+  ///
+  /// In en, this message translates to:
+  /// **'Fire'**
+  String get levelTitle7;
+
+  /// No description provided for @levelTitle8.
+  ///
+  /// In en, this message translates to:
+  /// **'Spark'**
+  String get levelTitle8;
+
+  /// No description provided for @levelTitle9.
+  ///
+  /// In en, this message translates to:
+  /// **'Champion'**
+  String get levelTitle9;
+
+  /// No description provided for @levelTitle10.
+  ///
+  /// In en, this message translates to:
+  /// **'Master'**
+  String get levelTitle10;
+
+  /// No description provided for @levelTitle11.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond'**
+  String get levelTitle11;
+
+  /// No description provided for @levelTitle12.
+  ///
+  /// In en, this message translates to:
+  /// **'Star'**
+  String get levelTitle12;
+
+  /// No description provided for @levelTitle13.
+  ///
+  /// In en, this message translates to:
+  /// **'Rocket'**
+  String get levelTitle13;
+
+  /// No description provided for @levelTitle14.
+  ///
+  /// In en, this message translates to:
+  /// **'Legend'**
+  String get levelTitle14;
+
+  /// No description provided for @levelTitleDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Path'**
+  String get levelTitleDefault;
+
+  /// No description provided for @milestone1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginning of a new path'**
+  String get milestone1Title;
+
+  /// No description provided for @milestone1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already taken the first step and keep moving forward.'**
+  String get milestone1Desc;
+
+  /// No description provided for @milestone2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'First changes'**
+  String get milestone2Title;
+
+  /// No description provided for @milestone2Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'The body is gradually adapting to life without cigarettes.'**
+  String get milestone2Desc;
+
+  /// No description provided for @milestone3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'New stage'**
+  String get milestone3Title;
+
+  /// No description provided for @milestone3Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'A new rhythm without the habit is gradually forming.'**
+  String get milestone3Desc;
+
+  /// No description provided for @milestone4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Confident progress'**
+  String get milestone4Title;
+
+  /// No description provided for @milestone4Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Two weeks is a noticeable milestone on the way to a new habit.'**
+  String get milestone4Desc;
+
+  /// No description provided for @milestone5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Big habit is changing'**
+  String get milestone5Title;
+
+  /// No description provided for @milestone5Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'A month of consistency is a serious personal result.'**
+  String get milestone5Desc;
+
+  /// No description provided for @milestone6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Big milestone'**
+  String get milestone6Title;
+
+  /// No description provided for @milestone6Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Continuing the path helps to consolidate a new lifestyle.'**
+  String get milestone6Desc;
+
+  /// No description provided for @milestone7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Year of freedom'**
+  String get milestone7Title;
+
+  /// No description provided for @milestone7Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'A year without cigarettes is a big milestone on your path.'**
+  String get milestone7Desc;
+
+  /// No description provided for @navProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get navProgress;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @settingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Customize Puffree for yourself'**
+  String get settingsSubtitle;
+
+  /// No description provided for @sectionApp.
+  ///
+  /// In en, this message translates to:
+  /// **'App'**
+  String get sectionApp;
+
+  /// No description provided for @sectionData.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get sectionData;
+
+  /// No description provided for @sectionAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get sectionAbout;
+
+  /// No description provided for @resetProgressSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start the journey again'**
+  String get resetProgressSubtitle;
+
+  /// No description provided for @premiumActiveBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'ACTIVE'**
+  String get premiumActiveBadge;
+
+  /// No description provided for @splashCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Freedom from smoking'**
+  String get splashCaption;
+
+  /// No description provided for @todayStartJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Today is the beginning of your new journey.'**
+  String get todayStartJourney;
+
+  /// No description provided for @realResultKeepGoing.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} {daysWord} is already a real result. Keep going.'**
+  String realResultKeepGoing(int count, String daysWord);
 }
 
 class _AppLocalizationsDelegate

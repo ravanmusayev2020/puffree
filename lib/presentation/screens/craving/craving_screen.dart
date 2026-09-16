@@ -597,7 +597,7 @@ class _TopBar extends StatelessWidget {
                 const SizedBox(height: 3),
 
                 Text(
-                  'Ты справишься. Один момент за раз.',
+                  AppLocalizations.of(context).youGotThis,
                   style: GoogleFonts.inter(
                     fontSize: 11.5,
                     fontWeight: FontWeight.w500,
@@ -788,8 +788,8 @@ class _EmergencyHeader extends StatelessWidget {
               children: [
                 Text(
                   finished
-                      ? 'Ты прошёл этот момент'
-                      : 'Пережди волну тяги',
+                      ? AppLocalizations.of(context).youPassedThis
+                      : AppLocalizations.of(context).waitTheWave,
                   style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: FontWeight.w700,
@@ -801,8 +801,8 @@ class _EmergencyHeader extends StatelessWidget {
 
                 Text(
                   finished
-                      ? 'Отличная работа. Ты контролируешь ситуацию.'
-                      : 'Дай себе несколько минут и сосредоточься на настоящем моменте.',
+                      ? AppLocalizations.of(context).greatJob
+                      : AppLocalizations.of(context).giveYourselfMinutes,
                   style: GoogleFonts.inter(
                     fontSize: 10.5,
                     height: 1.35,
@@ -1109,7 +1109,7 @@ class _BreathingHeader extends StatelessWidget {
         const SizedBox(height: 12),
 
         Text(
-          'Дыши медленно',
+          AppLocalizations.of(context).breatheSlowly,
           style: GoogleFonts.outfit(
             fontSize: 22,
             fontWeight: FontWeight.w800,
@@ -1121,7 +1121,7 @@ class _BreathingHeader extends StatelessWidget {
         const SizedBox(height: 4),
 
         Text(
-          'Следуй ритму круга',
+          AppLocalizations.of(context).followTheCircle,
           style: GoogleFonts.inter(
             fontSize: 11.5,
             fontWeight: FontWeight.w500,
@@ -1380,7 +1380,7 @@ class _ScenarioPicker extends StatelessWidget {
           const SizedBox(height: 5),
 
           Text(
-            'Выбери то, что ближе к твоему состоянию сейчас.',
+            l10n.chooseWhatFits,
             style: GoogleFonts.inter(
               fontSize: 12,
               height: 1.4,

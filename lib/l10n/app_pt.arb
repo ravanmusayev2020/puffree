@@ -205,5 +205,60 @@
 
   "smallSteps": "Pequenos passos. Grandes mudanças.",
   "youAreFurther": "Já está mais longe do que ontem",
-  "madeForFuture": "Feito para um futuro sem fumo"
+  "madeForFuture": "Feito para um futuro sem fumo",
+
+  "dayStreakCaption": "dias seguidos",
+  "cigarettesAvoidedCaption": "evitados",
+  "freeDaysCaption": "dias livres",
+  "levelLabel": "Nível",
+  "keepStreakAlive": "Mantém a tua sequência activa",
+
+  "failedToLoadProgress": "Não foi possível carregar o progresso",
+  "levelTitle1": "Primeiro Sopro",
+  "levelTitle2": "Broto",
+  "levelTitle3": "Crescimento",
+  "levelTitle4": "Raízes",
+  "levelTitle5": "Tronco",
+  "levelTitle6": "Força",
+  "levelTitle7": "Fogo",
+  "levelTitle8": "Faísca",
+  "levelTitle9": "Campeão",
+  "levelTitle10": "Mestre",
+  "levelTitle11": "Diamante",
+  "levelTitle12": "Estrela",
+  "levelTitle13": "Foguete",
+  "levelTitle14": "Lenda",
+  "levelTitleDefault": "Caminho",
+
+  "milestone1Title": "Início de um novo caminho",
+  "milestone1Desc": "Já deste o primeiro passo e continuas a avançar.",
+  "milestone2Title": "Primeiras mudanças",
+  "milestone2Desc": "O corpo adapta-se gradualmente à vida sem cigarros.",
+  "milestone3Title": "Nova etapa",
+  "milestone3Desc": "Forma-se gradualmente um novo ritmo sem o hábito.",
+  "milestone4Title": "Progresso confiante",
+  "milestone4Desc": "Duas semanas é um marco notável no caminho para um novo hábito.",
+  "milestone5Title": "Grande hábito muda",
+  "milestone5Desc": "Um mês de consistência é um resultado pessoal sério.",
+  "milestone6Title": "Grande marco",
+  "milestone6Desc": "Continuar o caminho ajuda a consolidar um novo estilo de vida.",
+  "milestone7Title": "Ano de liberdade",
+  "milestone7Desc": "Um ano sem cigarros é um grande marco no teu caminho.",
+  "navProgress": "Progresso",
+  "more": "Mais",
+  "settingsSubtitle": "Personaliza o Puffree à tua medida",
+  "sectionApp": "App",
+  "sectionData": "Dados",
+  "sectionAbout": "Sobre",
+  "resetProgressSubtitle": "Recomeçar a jornada",
+  "premiumActiveBadge": "ATIVO",
+  "splashCaption": "Liberdade do tabaco",
+  "todayStartJourney": "Hoje é o início da tua nova jornada.",
+  "realResultKeepGoing": "{count} {daysWord} já é um resultado real. Continua.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

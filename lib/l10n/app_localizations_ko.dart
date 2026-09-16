@@ -549,4 +549,144 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get madeForFuture => '담배 없는 미래를 위해 만들어졌습니다';
+
+  @override
+  String get dayStreakCaption => '일 연속';
+
+  @override
+  String get cigarettesAvoidedCaption => '피하지 않음';
+
+  @override
+  String get freeDaysCaption => '자유로운 날들';
+
+  @override
+  String get levelLabel => '레벨';
+
+  @override
+  String get keepStreakAlive => '연속 기록을 유지하세요';
+
+  @override
+  String get failedToLoadProgress => '진행 상황을 불러오지 못했습니다';
+
+  @override
+  String get levelTitle1 => '첫 호흡';
+
+  @override
+  String get levelTitle2 => '싹';
+
+  @override
+  String get levelTitle3 => '성장';
+
+  @override
+  String get levelTitle4 => '뿌리';
+
+  @override
+  String get levelTitle5 => '줄기';
+
+  @override
+  String get levelTitle6 => '힘';
+
+  @override
+  String get levelTitle7 => '불꽃';
+
+  @override
+  String get levelTitle8 => '불씨';
+
+  @override
+  String get levelTitle9 => '챔피언';
+
+  @override
+  String get levelTitle10 => '마스터';
+
+  @override
+  String get levelTitle11 => '다이아몬드';
+
+  @override
+  String get levelTitle12 => '별';
+
+  @override
+  String get levelTitle13 => '로켓';
+
+  @override
+  String get levelTitle14 => '전설';
+
+  @override
+  String get levelTitleDefault => '경로';
+
+  @override
+  String get milestone1Title => '새로운 경로의 시작';
+
+  @override
+  String get milestone1Desc => '당신은 이미 첫 걸음을 내디뎠고 계속해서 전진하고 있습니다.';
+
+  @override
+  String get milestone2Title => '첫 번째 변화';
+
+  @override
+  String get milestone2Desc => '신체는 점차 담배 없는 삶에 적응하고 있습니다.';
+
+  @override
+  String get milestone3Title => '새로운 단계';
+
+  @override
+  String get milestone3Desc => '습관이 없는 새로운 리듬이 서서히 형성되고 있습니다.';
+
+  @override
+  String get milestone4Title => '확신 있는 진전';
+
+  @override
+  String get milestone4Desc => '2주는 새로운 습관으로 가는 길에서 눈에 띄는 이정표입니다.';
+
+  @override
+  String get milestone5Title => '큰 습관의 변화';
+
+  @override
+  String get milestone5Desc => '한 달간의 꾸준함은 진지한 개인적 결과입니다.';
+
+  @override
+  String get milestone6Title => '큰 이정표';
+
+  @override
+  String get milestone6Desc => '경로를 계속하는 것은 새로운 라이프스타일을 공고히 하는 데 도움이 됩니다.';
+
+  @override
+  String get milestone7Title => '자유의 1년';
+
+  @override
+  String get milestone7Desc => '담배 없는 1년은 당신의 경로에서 큰 이정표입니다.';
+
+  @override
+  String get navProgress => '진행';
+
+  @override
+  String get more => '더보기';
+
+  @override
+  String get settingsSubtitle => 'Puffree를 나에게 맞게 설정';
+
+  @override
+  String get sectionApp => '앱';
+
+  @override
+  String get sectionData => '데이터';
+
+  @override
+  String get sectionAbout => '앱 정보';
+
+  @override
+  String get resetProgressSubtitle => '여정을 다시 시작';
+
+  @override
+  String get premiumActiveBadge => '활성';
+
+  @override
+  String get splashCaption => '흡연으로부터의 자유';
+
+  @override
+  String get todayStartJourney => '오늘은 새로운 여정의 시작입니다.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord은(는) 이미 실제적인 결과입니다. 계속하세요.';
+  }
 }

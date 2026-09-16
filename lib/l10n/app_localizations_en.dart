@@ -561,4 +561,151 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get madeForFuture => 'Made for a smoke-free future';
+
+  @override
+  String get dayStreakCaption => 'day streak';
+
+  @override
+  String get cigarettesAvoidedCaption => 'avoided';
+
+  @override
+  String get freeDaysCaption => 'free days';
+
+  @override
+  String get levelLabel => 'Level';
+
+  @override
+  String get keepStreakAlive => 'Keep your streak alive';
+
+  @override
+  String get failedToLoadProgress => 'Failed to load progress';
+
+  @override
+  String get levelTitle1 => 'First Breath';
+
+  @override
+  String get levelTitle2 => 'Sprout';
+
+  @override
+  String get levelTitle3 => 'Growth';
+
+  @override
+  String get levelTitle4 => 'Roots';
+
+  @override
+  String get levelTitle5 => 'Trunk';
+
+  @override
+  String get levelTitle6 => 'Strength';
+
+  @override
+  String get levelTitle7 => 'Fire';
+
+  @override
+  String get levelTitle8 => 'Spark';
+
+  @override
+  String get levelTitle9 => 'Champion';
+
+  @override
+  String get levelTitle10 => 'Master';
+
+  @override
+  String get levelTitle11 => 'Diamond';
+
+  @override
+  String get levelTitle12 => 'Star';
+
+  @override
+  String get levelTitle13 => 'Rocket';
+
+  @override
+  String get levelTitle14 => 'Legend';
+
+  @override
+  String get levelTitleDefault => 'Path';
+
+  @override
+  String get milestone1Title => 'Beginning of a new path';
+
+  @override
+  String get milestone1Desc =>
+      'You have already taken the first step and keep moving forward.';
+
+  @override
+  String get milestone2Title => 'First changes';
+
+  @override
+  String get milestone2Desc =>
+      'The body is gradually adapting to life without cigarettes.';
+
+  @override
+  String get milestone3Title => 'New stage';
+
+  @override
+  String get milestone3Desc =>
+      'A new rhythm without the habit is gradually forming.';
+
+  @override
+  String get milestone4Title => 'Confident progress';
+
+  @override
+  String get milestone4Desc =>
+      'Two weeks is a noticeable milestone on the way to a new habit.';
+
+  @override
+  String get milestone5Title => 'Big habit is changing';
+
+  @override
+  String get milestone5Desc =>
+      'A month of consistency is a serious personal result.';
+
+  @override
+  String get milestone6Title => 'Big milestone';
+
+  @override
+  String get milestone6Desc =>
+      'Continuing the path helps to consolidate a new lifestyle.';
+
+  @override
+  String get milestone7Title => 'Year of freedom';
+
+  @override
+  String get milestone7Desc =>
+      'A year without cigarettes is a big milestone on your path.';
+
+  @override
+  String get navProgress => 'Progress';
+
+  @override
+  String get more => 'More';
+
+  @override
+  String get settingsSubtitle => 'Customize Puffree for yourself';
+
+  @override
+  String get sectionApp => 'App';
+
+  @override
+  String get sectionData => 'Data';
+
+  @override
+  String get sectionAbout => 'About';
+
+  @override
+  String get resetProgressSubtitle => 'Start the journey again';
+
+  @override
+  String get premiumActiveBadge => 'ACTIVE';
+
+  @override
+  String get splashCaption => 'Freedom from smoking';
+
+  @override
+  String get todayStartJourney => 'Today is the beginning of your new journey.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord is already a real result. Keep going.';
+  }
 }

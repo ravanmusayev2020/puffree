@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../l10n/app_localizations.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/progress/progress_bloc.dart';
@@ -450,6 +451,7 @@ class _SplashScreenState extends State<SplashScreen>
   // ---------------------------------------------------------------------------
 
   Widget _buildBrandText(bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       children: [
         Text(
@@ -468,7 +470,7 @@ class _SplashScreenState extends State<SplashScreen>
         const SizedBox(height: 11),
 
         Text(
-          'Свобода от курения',
+          l10n.tagline,
           style: GoogleFonts.inter(
             fontSize: 14.5,
             fontWeight: FontWeight.w600,
@@ -526,6 +528,7 @@ class _SplashScreenState extends State<SplashScreen>
   // ---------------------------------------------------------------------------
 
   Widget _buildBottomCaption(bool isDark) {
+    final l10n = AppLocalizations.of(context);
     final progress = Curves.easeOut.transform(
       _contentController.value,
     );
@@ -539,7 +542,7 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           children: [
             Text(
-              'Твой первый шаг начинается здесь',
+              l10n.splashCaption,
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                 fontSize: 10.5,

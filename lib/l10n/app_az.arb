@@ -205,5 +205,60 @@
 
   "smallSteps": "Kiçik addımlar. Böyük dəyişikliklər.",
   "youAreFurther": "Sən artıq dünəndən irəlidəsən",
-  "madeForFuture": "Siqaretsiz gələcək üçün yaradılıb"
+  "madeForFuture": "Siqaretsiz gələcək üçün yaradılıb",
+
+  "dayStreakCaption": "gün ardıcıl",
+  "cigarettesAvoidedCaption": "çəkilməyib",
+  "freeDaysCaption": "azadlıq günü",
+  "levelLabel": "Səviyyə",
+  "keepStreakAlive": "Seriyanı davam etdir",
+
+  "failedToLoadProgress": "İnkişafı yükləmək mümkün olmadı",
+  "levelTitle1": "İlk Nəfəs",
+  "levelTitle2": "Cücərti",
+  "levelTitle3": "Böyümə",
+  "levelTitle4": "Köklər",
+  "levelTitle5": "Gövda",
+  "levelTitle6": "Güc",
+  "levelTitle7": "Atəş",
+  "levelTitle8": "Qığılcım",
+  "levelTitle9": "Çempion",
+  "levelTitle10": "Usta",
+  "levelTitle11": "Almaz",
+  "levelTitle12": "Ulduz",
+  "levelTitle13": "Raket",
+  "levelTitle14": "Əfsanə",
+  "levelTitleDefault": "Yol",
+
+  "milestone1Title": "Yeni yolun başlanğıcı",
+  "milestone1Desc": "Artıq ilk addımı atmısınız və irəliləməyə davam edirsiniz.",
+  "milestone2Title": "İlk dəyişikliklər",
+  "milestone2Desc": "Orqanizm tədricən siqaretsiz həyata uyğunlaşır.",
+  "milestone3Title": "Yeni mərhələ",
+  "milestone3Desc": "Vərdiş olmadan tədricən yeni bir ritm formalaşır.",
+  "milestone4Title": "Əmin tərəqqi",
+  "milestone4Desc": "İki həftə yeni bir vərdiş yolunda nəzərəçarpacaq bir mərhələdir.",
+  "milestone5Title": "Böyük vərdiş dəyişir",
+  "milestone5Desc": "Bir aylıq ardıcıllıq ciddi bir şəxsi nəticədir.",
+  "milestone6Title": "Böyük mərhələ",
+  "milestone6Desc": "Yolu davam etdirmək yeni həyat tərzini möhkəmləndirməyə kömək edir.",
+  "milestone7Title": "Azadlıq ili",
+  "milestone7Desc": "Siqaretsiz bir il yolunuzda böyük bir mərhələdir.",
+  "navProgress": "İrəliləyiş",
+  "more": "Daha çox",
+  "splashCaption": "Siqaretdən azadlıq",
+  "settingsSubtitle": "Puffree-ni özünə uyğunlaşdır",
+  "sectionApp": "Tətbiq",
+  "sectionData": "Məlumatlar",
+  "sectionAbout": "Haqqında",
+  "resetProgressSubtitle": "Yolu yenidən başla",
+  "premiumActiveBadge": "ACTIVE",
+  "todayStartJourney": "Bu gün yeni səyahətinizin başlanğıcıdır.",
+  "realResultKeepGoing": "{count} {daysWord} artıq real nəticədir. Davam edin.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

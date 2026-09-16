@@ -139,6 +139,7 @@ class _HomeBody extends StatelessWidget {
           const SizedBox(height: 18),
           _buildProgressOverview(
             state,
+            l10n,
             isDark,
             ru,
           ),
@@ -315,9 +316,7 @@ class _HomeBody extends StatelessWidget {
                     CrossAxisAlignment.start,
                     children: [
                       Text(
-                        ru
-                            ? 'ТВОЙ ПРОГРЕСС'
-                            : 'YOUR PROGRESS',
+                        l10n.progress.toUpperCase(),
                         style: GoogleFonts.inter(
                           fontSize: 9,
                           fontWeight: FontWeight.w800,
@@ -380,9 +379,7 @@ class _HomeBody extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  ru
-                      ? 'До следующего уровня'
-                      : 'To next level',
+                  l10n.toNextLevel,
                   style: GoogleFonts.inter(
                     fontSize: 10,
                     fontWeight: FontWeight.w600,
@@ -425,9 +422,7 @@ class _HomeBody extends StatelessWidget {
       CrossAxisAlignment.start,
       children: [
         _SectionHeader(
-          title: ru
-              ? 'КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ'
-              : 'KEY RESULTS',
+          title: l10n.keyResults,
           isDark: isDark,
         ),
         const SizedBox(height: 10),
@@ -437,9 +432,7 @@ class _HomeBody extends StatelessWidget {
               child: _ResultCard(
                 value: '${progress.currentStreak}',
                 label: l10n.streak,
-                caption: ru
-                    ? 'дней подряд'
-                    : 'day streak',
+                caption: l10n.dayStreakCaption,
                 color: AppColors.amber,
                 isDark: isDark,
               ),
@@ -449,9 +442,7 @@ class _HomeBody extends StatelessWidget {
               child: _ResultCard(
                 value: money,
                 label: l10n.saved,
-                caption: ru
-                    ? 'сэкономлено'
-                    : 'saved',
+                caption: l10n.saved.toLowerCase(),
                 color: AppColors.success,
                 isDark: isDark,
               ),
@@ -466,9 +457,7 @@ class _HomeBody extends StatelessWidget {
                 value:
                 '${progress.cigarettesAvoided}',
                 label: l10n.avoided,
-                caption: ru
-                    ? 'не выкурено'
-                    : 'avoided',
+                caption: l10n.cigarettesAvoidedCaption,
                 color: AppColors.primary,
                 isDark: isDark,
               ),
@@ -479,9 +468,7 @@ class _HomeBody extends StatelessWidget {
                 value:
                 '${progress.totalSmokeFreeDays}',
                 label: l10n.totalDays,
-                caption: ru
-                    ? 'дней свободы'
-                    : 'free days',
+                caption: l10n.freeDaysCaption,
                 color: AppColors.accent,
                 isDark: isDark,
               ),
@@ -496,6 +483,7 @@ class _HomeBody extends StatelessWidget {
 
   Widget _buildProgressOverview(
       ProgressLoaded state,
+      AppLocalizations l10n,
       bool isDark,
       bool ru,
       ) {
@@ -535,9 +523,7 @@ class _HomeBody extends StatelessWidget {
                   CrossAxisAlignment.start,
                   children: [
                     Text(
-                      ru
-                          ? 'СИСТЕМА ПРОГРЕССА'
-                          : 'PROGRESS SYSTEM',
+                      l10n.progressSystem,
                       style: GoogleFonts.inter(
                         fontSize: 9,
                         fontWeight: FontWeight.w800,
@@ -547,9 +533,7 @@ class _HomeBody extends StatelessWidget {
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      ru
-                          ? 'Каждый день приближает к следующему уровню'
-                          : 'Every day moves you closer to the next level',
+                      l10n.everyDayCloser,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.inter(
@@ -565,7 +549,7 @@ class _HomeBody extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              _MiniLineChart(
+              const _MiniLineChart(
                 color: AppColors.primary,
               ),
             ],
@@ -574,7 +558,7 @@ class _HomeBody extends StatelessWidget {
           Row(
             children: [
               Text(
-                ru ? 'Уровень' : 'Level',
+                l10n.levelLabel,
                 style: GoogleFonts.inter(
                   fontSize: 10,
                   fontWeight: FontWeight.w600,
@@ -603,7 +587,7 @@ class _HomeBody extends StatelessWidget {
           Row(
             children: [
               _Milestone(
-                title: ru ? 'Сейчас' : 'Current',
+                title: l10n.current,
                 value: '${progress.daysSinceQuit}d',
                 isActive: true,
                 isDark: isDark,
@@ -615,7 +599,7 @@ class _HomeBody extends StatelessWidget {
               ),
               const Spacer(),
               _Milestone(
-                title: ru ? 'Следующий' : 'Next',
+                title: l10n.nextLevel,
                 value: '${progress.daysSinceQuit + 7}d',
                 isActive: false,
                 isDark: isDark,
@@ -929,7 +913,7 @@ class _HomeBody extends StatelessWidget {
                         progress
                             .hasCheckedInToday
                             ? '✓'
-                            : 'Keep your streak alive',
+                            : l10n.keepStreakAlive,
                         style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight:
@@ -1100,9 +1084,9 @@ class _HomeBody extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text(
-                'Continue',
-                style: TextStyle(
+              child: Text(
+                l10n.continueBtn,
+                style: const TextStyle(
                   color: AppColors.coral,
                   fontWeight:
                   FontWeight.w700,
@@ -1346,7 +1330,7 @@ class _ProgressOrb extends StatelessWidget {
                 ),
               ),
               Text(
-                'LEVEL',
+                AppLocalizations.of(context).levelLabel.toUpperCase(),
                 style: GoogleFonts.inter(
                   fontSize: 8,
                   fontWeight: FontWeight.w800,
@@ -1536,9 +1520,7 @@ class _LiveFreedomClockState
             CrossAxisAlignment.start,
             children: [
               Text(
-                widget.ru
-                    ? 'СВОБОДЕН УЖЕ'
-                    : 'FREE FOR',
+                AppLocalizations.of(context).freeFor,
                 style: GoogleFonts.inter(
                   fontSize: 8,
                   fontWeight: FontWeight.w800,

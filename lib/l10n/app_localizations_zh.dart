@@ -548,4 +548,144 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get madeForFuture => '为无烟的未来而生';
+
+  @override
+  String get dayStreakCaption => '连续天数';
+
+  @override
+  String get cigarettesAvoidedCaption => '已避免';
+
+  @override
+  String get freeDaysCaption => '自由天数';
+
+  @override
+  String get levelLabel => '等级';
+
+  @override
+  String get keepStreakAlive => '保持连续记录';
+
+  @override
+  String get failedToLoadProgress => '进度加载失败';
+
+  @override
+  String get levelTitle1 => '第一口呼吸';
+
+  @override
+  String get levelTitle2 => '幼苗';
+
+  @override
+  String get levelTitle3 => '生长';
+
+  @override
+  String get levelTitle4 => '扎根';
+
+  @override
+  String get levelTitle5 => '树干';
+
+  @override
+  String get levelTitle6 => '力量';
+
+  @override
+  String get levelTitle7 => '火焰';
+
+  @override
+  String get levelTitle8 => '火花';
+
+  @override
+  String get levelTitle9 => '冠军';
+
+  @override
+  String get levelTitle10 => '大师';
+
+  @override
+  String get levelTitle11 => '钻石';
+
+  @override
+  String get levelTitle12 => '星辰';
+
+  @override
+  String get levelTitle13 => '火箭';
+
+  @override
+  String get levelTitle14 => '传奇';
+
+  @override
+  String get levelTitleDefault => '路径';
+
+  @override
+  String get milestone1Title => '新旅程的开始';
+
+  @override
+  String get milestone1Desc => '你已经迈出了第一步，正在继续前进。';
+
+  @override
+  String get milestone2Title => '初步变化';
+
+  @override
+  String get milestone2Desc => '身体正逐渐适应无烟生活。';
+
+  @override
+  String get milestone3Title => '新阶段';
+
+  @override
+  String get milestone3Desc => '无烟生活的新节奏正逐渐形成。';
+
+  @override
+  String get milestone4Title => '稳步进展';
+
+  @override
+  String get milestone4Desc => '两周是养成新习惯道路上的一个显著里程碑。';
+
+  @override
+  String get milestone5Title => '习惯大转变';
+
+  @override
+  String get milestone5Desc => '坚持一个月是一个重大的个人成就。';
+
+  @override
+  String get milestone6Title => '重要关口';
+
+  @override
+  String get milestone6Desc => '继续前行有助于巩固新的生活方式。';
+
+  @override
+  String get milestone7Title => '自由周年';
+
+  @override
+  String get milestone7Desc => '无烟一年是你人生旅程中的一个重大里程碑。';
+
+  @override
+  String get navProgress => '进度';
+
+  @override
+  String get more => '更多';
+
+  @override
+  String get settingsSubtitle => '按自己的喜好设置 Puffree';
+
+  @override
+  String get sectionApp => '应用';
+
+  @override
+  String get sectionData => '数据';
+
+  @override
+  String get sectionAbout => '关于';
+
+  @override
+  String get resetProgressSubtitle => '重新开始旅程';
+
+  @override
+  String get premiumActiveBadge => '已激活';
+
+  @override
+  String get splashCaption => '远离吸烟的自由';
+
+  @override
+  String get todayStartJourney => '今天是你新旅程的开始。';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord 已经是真实的成果。请继续保持。';
+  }
 }

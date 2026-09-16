@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../core/theme/locale_controller.dart';
+import '../../../l10n/app_localizations.dart';
 
 class LanguageTile extends StatelessWidget {
   const LanguageTile({super.key});
@@ -49,7 +50,7 @@ class LanguageTile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Язык',
+                              AppLocalizations.of(context).language,
                               style: GoogleFonts.inter(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -156,7 +157,7 @@ void showLanguageSheet(
               ),
               const SizedBox(height: 18),
               Text(
-                'Язык',
+                AppLocalizations.of(context).language,
                 style: GoogleFonts.outfit(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,

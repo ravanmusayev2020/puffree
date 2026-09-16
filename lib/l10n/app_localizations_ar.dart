@@ -561,4 +561,147 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get madeForFuture => 'صُنع من أجل مستقبل خالٍ من التدخين';
+
+  @override
+  String get dayStreakCaption => 'أيام متتالية';
+
+  @override
+  String get cigarettesAvoidedCaption => 'تجنبها';
+
+  @override
+  String get freeDaysCaption => 'أيام الحرية';
+
+  @override
+  String get levelLabel => 'المستوى';
+
+  @override
+  String get keepStreakAlive => 'حافظ على استمرار أيامك المتتالية';
+
+  @override
+  String get failedToLoadProgress => 'فشل في تحميل التقدم';
+
+  @override
+  String get levelTitle1 => 'النفس الأول';
+
+  @override
+  String get levelTitle2 => 'برعم';
+
+  @override
+  String get levelTitle3 => 'نمو';
+
+  @override
+  String get levelTitle4 => 'جذور';
+
+  @override
+  String get levelTitle5 => 'جذع';
+
+  @override
+  String get levelTitle6 => 'قوة';
+
+  @override
+  String get levelTitle7 => 'نار';
+
+  @override
+  String get levelTitle8 => 'شرارة';
+
+  @override
+  String get levelTitle9 => 'بطل';
+
+  @override
+  String get levelTitle10 => 'ماهر';
+
+  @override
+  String get levelTitle11 => 'ألماس';
+
+  @override
+  String get levelTitle12 => 'نجمة';
+
+  @override
+  String get levelTitle13 => 'صاروخ';
+
+  @override
+  String get levelTitle14 => 'أسطورة';
+
+  @override
+  String get levelTitleDefault => 'مسار';
+
+  @override
+  String get milestone1Title => 'بداية مسار جديد';
+
+  @override
+  String get milestone1Desc =>
+      'لقد اتخذت الخطوة الأولى بالفعل وتستمر في المضي قدماً.';
+
+  @override
+  String get milestone2Title => 'التغييرات الأولى';
+
+  @override
+  String get milestone2Desc => 'يتكيف الجسم تدريجياً مع الحياة بدون سجائر.';
+
+  @override
+  String get milestone3Title => 'مرحلة جديدة';
+
+  @override
+  String get milestone3Desc => 'يتشكل إيقاع جديد تدريجياً بدون العادة.';
+
+  @override
+  String get milestone4Title => 'تقدم واثق';
+
+  @override
+  String get milestone4Desc =>
+      'أسبوعان هما معلم بارز في الطريق إلى عادة جديدة.';
+
+  @override
+  String get milestone5Title => 'العادة الكبيرة تتغير';
+
+  @override
+  String get milestone5Desc => 'شهر من الاستمرارية هو نتيجة شخصية جادة.';
+
+  @override
+  String get milestone6Title => 'معلم كبير';
+
+  @override
+  String get milestone6Desc =>
+      'الاستمرار في المسار يساعد في ترسيخ نمط حياة جديد.';
+
+  @override
+  String get milestone7Title => 'عام من الحرية';
+
+  @override
+  String get milestone7Desc => 'عام بدون سجائر هو معلم كبير في مسارك.';
+
+  @override
+  String get navProgress => 'التقدم';
+
+  @override
+  String get more => 'المزيد';
+
+  @override
+  String get settingsSubtitle => 'خصص Puffree لنفسك';
+
+  @override
+  String get sectionApp => 'التطبيق';
+
+  @override
+  String get sectionData => 'البيانات';
+
+  @override
+  String get sectionAbout => 'حول التطبيق';
+
+  @override
+  String get resetProgressSubtitle => 'ابدأ الرحلة من جديد';
+
+  @override
+  String get premiumActiveBadge => 'نشط';
+
+  @override
+  String get splashCaption => 'التحرر من التدخين';
+
+  @override
+  String get todayStartJourney => 'اليوم هو بداية رحلتك الجديدة.';
+
+  @override
+  String realResultKeepGoing(int count, String daysWord) {
+    return '$count $daysWord هي بالفعل نتيجة حقيقية. استمر.';
+  }
 }

@@ -205,5 +205,60 @@
 
   "smallSteps": "小さな一歩。大きな変化。",
   "youAreFurther": "昨日よりすでに先に進んでいます",
-  "madeForFuture": "タバコのない未来のために作られました"
+  "madeForFuture": "タバコのない未来のために作られました",
+
+  "dayStreakCaption": "日連続",
+  "cigarettesAvoidedCaption": "回避",
+  "freeDaysCaption": "自由な日数",
+  "levelLabel": "レベル",
+  "keepStreakAlive": "ストリークを維持しましょう",
+
+  "failedToLoadProgress": "進捗の読み込みに失敗しました",
+  "levelTitle1": "最初の一息",
+  "levelTitle2": "芽生え",
+  "levelTitle3": "成長",
+  "levelTitle4": "根付き",
+  "levelTitle5": "幹",
+  "levelTitle6": "力",
+  "levelTitle7": "炎",
+  "levelTitle8": "火花",
+  "levelTitle9": "チャンピオン",
+  "levelTitle10": "マスター",
+  "levelTitle11": "ダイアモンド",
+  "levelTitle12": "星",
+  "levelTitle13": "ロケット",
+  "levelTitle14": "伝説",
+  "levelTitleDefault": "道のり",
+
+  "milestone1Title": "新しい道の始まり",
+  "milestone1Desc": "あなたはすでに第一歩を踏み出し、前進し続けています。",
+  "milestone2Title": "最初の変化",
+  "milestone2Desc": "体は徐々にタバコのない生活に適応していきます。",
+  "milestone3Title": "新しいステージ",
+  "milestone3Desc": "習慣のない新しいリズムが徐々に形成されていきます。",
+  "milestone4Title": "確かな進歩",
+  "milestone4Desc": "2週間は、新しい習慣への道のりにおける顕著な節目です。",
+  "milestone5Title": "大きな習慣の変化",
+  "milestone5Desc": "1ヶ月の継続は、重大な個人的な成果です。",
+  "milestone6Title": "大きな節目",
+  "milestone6Desc": "道を続けることで、新しいライフスタイルを定着させることができます。",
+  "milestone7Title": "自由な1年",
+  "milestone7Desc": "タバコのない1年は、あなたの道のりにおける大きな節目です。",
+  "navProgress": "進捗",
+  "more": "その他",
+  "settingsSubtitle": "Puffreeを自分用にカスタマイズ",
+  "sectionApp": "アプリ",
+  "sectionData": "データ",
+  "sectionAbout": "アプリについて",
+  "resetProgressSubtitle": "旅をやり直す",
+  "premiumActiveBadge": "有効",
+  "splashCaption": "喫煙からの自由",
+  "todayStartJourney": "今日はあなたの新しい旅の始まりです。",
+  "realResultKeepGoing": "{count} {daysWord} はすでに現実的な成果です。このまま続けましょう。",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

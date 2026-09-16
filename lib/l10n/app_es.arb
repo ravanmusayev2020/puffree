@@ -1,1 +1,291 @@
-{"@@locale": "es"}
+{
+  "@@locale": "es",
+
+  "appName": "Puffree",
+  "tagline": "Libertad del tabaco",
+  "navProgress": "Progreso",
+  "more": "Más",
+  "splashCaption": "Libertad del tabaco",
+  "today": "Hoy",
+  "streak": "Racha",
+  "saved": "Ahorrado",
+  "avoided": "Evitado",
+  "totalDays": "Días totales",
+  "dailyMotivation": "Motivación diaria",
+  "checkIn": "No fumé hoy",
+  "checkedInToday": "Registrado hoy",
+  "missions": "Misiones diarias",
+  "completedOf": "Completado {completed} de {total}",
+  "@completedOf": {
+    "placeholders": {
+      "completed": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "premium": "Premium",
+  "tryFree": "Prueba 3 días gratis",
+  "buyPremium": "Comprar Premium",
+  "restore": "Restaurar compras",
+  "premiumHint": "Desbloquea todas las funciones con Premium",
+  "settingsSubtitle": "Personaliza Puffree a tu gusto",
+  "sectionApp": "App",
+  "sectionData": "Datos",
+  "sectionAbout": "Acerca de",
+  "resetProgressSubtitle": "Empezar el camino de nuevo",
+  "premiumActiveBadge": "ACTIVO",
+  "settings": "Ajustes",
+  "progress": "Tu progreso",
+  "statistics": "Estadísticas",
+  "currentStreak": "Racha actual",
+  "record": "Récord",
+  "bodyChanges": "Qué le pasa a tu cuerpo",
+
+  "resetProgress": "Restablecer progreso",
+  "resetConfirm": "Se borrarán todos los datos sobre días, racha y estadísticas. Esto no se puede deshacer.",
+  "cancel": "Cancelar",
+  "reset": "Restablecer",
+
+  "journalTitle": "Diario",
+  "journalHint": "Escribe tus pensamientos",
+  "journalPlaceholder": "¿Cómo te sientes hoy?",
+  "save": "Guardar",
+  "moodCheck": "¿Cómo te sientes?",
+  "moodCheckHint": "Tómate un momento para conectar contigo mismo.",
+
+  "version": "Versión",
+  "privacy": "Política de privacidad",
+  "terms": "Términos de uso",
+  "disclaimer": "Puffree es una aplicación motivacional. No es un dispositivo médico y no sustituye el consejo médico profesional. Si tienes una fuerte adicción a la nicotina, consulta con un especialista.",
+
+  "level": "Nivel {number}",
+  "@level": {
+    "placeholders": {
+      "number": { "type": "int" }
+    }
+  },
+
+  "daysSmokeFree": "{count} días sin fumar",
+  "@daysSmokeFree": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "nextLevelProgress": "{percent}% para el siguiente nivel",
+  "@nextLevelProgress": {
+    "placeholders": {
+      "percent": { "type": "int" }
+    }
+  },
+
+  "friend": "Amigo",
+  "helloName": "¡Hola, {name}!",
+  "@helloName": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "pathToFreedom": "Tu camino hacia la libertad",
+  "withoutCigs": "sin cigarrillos",
+
+  "iSmoked": "Fumé",
+  "relapseTitle": "No pasa nada",
+  "relapseBody": "Un cigarrillo no borra tu progreso. Aprende de este momento y sigue adelante.",
+  "relapseDone": "Continuar",
+
+  "home": "Inicio",
+  "tasks": "Tareas",
+
+  "missionBreathe": "Respiración profunda",
+  "missionWater": "Beber agua",
+  "missionWalk": "Caminata de 10 min",
+  "missionJournal": "Escribe un pensamiento",
+  "missionMeditation": "Meditación de 5 min",
+  "missionFocus": "Enfoque sin teléfono",
+  "missionReflect": "Reflexión del día",
+  "missionHelp": "Apoya a alguien",
+
+  "missionBreatheDesc": "Toma algunas respiraciones lentas y profundas.",
+  "missionWaterDesc": "Bebe un vaso de agua.",
+  "missionWalkDesc": "Da una caminata de 10 minutos.",
+  "missionJournalDesc": "Escribe un pensamiento sobre tu día.",
+  "missionMeditationDesc": "Tómate 5 minutos para meditar.",
+  "missionFocusDesc": "Pasa un tiempo enfocado sin tu teléfono.",
+  "missionReflectDesc": "Piensa en cómo fue tu día.",
+  "missionHelpDesc": "Haz algo amable para apoyar a alguien.",
+
+  "sosTitle": "Soporte SOS",
+  "sosTimer": "Temporizador de antojo",
+  "sosBreathe": "Respirar",
+  "sosChat": "Hablar",
+  "sosStart": "Iniciar",
+  "sosDone": "Hecho",
+  "sosManaged": "¡Controlaste el antojo!",
+  "sosWon": "¡Ganaste!",
+  "sosLeft": "restante",
+
+  "sosTip1": "Toma algunas respiraciones lentas y profundas.",
+  "sosTip2": "Bebe un vaso de agua.",
+  "sosTip3": "Muévete a un lugar diferente.",
+  "sosTip4": "Mantén tus manos ocupadas.",
+  "sosTip5": "Piensa en por qué empezaste.",
+  "sosTip6": "Dale al antojo unos minutos para que pase.",
+
+  "breatheIn": "Inhala",
+  "breatheHold": "Retén",
+  "breatheOut": "Exhala",
+  "breatheHint": "Sigue el círculo y respira lentamente.",
+  "breatheStart": "Iniciar respiración",
+
+  "chatPick": "¿Qué estás sintiendo ahora mismo?",
+  "chatCraving": "Tengo un antojo",
+  "chatStress": "Estoy estresado",
+  "chatBoredom": "Estoy aburrido",
+  "chatNeedWalk": "Necesito una caminata",
+  "chatNeedWater": "Necesito agua",
+  "chatNeedBreathe": "Necesito respirar",
+
+  "chatIntroStress": "Parece que te sientes estresado. Superemos este momento juntos.",
+  "chatIntroBoredom": "El aburrimiento puede hacer que los antojos se sientan más fuertes. Busquemos otra cosa en qué enfocarnos.",
+  "chatIntroCraving": "Un antojo puede sentirse intenso, pero pasará. Tomémoslo momento a momento.",
+
+  "chatReplyStress": "Intenta tomar algunas respiraciones lentas y date un breve descanso. No tienes que ceder al antojo.",
+  "chatReplyBoredom": "Cambiemos de entorno. Da una caminata corta, bebe agua o haz algo que mantenga tus manos ocupadas.",
+  "chatReplyCraving": "Espera unos minutos antes de tomar cualquier decisión. Bebe agua, respira lentamente y recuerda por qué empezaste.",
+
+  "onboardingTitle1": "Respira libremente",
+  "onboardingDesc1": "Puffree te ayuda a dejar de fumar paso a paso, sin presiones y con apoyo.",
+  "onboardingTitle2": "Niveles y progreso",
+  "onboardingDesc2": "Cada día sin un cigarrillo desbloquea un nuevo nivel. Mira cómo crecen tu fuerza y tu salud.",
+  "onboardingTitle3": "Soporte diario",
+  "onboardingDesc3": "Motivación, misiones y seguimiento del progreso. No estás solo en este camino.",
+
+  "aboutYou": "Un poco sobre ti",
+  "aboutYouDesc": "Esto ayuda a calcular el dinero y los cigarrillos ahorrados",
+  "cigsPerDay": "Cigarrillos por día antes",
+  "pricePerPack": "Precio por paquete",
+  "startJourney": "Iniciar el viaje",
+  "next": "Siguiente",
+  "skip": "Omitir",
+
+  "youGotThis": "Tú puedes con esto. Un momento a la vez.",
+  "waitTheWave": "Supera la ola del antojo",
+  "youPassedThis": "Superaste este momento",
+  "greatJob": "Buen trabajo. Tú tienes el control.",
+  "giveYourselfMinutes": "Date unos minutos y enfócate en el presente.",
+  "keepGoing": "CONTINUAR",
+  "done": "HECHO",
+  "breatheSlowly": "Respira lentamente",
+  "followTheCircle": "Sigue el ritmo del círculo",
+  "chooseWhatFits": "Elige lo que mejor se adapte a cómo te sientes ahora mismo.",
+
+  "yourResults": "Tus resultados",
+  "whatChanged": "Lo que ya ha cambiado gracias a ti",
+  "recoveryPath": "Camino de recuperación",
+  "everyMilestone": "Cada logro es un paso más hacia adelante",
+  "levelProgress": "Progreso al siguiente nivel",
+  "yourPathContinues": "Tu camino continúa",
+  "daysWordOne": "día",
+  "daysWordFew": "días",
+  "daysWordMany": "días",
+
+  "momentum": "IMPULSO",
+  "missionsLeft": "Quedan {count} misiones",
+  "allMissionsDone": "Todas las misiones completadas",
+  "dayComplete": "Día completo",
+  "keepGoingShort": "Sigue así",
+  "inProgress": "EN PROGRESO",
+  "complete": "COMPLETO",
+  "yourPlanToday": "Tu plan para hoy",
+  "everythingDone": "Todo completado",
+
+  "theme": "Tema",
+  "language": "Idioma",
+  "notifications": "Notificaciones",
+  "notificationsHint": "Recordatorios y motivación",
+  "data": "Datos",
+  "aboutApp": "Acerca de la app",
+  "appTheme": "Tema de la app",
+  "chooseTheme": "Elige cómo debe verse Puffree.",
+  "systemTheme": "Sistema",
+  "systemThemeDesc": "Sigue los ajustes del teléfono",
+  "lightTheme": "Claro",
+  "lightThemeDesc": "Usar siempre el tema claro",
+  "darkTheme": "Oscuro",
+  "darkThemeDesc": "Usar siempre el tema oscuro",
+
+  "premiumActive": "Premium está activo",
+  "trialActive": "El período de prueba está activo",
+  "fullAccess": "Acceso completo a todas las funciones",
+  "openPremium": "Abrir Premium y opciones de suscripción",
+
+  "resetProgressTitle": "¿Restablecer progreso?",
+  "resetProgressBody": "Se borrarán todos los datos sobre días, racha y estadísticas. Esta acción no se puede deshacer.",
+
+  "excellent": "¡Excelente!",
+  "anotherDayFree": "Otro día sin cigarrillos",
+  "continueBtn": "Continuar",
+  "newAchievement": "NUEVO LOGRO",
+  "newLevel": "¡Nuevo nivel!",
+  "levelUpMessage": "Sigue así, ¡lo estás haciendo genial!",
+
+  "freeFor": "LIBRE DESDE HACE",
+  "toNextLevel": "Al siguiente nivel",
+  "keyResults": "RESULTADOS CLAVE",
+  "progressSystem": "SISTEMA DE PROGRESO",
+  "everyDayCloser": "Cada día te acerca al siguiente nivel",
+  "current": "Actual",
+  "nextLevel": "Siguiente",
+
+  "smallSteps": "Pequeños pasos. Grandes cambios.",
+  "youAreFurther": "Ya estás más lejos que ayer",
+  "madeForFuture": "Hecho para un futuro sin humo",
+
+  "dayStreakCaption": "días seguidos",
+  "cigarettesAvoidedCaption": "evitados",
+  "freeDaysCaption": "días libres",
+  "levelLabel": "Nivel",
+  "keepStreakAlive": "Mantén tu racha activa",
+
+  "failedToLoadProgress": "Error al cargar el progreso",
+  "levelTitle1": "Primer Suspiro",
+  "levelTitle2": "Brote",
+  "levelTitle3": "Crecimiento",
+  "levelTitle4": "Raíces",
+  "levelTitle5": "Tronco",
+  "levelTitle6": "Fuerza",
+  "levelTitle7": "Fuego",
+  "levelTitle8": "Chispa",
+  "levelTitle9": "Campeón",
+  "levelTitle10": "Maestro",
+  "levelTitle11": "Diamante",
+  "levelTitle12": "Estrella",
+  "levelTitle13": "Cohete",
+  "levelTitle14": "Leyenda",
+  "levelTitleDefault": "Camino",
+
+  "milestone1Title": "Inicio de un nuevo camino",
+  "milestone1Desc": "Ya has dado el primer paso y sigues avanzando.",
+  "milestone2Title": "Primeros cambios",
+  "milestone2Desc": "El cuerpo se adapta gradualmente a la vida sin cigarrillos.",
+  "milestone3Title": "Nueva etapa",
+  "milestone3Desc": "Poco a poco se forma un nuevo ritmo sin el hábito.",
+  "milestone4Title": "Progreso seguro",
+  "milestone4Desc": "Dos semanas es un hito notable en el camino hacia un nuevo hábito.",
+  "milestone5Title": "El gran hábito cambia",
+  "milestone5Desc": "Un mes de constancia es un resultado personal serio.",
+  "milestone6Title": "Gran frontera",
+  "milestone6Desc": "Continuar el camino ayuda a consolidar un nuevo estilo de vida.",
+  "milestone7Title": "Año de libertad",
+  "milestone7Desc": "Un año sin cigarrillos es un gran hito en tu camino.",
+
+  "todayStartJourney": "Hoy es el comienzo de tu nuevo camino.",
+  "realResultKeepGoing": "{count} {daysWord} ya es un resultado real. Continúa.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
+}

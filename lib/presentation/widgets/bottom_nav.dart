@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../core/theme/app_theme.dart';
+import '../../l10n/app_localizations.dart';
 import '../screens/home/home_screen.dart';
 import '../screens/daily/daily_screen.dart';
 import '../screens/progress/progress_screen.dart';
@@ -68,6 +69,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(
         18,
@@ -108,7 +110,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                 child: _NavigationItem(
                   icon: Iconsax.home_2,
                   activeIcon: Iconsax.home_25,
-                  label: 'Главная',
+                  label: l10n.home,
                   selected: currentIndex == 0,
                   isDark: isDark,
                   onTap: () => onChanged(0),
@@ -118,7 +120,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                 child: _NavigationItem(
                   icon: Iconsax.task_square,
                   activeIcon: Iconsax.task_square5,
-                  label: 'Задания',
+                  label: l10n.tasks,
                   selected: currentIndex == 1,
                   isDark: isDark,
                   onTap: () => onChanged(1),
@@ -128,7 +130,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                 child: _NavigationItem(
                   icon: Iconsax.chart_2,
                   activeIcon: Iconsax.chart_25,
-                  label: 'Прогресс',
+                  label: l10n.navProgress,
                   selected: currentIndex == 2,
                   isDark: isDark,
                   onTap: () => onChanged(2),
@@ -138,7 +140,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                 child: _NavigationItem(
                   icon: Iconsax.setting_2,
                   activeIcon: Iconsax.setting_25,
-                  label: 'Ещё',
+                  label: l10n.more,
                   selected: currentIndex == 3,
                   isDark: isDark,
                   onTap: () => onChanged(3),

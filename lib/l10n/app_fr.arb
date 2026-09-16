@@ -205,5 +205,60 @@
 
   "smallSteps": "Petits pas. Grands changements.",
   "youAreFurther": "Vous êtes déjà plus loin qu'hier",
-  "madeForFuture": "Conçu pour un avenir sans tabac"
+  "madeForFuture": "Conçu pour un avenir sans tabac",
+
+  "dayStreakCaption": "jours d'affilée",
+  "cigarettesAvoidedCaption": "évités",
+  "freeDaysCaption": "jours de liberté",
+  "levelLabel": "Niveau",
+  "keepStreakAlive": "Garde ta série active",
+
+  "failedToLoadProgress": "Échec du chargement du progrès",
+  "levelTitle1": "Premier Souffle",
+  "levelTitle2": "Pousse",
+  "levelTitle3": "Croissance",
+  "levelTitle4": "Racines",
+  "levelTitle5": "Tronc",
+  "levelTitle6": "Force",
+  "levelTitle7": "Feu",
+  "levelTitle8": "Étincelle",
+  "levelTitle9": "Champion",
+  "levelTitle10": "Maître",
+  "levelTitle11": "Diamant",
+  "levelTitle12": "Étoile",
+  "levelTitle13": "Fusée",
+  "levelTitle14": "Légende",
+  "levelTitleDefault": "Chemin",
+
+  "milestone1Title": "Début d'un nouveau chemin",
+  "milestone1Desc": "Vous avez déjà fait le premier pas et continuez à avancer.",
+  "milestone2Title": "Premiers changements",
+  "milestone2Desc": "Le corps s'adapte progressivement à la vie sans cigarettes.",
+  "milestone3Title": "Nouvelle étape",
+  "milestone3Desc": "Un nouveau rythme sans l'habitude se forme progressivement.",
+  "milestone4Title": "Progrès confiant",
+  "milestone4Desc": "Deux semaines sont un jalon notable sur le chemin d'une nouvelle habitude.",
+  "milestone5Title": "L'habitude change",
+  "milestone5Desc": "Un mois de régularité est un résultat personnel sérieux.",
+  "milestone6Title": "Grand cap",
+  "milestone6Desc": "Continuer le chemin aide à consolider un nouveau mode de vie.",
+  "milestone7Title": "Année de liberté",
+  "milestone7Desc": "Un an sans cigarettes est un jalon majeur sur votre chemin.",
+  "navProgress": "Progrès",
+  "more": "Plus",
+  "settingsSubtitle": "Personnalise Puffree selon tes goûts",
+  "sectionApp": "Application",
+  "sectionData": "Données",
+  "sectionAbout": "À propos",
+  "resetProgressSubtitle": "Recommencer le parcours",
+  "premiumActiveBadge": "ACTIF",
+  "splashCaption": "Liberté face au tabac",
+  "todayStartJourney": "Aujourd'hui est le début de votre nouveau voyage.",
+  "realResultKeepGoing": "{count} {daysWord} est déjà un résultat réel. Continuez.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

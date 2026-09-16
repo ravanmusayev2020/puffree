@@ -205,5 +205,60 @@
 
   "smallSteps": "Küçük adımlar. Büyük değişiklikler.",
   "youAreFurther": "Zaten dünden daha ileridesin",
-  "madeForFuture": "Sigarasız bir gelecek için yapıldı"
+  "madeForFuture": "Sigarasız bir gelecek için yapıldı",
+
+  "dayStreakCaption": "gün üst üste",
+  "cigarettesAvoidedCaption": "içilmeyen",
+  "freeDaysCaption": "özgür gün",
+  "levelLabel": "Seviye",
+  "keepStreakAlive": "Serini bozma",
+
+  "failedToLoadProgress": "İlerleme yüklenemedi",
+  "levelTitle1": "İlk Nefes",
+  "levelTitle2": "Filiz",
+  "levelTitle3": "Büyüme",
+  "levelTitle4": "Kökler",
+  "levelTitle5": "Gövde",
+  "levelTitle6": "Güç",
+  "levelTitle7": "Ateş",
+  "levelTitle8": "Kıvılcım",
+  "levelTitle9": "Şampiyon",
+  "levelTitle10": "Usta",
+  "levelTitle11": "Elmas",
+  "levelTitle12": "Yıldız",
+  "levelTitle13": "Roket",
+  "levelTitle14": "Efsane",
+  "levelTitleDefault": "Yol",
+
+  "milestone1Title": "Yeni bir yolun başlangıcı",
+  "milestone1Desc": "Zaten ilk adımı attın ve ilerlemeye devam ediyorsun.",
+  "milestone2Title": "İlk değişiklikler",
+  "milestone2Desc": "Vücut yavaş yavaş sigarasız yaşama uyum sağlıyor.",
+  "milestone3Title": "Yeni aşama",
+  "milestone3Desc": "Alışkanlık olmadan yavaş yavaş yeni bir ritim oluşuyor.",
+  "milestone4Title": "Kendinden emin ilerleme",
+  "milestone4Desc": "İki hafta, yeni bir alışkanlığa giden yolda dikkat çekici bir dönüm noktasıdır.",
+  "milestone5Title": "Büyük alışkanlık değişiyor",
+  "milestone5Desc": "Bir aylık tutarlılık ciddi bir kişisel sonuçtur.",
+  "milestone6Title": "Büyük dönüm noktası",
+  "milestone6Desc": "Yola devam etmek yeni bir yaşam tarzının pekişmesine yardımcı olur.",
+  "milestone7Title": "Özgürlük yılı",
+  "milestone7Desc": "Sigarasız bir yıl, yolundaki büyük bir dönüm noktasıdır.",
+  "navProgress": "İlerleme",
+  "more": "Daha fazla",
+  "settingsSubtitle": "Puffree'yi kendine göre ayarla",
+  "sectionApp": "Uygulama",
+  "sectionData": "Veriler",
+  "sectionAbout": "Hakkında",
+  "resetProgressSubtitle": "Yolculuğu yeniden başlat",
+  "premiumActiveBadge": "AKTİF",
+  "splashCaption": "Sigaradan özgürlük",
+  "todayStartJourney": "Bugün yeni yolculuğunun başlangıcı.",
+  "realResultKeepGoing": "{count} {daysWord} zaten gerçek bir sonuç. Devam et.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }

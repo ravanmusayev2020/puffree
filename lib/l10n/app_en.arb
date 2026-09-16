@@ -238,5 +238,60 @@
 
   "smallSteps": "Small steps. Big changes.",
   "youAreFurther": "You are already further than yesterday",
-  "madeForFuture": "Made for a smoke-free future"
+  "madeForFuture": "Made for a smoke-free future",
+
+  "dayStreakCaption": "day streak",
+  "cigarettesAvoidedCaption": "avoided",
+  "freeDaysCaption": "free days",
+  "levelLabel": "Level",
+  "keepStreakAlive": "Keep your streak alive",
+
+  "failedToLoadProgress": "Failed to load progress",
+  "levelTitle1": "First Breath",
+  "levelTitle2": "Sprout",
+  "levelTitle3": "Growth",
+  "levelTitle4": "Roots",
+  "levelTitle5": "Trunk",
+  "levelTitle6": "Strength",
+  "levelTitle7": "Fire",
+  "levelTitle8": "Spark",
+  "levelTitle9": "Champion",
+  "levelTitle10": "Master",
+  "levelTitle11": "Diamond",
+  "levelTitle12": "Star",
+  "levelTitle13": "Rocket",
+  "levelTitle14": "Legend",
+  "levelTitleDefault": "Path",
+
+  "milestone1Title": "Beginning of a new path",
+  "milestone1Desc": "You have already taken the first step and keep moving forward.",
+  "milestone2Title": "First changes",
+  "milestone2Desc": "The body is gradually adapting to life without cigarettes.",
+  "milestone3Title": "New stage",
+  "milestone3Desc": "A new rhythm without the habit is gradually forming.",
+  "milestone4Title": "Confident progress",
+  "milestone4Desc": "Two weeks is a noticeable milestone on the way to a new habit.",
+  "milestone5Title": "Big habit is changing",
+  "milestone5Desc": "A month of consistency is a serious personal result.",
+  "milestone6Title": "Big milestone",
+  "milestone6Desc": "Continuing the path helps to consolidate a new lifestyle.",
+  "milestone7Title": "Year of freedom",
+  "milestone7Desc": "A year without cigarettes is a big milestone on your path.",
+  "navProgress": "Progress",
+  "more": "More",
+  "settingsSubtitle": "Customize Puffree for yourself",
+  "sectionApp": "App",
+  "sectionData": "Data",
+  "sectionAbout": "About",
+  "resetProgressSubtitle": "Start the journey again",
+  "premiumActiveBadge": "ACTIVE",
+  "splashCaption": "Freedom from smoking",
+  "todayStartJourney": "Today is the beginning of your new journey.",
+  "realResultKeepGoing": "{count} {daysWord} is already a real result. Keep going.",
+  "@realResultKeepGoing": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "daysWord": { "type": "String" }
+    }
+  }
 }
