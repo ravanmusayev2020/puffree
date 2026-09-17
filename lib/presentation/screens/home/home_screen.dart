@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -181,6 +182,9 @@ class _HomeBody extends StatelessWidget {
       String avatar,
       bool isDark,
       ) {
+
+    final user = FirebaseAuth.instance.currentUser;
+    final photoUrl = user?.photoURL;
     return Row(
       children: [
         Expanded(
@@ -217,8 +221,8 @@ class _HomeBody extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 14),
-        _LuxuryAvatar(
-          emoji: avatar,
+        _ProfileAvatar(
+          photoUrl: photoUrl,
           isDark: isDark,
         ),
       ],
@@ -1745,14 +1749,91 @@ class _MiniLineChartPainter
 // ═══════════════════════════════════════════════════════════════════════════
 // AVATAR
 // ═══════════════════════════════════════════════════════════════════════════
-
-class _LuxuryAvatar extends StatelessWidget {
-  const _LuxuryAvatar({
-    required this.emoji,
+class _ProfileAvatar extends StatelessWidget {
+  const _ProfileAvatar({
+    required this.photoUrl,
     required this.isDark,
   });
 
-  final String emoji;
+  final String? photoUrl;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final hasPhoto =
+        photoUrl != null && photoUrl!.trim().isNotEmpty;
+
+    return Container(
+      width: 48,
+      height: 48,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: isDark
+            ? AppColors.surfaceDark
+            : AppColors.surfaceLight,
+        border: Border.all(
+          color: AppColors.primary.withValues(
+            alpha: 0.10,
+          ),
+          width: 1.2,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(
+              alpha: isDark ? 0.16 : 0.055,
+            ),
+            blurRadius: 16,
+            offset: const Offset(0, 7),
+          ),
+        ],
+      ),
+      child: ClipOval(
+        child: hasPhoto
+            ? Image.network(
+          photoUrl!,
+          width: 48,
+          height: 48,
+          fit: BoxFit.cover,
+
+          // Пока изображение загружается
+          loadingBuilder: (
+              context,
+              child,
+              loadingProgress,
+              ) {
+            if (loadingProgress == null) {
+              return child;
+            }
+
+            return _ProfilePlaceholder(
+              isDark: isDark,
+            );
+          },
+
+          // Если URL фотографии битый
+          // или Firebase Storage недоступен.
+          errorBuilder: (
+              context,
+              error,
+              stackTrace,
+              ) {
+            return _ProfilePlaceholder(
+              isDark: isDark,
+            );
+          },
+        )
+            : _ProfilePlaceholder(
+          isDark: isDark,
+        ),
+      ),
+    );
+  }
+}
+class _ProfilePlaceholder extends StatelessWidget {
+  const _ProfilePlaceholder({
+    required this.isDark,
+  });
+
   final bool isDark;
 
   @override
@@ -1761,37 +1842,31 @@ class _LuxuryAvatar extends StatelessWidget {
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: isDark
-            ? AppColors.surfaceDark
-            : AppColors.surfaceLight,
         shape: BoxShape.circle,
-        border: Border.all(
-          color: AppColors.primary.withValues(
-            alpha: 0.08,
-          ),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: isDark
+              ? [
+            AppColors.surfaceDark,
+            AppColors.cardDark,
+          ]
+              : [
+            AppColors.surfaceLight,
+            AppColors.cardLight,
+          ],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(
-              alpha: isDark ? 0.12 : 0.045,
-            ),
-            blurRadius: 16,
-            offset: const Offset(0, 7),
-          ),
-        ],
       ),
-      child: Center(
-        child: Text(
-          emoji,
-          style: const TextStyle(
-            fontSize: 22,
-          ),
-        ),
+      child: Icon(
+        Iconsax.profile,
+        size: 21,
+        color: isDark
+            ? AppColors.textSecondaryDark
+            : AppColors.textSecondaryLight,
       ),
     );
   }
 }
-
 // ═══════════════════════════════════════════════════════════════════════════
 // SECTION
 // ═══════════════════════════════════════════════════════════════════════════

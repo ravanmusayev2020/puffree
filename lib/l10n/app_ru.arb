@@ -259,5 +259,85 @@
       "count": { "type": "int" },
       "daysWord": { "type": "String" }
     }
-  }
+  },
+
+  "notificationMorningTitle1": "Доброе утро ☀️",
+  "notificationMorningBody1": "День {day} без сигарет. Продолжай сохранять свой темп.",
+  "@notificationMorningBody1": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "notificationMorningTitle2": "Новый день без сигарет",
+  "notificationMorningBody2": "Сегодня не нужно думать обо всём пути. Просто проживи этот день.",
+  "notificationMorningTitle3": "Продолжай",
+  "notificationMorningBody3": "Маленькие решения сегодня создают твоё будущее без сигарет.",
+  "notificationMorningTitle4": "Твой путь продолжается",
+  "notificationMorningBody4": "Каждый день без сигарет — ещё один день, когда ты выбрал себя.",
+  "notificationMorningTitle5": "У тебя получится",
+  "notificationMorningBody5": "Иди сегодня маленькими шагами. Один момент за раз.",
+
+  "notificationCheckInTitle1": "Как прошёл твой день?",
+  "notificationCheckInBody1": "Удели минуту себе и отметь сегодняшний прогресс.",
+  "notificationCheckInTitle2": "Check-in Puffree",
+  "notificationCheckInBody2": "Ты сегодня не курил? Отметь свой прогресс.",
+  "notificationCheckInTitle3": "Ещё один день",
+  "notificationCheckInBody3": "Твой путь строится день за днём.",
+  "notificationCheckInTitle4": "Поддержи свой стрик",
+  "notificationCheckInBody4": "Открой Puffree и отметь сегодняшний день.",
+
+  "notificationEveningTitle1": "Как ты себя чувствуешь? 🌙",
+  "notificationEveningBody1": "Удели немного времени себе и проверь своё состояние.",
+  "notificationEveningTitle2": "Вечерний check-in",
+  "notificationEveningBody2": "Как прошёл сегодняшний день? Твой дневник ждёт.",
+  "notificationEveningTitle3": "Перед концом дня",
+  "notificationEveningBody3": "Остановись на минуту и заметь, как далеко ты уже продвинулся.",
+  "notificationEveningTitle4": "Момент для себя",
+  "notificationEveningBody4": "Подыши, подумай о сегодняшнем дне и спокойно заверши его.",
+
+  "notificationMilestone1Title": "Твой первый день 🌱",
+  "notificationMilestone1Body": "Один день без сигарет — уже настоящий шаг вперёд.",
+  "notificationMilestone3Title": "Три дня 🔥",
+  "notificationMilestone3Body": "Три дня без сигарет. Ты набираешь свой первый серьёзный импульс.",
+  "notificationMilestone7Title": "Целая неделя! 🏆",
+  "notificationMilestone7Body": "Семь дней без сигарет. Это уже серьёзная веха.",
+  "notificationMilestone14Title": "Две недели 💪",
+  "notificationMilestone14Body": "Четырнадцать дней без сигарет. Продолжай формировать новый ритм.",
+  "notificationMilestone21Title": "Три недели 🧠",
+  "notificationMilestone21Body": "21 день позади. Твой путь продолжается.",
+  "notificationMilestone30Title": "Целый месяц! 👑",
+  "notificationMilestone30Body": "30 дней без сигарет. Посмотри, как далеко ты уже продвинулся.",
+  "notificationMilestone60Title": "Два месяца 🚀",
+  "notificationMilestone60Body": "60 дней без сигарет. Последовательность становится твоей силой.",
+  "notificationMilestone90Title": "90 дней 💎",
+  "notificationMilestone90Body": "Три месяца без сигарет. Это большая веха на твоём пути.",
+  "notificationMilestone180Title": "Полгода! ✨",
+  "notificationMilestone180Body": "180 дней без сигарет. Ты создал огромный импульс.",
+  "notificationMilestone365Title": "Один год! 🏆",
+  "notificationMilestone365Body": "365 дней без сигарет. Целый год твоего нового пути.",
+  "notificationMilestoneGenericTitle": "Ещё одна веха",
+  "notificationMilestoneGenericBody": "{days} дней без сигарет. Продолжай двигаться вперёд.",
+  "@notificationMilestoneGenericBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notificationRelapseTitle1": "Всё в порядке",
+  "notificationRelapseBody1": "Один сложный момент не перечёркивает всё, что ты уже построил.",
+  "notificationRelapseTitle2": "Продолжай",
+  "notificationRelapseBody2": "Срыв — это момент, а не конец твоего пути.",
+  "notificationRelapseTitle3": "Вернись на свой путь",
+  "notificationRelapseBody3": "Сделай вдох, извлеки урок из момента и продолжай.",
+
+  "notificationInactive1Title": "Мы сегодня тебя не видели 👋",
+  "notificationInactive1Body": "Открой Puffree и отметь прогресс, когда будешь готов.",
+  "notificationInactive2Title": "Твой путь всё ещё здесь",
+  "notificationInactive2Body": "Несколько тихих дней не стирают уже достигнутый прогресс.",
+  "notificationInactive3Title": "Возвращайся, когда будешь готов",
+  "notificationInactive3Body": "Тебе не нужно быть идеальным. Просто сделай следующий шаг."
 }

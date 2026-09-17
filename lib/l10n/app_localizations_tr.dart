@@ -709,4 +709,214 @@ class AppLocalizationsTr extends AppLocalizations {
   String realResultKeepGoing(int count, String daysWord) {
     return '$count $daysWord zaten gerçek bir sonuç. Devam et.';
   }
+
+  @override
+  String get notificationMorningTitle1 => 'Good morning ☀️';
+
+  @override
+  String notificationMorningBody1(int day) {
+    return 'Day $day without cigarettes. Keep your momentum going.';
+  }
+
+  @override
+  String get notificationMorningTitle2 => 'A new smoke-free day';
+
+  @override
+  String get notificationMorningBody2 =>
+      'You don\'t need to think about the whole journey today. Just take this day.';
+
+  @override
+  String get notificationMorningTitle3 => 'Keep going';
+
+  @override
+  String get notificationMorningBody3 =>
+      'Small decisions today are building your smoke-free future.';
+
+  @override
+  String get notificationMorningTitle4 => 'Your journey continues';
+
+  @override
+  String get notificationMorningBody4 =>
+      'Every smoke-free day is another day you chose yourself.';
+
+  @override
+  String get notificationMorningTitle5 => 'You\'ve got this';
+
+  @override
+  String get notificationMorningBody5 => 'Take today one moment at a time.';
+
+  @override
+  String get notificationCheckInTitle1 => 'How was your day?';
+
+  @override
+  String get notificationCheckInBody1 =>
+      'Take a moment to check in and keep your progress alive.';
+
+  @override
+  String get notificationCheckInTitle2 => 'Puffree check-in';
+
+  @override
+  String get notificationCheckInBody2 =>
+      'Did you stay smoke-free today? Mark your progress.';
+
+  @override
+  String get notificationCheckInTitle3 => 'One more day';
+
+  @override
+  String get notificationCheckInBody3 =>
+      'Your journey is built one day at a time.';
+
+  @override
+  String get notificationCheckInTitle4 => 'Keep your streak alive';
+
+  @override
+  String get notificationCheckInBody4 => 'Open Puffree and check in for today.';
+
+  @override
+  String get notificationEveningTitle1 => 'How are you feeling? 🌙';
+
+  @override
+  String get notificationEveningBody1 =>
+      'Take a quiet moment and check in with yourself.';
+
+  @override
+  String get notificationEveningTitle2 => 'Evening check-in';
+
+  @override
+  String get notificationEveningBody2 =>
+      'How did today feel? Your journal is waiting.';
+
+  @override
+  String get notificationEveningTitle3 => 'Before the day ends';
+
+  @override
+  String get notificationEveningBody3 =>
+      'Take a moment to notice how far you\'ve come.';
+
+  @override
+  String get notificationEveningTitle4 => 'A moment for yourself';
+
+  @override
+  String get notificationEveningBody4 =>
+      'Breathe, reflect and finish the day with intention.';
+
+  @override
+  String get notificationMilestone1Title => 'Your first day 🌱';
+
+  @override
+  String get notificationMilestone1Body =>
+      'One smoke-free day is already a real step forward.';
+
+  @override
+  String get notificationMilestone3Title => 'Three days 🔥';
+
+  @override
+  String get notificationMilestone3Body =>
+      'Three smoke-free days. You\'re building momentum.';
+
+  @override
+  String get notificationMilestone7Title => 'One full week! 🏆';
+
+  @override
+  String get notificationMilestone7Body =>
+      'Seven days without cigarettes. That\'s a meaningful milestone.';
+
+  @override
+  String get notificationMilestone14Title => 'Two weeks 💪';
+
+  @override
+  String get notificationMilestone14Body =>
+      'Fourteen smoke-free days. Keep building your new routine.';
+
+  @override
+  String get notificationMilestone21Title => 'Three weeks 🧠';
+
+  @override
+  String get notificationMilestone21Body =>
+      'Twenty-one days behind you. Your journey keeps moving forward.';
+
+  @override
+  String get notificationMilestone30Title => 'One month! 👑';
+
+  @override
+  String get notificationMilestone30Body =>
+      'Thirty smoke-free days. Look how far you\'ve already come.';
+
+  @override
+  String get notificationMilestone60Title => 'Two months 🚀';
+
+  @override
+  String get notificationMilestone60Body =>
+      'Sixty days without cigarettes. Your consistency is becoming your strength.';
+
+  @override
+  String get notificationMilestone90Title => '90 days 💎';
+
+  @override
+  String get notificationMilestone90Body =>
+      'Three months smoke-free. This is a major milestone on your journey.';
+
+  @override
+  String get notificationMilestone180Title => 'Half a year! ✨';
+
+  @override
+  String get notificationMilestone180Body =>
+      '180 smoke-free days. You\'ve built an incredible amount of momentum.';
+
+  @override
+  String get notificationMilestone365Title => 'One year! 🏆';
+
+  @override
+  String get notificationMilestone365Body =>
+      '365 days without cigarettes. One full year of your new journey.';
+
+  @override
+  String get notificationMilestoneGenericTitle => 'Another milestone';
+
+  @override
+  String notificationMilestoneGenericBody(int days) {
+    return '$days smoke-free days. Keep moving forward.';
+  }
+
+  @override
+  String get notificationRelapseTitle1 => 'It\'s okay';
+
+  @override
+  String get notificationRelapseBody1 =>
+      'One difficult moment doesn\'t erase everything you\'ve built.';
+
+  @override
+  String get notificationRelapseTitle2 => 'Keep going';
+
+  @override
+  String get notificationRelapseBody2 =>
+      'A setback is a moment, not the end of your journey.';
+
+  @override
+  String get notificationRelapseTitle3 => 'Come back to your path';
+
+  @override
+  String get notificationRelapseBody3 =>
+      'Take a breath, learn from the moment and continue.';
+
+  @override
+  String get notificationInactive1Title => 'We haven\'t seen you today 👋';
+
+  @override
+  String get notificationInactive1Body =>
+      'Open Puffree and check in when you\'re ready.';
+
+  @override
+  String get notificationInactive2Title => 'Your journey is still here';
+
+  @override
+  String get notificationInactive2Body =>
+      'A few quiet days don\'t erase the progress you\'ve already made.';
+
+  @override
+  String get notificationInactive3Title => 'Come back when you\'re ready';
+
+  @override
+  String get notificationInactive3Body =>
+      'You don\'t have to be perfect. Just take the next step.';
 }

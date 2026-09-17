@@ -19,12 +19,19 @@ class MainShell extends StatefulWidget {
 class _MainShellState extends State<MainShell> {
   int _currentIndex = 0;
 
-  final _pages = const [
-    HomeScreen(),
-    DailyScreen(),
-    ProgressScreen(),
-    SettingsScreen(),
-  ];
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _pages = const [
+      HomeScreen(),
+      DailyScreen(),
+      ProgressScreen(),
+      SettingsScreen(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +39,19 @@ class _MainShellState extends State<MainShell> {
         Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
+
+      // Позволяет контенту красиво уходить
+      // под нижнюю навигацию.
       extendBody: true,
+
       body: IndexedStack(
         index: _currentIndex,
         children: _pages,
       ),
+
       bottomNavigationBar: _PuffreeNavigationBar(
         currentIndex: _currentIndex,
         isDark: isDark,
@@ -53,7 +68,7 @@ class _MainShellState extends State<MainShell> {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// NAVIGATION BAR
+// PUFFREE NAVIGATION BAR
 // ═════════════════════════════════════════════════════════════════════════════
 
 class _PuffreeNavigationBar extends StatelessWidget {
@@ -70,16 +85,18 @@ class _PuffreeNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        18,
-        0,
-        18,
-        8,
+
+    return SafeArea(
+      top: false,
+      left: false,
+      right: false,
+      minimum: const EdgeInsets.only(
+        bottom: 8,
       ),
-      child: SafeArea(
-        top: false,
-        minimum: EdgeInsets.zero,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 18,
+        ),
         child: Container(
           height: 70,
           padding: const EdgeInsets.all(5),
@@ -87,12 +104,15 @@ class _PuffreeNavigationBar extends StatelessWidget {
             color: isDark
                 ? AppColors.surfaceDark
                 : AppColors.surfaceLight,
+
             borderRadius: BorderRadius.circular(24),
+
             border: Border.all(
               color: isDark
                   ? Colors.white.withValues(alpha: 0.065)
                   : Colors.black.withValues(alpha: 0.045),
             ),
+
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(
@@ -104,6 +124,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
               ),
             ],
           ),
+
           child: Row(
             children: [
               Expanded(
@@ -116,6 +137,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                   onTap: () => onChanged(0),
                 ),
               ),
+
               Expanded(
                 child: _NavigationItem(
                   icon: Iconsax.task_square,
@@ -126,6 +148,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                   onTap: () => onChanged(1),
                 ),
               ),
+
               Expanded(
                 child: _NavigationItem(
                   icon: Iconsax.chart_2,
@@ -136,6 +159,7 @@ class _PuffreeNavigationBar extends StatelessWidget {
                   onTap: () => onChanged(2),
                 ),
               ),
+
               Expanded(
                 child: _NavigationItem(
                   icon: Iconsax.setting_2,
@@ -185,25 +209,34 @@ class _NavigationItem extends StatelessWidget {
 
     return Material(
       color: Colors.transparent,
+
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(19),
+
         splashColor: activeColor.withValues(
           alpha: 0.07,
         ),
+
         highlightColor: activeColor.withValues(
           alpha: 0.035,
         ),
+
         child: AnimatedContainer(
           duration: const Duration(
             milliseconds: 220,
           ),
+
           curve: Curves.easeOutCubic,
+
           height: 60,
+
           width: double.infinity,
+
           margin: const EdgeInsets.symmetric(
             horizontal: 2,
           ),
+
           decoration: BoxDecoration(
             gradient: selected
                 ? LinearGradient(
@@ -219,7 +252,9 @@ class _NavigationItem extends StatelessWidget {
               ],
             )
                 : null,
+
             borderRadius: BorderRadius.circular(19),
+
             border: selected
                 ? Border.all(
               color: activeColor.withValues(
@@ -228,32 +263,43 @@ class _NavigationItem extends StatelessWidget {
             )
                 : null,
           ),
+
           child: Column(
-            mainAxisAlignment:
-            MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Верхний индикатор теперь находится
-              // в фиксированной позиции.
+              // ─────────────────────────────────────────────────────────────
+              // ACTIVE INDICATOR
+              // ─────────────────────────────────────────────────────────────
+
               SizedBox(
                 height: 3,
+
                 child: AnimatedOpacity(
                   duration: const Duration(
                     milliseconds: 180,
                   ),
+
                   opacity: selected ? 1 : 0,
+
                   child: Container(
                     width: 18,
                     height: 2.5,
+
                     decoration: BoxDecoration(
                       color: activeColor,
-                      borderRadius:
-                      BorderRadius.circular(10),
+
+                      borderRadius: BorderRadius.circular(
+                        10,
+                      ),
+
                       boxShadow: [
                         BoxShadow(
                           color: activeColor.withValues(
                             alpha: 0.38,
                           ),
+
                           blurRadius: 8,
+
                           spreadRadius: -1,
                         ),
                       ],
@@ -264,15 +310,24 @@ class _NavigationItem extends StatelessWidget {
 
               const SizedBox(height: 4),
 
+              // ─────────────────────────────────────────────────────────────
+              // ICON
+              // ─────────────────────────────────────────────────────────────
+
               AnimatedScale(
                 duration: const Duration(
                   milliseconds: 220,
                 ),
+
                 curve: Curves.easeOutBack,
+
                 scale: selected ? 1.04 : 1.0,
+
                 child: Icon(
                   selected ? activeIcon : icon,
+
                   size: 20,
+
                   color: selected
                       ? activeColor
                       : inactiveColor.withValues(
@@ -283,26 +338,37 @@ class _NavigationItem extends StatelessWidget {
 
               const SizedBox(height: 4),
 
+              // ─────────────────────────────────────────────────────────────
+              // LABEL
+              // ─────────────────────────────────────────────────────────────
+
               AnimatedDefaultTextStyle(
                 duration: const Duration(
                   milliseconds: 180,
                 ),
+
                 style: GoogleFonts.inter(
                   fontSize: 9.5,
                   height: 1,
+
                   fontWeight: selected
                       ? FontWeight.w700
                       : FontWeight.w500,
+
                   color: selected
                       ? activeColor
                       : inactiveColor.withValues(
                     alpha: 0.72,
                   ),
                 ),
+
                 child: Text(
                   label,
+
                   maxLines: 1,
+
                   overflow: TextOverflow.ellipsis,
+
                   textAlign: TextAlign.center,
                 ),
               ),

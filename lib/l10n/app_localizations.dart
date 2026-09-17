@@ -1453,6 +1453,366 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} {daysWord} is already a real result. Keep going.'**
   String realResultKeepGoing(int count, String daysWord);
+
+  /// No description provided for @notificationMorningTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning ☀️'**
+  String get notificationMorningTitle1;
+
+  /// No description provided for @notificationMorningBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day} without cigarettes. Keep your momentum going.'**
+  String notificationMorningBody1(int day);
+
+  /// No description provided for @notificationMorningTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'A new smoke-free day'**
+  String get notificationMorningTitle2;
+
+  /// No description provided for @notificationMorningBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t need to think about the whole journey today. Just take this day.'**
+  String get notificationMorningBody2;
+
+  /// No description provided for @notificationMorningTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going'**
+  String get notificationMorningTitle3;
+
+  /// No description provided for @notificationMorningBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Small decisions today are building your smoke-free future.'**
+  String get notificationMorningBody3;
+
+  /// No description provided for @notificationMorningTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey continues'**
+  String get notificationMorningTitle4;
+
+  /// No description provided for @notificationMorningBody4.
+  ///
+  /// In en, this message translates to:
+  /// **'Every smoke-free day is another day you chose yourself.'**
+  String get notificationMorningBody4;
+
+  /// No description provided for @notificationMorningTitle5.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve got this'**
+  String get notificationMorningTitle5;
+
+  /// No description provided for @notificationMorningBody5.
+  ///
+  /// In en, this message translates to:
+  /// **'Take today one moment at a time.'**
+  String get notificationMorningBody5;
+
+  /// No description provided for @notificationCheckInTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'How was your day?'**
+  String get notificationCheckInTitle1;
+
+  /// No description provided for @notificationCheckInBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a moment to check in and keep your progress alive.'**
+  String get notificationCheckInBody1;
+
+  /// No description provided for @notificationCheckInTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree check-in'**
+  String get notificationCheckInTitle2;
+
+  /// No description provided for @notificationCheckInBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'Did you stay smoke-free today? Mark your progress.'**
+  String get notificationCheckInBody2;
+
+  /// No description provided for @notificationCheckInTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'One more day'**
+  String get notificationCheckInTitle3;
+
+  /// No description provided for @notificationCheckInBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey is built one day at a time.'**
+  String get notificationCheckInBody3;
+
+  /// No description provided for @notificationCheckInTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep your streak alive'**
+  String get notificationCheckInTitle4;
+
+  /// No description provided for @notificationCheckInBody4.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Puffree and check in for today.'**
+  String get notificationCheckInBody4;
+
+  /// No description provided for @notificationEveningTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'How are you feeling? 🌙'**
+  String get notificationEveningTitle1;
+
+  /// No description provided for @notificationEveningBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a quiet moment and check in with yourself.'**
+  String get notificationEveningBody1;
+
+  /// No description provided for @notificationEveningTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening check-in'**
+  String get notificationEveningTitle2;
+
+  /// No description provided for @notificationEveningBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'How did today feel? Your journal is waiting.'**
+  String get notificationEveningBody2;
+
+  /// No description provided for @notificationEveningTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Before the day ends'**
+  String get notificationEveningTitle3;
+
+  /// No description provided for @notificationEveningBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a moment to notice how far you\'ve come.'**
+  String get notificationEveningBody3;
+
+  /// No description provided for @notificationEveningTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'A moment for yourself'**
+  String get notificationEveningTitle4;
+
+  /// No description provided for @notificationEveningBody4.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe, reflect and finish the day with intention.'**
+  String get notificationEveningBody4;
+
+  /// No description provided for @notificationMilestone1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first day 🌱'**
+  String get notificationMilestone1Title;
+
+  /// No description provided for @notificationMilestone1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'One smoke-free day is already a real step forward.'**
+  String get notificationMilestone1Body;
+
+  /// No description provided for @notificationMilestone3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Three days 🔥'**
+  String get notificationMilestone3Title;
+
+  /// No description provided for @notificationMilestone3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Three smoke-free days. You\'re building momentum.'**
+  String get notificationMilestone3Body;
+
+  /// No description provided for @notificationMilestone7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'One full week! 🏆'**
+  String get notificationMilestone7Title;
+
+  /// No description provided for @notificationMilestone7Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Seven days without cigarettes. That\'s a meaningful milestone.'**
+  String get notificationMilestone7Body;
+
+  /// No description provided for @notificationMilestone14Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Two weeks 💪'**
+  String get notificationMilestone14Title;
+
+  /// No description provided for @notificationMilestone14Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Fourteen smoke-free days. Keep building your new routine.'**
+  String get notificationMilestone14Body;
+
+  /// No description provided for @notificationMilestone21Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Three weeks 🧠'**
+  String get notificationMilestone21Title;
+
+  /// No description provided for @notificationMilestone21Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Twenty-one days behind you. Your journey keeps moving forward.'**
+  String get notificationMilestone21Body;
+
+  /// No description provided for @notificationMilestone30Title.
+  ///
+  /// In en, this message translates to:
+  /// **'One month! 👑'**
+  String get notificationMilestone30Title;
+
+  /// No description provided for @notificationMilestone30Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Thirty smoke-free days. Look how far you\'ve already come.'**
+  String get notificationMilestone30Body;
+
+  /// No description provided for @notificationMilestone60Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Two months 🚀'**
+  String get notificationMilestone60Title;
+
+  /// No description provided for @notificationMilestone60Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Sixty days without cigarettes. Your consistency is becoming your strength.'**
+  String get notificationMilestone60Body;
+
+  /// No description provided for @notificationMilestone90Title.
+  ///
+  /// In en, this message translates to:
+  /// **'90 days 💎'**
+  String get notificationMilestone90Title;
+
+  /// No description provided for @notificationMilestone90Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Three months smoke-free. This is a major milestone on your journey.'**
+  String get notificationMilestone90Body;
+
+  /// No description provided for @notificationMilestone180Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Half a year! ✨'**
+  String get notificationMilestone180Title;
+
+  /// No description provided for @notificationMilestone180Body.
+  ///
+  /// In en, this message translates to:
+  /// **'180 smoke-free days. You\'ve built an incredible amount of momentum.'**
+  String get notificationMilestone180Body;
+
+  /// No description provided for @notificationMilestone365Title.
+  ///
+  /// In en, this message translates to:
+  /// **'One year! 🏆'**
+  String get notificationMilestone365Title;
+
+  /// No description provided for @notificationMilestone365Body.
+  ///
+  /// In en, this message translates to:
+  /// **'365 days without cigarettes. One full year of your new journey.'**
+  String get notificationMilestone365Body;
+
+  /// No description provided for @notificationMilestoneGenericTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Another milestone'**
+  String get notificationMilestoneGenericTitle;
+
+  /// No description provided for @notificationMilestoneGenericBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} smoke-free days. Keep moving forward.'**
+  String notificationMilestoneGenericBody(int days);
+
+  /// No description provided for @notificationRelapseTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s okay'**
+  String get notificationRelapseTitle1;
+
+  /// No description provided for @notificationRelapseBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'One difficult moment doesn\'t erase everything you\'ve built.'**
+  String get notificationRelapseBody1;
+
+  /// No description provided for @notificationRelapseTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going'**
+  String get notificationRelapseTitle2;
+
+  /// No description provided for @notificationRelapseBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'A setback is a moment, not the end of your journey.'**
+  String get notificationRelapseBody2;
+
+  /// No description provided for @notificationRelapseTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'Come back to your path'**
+  String get notificationRelapseTitle3;
+
+  /// No description provided for @notificationRelapseBody3.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a breath, learn from the moment and continue.'**
+  String get notificationRelapseBody3;
+
+  /// No description provided for @notificationInactive1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'We haven\'t seen you today 👋'**
+  String get notificationInactive1Title;
+
+  /// No description provided for @notificationInactive1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Puffree and check in when you\'re ready.'**
+  String get notificationInactive1Body;
+
+  /// No description provided for @notificationInactive2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey is still here'**
+  String get notificationInactive2Title;
+
+  /// No description provided for @notificationInactive2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'A few quiet days don\'t erase the progress you\'ve already made.'**
+  String get notificationInactive2Body;
+
+  /// No description provided for @notificationInactive3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Come back when you\'re ready'**
+  String get notificationInactive3Title;
+
+  /// No description provided for @notificationInactive3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have to be perfect. Just take the next step.'**
+  String get notificationInactive3Body;
 }
 
 class _AppLocalizationsDelegate

@@ -260,5 +260,86 @@
       "count": { "type": "int" },
       "daysWord": { "type": "String" }
     }
-  }
+  },
+
+
+  "notificationMorningTitle1": "Sabahın xeyir ☀️",
+  "notificationMorningBody1": "{day}-ci gün siqaretsiz. Tempini qorumağa davam et.",
+  "@notificationMorningBody1": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "notificationMorningTitle2": "Siqaretsiz yeni gün",
+  "notificationMorningBody2": "Bu gün bütün yolu düşünməyə ehtiyac yoxdur. Sadəcə bu günü yaşa.",
+  "notificationMorningTitle3": "Davam et",
+  "notificationMorningBody3": "Bu gün verdiyin kiçik qərarlar siqaretsiz gələcəyini yaradır.",
+  "notificationMorningTitle4": "Yolun davam edir",
+  "notificationMorningBody4": "Siqaretsiz hər gün özünü seçdiyin daha bir gündür.",
+  "notificationMorningTitle5": "Sən bacararsan",
+  "notificationMorningBody5": "Bu gün addım-addım irəlilə. Bir anı bir dəfə yaşa.",
+
+  "notificationCheckInTitle1": "Günün necə keçdi?",
+  "notificationCheckInBody1": "Bir dəqiqə ayır və bugünkü inkişafını qeyd et.",
+  "notificationCheckInTitle2": "Puffree check-in",
+  "notificationCheckInBody2": "Bu gün siqaret çəkmədin? İnkişafını qeyd et.",
+  "notificationCheckInTitle3": "Daha bir gün",
+  "notificationCheckInBody3": "Sənin yolun günbəgün qurulur.",
+  "notificationCheckInTitle4": "Seriyanı qoruyub saxla",
+  "notificationCheckInBody4": "Puffree-ni aç və bu günü qeyd et.",
+
+  "notificationEveningTitle1": "Özünü necə hiss edirsən? 🌙",
+  "notificationEveningBody1": "Bir az dayan və öz vəziyyətinə diqqət yetir.",
+  "notificationEveningTitle2": "Axşam check-in",
+  "notificationEveningBody2": "Bu gün necə keçdi? Gündəliyin səni gözləyir.",
+  "notificationEveningTitle3": "Gün bitməmiş",
+  "notificationEveningBody3": "Bir an dayan və nə qədər irəlilədiyini hiss et.",
+  "notificationEveningTitle4": "Özün üçün bir an",
+  "notificationEveningBody4": "Nəfəs al, düşün və günü sakit şəkildə tamamla.",
+
+  "notificationMilestone1Title": "İlk günün 🌱",
+  "notificationMilestone1Body": "Siqaretsiz bir gün artıq real bir addımdır.",
+  "notificationMilestone3Title": "Üç gün 🔥",
+  "notificationMilestone3Body": "Üç gündür siqaretsizsən. Artıq ilk güclü ritmini yaradırsan.",
+  "notificationMilestone7Title": "Tam bir həftə! 🏆",
+  "notificationMilestone7Body": "Yeddi gün siqaretsiz. Bu artıq ciddi bir mərhələdir.",
+  "notificationMilestone14Title": "İki həftə 💪",
+  "notificationMilestone14Body": "On dörd gün siqaretsiz. Yeni ritmini qurmağa davam et.",
+  "notificationMilestone21Title": "Üç həftə 🧠",
+  "notificationMilestone21Body": "21 gün geridə qaldı. Yolun davam edir.",
+  "notificationMilestone30Title": "Tam bir ay! 👑",
+  "notificationMilestone30Body": "30 gün siqaretsiz. Nə qədər irəlilədiyinə bax.",
+  "notificationMilestone60Title": "İki ay 🚀",
+  "notificationMilestone60Body": "60 gün siqaretsiz. Ardıcıllıq artıq sənin gücünə çevrilir.",
+  "notificationMilestone90Title": "90 gün 💎",
+  "notificationMilestone90Body": "Üç ay siqaretsiz. Bu, yolunda böyük bir mərhələdir.",
+  "notificationMilestone180Title": "Yarım il! ✨",
+  "notificationMilestone180Body": "180 gün siqaretsiz. Böyük bir irəliləyiş yaratmısan.",
+  "notificationMilestone365Title": "Bir il! 🏆",
+  "notificationMilestone365Body": "365 gün siqaretsiz. Yeni yolunun tam bir ili.",
+  "notificationMilestoneGenericTitle": "Daha bir mərhələ",
+  "notificationMilestoneGenericBody": "{days} gün siqaretsiz. İrəliləməyə davam et.",
+  "@notificationMilestoneGenericBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+
+  "notificationRelapseTitle1": "Problem yoxdur",
+  "notificationRelapseBody1": "Bir çətin an indiyə qədər qurduqlarını silmir.",
+  "notificationRelapseTitle2": "Davam et",
+  "notificationRelapseBody2": "Geriləmə bir andır, yolun sonu deyil.",
+  "notificationRelapseTitle3": "Yoluna qayıt",
+  "notificationRelapseBody3": "Nəfəs al, bu andan dərs çıxar və davam et.",
+
+  "notificationInactive1Title": "Bu gün səni görmədik 👋",
+  "notificationInactive1Body": "Hazır olanda Puffree-ni aç və inkişafını qeyd et.",
+  "notificationInactive2Title": "Yolun hələ də davam edir",
+  "notificationInactive2Body": "Bir neçə sakit gün indiyə qədər qazandığın inkişafı silmir.",
+  "notificationInactive3Title": "Hazır olanda geri qayıt",
+  "notificationInactive3Body": "Mükəmməl olmağa ehtiyac yoxdur. Sadəcə növbəti addımı at."
 }

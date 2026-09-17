@@ -709,4 +709,214 @@ class AppLocalizationsAz extends AppLocalizations {
   String realResultKeepGoing(int count, String daysWord) {
     return '$count $daysWord artıq real nəticədir. Davam edin.';
   }
+
+  @override
+  String get notificationMorningTitle1 => 'Sabahın xeyir ☀️';
+
+  @override
+  String notificationMorningBody1(int day) {
+    return '$day-ci gün siqaretsiz. Tempini qorumağa davam et.';
+  }
+
+  @override
+  String get notificationMorningTitle2 => 'Siqaretsiz yeni gün';
+
+  @override
+  String get notificationMorningBody2 =>
+      'Bu gün bütün yolu düşünməyə ehtiyac yoxdur. Sadəcə bu günü yaşa.';
+
+  @override
+  String get notificationMorningTitle3 => 'Davam et';
+
+  @override
+  String get notificationMorningBody3 =>
+      'Bu gün verdiyin kiçik qərarlar siqaretsiz gələcəyini yaradır.';
+
+  @override
+  String get notificationMorningTitle4 => 'Yolun davam edir';
+
+  @override
+  String get notificationMorningBody4 =>
+      'Siqaretsiz hər gün özünü seçdiyin daha bir gündür.';
+
+  @override
+  String get notificationMorningTitle5 => 'Sən bacararsan';
+
+  @override
+  String get notificationMorningBody5 =>
+      'Bu gün addım-addım irəlilə. Bir anı bir dəfə yaşa.';
+
+  @override
+  String get notificationCheckInTitle1 => 'Günün necə keçdi?';
+
+  @override
+  String get notificationCheckInBody1 =>
+      'Bir dəqiqə ayır və bugünkü inkişafını qeyd et.';
+
+  @override
+  String get notificationCheckInTitle2 => 'Puffree check-in';
+
+  @override
+  String get notificationCheckInBody2 =>
+      'Bu gün siqaret çəkmədin? İnkişafını qeyd et.';
+
+  @override
+  String get notificationCheckInTitle3 => 'Daha bir gün';
+
+  @override
+  String get notificationCheckInBody3 => 'Sənin yolun günbəgün qurulur.';
+
+  @override
+  String get notificationCheckInTitle4 => 'Seriyanı qoruyub saxla';
+
+  @override
+  String get notificationCheckInBody4 => 'Puffree-ni aç və bu günü qeyd et.';
+
+  @override
+  String get notificationEveningTitle1 => 'Özünü necə hiss edirsən? 🌙';
+
+  @override
+  String get notificationEveningBody1 =>
+      'Bir az dayan və öz vəziyyətinə diqqət yetir.';
+
+  @override
+  String get notificationEveningTitle2 => 'Axşam check-in';
+
+  @override
+  String get notificationEveningBody2 =>
+      'Bu gün necə keçdi? Gündəliyin səni gözləyir.';
+
+  @override
+  String get notificationEveningTitle3 => 'Gün bitməmiş';
+
+  @override
+  String get notificationEveningBody3 =>
+      'Bir an dayan və nə qədər irəlilədiyini hiss et.';
+
+  @override
+  String get notificationEveningTitle4 => 'Özün üçün bir an';
+
+  @override
+  String get notificationEveningBody4 =>
+      'Nəfəs al, düşün və günü sakit şəkildə tamamla.';
+
+  @override
+  String get notificationMilestone1Title => 'İlk günün 🌱';
+
+  @override
+  String get notificationMilestone1Body =>
+      'Siqaretsiz bir gün artıq real bir addımdır.';
+
+  @override
+  String get notificationMilestone3Title => 'Üç gün 🔥';
+
+  @override
+  String get notificationMilestone3Body =>
+      'Üç gündür siqaretsizsən. Artıq ilk güclü ritmini yaradırsan.';
+
+  @override
+  String get notificationMilestone7Title => 'Tam bir həftə! 🏆';
+
+  @override
+  String get notificationMilestone7Body =>
+      'Yeddi gün siqaretsiz. Bu artıq ciddi bir mərhələdir.';
+
+  @override
+  String get notificationMilestone14Title => 'İki həftə 💪';
+
+  @override
+  String get notificationMilestone14Body =>
+      'On dörd gün siqaretsiz. Yeni ritmini qurmağa davam et.';
+
+  @override
+  String get notificationMilestone21Title => 'Üç həftə 🧠';
+
+  @override
+  String get notificationMilestone21Body =>
+      '21 gün geridə qaldı. Yolun davam edir.';
+
+  @override
+  String get notificationMilestone30Title => 'Tam bir ay! 👑';
+
+  @override
+  String get notificationMilestone30Body =>
+      '30 gün siqaretsiz. Nə qədər irəlilədiyinə bax.';
+
+  @override
+  String get notificationMilestone60Title => 'İki ay 🚀';
+
+  @override
+  String get notificationMilestone60Body =>
+      '60 gün siqaretsiz. Ardıcıllıq artıq sənin gücünə çevrilir.';
+
+  @override
+  String get notificationMilestone90Title => '90 gün 💎';
+
+  @override
+  String get notificationMilestone90Body =>
+      'Üç ay siqaretsiz. Bu, yolunda böyük bir mərhələdir.';
+
+  @override
+  String get notificationMilestone180Title => 'Yarım il! ✨';
+
+  @override
+  String get notificationMilestone180Body =>
+      '180 gün siqaretsiz. Böyük bir irəliləyiş yaratmısan.';
+
+  @override
+  String get notificationMilestone365Title => 'Bir il! 🏆';
+
+  @override
+  String get notificationMilestone365Body =>
+      '365 gün siqaretsiz. Yeni yolunun tam bir ili.';
+
+  @override
+  String get notificationMilestoneGenericTitle => 'Daha bir mərhələ';
+
+  @override
+  String notificationMilestoneGenericBody(int days) {
+    return '$days gün siqaretsiz. İrəliləməyə davam et.';
+  }
+
+  @override
+  String get notificationRelapseTitle1 => 'Problem yoxdur';
+
+  @override
+  String get notificationRelapseBody1 =>
+      'Bir çətin an indiyə qədər qurduqlarını silmir.';
+
+  @override
+  String get notificationRelapseTitle2 => 'Davam et';
+
+  @override
+  String get notificationRelapseBody2 =>
+      'Geriləmə bir andır, yolun sonu deyil.';
+
+  @override
+  String get notificationRelapseTitle3 => 'Yoluna qayıt';
+
+  @override
+  String get notificationRelapseBody3 =>
+      'Nəfəs al, bu andan dərs çıxar və davam et.';
+
+  @override
+  String get notificationInactive1Title => 'Bu gün səni görmədik 👋';
+
+  @override
+  String get notificationInactive1Body =>
+      'Hazır olanda Puffree-ni aç və inkişafını qeyd et.';
+
+  @override
+  String get notificationInactive2Title => 'Yolun hələ də davam edir';
+
+  @override
+  String get notificationInactive2Body =>
+      'Bir neçə sakit gün indiyə qədər qazandığın inkişafı silmir.';
+
+  @override
+  String get notificationInactive3Title => 'Hazır olanda geri qayıt';
+
+  @override
+  String get notificationInactive3Body =>
+      'Mükəmməl olmağa ehtiyac yoxdur. Sadəcə növbəti addımı at.';
 }

@@ -32,13 +32,20 @@ dependencies:
   purchases_flutter: ^8.1.0
 
   # Notifications
-  flutter_local_notifications: ^18.0.1
-  timezone: ^0.10.0
+  flutter_local_notifications: ^22.3.1
+  timezone: ^0.11.1
 
   # Utils
   intl: ^0.20.2
   uuid: ^4.5.0
   path_provider: ^2.1.4
+  firebase_core: ^4.15.0
+  firebase_auth: ^6.7.0
+  cloud_firestore: ^6.10.0
+  google_sign_in: ^6.2.2
+  sign_in_with_apple: ^7.0.1
+  firebase_storage: ^13.6.0
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

@@ -293,5 +293,90 @@
       "count": { "type": "int" },
       "daysWord": { "type": "String" }
     }
-  }
+  },
+
+
+
+
+
+  "notificationMorningTitle1": "Good morning ☀️",
+  "notificationMorningBody1": "Day {day} without cigarettes. Keep your momentum going.",
+  "@notificationMorningBody1": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "notificationMorningTitle2": "A new smoke-free day",
+  "notificationMorningBody2": "You don't need to think about the whole journey today. Just take this day.",
+  "notificationMorningTitle3": "Keep going",
+  "notificationMorningBody3": "Small decisions today are building your smoke-free future.",
+  "notificationMorningTitle4": "Your journey continues",
+  "notificationMorningBody4": "Every smoke-free day is another day you chose yourself.",
+  "notificationMorningTitle5": "You've got this",
+  "notificationMorningBody5": "Take today one moment at a time.",
+
+  "notificationCheckInTitle1": "How was your day?",
+  "notificationCheckInBody1": "Take a moment to check in and keep your progress alive.",
+  "notificationCheckInTitle2": "Puffree check-in",
+  "notificationCheckInBody2": "Did you stay smoke-free today? Mark your progress.",
+  "notificationCheckInTitle3": "One more day",
+  "notificationCheckInBody3": "Your journey is built one day at a time.",
+  "notificationCheckInTitle4": "Keep your streak alive",
+  "notificationCheckInBody4": "Open Puffree and check in for today.",
+
+  "notificationEveningTitle1": "How are you feeling? 🌙",
+  "notificationEveningBody1": "Take a quiet moment and check in with yourself.",
+  "notificationEveningTitle2": "Evening check-in",
+  "notificationEveningBody2": "How did today feel? Your journal is waiting.",
+  "notificationEveningTitle3": "Before the day ends",
+  "notificationEveningBody3": "Take a moment to notice how far you've come.",
+  "notificationEveningTitle4": "A moment for yourself",
+  "notificationEveningBody4": "Breathe, reflect and finish the day with intention.",
+
+  "notificationMilestone1Title": "Your first day 🌱",
+  "notificationMilestone1Body": "One smoke-free day is already a real step forward.",
+  "notificationMilestone3Title": "Three days 🔥",
+  "notificationMilestone3Body": "Three smoke-free days. You're building momentum.",
+  "notificationMilestone7Title": "One full week! 🏆",
+  "notificationMilestone7Body": "Seven days without cigarettes. That's a meaningful milestone.",
+  "notificationMilestone14Title": "Two weeks 💪",
+  "notificationMilestone14Body": "Fourteen smoke-free days. Keep building your new routine.",
+  "notificationMilestone21Title": "Three weeks 🧠",
+  "notificationMilestone21Body": "Twenty-one days behind you. Your journey keeps moving forward.",
+  "notificationMilestone30Title": "One month! 👑",
+  "notificationMilestone30Body": "Thirty smoke-free days. Look how far you've already come.",
+  "notificationMilestone60Title": "Two months 🚀",
+  "notificationMilestone60Body": "Sixty days without cigarettes. Your consistency is becoming your strength.",
+  "notificationMilestone90Title": "90 days 💎",
+  "notificationMilestone90Body": "Three months smoke-free. This is a major milestone on your journey.",
+  "notificationMilestone180Title": "Half a year! ✨",
+  "notificationMilestone180Body": "180 smoke-free days. You've built an incredible amount of momentum.",
+  "notificationMilestone365Title": "One year! 🏆",
+  "notificationMilestone365Body": "365 days without cigarettes. One full year of your new journey.",
+  "notificationMilestoneGenericTitle": "Another milestone",
+  "notificationMilestoneGenericBody": "{days} smoke-free days. Keep moving forward.",
+  "@notificationMilestoneGenericBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "notificationRelapseTitle1": "It's okay",
+  "notificationRelapseBody1": "One difficult moment doesn't erase everything you've built.",
+  "notificationRelapseTitle2": "Keep going",
+  "notificationRelapseBody2": "A setback is a moment, not the end of your journey.",
+  "notificationRelapseTitle3": "Come back to your path",
+  "notificationRelapseBody3": "Take a breath, learn from the moment and continue.",
+
+  "notificationInactive1Title": "We haven't seen you today 👋",
+  "notificationInactive1Body": "Open Puffree and check in when you're ready.",
+  "notificationInactive2Title": "Your journey is still here",
+  "notificationInactive2Body": "A few quiet days don't erase the progress you've already made.",
+  "notificationInactive3Title": "Come back when you're ready",
+  "notificationInactive3Body": "You don't have to be perfect. Just take the next step."
 }
+
+

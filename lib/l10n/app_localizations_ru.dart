@@ -711,4 +711,215 @@ class AppLocalizationsRu extends AppLocalizations {
   String realResultKeepGoing(int count, String daysWord) {
     return '$count $daysWord — это уже реальный результат. Продолжай.';
   }
+
+  @override
+  String get notificationMorningTitle1 => 'Доброе утро ☀️';
+
+  @override
+  String notificationMorningBody1(int day) {
+    return 'День $day без сигарет. Продолжай сохранять свой темп.';
+  }
+
+  @override
+  String get notificationMorningTitle2 => 'Новый день без сигарет';
+
+  @override
+  String get notificationMorningBody2 =>
+      'Сегодня не нужно думать обо всём пути. Просто проживи этот день.';
+
+  @override
+  String get notificationMorningTitle3 => 'Продолжай';
+
+  @override
+  String get notificationMorningBody3 =>
+      'Маленькие решения сегодня создают твоё будущее без сигарет.';
+
+  @override
+  String get notificationMorningTitle4 => 'Твой путь продолжается';
+
+  @override
+  String get notificationMorningBody4 =>
+      'Каждый день без сигарет — ещё один день, когда ты выбрал себя.';
+
+  @override
+  String get notificationMorningTitle5 => 'У тебя получится';
+
+  @override
+  String get notificationMorningBody5 =>
+      'Иди сегодня маленькими шагами. Один момент за раз.';
+
+  @override
+  String get notificationCheckInTitle1 => 'Как прошёл твой день?';
+
+  @override
+  String get notificationCheckInBody1 =>
+      'Удели минуту себе и отметь сегодняшний прогресс.';
+
+  @override
+  String get notificationCheckInTitle2 => 'Check-in Puffree';
+
+  @override
+  String get notificationCheckInBody2 =>
+      'Ты сегодня не курил? Отметь свой прогресс.';
+
+  @override
+  String get notificationCheckInTitle3 => 'Ещё один день';
+
+  @override
+  String get notificationCheckInBody3 => 'Твой путь строится день за днём.';
+
+  @override
+  String get notificationCheckInTitle4 => 'Поддержи свой стрик';
+
+  @override
+  String get notificationCheckInBody4 =>
+      'Открой Puffree и отметь сегодняшний день.';
+
+  @override
+  String get notificationEveningTitle1 => 'Как ты себя чувствуешь? 🌙';
+
+  @override
+  String get notificationEveningBody1 =>
+      'Удели немного времени себе и проверь своё состояние.';
+
+  @override
+  String get notificationEveningTitle2 => 'Вечерний check-in';
+
+  @override
+  String get notificationEveningBody2 =>
+      'Как прошёл сегодняшний день? Твой дневник ждёт.';
+
+  @override
+  String get notificationEveningTitle3 => 'Перед концом дня';
+
+  @override
+  String get notificationEveningBody3 =>
+      'Остановись на минуту и заметь, как далеко ты уже продвинулся.';
+
+  @override
+  String get notificationEveningTitle4 => 'Момент для себя';
+
+  @override
+  String get notificationEveningBody4 =>
+      'Подыши, подумай о сегодняшнем дне и спокойно заверши его.';
+
+  @override
+  String get notificationMilestone1Title => 'Твой первый день 🌱';
+
+  @override
+  String get notificationMilestone1Body =>
+      'Один день без сигарет — уже настоящий шаг вперёд.';
+
+  @override
+  String get notificationMilestone3Title => 'Три дня 🔥';
+
+  @override
+  String get notificationMilestone3Body =>
+      'Три дня без сигарет. Ты набираешь свой первый серьёзный импульс.';
+
+  @override
+  String get notificationMilestone7Title => 'Целая неделя! 🏆';
+
+  @override
+  String get notificationMilestone7Body =>
+      'Семь дней без сигарет. Это уже серьёзная веха.';
+
+  @override
+  String get notificationMilestone14Title => 'Две недели 💪';
+
+  @override
+  String get notificationMilestone14Body =>
+      'Четырнадцать дней без сигарет. Продолжай формировать новый ритм.';
+
+  @override
+  String get notificationMilestone21Title => 'Три недели 🧠';
+
+  @override
+  String get notificationMilestone21Body =>
+      '21 день позади. Твой путь продолжается.';
+
+  @override
+  String get notificationMilestone30Title => 'Целый месяц! 👑';
+
+  @override
+  String get notificationMilestone30Body =>
+      '30 дней без сигарет. Посмотри, как далеко ты уже продвинулся.';
+
+  @override
+  String get notificationMilestone60Title => 'Два месяца 🚀';
+
+  @override
+  String get notificationMilestone60Body =>
+      '60 дней без сигарет. Последовательность становится твоей силой.';
+
+  @override
+  String get notificationMilestone90Title => '90 дней 💎';
+
+  @override
+  String get notificationMilestone90Body =>
+      'Три месяца без сигарет. Это большая веха на твоём пути.';
+
+  @override
+  String get notificationMilestone180Title => 'Полгода! ✨';
+
+  @override
+  String get notificationMilestone180Body =>
+      '180 дней без сигарет. Ты создал огромный импульс.';
+
+  @override
+  String get notificationMilestone365Title => 'Один год! 🏆';
+
+  @override
+  String get notificationMilestone365Body =>
+      '365 дней без сигарет. Целый год твоего нового пути.';
+
+  @override
+  String get notificationMilestoneGenericTitle => 'Ещё одна веха';
+
+  @override
+  String notificationMilestoneGenericBody(int days) {
+    return '$days дней без сигарет. Продолжай двигаться вперёд.';
+  }
+
+  @override
+  String get notificationRelapseTitle1 => 'Всё в порядке';
+
+  @override
+  String get notificationRelapseBody1 =>
+      'Один сложный момент не перечёркивает всё, что ты уже построил.';
+
+  @override
+  String get notificationRelapseTitle2 => 'Продолжай';
+
+  @override
+  String get notificationRelapseBody2 =>
+      'Срыв — это момент, а не конец твоего пути.';
+
+  @override
+  String get notificationRelapseTitle3 => 'Вернись на свой путь';
+
+  @override
+  String get notificationRelapseBody3 =>
+      'Сделай вдох, извлеки урок из момента и продолжай.';
+
+  @override
+  String get notificationInactive1Title => 'Мы сегодня тебя не видели 👋';
+
+  @override
+  String get notificationInactive1Body =>
+      'Открой Puffree и отметь прогресс, когда будешь готов.';
+
+  @override
+  String get notificationInactive2Title => 'Твой путь всё ещё здесь';
+
+  @override
+  String get notificationInactive2Body =>
+      'Несколько тихих дней не стирают уже достигнутый прогресс.';
+
+  @override
+  String get notificationInactive3Title => 'Возвращайся, когда будешь готов';
+
+  @override
+  String get notificationInactive3Body =>
+      'Тебе не нужно быть идеальным. Просто сделай следующий шаг.';
 }
