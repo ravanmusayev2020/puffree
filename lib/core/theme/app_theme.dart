@@ -3,117 +3,150 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   // ─────────────────────────────────────────────
-  // PRIMARY — VIBRANT ORANGE / RED
+  // PRIMARY — AURORA VIOLET
   // ─────────────────────────────────────────────
 
-  static const primary = Color(0xFFFF5A36);
-  static const primaryLight = Color(0xFFFF7654);
-  static const primaryDark = Color(0xFFE63F24);
+  static const primary = Color(0xFF8B5CF6);
+  static const primaryLight = Color(0xFFA78BFA);
+  static const primaryDark = Color(0xFF5B21F6);
 
   // ─────────────────────────────────────────────
   // ACCENTS
   // ─────────────────────────────────────────────
 
-  static const accent = Color(0xFFFF4965);
-  static const accentLight = Color(0xFFFF7187);
+  static const accent = Color(0xFFFF6B9D);
+  static const accentLight = Color(0xFFFF9CBF);
 
-  // Secondary warm orange
-  static const orange = Color(0xFFFF8A3D);
-  static const orangeLight = Color(0xFFFFA45F);
-  static const orangeDark = Color(0xFFE96A20);
+  // Secondary — electric cyan
+  static const orange = Color(0xFF22D3EE);
+  static const orangeLight = Color(0xFF67E8F9);
+  static const orangeDark = Color(0xFF0E9BB5);
 
   // ─────────────────────────────────────────────
   // SEMANTIC COLORS
   // ─────────────────────────────────────────────
 
   // SOS / urgent actions
-  static const coral = Color(0xFFFF4655);
-  static const coralLight = Color(0xFFFF6875);
+  static const coral = Color(0xFFFF6B9D);
+  static const coralLight = Color(0xFFFF9CBF);
 
   // Warning / attention
-  static const amber = Color(0xFFFFB547);
-  static const amberLight = Color(0xFFFFC766);
+  static const amber = Color(0xFFFFC65C);
+  static const amberLight = Color(0xFFFFD68C);
 
   // Success / completed
-  static const success = Color(0xFF35C98A);
-  static const successLight = Color(0xFF5DE0A6);
+  static const success = Color(0xFF2DE0A6);
+  static const successLight = Color(0xFF5FEFC0);
 
-  static const error = Color(0xFFFF4655);
+  static const error = Color(0xFFE84C6E);
 
   // ─────────────────────────────────────────────
   // LIGHT BACKGROUND
   // ─────────────────────────────────────────────
 
-  static const backgroundLight = Color(0xFFF8F7F4);
+  static const backgroundLight = Color(0xFFF7F5FC);
 
   static const surfaceLight = Color(0xFFFFFFFF);
 
   static const cardLight = Color(0xFFFFFFFF);
 
-  // Warm tinted surface
-  static const softLight = Color(0xFFFFF1EC);
+  // Cool tinted surface
+  static const softLight = Color(0xFFF3EFFE);
 
   // ─────────────────────────────────────────────
   // DARK BACKGROUND
   // ─────────────────────────────────────────────
 
-  static const backgroundDark = Color(0xFF0D0D12);
+  static const backgroundDark = Color(0xFF0B0B1E);
 
-  static const surfaceDark = Color(0xFF141419);
+  static const surfaceDark = Color(0xFF14121F);
 
-  static const cardDark = Color(0xFF1B1B22);
+  static const cardDark = Color(0xFF1B1830);
 
-  static const softDark = Color(0xFF222229);
+  static const softDark = Color(0xFF231F3D);
 
   // ─────────────────────────────────────────────
   // TEXT — LIGHT
   // ─────────────────────────────────────────────
 
-  static const textPrimaryLight = Color(0xFF17151A);
+  static const textPrimaryLight = Color(0xFF15131C);
 
-  static const textSecondaryLight = Color(0xFF77727A);
+  static const textSecondaryLight = Color(0xFF726D7A);
 
   // ─────────────────────────────────────────────
   // TEXT — DARK
   // ─────────────────────────────────────────────
 
-  static const textPrimaryDark = Color(0xFFF8F6F4);
+  static const textPrimaryDark = Color(0xFFF5F3FA);
 
-  static const textSecondaryDark = Color(0xFFA9A5AA);
+  static const textSecondaryDark = Color(0xFFA39DB0);
 
   // ─────────────────────────────────────────────
   // GRADIENTS
   // ─────────────────────────────────────────────
 
   static const levelGradient = [
-    Color(0xFFFF5A36),
-    Color(0xFFFF8A3D),
+    Color(0xFF8B5CF6),
+    Color(0xFF22D3EE),
   ];
 
   static const premiumGradient = [
-    Color(0xFFFF5A36),
-    Color(0xFFFF4965),
+    Color(0xFFFFC65C),
+    Color(0xFFFF8A3D),
   ];
 
   static const primaryGradient = [
-    Color(0xFFFF4655),
-    Color(0xFFFF6A3D),
+    Color(0xFF8B5CF6),
+    Color(0xFF22D3EE),
   ];
 
   static const sunsetGradient = [
-    Color(0xFFFF4655),
-    Color(0xFFFF6A3D),
-    Color(0xFFFFA13D),
+    Color(0xFFFF6B9D),
+    Color(0xFF8B5CF6),
+    Color(0xFF22D3EE),
   ];
 
   static const sosGradient = [
-    Color(0xFFFF4655),
-    Color(0xFFE92F42),
+    Color(0xFFFF6B9D),
+    Color(0xFFE84C6E),
   ];
 
   static const journalGradient = [
-    Color(0xFFFF6B5B),
-    Color(0xFFFF4965),
+    Color(0xFFFF6B9D),
+    Color(0xFF5B21F6),
+  ];
+
+  // ─────────────────────────────────────────────
+  // 2026 REDESIGN TOKENS — glass / glow / mesh
+  // Purely additive: nothing above was touched, so
+  // no other screen that reads AppColors can break.
+  // ─────────────────────────────────────────────
+
+  static const glassLight = Color(0xB3FFFFFF);
+  static const glassDark = Color(0x991B1830);
+
+  static const glowPrimary = Color(0xFFA78BFA);
+  static const glowAmber = Color(0xFFFFD68C);
+
+  static const blobOrange = Color(0xFF8B5CF6);
+  static const blobPink = Color(0xFF22D3EE);
+  static const blobAmber = Color(0xFFFF6B9D);
+  static const blobMint = Color(0xFF2DE0A6);
+
+  static const heroBorderGradientLight = [
+    Color(0x338B5CF6),
+    Color(0x1122D3EE),
+  ];
+
+  static const heroBorderGradientDark = [
+    Color(0x40A78BFA),
+    Color(0x1A67E8F9),
+  ];
+
+  static const auroraGradient = [
+    Color(0xFF8B5CF6),
+    Color(0xFFFF6B9D),
+    Color(0xFFFFC65C),
   ];
 }
 
@@ -121,6 +154,10 @@ class AppRadii {
   static const card = 24.0;
   static const button = 18.0;
   static const pill = 999.0;
+
+  // Additive — used by the redesigned home screen only.
+  static const hero = 32.0;
+  static const glass = 28.0;
 }
 
 class AppTheme {
@@ -270,13 +307,13 @@ class AppTheme {
 
       colorScheme: const ColorScheme.dark(
         primary: AppColors.primaryLight,
-        onPrimary: Color(0xFF2A0C05),
+        onPrimary: Color(0xFF1A0F3D),
 
         secondary: AppColors.accentLight,
-        onSecondary: Colors.white,
+        onSecondary: Color(0xFF3D0F1F),
 
         tertiary: AppColors.orangeLight,
-        onTertiary: Color(0xFF2A1105),
+        onTertiary: Color(0xFF06313A),
 
         surface: AppColors.surfaceDark,
         onSurface: AppColors.textPrimaryDark,
@@ -323,7 +360,7 @@ class AppTheme {
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryLight,
 
-          foregroundColor: const Color(0xFF2A0C05),
+          foregroundColor: const Color(0xFF1A0F3D),
 
           elevation: 0,
           shadowColor: Colors.transparent,

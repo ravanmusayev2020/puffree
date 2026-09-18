@@ -1,7 +1,8 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/progress/progress_bloc.dart';
@@ -21,121 +22,153 @@ class ProgressScreen extends StatelessWidget {
       backgroundColor: isDark
           ? AppColors.backgroundDark
           : AppColors.backgroundLight,
-      body: BlocBuilder<ProgressBloc, ProgressState>(
-        builder: (context, state) {
-          if (state is ProgressLoading ||
-              state is ProgressInitial) {
-            return const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 2.5,
-                color: AppColors.primary,
-              ),
-            );
-          }
-
-          if (state is ProgressError) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: _ErrorState(
-                  message: state.message,
-                  isDark: isDark,
-                ),
-              ),
-            );
-          }
-
-          if (state is! ProgressLoaded) {
-            return const SizedBox.shrink();
-          }
-
-          final p = state.progress;
-          final level = state.currentLevel;
-
-          return SafeArea(
-            bottom: false,
-            child: CustomScrollView(
-              physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics(),
-              ),
-              slivers: [
-                SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(
-                    18,
-                    14,
-                    18,
-                    120,
-                  ),
-                  sliver: SliverList(
-                    delegate: SliverChildListDelegate(
-                      [
-                        _TopBar(
-                          isDark: isDark,
-                          level: level.level,
-                        ),
-
-                        const SizedBox(height: 20),
-
-                        _ProgressHero(
-                          days: p.daysSinceQuit,
-                          level: level.level,
-                          levelTitle: _getLevelTitle(
-                            level.level,
-                            l10n,
-                          ),
-                          progress: state.levelProgress,
-                          isDark: isDark,
-                        ),
-
-                        const SizedBox(height: 28),
-
-                        _SectionHeader(
-                          title: l10n.yourResults,
-                          subtitle: l10n.whatChanged,
-                          isDark: isDark,
-                        ),
-
-                        const SizedBox(height: 13),
-
-                        _StatsGrid(
-                          isDark: isDark,
-                          streak: p.currentStreak,
-                          longestStreak:
-                          p.longestStreak,
-                          moneySaved: p.moneySaved,
-                          cigarettesAvoided:
-                          p.cigarettesAvoided,
-                        ),
-
-                        const SizedBox(height: 29),
-
-                        _SectionHeader(
-                          title: l10n.recoveryPath,
-                          subtitle: l10n.everyMilestone,
-                          isDark: isDark,
-                        ),
-
-                        const SizedBox(height: 15),
-
-                        _HealthTimeline(
-                          days: p.daysSinceQuit,
-                          isDark: isDark,
-                        ),
-
-                        const SizedBox(height: 8),
-
-                        _BottomMessage(
-                          isDark: isDark,
-                          days: p.daysSinceQuit,
+      body: Stack(
+        children: [
+          Positioned.fill(child: _AmbientBackground(isDark: isDark)),
+          BlocBuilder<ProgressBloc, ProgressState>(
+            builder: (context, state) {
+              if (state is ProgressLoading ||
+                  state is ProgressInitial) {
+                return Center(
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        colors: AppColors.levelGradient,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.glowPrimary.withValues(alpha: 0.4),
+                          blurRadius: 26,
+                          spreadRadius: 1,
                         ),
                       ],
                     ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isDark
+                            ? AppColors.backgroundDark
+                            : AppColors.backgroundLight,
+                      ),
+                      padding: const EdgeInsets.all(9),
+                      child: const CircularProgressIndicator(
+                        strokeWidth: 2.5,
+                        color: AppColors.primary,
+                      ),
+                    ),
                   ),
+                );
+              }
+
+              if (state is ProgressError) {
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: _ErrorState(
+                      message: state.message,
+                      isDark: isDark,
+                    ),
+                  ),
+                );
+              }
+
+              if (state is! ProgressLoaded) {
+                return const SizedBox.shrink();
+              }
+
+              final p = state.progress;
+              final level = state.currentLevel;
+
+              return SafeArea(
+                bottom: false,
+                child: CustomScrollView(
+                  physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics(),
+                  ),
+                  slivers: [
+                    SliverPadding(
+                      padding: const EdgeInsets.fromLTRB(
+                        18,
+                        14,
+                        18,
+                        120,
+                      ),
+                      sliver: SliverList(
+                        delegate: SliverChildListDelegate(
+                          [
+                            _TopBar(
+                              isDark: isDark,
+                              level: level.level,
+                            ),
+
+                            const SizedBox(height: 20),
+
+                            _ProgressHero(
+                              days: p.daysSinceQuit,
+                              level: level.level,
+                              levelTitle: _getLevelTitle(
+                                level.level,
+                                l10n,
+                              ),
+                              progress: state.levelProgress,
+                              isDark: isDark,
+                            ),
+
+                            const SizedBox(height: 28),
+
+                            _SectionHeader(
+                              title: l10n.yourResults,
+                              subtitle: l10n.whatChanged,
+                              isDark: isDark,
+                            ),
+
+                            const SizedBox(height: 13),
+
+                            _StatsGrid(
+                              isDark: isDark,
+                              streak: p.currentStreak,
+                              longestStreak:
+                              p.longestStreak,
+                              moneySaved: p.moneySaved,
+                              cigarettesAvoided:
+                              p.cigarettesAvoided,
+                            ),
+
+                            const SizedBox(height: 29),
+
+                            _SectionHeader(
+                              title: l10n.recoveryPath,
+                              subtitle: l10n.everyMilestone,
+                              isDark: isDark,
+                            ),
+
+                            const SizedBox(height: 15),
+
+                            _HealthTimeline(
+                              days: p.daysSinceQuit,
+                              isDark: isDark,
+                            ),
+
+                            const SizedBox(height: 8),
+
+                            _BottomMessage(
+                              isDark: isDark,
+                              days: p.daysSinceQuit,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          );
-        },
+              );
+            },
+          ),
+        ],
       ),
     );
   }
@@ -162,6 +195,78 @@ class ProgressScreen extends StatelessWidget {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// AMBIENT BACKGROUND
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _AmbientBackground extends StatelessWidget {
+  const _AmbientBackground({required this.isDark});
+
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final alpha1 = isDark ? 0.22 : 0.13;
+    final alpha2 = isDark ? 0.16 : 0.10;
+    final alpha3 = isDark ? 0.14 : 0.09;
+
+    return ClipRect(
+      child: Stack(
+        children: [
+          Positioned(
+            top: -70,
+            left: -60,
+            child: _Blob(
+              size: 220,
+              color: AppColors.blobOrange.withValues(alpha: alpha1),
+            ),
+          ),
+          Positioned(
+            top: 220,
+            right: -90,
+            child: _Blob(
+              size: 250,
+              color: AppColors.blobPink.withValues(alpha: alpha2),
+            ),
+          ),
+          Positioned(
+            bottom: -60,
+            left: -40,
+            child: _Blob(
+              size: 200,
+              color: AppColors.blobAmber.withValues(alpha: alpha3),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Blob extends StatelessWidget {
+  const _Blob({required this.size, required this.color});
+
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: ImageFiltered(
+        imageFilter: ui.ImageFilter.blur(sigmaX: 55, sigmaY: 55),
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // ERROR
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -184,8 +289,8 @@ class _ErrorState extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _IconWell(
-          icon: Iconsax.info_circle,
-          color: AppColors.coral,
+          icon: Icons.error_rounded,
+          gradient: AppColors.sosGradient,
           size: 52,
           iconSize: 22,
           isDark: isDark,
@@ -258,16 +363,22 @@ class _TopBar extends StatelessWidget {
             CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                AppLocalizations.of(context).progress,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.outfit(
-                  fontSize: 28,
-                  height: 1,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: -1.15,
-                  color: primaryText,
+              ShaderMask(
+                shaderCallback: (rect) => const LinearGradient(
+                  colors: AppColors.levelGradient,
+                ).createShader(rect),
+                blendMode: BlendMode.srcIn,
+                child: Text(
+                  AppLocalizations.of(context).progress,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.outfit(
+                    fontSize: 28,
+                    height: 1,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: -1.15,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(height: 6),
@@ -314,13 +425,16 @@ class _LevelBadge extends StatelessWidget {
         horizontal: 11,
       ),
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(
-          alpha: isDark ? 0.11 : 0.065,
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary.withValues(alpha: isDark ? 0.20 : 0.13),
+            AppColors.orange.withValues(alpha: isDark ? 0.14 : 0.09),
+          ],
         ),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: AppColors.primary.withValues(
-            alpha: isDark ? 0.14 : 0.09,
+            alpha: isDark ? 0.20 : 0.14,
           ),
         ),
       ),
@@ -328,7 +442,7 @@ class _LevelBadge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
-            Iconsax.cup5,
+            Icons.emoji_events_rounded,
             size: 16,
             color: AppColors.primary,
           ),
@@ -381,174 +495,216 @@ class _ProgressHero extends StatelessWidget {
         : AppColors.textSecondaryLight;
 
     return Container(
+      clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(21),
       decoration: BoxDecoration(
-        color: isDark
-            ? AppColors.surfaceDark
-            : AppColors.surfaceLight,
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: isDark
+              ? [
+            const Color(0xFF17162B),
+            const Color(0xFF1F1B3A),
+          ]
+              : [
+            const Color(0xFFF3EFFE),
+            const Color(0xFFE9F8F5),
+          ],
+        ),
         borderRadius: BorderRadius.circular(28),
         border: Border.all(
           color: AppColors.primary.withValues(
-            alpha: isDark ? 0.10 : 0.065,
+            alpha: isDark ? 0.22 : 0.14,
           ),
+          width: 1.2,
         ),
         boxShadow: [
           BoxShadow(
             color: AppColors.primary.withValues(
-              alpha: isDark ? 0.025 : 0.018,
+              alpha: isDark ? 0.18 : 0.10,
             ),
-            blurRadius: 28,
-            spreadRadius: -4,
-            offset: const Offset(0, 12),
+            blurRadius: 32,
+            spreadRadius: -6,
+            offset: const Offset(0, 14),
           ),
         ],
       ),
-      child: Column(
+      child: Stack(
         children: [
-          Row(
-            crossAxisAlignment:
-            CrossAxisAlignment.start,
+          Positioned(
+            top: -55,
+            right: -35,
+            child: ImageFiltered(
+              imageFilter: ui.ImageFilter.blur(sigmaX: 40, sigmaY: 40),
+              child: Container(
+                width: 130,
+                height: 130,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.orange.withValues(
+                    alpha: isDark ? 0.20 : 0.16,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Column(
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
-                  children: [
-                    _LevelPill(
-                      level: level,
-                      isDark: isDark,
+              Row(
+                crossAxisAlignment:
+                CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment:
+                      CrossAxisAlignment.start,
+                      children: [
+                        _LevelPill(
+                          level: level,
+                          isDark: isDark,
+                        ),
+
+                        const SizedBox(height: 13),
+
+                        Text(
+                          levelTitle,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.outfit(
+                            fontSize: 29,
+                            height: 1,
+                            fontWeight: FontWeight.w800,
+                            letterSpacing: -1.05,
+                            color: primaryText,
+                          ),
+                        ),
+
+                        const SizedBox(height: 7),
+
+                        Text(
+                          AppLocalizations.of(context).yourPathContinues,
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            height: 1.2,
+                            fontWeight: FontWeight.w500,
+                            color: secondaryText,
+                          ),
+                        ),
+                      ],
                     ),
+                  ),
 
-                    const SizedBox(height: 13),
+                  const SizedBox(width: 15),
 
-                    Text(
-                      levelTitle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                  _LevelOrb(
+                    level: level,
+                    progress: safeProgress,
+                    isDark: isDark,
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 25),
+
+              Row(
+                crossAxisAlignment:
+                CrossAxisAlignment.end,
+                children: [
+                  ShaderMask(
+                    shaderCallback: (rect) => const LinearGradient(
+                      colors: AppColors.levelGradient,
+                    ).createShader(rect),
+                    blendMode: BlendMode.srcIn,
+                    child: Text(
+                      '$days',
                       style: GoogleFonts.outfit(
-                        fontSize: 29,
-                        height: 1,
+                        fontSize: 51,
+                        height: 0.88,
                         fontWeight: FontWeight.w800,
-                        letterSpacing: -1.05,
-                        color: primaryText,
+                        letterSpacing: -2.5,
+                        color: Colors.white,
                       ),
                     ),
+                  ),
 
-                    const SizedBox(height: 7),
+                  const SizedBox(width: 8),
 
-                    Text(
-                      AppLocalizations.of(context).yourPathContinues,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 5,
+                    ),
+                    child: Text(
+                      _daysWord(days, AppLocalizations.of(context)),
                       style: GoogleFonts.inter(
-                        fontSize: 12,
-                        height: 1.2,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: secondaryText,
+                      ),
+                    ),
+                  ),
+
+                  const Spacer(),
+
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 9,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          AppColors.primary.withValues(alpha: isDark ? 0.20 : 0.12),
+                          AppColors.orange.withValues(alpha: isDark ? 0.14 : 0.08),
+                        ],
+                      ),
+                      borderRadius:
+                      BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      '${(safeProgress * 100).toInt()}%',
+                      style: GoogleFonts.outfit(
+                        fontSize: 16,
+                        height: 1,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 11),
+
+              _ProgressBar(
+                progress: safeProgress,
+                isDark: isDark,
+              ),
+
+              const SizedBox(height: 10),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context).levelProgress,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.inter(
+                        fontSize: 10.5,
                         fontWeight: FontWeight.w500,
                         color: secondaryText,
                       ),
                     ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(width: 15),
-
-              _LevelOrb(
-                level: level,
-                progress: safeProgress,
-                isDark: isDark,
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 25),
-
-          Row(
-            crossAxisAlignment:
-            CrossAxisAlignment.end,
-            children: [
-              Text(
-                '$days',
-                style: GoogleFonts.outfit(
-                  fontSize: 51,
-                  height: 0.88,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: -2.5,
-                  color: primaryText,
-                ),
-              ),
-
-              const SizedBox(width: 8),
-
-              Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 5,
-                ),
-                child: Text(
-                  _daysWord(days, AppLocalizations.of(context)),
-                  style: GoogleFonts.inter(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: secondaryText,
                   ),
-                ),
-              ),
-
-              const Spacer(),
-
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 9,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(
-                    alpha: isDark ? 0.10 : 0.06,
+                  const SizedBox(width: 8),
+                  Icon(
+                    Icons.arrow_forward_rounded,
+                    size: 13,
+                    color: secondaryText.withValues(
+                      alpha: 0.7,
+                    ),
                   ),
-                  borderRadius:
-                  BorderRadius.circular(10),
-                ),
-                child: Text(
-                  '${(safeProgress * 100).toInt()}%',
-                  style: GoogleFonts.outfit(
-                    fontSize: 16,
-                    height: 1,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.primary,
-                  ),
-                ),
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 11),
-
-          _ProgressBar(
-            progress: safeProgress,
-            isDark: isDark,
-          ),
-
-          const SizedBox(height: 10),
-
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  AppLocalizations.of(context).levelProgress,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.inter(
-                    fontSize: 10.5,
-                    fontWeight: FontWeight.w500,
-                    color: secondaryText,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              Icon(
-                Iconsax.arrow_right_3,
-                size: 13,
-                color: secondaryText.withValues(
-                  alpha: 0.7,
-                ),
+                ],
               ),
             ],
           ),
@@ -592,15 +748,18 @@ class _LevelPill extends StatelessWidget {
         horizontal: 9,
       ),
       decoration: BoxDecoration(
-        color: AppColors.primary.withValues(
-          alpha: isDark ? 0.11 : 0.065,
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary.withValues(alpha: isDark ? 0.20 : 0.13),
+            AppColors.orange.withValues(alpha: isDark ? 0.14 : 0.09),
+          ],
         ),
         borderRadius: BorderRadius.circular(
           AppRadii.pill,
         ),
         border: Border.all(
           color: AppColors.primary.withValues(
-            alpha: 0.10,
+            alpha: 0.16,
           ),
         ),
       ),
@@ -608,7 +767,7 @@ class _LevelPill extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
-            Iconsax.flash_15,
+            Icons.bolt_rounded,
             size: 13,
             color: AppColors.primary,
           ),
@@ -645,18 +804,28 @@ class _LevelOrb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: 84,
       height: 84,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.26),
+            blurRadius: 24,
+            spreadRadius: -6,
+          ),
+        ],
+      ),
       child: CustomPaint(
         painter: _LevelRingPainter(
           progress: progress,
           trackColor: isDark
               ? Colors.white.withValues(
-            alpha: 0.065,
+            alpha: 0.075,
           )
               : AppColors.primary.withValues(
-            alpha: 0.075,
+            alpha: 0.08,
           ),
         ),
         child: Center(
@@ -670,28 +839,34 @@ class _LevelOrb extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(
                 color: AppColors.primary.withValues(
-                  alpha: isDark ? 0.13 : 0.09,
+                  alpha: isDark ? 0.20 : 0.12,
                 ),
               ),
               boxShadow: [
                 BoxShadow(
                   color: AppColors.primary.withValues(
-                    alpha: isDark ? 0.05 : 0.035,
+                    alpha: isDark ? 0.10 : 0.06,
                   ),
-                  blurRadius: 12,
+                  blurRadius: 14,
                   spreadRadius: -3,
                 ),
               ],
             ),
             alignment: Alignment.center,
-            child: Text(
-              '$level',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.outfit(
-                fontSize: 25,
-                height: 1,
-                fontWeight: FontWeight.w800,
-                color: AppColors.primary,
+            child: ShaderMask(
+              shaderCallback: (rect) => const LinearGradient(
+                colors: AppColors.levelGradient,
+              ).createShader(rect),
+              blendMode: BlendMode.srcIn,
+              child: Text(
+                '$level',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.outfit(
+                  fontSize: 25,
+                  height: 1,
+                  fontWeight: FontWeight.w800,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
@@ -740,6 +915,24 @@ class _LevelRingPainter extends CustomPainter {
     final rect = Rect.fromCircle(
       center: center,
       radius: radius,
+    );
+
+    final glowPaint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 9
+      ..strokeCap = StrokeCap.round
+      ..shader = const LinearGradient(
+        colors: AppColors.levelGradient,
+      ).createShader(rect)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5)
+      ..color = trackColor.withValues(alpha: 0.5);
+
+    canvas.drawArc(
+      rect,
+      -1.5708,
+      6.28318 * progress,
+      false,
+      glowPaint,
     );
 
     final progressPaint = Paint()
@@ -797,15 +990,30 @@ class _SectionHeader extends StatelessWidget {
       crossAxisAlignment:
       CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: GoogleFonts.outfit(
-            fontSize: 21,
-            height: 1.1,
-            fontWeight: FontWeight.w800,
-            letterSpacing: -0.5,
-            color: primaryText,
-          ),
+        Row(
+          children: [
+            Container(
+              width: 14,
+              height: 3,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: AppColors.levelGradient,
+                ),
+                borderRadius: BorderRadius.circular(999),
+              ),
+            ),
+            const SizedBox(width: 7),
+            Text(
+              title,
+              style: GoogleFonts.outfit(
+                fontSize: 21,
+                height: 1.1,
+                fontWeight: FontWeight.w800,
+                letterSpacing: -0.5,
+                color: primaryText,
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 5),
         Text(
@@ -850,22 +1058,22 @@ class _StatsGrid extends StatelessWidget {
           children: [
             Expanded(
               child: _ModernStatCard(
-                icon: Iconsax.flash_15,
+                icon: Icons.bolt_rounded,
                 title: l10n.streak,
                 value: '$streak',
                 unit: l10n.daysWordMany.substring(0, 1),
-                color: AppColors.primary,
+                gradient: AppColors.levelGradient,
                 isDark: isDark,
               ),
             ),
             const SizedBox(width: 11),
             Expanded(
               child: _ModernStatCard(
-                icon: Iconsax.cup5,
+                icon: Icons.emoji_events_rounded,
                 title: l10n.record,
                 value: '$longestStreak',
                 unit: l10n.daysWordMany.substring(0, 1),
-                color: AppColors.primaryLight,
+                gradient: AppColors.premiumGradient,
                 isDark: isDark,
               ),
             ),
@@ -876,22 +1084,22 @@ class _StatsGrid extends StatelessWidget {
           children: [
             Expanded(
               child: _ModernStatCard(
-                icon: Iconsax.money_recive,
+                icon: Icons.savings_rounded,
                 title: l10n.saved,
                 value: moneySaved.toStringAsFixed(0),
                 unit: '',
-                color: AppColors.success,
+                gradient: [AppColors.success, AppColors.orange],
                 isDark: isDark,
               ),
             ),
             const SizedBox(width: 11),
             Expanded(
               child: _ModernStatCard(
-                icon: Iconsax.health,
+                icon: Icons.shield_rounded,
                 title: l10n.avoided,
                 value: '$cigarettesAvoided',
                 unit: '',
-                color: AppColors.primaryLight,
+                gradient: AppColors.sosGradient,
                 isDark: isDark,
               ),
             ),
@@ -912,7 +1120,7 @@ class _ModernStatCard extends StatelessWidget {
     required this.title,
     required this.value,
     required this.unit,
-    required this.color,
+    required this.gradient,
     required this.isDark,
   });
 
@@ -920,7 +1128,7 @@ class _ModernStatCard extends StatelessWidget {
   final String title;
   final String value;
   final String unit;
-  final Color color;
+  final List<Color> gradient;
   final bool isDark;
 
   @override
@@ -942,18 +1150,12 @@ class _ModernStatCard extends StatelessWidget {
             : AppColors.cardLight,
         borderRadius: BorderRadius.circular(23),
         border: Border.all(
-          color: isDark
-              ? Colors.white.withValues(
-            alpha: 0.045,
-          )
-              : Colors.black.withValues(
-            alpha: 0.028,
-          ),
+          color: gradient.first.withValues(alpha: isDark ? 0.16 : 0.11),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(
-              alpha: isDark ? 0.085 : 0.018,
+            color: gradient.first.withValues(
+              alpha: isDark ? 0.14 : 0.07,
             ),
             blurRadius: 18,
             spreadRadius: -3,
@@ -969,7 +1171,7 @@ class _ModernStatCard extends StatelessWidget {
             children: [
               _IconWell(
                 icon: icon,
-                color: color,
+                gradient: gradient,
                 size: 38,
                 iconSize: 18,
                 isDark: isDark,
@@ -979,14 +1181,14 @@ class _ModernStatCard extends StatelessWidget {
                 width: 6,
                 height: 6,
                 decoration: BoxDecoration(
-                  color: color,
+                  gradient: LinearGradient(colors: gradient),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: color.withValues(
-                        alpha: 0.30,
+                      color: gradient.first.withValues(
+                        alpha: 0.45,
                       ),
-                      blurRadius: 7,
+                      blurRadius: 8,
                       spreadRadius: -1,
                     ),
                   ],
@@ -1052,20 +1254,20 @@ class _ModernStatCard extends StatelessWidget {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// ICON WELL
+// ICON WELL — теперь градиентный бейдж со свечением вместо плоской заливки
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _IconWell extends StatelessWidget {
   const _IconWell({
     required this.icon,
-    required this.color,
+    required this.gradient,
     required this.size,
     required this.iconSize,
     required this.isDark,
   });
 
   final IconData icon;
-  final Color color;
+  final List<Color> gradient;
   final double size;
   final double iconSize;
   final bool isDark;
@@ -1077,23 +1279,27 @@ class _IconWell extends StatelessWidget {
       height: size,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: color.withValues(
-            alpha: isDark ? 0.115 : 0.075,
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: gradient,
           ),
           borderRadius: BorderRadius.circular(
             size * 0.32,
           ),
-          border: Border.all(
-            color: color.withValues(
-              alpha: isDark ? 0.12 : 0.075,
+          boxShadow: [
+            BoxShadow(
+              color: gradient.first.withValues(alpha: 0.35),
+              blurRadius: size * 0.28,
+              offset: Offset(0, size * 0.1),
             ),
-          ),
+          ],
         ),
         child: Center(
           child: Icon(
             icon,
             size: iconSize,
-            color: color,
+            color: Colors.white,
           ),
         ),
       ),
@@ -1222,7 +1428,7 @@ class _TimelineItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: active
                         ? AppColors.primary.withValues(
-                      alpha: 0.16,
+                      alpha: 0.24,
                     )
                         : inactiveColor.withValues(
                       alpha: 0.10,
@@ -1255,7 +1461,7 @@ class _TimelineItem extends StatelessWidget {
               border: Border.all(
                 color: active
                     ? AppColors.primary.withValues(
-                  alpha: isDark ? 0.11 : 0.075,
+                  alpha: isDark ? 0.20 : 0.13,
                 )
                     : (isDark
                     ? Colors.white.withValues(
@@ -1270,9 +1476,9 @@ class _TimelineItem extends StatelessWidget {
                 BoxShadow(
                   color:
                   AppColors.primary.withValues(
-                    alpha: isDark ? 0.018 : 0.012,
+                    alpha: isDark ? 0.10 : 0.06,
                   ),
-                  blurRadius: 15,
+                  blurRadius: 16,
                   spreadRadius: -4,
                   offset: const Offset(0, 7),
                 ),
@@ -1314,8 +1520,9 @@ class _TimelineItem extends StatelessWidget {
                               height: 5,
                               decoration:
                               const BoxDecoration(
-                                color:
-                                AppColors.primary,
+                                gradient: LinearGradient(
+                                  colors: AppColors.levelGradient,
+                                ),
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -1344,12 +1551,12 @@ class _TimelineItem extends StatelessWidget {
                   width: 18,
                   child: Icon(
                     active
-                        ? Iconsax.arrow_right_3
-                        : Iconsax.lock_1,
+                        ? Icons.arrow_forward_rounded
+                        : Icons.lock_rounded,
                     size: active ? 15 : 14,
                     color: active
                         ? AppColors.primary.withValues(
-                      alpha: 0.62,
+                      alpha: 0.72,
                     )
                         : secondaryText.withValues(
                       alpha: 0.45,
@@ -1376,49 +1583,55 @@ class _TimelineIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: 38,
       height: 38,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: active
-              ? AppColors.primary.withValues(
-            alpha: isDark ? 0.12 : 0.075,
-          )
-              : (isDark
+      decoration: BoxDecoration(
+        gradient: active
+            ? const LinearGradient(colors: AppColors.levelGradient)
+            : null,
+        color: active
+            ? null
+            : (isDark
+            ? Colors.white.withValues(
+          alpha: 0.04,
+        )
+            : Colors.black.withValues(
+          alpha: 0.028,
+        )),
+        shape: BoxShape.circle,
+        border: active
+            ? null
+            : Border.all(
+          color: isDark
               ? Colors.white.withValues(
-            alpha: 0.04,
+            alpha: 0.045,
           )
               : Colors.black.withValues(
-            alpha: 0.028,
-          )),
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: active
-                ? AppColors.primary.withValues(
-              alpha: isDark ? 0.18 : 0.12,
-            )
-                : (isDark
-                ? Colors.white.withValues(
-              alpha: 0.045,
-            )
-                : Colors.black.withValues(
-              alpha: 0.035,
-            )),
+            alpha: 0.035,
           ),
         ),
-        child: Center(
-          child: Icon(
-            active
-                ? Iconsax.tick_circle5
-                : Iconsax.lock_1,
-            size: active ? 17 : 16,
-            color: active
-                ? AppColors.primary
-                : (isDark
-                ? AppColors.textSecondaryDark
-                : AppColors.textSecondaryLight),
+        boxShadow: active
+            ? [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.35),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
           ),
+        ]
+            : null,
+      ),
+      child: Center(
+        child: Icon(
+          active
+              ? Icons.check_circle_rounded
+              : Icons.lock_rounded,
+          size: active ? 17 : 16,
+          color: active
+              ? Colors.white
+              : (isDark
+              ? AppColors.textSecondaryDark
+              : AppColors.textSecondaryLight),
         ),
       ),
     );
@@ -1441,68 +1654,77 @@ class _BottomMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: AppColors.levelGradient,
+          colors: AppColors.sunsetGradient,
         ),
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
             color: AppColors.primary.withValues(
-              alpha: 0.14,
+              alpha: 0.24,
             ),
-            blurRadius: 24,
+            blurRadius: 26,
             spreadRadius: -5,
             offset: const Offset(0, 11),
           ),
         ],
       ),
-      child: Row(
-        crossAxisAlignment:
-        CrossAxisAlignment.center,
+      child: Stack(
         children: [
-          Container(
-            width: 43,
-            height: 43,
-            decoration: BoxDecoration(
-              color: AppColors.surfaceLight.withValues(
-                alpha: 0.12,
-              ),
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: AppColors.surfaceLight.withValues(
-                  alpha: 0.10,
-                ),
-              ),
-            ),
-            alignment: Alignment.center,
-            child: const Icon(
-              Iconsax.heart5,
-              color: AppColors.surfaceLight,
-              size: 19,
+          Positioned(
+            right: -18,
+            bottom: -26,
+            child: Icon(
+              Icons.favorite_rounded,
+              size: 90,
+              color: Colors.white.withValues(alpha: 0.08),
             ),
           ),
-
-          const SizedBox(width: 12),
-
-          Expanded(
-            child: Text(
-              days == 0
-                  ? AppLocalizations.of(context).todayStartJourney
-                  : AppLocalizations.of(context).realResultKeepGoing(
-                days,
-                _daysWord(days, AppLocalizations.of(context)),
+          Row(
+            crossAxisAlignment:
+            CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 43,
+                height: 43,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(
+                    alpha: 0.18,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+                alignment: Alignment.center,
+                child: const Icon(
+                  Icons.favorite_rounded,
+                  color: Colors.white,
+                  size: 19,
+                ),
               ),
-              style: GoogleFonts.inter(
-                fontSize: 13,
-                height: 1.4,
-                fontWeight: FontWeight.w600,
-                color: AppColors.surfaceLight,
+
+              const SizedBox(width: 12),
+
+              Expanded(
+                child: Text(
+                  days == 0
+                      ? AppLocalizations.of(context).todayStartJourney
+                      : AppLocalizations.of(context).realResultKeepGoing(
+                    days,
+                    _daysWord(days, AppLocalizations.of(context)),
+                  ),
+                  style: GoogleFonts.inter(
+                    fontSize: 13,
+                    height: 1.4,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ],
       ),
@@ -1546,10 +1768,10 @@ class _RoundButton extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(15),
         splashColor: AppColors.primary.withValues(
-          alpha: 0.07,
+          alpha: 0.10,
         ),
         highlightColor: AppColors.primary.withValues(
-          alpha: 0.035,
+          alpha: 0.05,
         ),
         child: Ink(
           width: 44,
@@ -1560,12 +1782,8 @@ class _RoundButton extends StatelessWidget {
                 : AppColors.surfaceLight,
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-              color: isDark
-                  ? Colors.white.withValues(
-                alpha: 0.05,
-              )
-                  : Colors.black.withValues(
-                alpha: 0.03,
+              color: AppColors.primary.withValues(
+                alpha: isDark ? 0.14 : 0.09,
               ),
             ),
           ),
@@ -1615,10 +1833,10 @@ class _ProgressBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isDark
                       ? Colors.white.withValues(
-                    alpha: 0.055,
+                    alpha: 0.065,
                   )
                       : AppColors.primary.withValues(
-                    alpha: 0.055,
+                    alpha: 0.065,
                   ),
                 ),
               ),

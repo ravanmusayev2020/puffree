@@ -1,8 +1,9 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/daily/daily_bloc.dart';
@@ -130,29 +131,62 @@ class _DailyScreenState extends State<DailyScreen> {
       backgroundColor: isDark
           ? AppColors.backgroundDark
           : AppColors.backgroundLight,
-      body: SafeArea(
-        child: BlocBuilder<DailyBloc, DailyState>(
-          builder: (context, state) {
-            if (state is DailyLoading) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.primary,
-                ),
-              );
-            }
+      body: Stack(
+        children: [
+          Positioned.fill(child: _AmbientBackground(isDark: isDark)),
+          SafeArea(
+            child: BlocBuilder<DailyBloc, DailyState>(
+              builder: (context, state) {
+                if (state is DailyLoading) {
+                  return Center(
+                    child: Container(
+                      width: 56,
+                      height: 56,
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        gradient: const LinearGradient(
+                          colors: AppColors.levelGradient,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.glowPrimary.withValues(alpha: 0.4),
+                            blurRadius: 26,
+                            spreadRadius: 1,
+                          ),
+                        ],
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: isDark
+                              ? AppColors.backgroundDark
+                              : AppColors.backgroundLight,
+                        ),
+                        padding: const EdgeInsets.all(9),
+                        child: const CircularProgressIndicator(
+                          strokeWidth: 2.4,
+                          color: AppColors.primary,
+                        ),
+                      ),
+                    ),
+                  );
+                }
 
-            if (state is DailyLoaded) {
-              return _buildContent(
-                context,
-                state,
-                l10n,
-                isDark,
-              );
-            }
+                if (state is DailyLoaded) {
+                  return _buildContent(
+                    context,
+                    state,
+                    l10n,
+                    isDark,
+                  );
+                }
 
-            return const SizedBox.shrink();
-          },
-        ),
+                return const SizedBox.shrink();
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -357,6 +391,78 @@ class _DailyScreenState extends State<DailyScreen> {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
+// AMBIENT BACKGROUND — те же три ауро-пятна, что и на главном экране
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _AmbientBackground extends StatelessWidget {
+  const _AmbientBackground({required this.isDark});
+
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final alpha1 = isDark ? 0.22 : 0.13;
+    final alpha2 = isDark ? 0.16 : 0.10;
+    final alpha3 = isDark ? 0.14 : 0.09;
+
+    return ClipRect(
+      child: Stack(
+        children: [
+          Positioned(
+            top: -70,
+            right: -60,
+            child: _Blob(
+              size: 210,
+              color: AppColors.blobOrange.withValues(alpha: alpha1),
+            ),
+          ),
+          Positioned(
+            top: 260,
+            left: -90,
+            child: _Blob(
+              size: 240,
+              color: AppColors.blobPink.withValues(alpha: alpha2),
+            ),
+          ),
+          Positioned(
+            bottom: -50,
+            right: -40,
+            child: _Blob(
+              size: 190,
+              color: AppColors.blobAmber.withValues(alpha: alpha3),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Blob extends StatelessWidget {
+  const _Blob({required this.size, required this.color});
+
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: ImageFiltered(
+        imageFilter: ui.ImageFilter.blur(sigmaX: 55, sigmaY: 55),
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
 // TOP BAR
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -378,13 +484,19 @@ class _DailyTopBar extends StatelessWidget {
             crossAxisAlignment:
             CrossAxisAlignment.start,
             children: [
-              Text(
-                l10n.today.toUpperCase(),
-                style: GoogleFonts.inter(
-                  fontSize: 9,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1.7,
-                  color: AppColors.primary,
+              ShaderMask(
+                shaderCallback: (rect) => const LinearGradient(
+                  colors: AppColors.levelGradient,
+                ).createShader(rect),
+                blendMode: BlendMode.srcIn,
+                child: Text(
+                  l10n.today.toUpperCase(),
+                  style: GoogleFonts.inter(
+                    fontSize: 9,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 1.7,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(height: 5),
@@ -419,21 +531,26 @@ class _DailyTopBar extends StatelessWidget {
           width: 48,
           height: 48,
           decoration: BoxDecoration(
-            color: isDark
-                ? AppColors.surfaceDark
-                : AppColors.surfaceLight,
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.primary.withValues(alpha: isDark ? 0.20 : 0.13),
+                AppColors.orange.withValues(alpha: isDark ? 0.14 : 0.09),
+              ],
+            ),
             borderRadius:
             BorderRadius.circular(17),
             border: Border.all(
               color: AppColors.primary
-                  .withValues(alpha: 0.07),
+                  .withValues(alpha: 0.14),
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(
+                color: AppColors.primary.withValues(
                   alpha: isDark
-                      ? 0.10
-                      : 0.035,
+                      ? 0.16
+                      : 0.09,
                 ),
                 blurRadius: 18,
                 offset:
@@ -442,12 +559,12 @@ class _DailyTopBar extends StatelessWidget {
             ],
           ),
           child: Icon(
-            Iconsax.calendar_1,
+            Icons.calendar_month_rounded,
             size: 19,
             color: isDark
                 ? AppColors.textPrimaryDark
-                .withValues(alpha: 0.72)
-                : AppColors.textPrimaryLight,
+                .withValues(alpha: 0.85)
+                : AppColors.primaryDark,
           ),
         ),
       ],
@@ -484,6 +601,7 @@ class _DailyHero extends StatelessWidget {
             total > 0;
 
     return Container(
+      clipBehavior: Clip.antiAlias,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -491,12 +609,12 @@ class _DailyHero extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: isDark
               ? [
-            AppColors.surfaceDark,
-            AppColors.cardDark,
+            const Color(0xFF17162B),
+            const Color(0xFF1F1B3A),
           ]
               : [
-            AppColors.cardLight,
-            const Color(0xFFF0F7F4),
+            const Color(0xFFF3EFFE),
+            const Color(0xFFE9F8F5),
           ],
         ),
         borderRadius:
@@ -505,123 +623,111 @@ class _DailyHero extends StatelessWidget {
           color: AppColors.primary
               .withValues(
             alpha: isDark
-                ? 0.10
-                : 0.07,
+                ? 0.22
+                : 0.14,
           ),
+          width: 1.2,
         ),
         boxShadow: [
           BoxShadow(
             color: AppColors.primary
                 .withValues(
               alpha: isDark
-                  ? 0.08
-                  : 0.055,
+                  ? 0.20
+                  : 0.12,
             ),
-            blurRadius: 28,
+            blurRadius: 34,
+            spreadRadius: -6,
             offset:
-            const Offset(0, 15),
+            const Offset(0, 16),
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment:
-        CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          Row(
-            children: [
-              _StatusChip(
-                icon: finished
-                    ? Iconsax.tick_circle5
-                    : Iconsax.flash_15,
-                text: finished
-                    ? l10n.complete
-                    : l10n.inProgress,
-                isDark: isDark,
-              ),
-              const Spacer(),
-              Text(
-                '$completed / $total',
-                style: GoogleFonts.outfit(
-                  fontSize: 15,
-                  fontWeight:
-                  FontWeight.w800,
-                  color: isDark
-                      ? AppColors.textPrimaryDark
-                      : AppColors.textPrimaryLight,
+          Positioned(
+            top: -60,
+            right: -40,
+            child: ImageFiltered(
+              imageFilter: ui.ImageFilter.blur(sigmaX: 42, sigmaY: 42),
+              child: Container(
+                width: 140,
+                height: 140,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.orange.withValues(
+                    alpha: isDark ? 0.20 : 0.16,
+                  ),
                 ),
               ),
-            ],
+            ),
           ),
-          const SizedBox(height: 23),
-          Row(
+          Column(
             crossAxisAlignment:
-            CrossAxisAlignment.center,
+            CrossAxisAlignment.start,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      finished
-                          ? l10n.everythingDone
-                          : l10n.yourPlanToday,
-                      style:
-                      GoogleFonts.outfit(
-                        fontSize: 22,
-                        height: 1.0,
-                        fontWeight:
-                        FontWeight.w800,
-                        letterSpacing: -0.7,
-                        color: isDark
-                            ? AppColors.textPrimaryDark
-                            : AppColors.textPrimaryLight,
-                      ),
+              Row(
+                children: [
+                  _StatusChip(
+                    icon: finished
+                        ? Icons.check_circle_rounded
+                        : Icons.bolt_rounded,
+                    text: finished
+                        ? l10n.complete
+                        : l10n.inProgress,
+                    isDark: isDark,
+                  ),
+                  const Spacer(),
+                  Text(
+                    '$completed / $total',
+                    style: GoogleFonts.outfit(
+                      fontSize: 15,
+                      fontWeight:
+                      FontWeight.w800,
+                      color: isDark
+                          ? AppColors.textPrimaryDark
+                          : AppColors.textPrimaryLight,
                     ),
-                    const SizedBox(height: 8),
-                    Text(
-                      l10n.completedOf(
-                        completed,
-                        total,
-                      ),
-                      style:
-                      GoogleFonts.inter(
-                        fontSize: 12,
-                        fontWeight:
-                        FontWeight.w600,
-                        color: isDark
-                            ? AppColors
-                            .textSecondaryDark
-                            : AppColors
-                            .textSecondaryLight,
-                      ),
-                    ),
-                    const SizedBox(height: 18),
-                    Row(
+                  ),
+                ],
+              ),
+              const SizedBox(height: 23),
+              Row(
+                crossAxisAlignment:
+                CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment:
+                      CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '$percentage%',
+                          finished
+                              ? l10n.everythingDone
+                              : l10n.yourPlanToday,
                           style:
                           GoogleFonts.outfit(
-                            fontSize: 15,
+                            fontSize: 22,
+                            height: 1.0,
                             fontWeight:
                             FontWeight.w800,
-                            color:
-                            AppColors.primary,
+                            letterSpacing: -0.7,
+                            color: isDark
+                                ? AppColors.textPrimaryDark
+                                : AppColors.textPrimaryLight,
                           ),
                         ),
-                        const SizedBox(
-                          width: 6,
-                        ),
+                        const SizedBox(height: 8),
                         Text(
-                          l10n.today.toUpperCase(),
+                          l10n.completedOf(
+                            completed,
+                            total,
+                          ),
                           style:
                           GoogleFonts.inter(
-                            fontSize: 8,
+                            fontSize: 12,
                             fontWeight:
-                            FontWeight.w800,
-                            letterSpacing:
-                            1.1,
+                            FontWeight.w600,
                             color: isDark
                                 ? AppColors
                                 .textSecondaryDark
@@ -629,51 +735,91 @@ class _DailyHero extends StatelessWidget {
                                 .textSecondaryLight,
                           ),
                         ),
+                        const SizedBox(height: 18),
+                        Row(
+                          children: [
+                            ShaderMask(
+                              shaderCallback: (rect) => const LinearGradient(
+                                colors: AppColors.levelGradient,
+                              ).createShader(rect),
+                              blendMode: BlendMode.srcIn,
+                              child: Text(
+                                '$percentage%',
+                                style:
+                                GoogleFonts.outfit(
+                                  fontSize: 15,
+                                  fontWeight:
+                                  FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              l10n.today.toUpperCase(),
+                              style:
+                              GoogleFonts.inter(
+                                fontSize: 8,
+                                fontWeight:
+                                FontWeight.w800,
+                                letterSpacing:
+                                1.1,
+                                color: isDark
+                                    ? AppColors
+                                    .textSecondaryDark
+                                    : AppColors
+                                    .textSecondaryLight,
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(width: 18),
+                  _DailyProgressRing(
+                    progress: progress,
+                    percentage: percentage,
+                    isDark: isDark,
+                  ),
+                ],
               ),
-              const SizedBox(width: 18),
-              _DailyProgressRing(
+              const SizedBox(height: 23),
+              _ThinProgressLine(
                 progress: progress,
-                percentage: percentage,
                 isDark: isDark,
               ),
-            ],
-          ),
-          const SizedBox(height: 23),
-          _ThinProgressLine(
-            progress: progress,
-            isDark: isDark,
-          ),
-          const SizedBox(height: 9),
-          Row(
-            children: [
-              Text(
-                finished
-                    ? l10n.dayComplete
-                    : l10n.keepGoingShort,
-                style: GoogleFonts.inter(
-                  fontSize: 10,
-                  fontWeight:
-                  FontWeight.w600,
-                  color: isDark
-                      ? AppColors
-                      .textSecondaryDark
-                      : AppColors
-                      .textSecondaryLight,
-                ),
-              ),
-              const Spacer(),
-              Text(
-                '$percentage%',
-                style: GoogleFonts.inter(
-                  fontSize: 10,
-                  fontWeight:
-                  FontWeight.w800,
-                  color: AppColors.primary,
-                ),
+              const SizedBox(height: 9),
+              Row(
+                children: [
+                  Text(
+                    finished
+                        ? l10n.dayComplete
+                        : l10n.keepGoingShort,
+                    style: GoogleFonts.inter(
+                      fontSize: 10,
+                      fontWeight:
+                      FontWeight.w600,
+                      color: isDark
+                          ? AppColors
+                          .textSecondaryDark
+                          : AppColors
+                          .textSecondaryLight,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    '$percentage%',
+                    style: GoogleFonts.inter(
+                      fontSize: 10,
+                      fontWeight:
+                      FontWeight.w800,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -702,11 +848,11 @@ class _StatusChip extends StatelessWidget {
         vertical: 6,
       ),
       decoration: BoxDecoration(
-        color: AppColors.primary
-            .withValues(
-          alpha: isDark
-              ? 0.10
-              : 0.075,
+        gradient: LinearGradient(
+          colors: [
+            AppColors.primary.withValues(alpha: isDark ? 0.18 : 0.12),
+            AppColors.orange.withValues(alpha: isDark ? 0.12 : 0.08),
+          ],
         ),
         borderRadius:
         BorderRadius.circular(
@@ -715,7 +861,7 @@ class _StatusChip extends StatelessWidget {
         border: Border.all(
           color: AppColors.primary
               .withValues(
-            alpha: 0.10,
+            alpha: 0.18,
           ),
         ),
       ),
@@ -767,23 +913,29 @@ class _DailyProgressRing
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: 104,
       height: 104,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.28),
+            blurRadius: 28,
+            spreadRadius: -6,
+          ),
+        ],
+      ),
       child: CustomPaint(
         painter: _RingPainter(
           progress: progress,
           trackColor: isDark
               ? Colors.white.withValues(
-            alpha: 0.06,
+            alpha: 0.075,
           )
               : AppColors.primary
               .withValues(
-            alpha: 0.07,
-          ),
-          glowColor:
-          AppColors.primary.withValues(
-            alpha: 0.07,
+            alpha: 0.08,
           ),
         ),
         child: Center(
@@ -834,12 +986,10 @@ class _RingPainter
   _RingPainter({
     required this.progress,
     required this.trackColor,
-    required this.glowColor,
   });
 
   final double progress;
   final Color trackColor;
-  final Color glowColor;
 
   @override
   void paint(
@@ -879,10 +1029,14 @@ class _RingPainter
     final glow = Paint()
       ..style =
           PaintingStyle.stroke
-      ..strokeWidth = 11
+      ..strokeWidth = 12
       ..strokeCap =
           StrokeCap.round
-      ..color = glowColor;
+      ..shader = const LinearGradient(
+        colors: AppColors.levelGradient,
+      ).createShader(rect)
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 6)
+      ..color = trackColor.withValues(alpha: 0.5);
 
     canvas.drawArc(
       rect,
@@ -950,11 +1104,11 @@ class _ThinProgressLine
                 color: isDark
                     ? Colors.white
                     .withValues(
-                  alpha: 0.055,
+                  alpha: 0.065,
                 )
                     : AppColors.primary
                     .withValues(
-                  alpha: 0.055,
+                  alpha: 0.065,
                 ),
               ),
             ),
@@ -1048,19 +1202,30 @@ class _DailyMomentum
             width: 43,
             height: 43,
             decoration: BoxDecoration(
-              color: AppColors.primary
-                  .withValues(
-                alpha: 0.09,
+              gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.success,
+                  AppColors.orange,
+                ],
               ),
               borderRadius:
               BorderRadius.circular(
                 14,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.success.withValues(alpha: 0.35),
+                  blurRadius: 14,
+                  offset: const Offset(0, 5),
+                ),
+              ],
             ),
             child: const Icon(
-              Iconsax.chart_success,
-              color: AppColors.primary,
-              size: 19,
+              Icons.trending_up_rounded,
+              color: Colors.white,
+              size: 20,
             ),
           ),
           const SizedBox(width: 12),
@@ -1111,8 +1276,6 @@ class _DailyMomentum
             painter:
             _MomentumPainter(
               progress: progress,
-              color:
-              AppColors.primary,
             ),
           ),
         ],
@@ -1163,11 +1326,12 @@ class _JournalPanel
               BoxShadow(
                 color: AppColors.accent
                     .withValues(
-                  alpha: 0.16,
+                  alpha: 0.24,
                 ),
-                blurRadius: 22,
+                blurRadius: 26,
+                spreadRadius: -4,
                 offset:
-                const Offset(0, 9),
+                const Offset(0, 12),
               ),
             ],
           ),
@@ -1180,7 +1344,7 @@ class _JournalPanel
                 BoxDecoration(
                   color: Colors.white
                       .withValues(
-                    alpha: 0.13,
+                    alpha: 0.16,
                   ),
                   borderRadius:
                   BorderRadius.circular(
@@ -1188,10 +1352,15 @@ class _JournalPanel
                   ),
                 ),
                 child: const Icon(
-                  Iconsax.book_1,
+                  Icons.auto_stories_rounded,
                   color: Colors.white,
                   size: 21,
                 ),
+              ).animate(onPlay: (c) => c.repeat(reverse: true)).scaleXY(
+                begin: 1,
+                end: 1.08,
+                duration: 1600.ms,
+                curve: Curves.easeInOut,
               ),
               const SizedBox(width: 13),
               Expanded(
@@ -1227,7 +1396,7 @@ class _JournalPanel
                         color: Colors
                             .white
                             .withValues(
-                          alpha: 0.72,
+                          alpha: 0.78,
                         ),
                       ),
                     ),
@@ -1242,12 +1411,12 @@ class _JournalPanel
                 BoxDecoration(
                   color: Colors.white
                       .withValues(
-                    alpha: 0.10,
+                    alpha: 0.14,
                   ),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
-                  Iconsax.arrow_right_3,
+                  Icons.arrow_forward_rounded,
                   size: 16,
                   color: Colors.white,
                 ),
@@ -1287,20 +1456,35 @@ class _DailySectionHeader
             crossAxisAlignment:
             CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style:
-                GoogleFonts.outfit(
-                  fontSize: 22,
-                  fontWeight:
-                  FontWeight.w800,
-                  letterSpacing: -0.7,
-                  color: isDark
-                      ? AppColors
-                      .textPrimaryDark
-                      : AppColors
-                      .textPrimaryLight,
-                ),
+              Row(
+                children: [
+                  Container(
+                    width: 14,
+                    height: 3,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: AppColors.levelGradient,
+                      ),
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                  ),
+                  const SizedBox(width: 7),
+                  Text(
+                    title,
+                    style:
+                    GoogleFonts.outfit(
+                      fontSize: 22,
+                      fontWeight:
+                      FontWeight.w800,
+                      letterSpacing: -0.7,
+                      color: isDark
+                          ? AppColors
+                          .textPrimaryDark
+                          : AppColors
+                          .textPrimaryLight,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 4),
               Text(
@@ -1384,7 +1568,7 @@ class _PremiumMissionCard
                   ? AppColors
                   .surfaceDark
                   : const Color(
-                0xFFF0F8F5,
+                0xFFF0F0FB,
               )
                   : isDark
                   ? AppColors
@@ -1399,7 +1583,7 @@ class _PremiumMissionCard
                 color: completed
                     ? AppColors.primary
                     .withValues(
-                  alpha: 0.14,
+                  alpha: 0.20,
                 )
                     : isDark
                     ? Colors.white
@@ -1559,11 +1743,11 @@ class _MissionVisual
           colors: [
             AppColors.primary
                 .withValues(
-              alpha: 0.12,
+              alpha: 0.14,
             ),
-            AppColors.primary
+            AppColors.orange
                 .withValues(
-              alpha: 0.045,
+              alpha: 0.07,
             ),
           ],
         ),
@@ -1575,8 +1759,8 @@ class _MissionVisual
           color: AppColors.primary
               .withValues(
             alpha: completed
-                ? 0.10
-                : 0.07,
+                ? 0.16
+                : 0.10,
           ),
         ),
         boxShadow: completed
@@ -1585,9 +1769,9 @@ class _MissionVisual
             color: AppColors
                 .primary
                 .withValues(
-              alpha: 0.16,
+              alpha: 0.28,
             ),
-            blurRadius: 15,
+            blurRadius: 16,
             offset:
             const Offset(0, 7),
           ),
@@ -1597,7 +1781,7 @@ class _MissionVisual
       child: Center(
         child: completed
             ? const Icon(
-          Iconsax.tick_circle5,
+          Icons.check_circle_rounded,
           color: Colors.white,
           size: 22,
         )
@@ -1632,7 +1816,7 @@ class _MissionAction
         color: completed
             ? AppColors.primary
             .withValues(
-          alpha: 0.09,
+          alpha: 0.14,
         )
             : isDark
             ? Colors.white
@@ -1647,8 +1831,8 @@ class _MissionAction
       ),
       child: Icon(
         completed
-            ? Iconsax.tick_circle5
-            : Iconsax.arrow_right_3,
+            ? Icons.check_circle_rounded
+            : Icons.arrow_forward_rounded,
         size: 15,
         color: completed
             ? AppColors.primary
@@ -1682,29 +1866,29 @@ class _ProBadge extends StatelessWidget {
         vertical: 4,
       ),
       decoration: BoxDecoration(
-        color: AppColors.amber
-            .withValues(
-          alpha: 0.10,
+        gradient: const LinearGradient(
+          colors: AppColors.premiumGradient,
         ),
         borderRadius:
         BorderRadius.circular(
           8,
         ),
-        border: Border.all(
-          color: AppColors.amber
-              .withValues(
-            alpha: 0.16,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.amber.withValues(alpha: 0.35),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
           ),
-        ),
+        ],
       ),
       child: Row(
         mainAxisSize:
         MainAxisSize.min,
         children: [
           const Icon(
-            Iconsax.crown_1,
+            Icons.diamond_rounded,
             size: 10,
-            color: AppColors.amber,
+            color: Colors.white,
           ),
           const SizedBox(width: 3),
           Text(
@@ -1715,7 +1899,7 @@ class _ProBadge extends StatelessWidget {
               FontWeight.w800,
               letterSpacing: 0.5,
               color:
-              AppColors.amber,
+              Colors.white,
             ),
           ),
         ],
@@ -1758,13 +1942,13 @@ class _DailyCompletionPanel
       decoration: BoxDecoration(
         color: isDark
             ? AppColors.surfaceDark
-            : const Color(0xFFEFF8F4),
+            : const Color(0xFFF1EFFB),
         borderRadius:
         BorderRadius.circular(27),
         border: Border.all(
           color: AppColors.primary
               .withValues(
-            alpha: 0.11,
+            alpha: 0.16,
           ),
         ),
       ),
@@ -1777,20 +1961,27 @@ class _DailyCompletionPanel
                 height: 44,
                 decoration:
                 BoxDecoration(
-                  color: AppColors
-                      .primary
-                      .withValues(
-                    alpha: 0.10,
+                  gradient: LinearGradient(
+                    colors: finished
+                        ? AppColors.premiumGradient
+                        : AppColors.levelGradient,
                   ),
                   shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: (finished ? AppColors.amber : AppColors.primary)
+                          .withValues(alpha: 0.32),
+                      blurRadius: 14,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
                 ),
                 child: Icon(
                   finished
-                      ? Iconsax.cup5
-                      : Iconsax.flash_15,
+                      ? Icons.emoji_events_rounded
+                      : Icons.bolt_rounded,
                   size: 20,
-                  color:
-                  AppColors.primary,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(width: 12),
@@ -1836,15 +2027,20 @@ class _DailyCompletionPanel
                   ],
                 ),
               ),
-              Text(
-                '${(progress * 100).toInt()}%',
-                style: GoogleFonts.outfit(
-                  fontSize: 21,
-                  fontWeight:
-                  FontWeight.w800,
-                  letterSpacing: -0.5,
-                  color:
-                  AppColors.primary,
+              ShaderMask(
+                shaderCallback: (rect) => const LinearGradient(
+                  colors: AppColors.levelGradient,
+                ).createShader(rect),
+                blendMode: BlendMode.srcIn,
+                child: Text(
+                  '${(progress * 100).toInt()}%',
+                  style: GoogleFonts.outfit(
+                    fontSize: 21,
+                    fontWeight:
+                    FontWeight.w800,
+                    letterSpacing: -0.5,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
@@ -1868,26 +2064,28 @@ class _MomentumPainter
     extends CustomPainter {
   _MomentumPainter({
     required this.progress,
-    required this.color,
   });
 
   final double progress;
-  final Color color;
 
   @override
   void paint(
       Canvas canvas,
       Size size,
       ) {
+    final shader = const LinearGradient(
+      colors: AppColors.levelGradient,
+    ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+
     final paint = Paint()
       ..style =
           PaintingStyle.stroke
-      ..strokeWidth = 2.3
+      ..strokeWidth = 2.4
       ..strokeCap =
           StrokeCap.round
       ..strokeJoin =
           StrokeJoin.round
-      ..color = color;
+      ..shader = shader;
 
     final points = <Offset>[
       Offset(
@@ -1941,13 +2139,10 @@ class _MomentumPainter
       paint,
     );
 
-    final dotPaint = Paint()
-      ..color = color;
-
     canvas.drawCircle(
       points.last,
-      3,
-      dotPaint,
+      3.2,
+      Paint()..color = AppColors.orange,
     );
   }
 

@@ -8,6 +8,9 @@ abstract class ProgressEvent extends Equatable {
 }
 
 class LoadProgress extends ProgressEvent {}
+class RefreshProgress extends ProgressEvent {
+  const RefreshProgress();
+}
 
 class StartQuitJourney extends ProgressEvent {
   final double cigarettesPerDay;
