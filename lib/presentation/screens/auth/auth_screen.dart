@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +7,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/services/auth_service.dart';
+import '../../../l10n/app_localizations.dart';
 
 enum AuthMode { login, register, forgotPassword }
 
@@ -47,6 +49,7 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Future<void> _handleSubmit() async {
+    final l10n = AppLocalizations.of(context)!;
     if (!_formKey.currentState!.validate()) return;
 
     FocusScope.of(context).unfocus();
@@ -66,22 +69,23 @@ class _AuthScreenState extends State<AuthScreen> {
         );
       } else if (_mode == AuthMode.forgotPassword) {
         await _authService.sendPasswordResetEmail(_emailController.text.trim());
-        _showSuccessSnackBar('Ссылка для сброса пароля отправлена на почту!');
+        _showSuccessSnackBar(l10n.authResetLinkSent);
         _switchMode(AuthMode.login);
       }
     } catch (e) {
-      _showErrorSnackBar('Произошла ошибка. Проверьте введенные данные.');
+      _showErrorSnackBar(l10n.authErrorGeneric);
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
   }
 
   Future<void> _handleSocialAuth(Future<void> Function() authMethod) async {
+    final l10n = AppLocalizations.of(context)!;
     setState(() => _isLoading = true);
     try {
       await authMethod();
     } catch (e) {
-      _showErrorSnackBar('Ошибка авторизации через соцсети.');
+      _showErrorSnackBar(l10n.authErrorSocial);
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -113,13 +117,14 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
       body: Stack(
         children: [
-          // ── 1. ФОНОВЫЕ ДИЗАЙН-ОРБЫ ───────────────────────────────────────
+          // Background orbs
           Positioned(
             top: -80,
             right: -60,
@@ -155,7 +160,6 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
 
-          // ── 2. ОСНОВНОЙ КОНТЕНТ ──────────────────────────────────────────
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
@@ -165,7 +169,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Иконка и Бренд
+                    // Logo
                     Center(
                       child: Container(
                         width: 88,
@@ -193,14 +197,14 @@ class _AuthScreenState extends State<AuthScreen> {
 
                     const SizedBox(height: 20),
 
-                    // Заголовок и подзаголовок
+                    // Header
                     AnimatedSwitcher(
                       duration: 300.ms,
                       child: Column(
                         key: ValueKey(_mode),
                         children: [
                           Text(
-                            _getHeaderTitle(),
+                            _getHeaderTitle(l10n),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.outfit(
                               fontSize: 34,
@@ -211,7 +215,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            _getHeaderSubtitle(),
+                            _getHeaderSubtitle(l10n),
                             textAlign: TextAlign.center,
                             style: GoogleFonts.inter(
                               fontSize: 14,
@@ -225,21 +229,19 @@ class _AuthScreenState extends State<AuthScreen> {
 
                     const SizedBox(height: 28),
 
-                    // ── 3. ТАБЫ ПЕРЕКЛЮЧЕНИЯ (Вход / Регистрация) ──────────────
+                    // Tabs
                     if (_mode != AuthMode.forgotPassword)
                       Container(
                         padding: const EdgeInsets.all(4),
                         decoration: BoxDecoration(
-                          color: isDark
-                              ? AppColors.surfaceDark
-                              : AppColors.softLight,
+                          color: isDark ? AppColors.surfaceDark : AppColors.softLight,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
                           children: [
                             Expanded(
                               child: _TabButton(
-                                label: 'Вход',
+                                label: l10n.authTabLogin,
                                 isActive: _mode == AuthMode.login,
                                 isDark: isDark,
                                 onTap: () => _switchMode(AuthMode.login),
@@ -247,7 +249,7 @@ class _AuthScreenState extends State<AuthScreen> {
                             ),
                             Expanded(
                               child: _TabButton(
-                                label: 'Регистрация',
+                                label: l10n.authTabRegister,
                                 isActive: _mode == AuthMode.register,
                                 isDark: isDark,
                                 onTap: () => _switchMode(AuthMode.register),
@@ -259,7 +261,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
                     const SizedBox(height: 20),
 
-                    // ── 4. ФОРМА ВВОДА (GLASSMORPHISM CARD) ─────────────────
+                    // Form card
                     ClipRRect(
                       borderRadius: BorderRadius.circular(32),
                       child: BackdropFilter(
@@ -292,41 +294,38 @@ class _AuthScreenState extends State<AuthScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  // Поле Имени (Только Регистрация)
                                   if (_mode == AuthMode.register) ...[
                                     _CustomTextField(
                                       controller: _nameController,
-                                      hintText: 'Ваше имя',
+                                      hintText: l10n.authNameHint,
                                       prefixIcon: Iconsax.user,
                                       isDark: isDark,
                                       validator: (val) =>
-                                      val == null || val.trim().isEmpty ? 'Введите ваше имя' : null,
+                                      val == null || val.trim().isEmpty ? l10n.authNameRequired : null,
                                     ),
                                     const SizedBox(height: 16),
                                   ],
 
-                                  // Поле Email
                                   _CustomTextField(
                                     controller: _emailController,
-                                    hintText: 'Email адрес',
+                                    hintText: l10n.authEmailHint,
                                     prefixIcon: Iconsax.sms,
                                     keyboardType: TextInputType.emailAddress,
                                     isDark: isDark,
                                     validator: (val) {
-                                      if (val == null || val.trim().isEmpty) return 'Введите Email';
+                                      if (val == null || val.trim().isEmpty) return l10n.authEmailRequired;
                                       if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(val.trim())) {
-                                        return 'Некорректный Email';
+                                        return l10n.authEmailInvalid;
                                       }
                                       return null;
                                     },
                                   ),
 
-                                  // Поля Пароля (Вход / Регистрация)
                                   if (_mode != AuthMode.forgotPassword) ...[
                                     const SizedBox(height: 16),
                                     _CustomTextField(
                                       controller: _passwordController,
-                                      hintText: 'Пароль',
+                                      hintText: l10n.authPasswordHint,
                                       prefixIcon: Iconsax.lock,
                                       obscureText: !_isPasswordVisible,
                                       isDark: isDark,
@@ -339,19 +338,18 @@ class _AuthScreenState extends State<AuthScreen> {
                                         onPressed: () => setState(() => _isPasswordVisible = !_isPasswordVisible),
                                       ),
                                       validator: (val) {
-                                        if (val == null || val.isEmpty) return 'Введите пароль';
-                                        if (val.length < 6) return 'Пароль должен быть не менее 6 символов';
+                                        if (val == null || val.isEmpty) return l10n.authPasswordRequired;
+                                        if (val.length < 6) return l10n.authPasswordMinLength;
                                         return null;
                                       },
                                     ),
                                   ],
 
-                                  // Подтверждение пароля (Регистрация)
                                   if (_mode == AuthMode.register) ...[
                                     const SizedBox(height: 16),
                                     _CustomTextField(
                                       controller: _confirmPasswordController,
-                                      hintText: 'Повторите пароль',
+                                      hintText: l10n.authConfirmPasswordHint,
                                       prefixIcon: Iconsax.lock_1,
                                       obscureText: !_isConfirmPasswordVisible,
                                       isDark: isDark,
@@ -361,16 +359,16 @@ class _AuthScreenState extends State<AuthScreen> {
                                           color: isDark ? AppColors.textSecondaryDark : AppColors.textSecondaryLight,
                                           size: 20,
                                         ),
-                                        onPressed: () => setState(() => _isConfirmPasswordVisible = !_isConfirmPasswordVisible),
+                                        onPressed: () =>
+                                            setState(() => _isConfirmPasswordVisible = !_isConfirmPasswordVisible),
                                       ),
                                       validator: (val) {
-                                        if (val != _passwordController.text) return 'Пароли не совпадают';
+                                        if (val != _passwordController.text) return l10n.authPasswordsDoNotMatch;
                                         return null;
                                       },
                                     ),
                                   ],
 
-                                  // Забыл пароль
                                   if (_mode == AuthMode.login) ...[
                                     Align(
                                       alignment: Alignment.centerRight,
@@ -380,7 +378,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                           padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                                         ),
                                         child: Text(
-                                          'Забыли пароль?',
+                                          l10n.authForgotPassword,
                                           style: GoogleFonts.inter(
                                             fontSize: 13,
                                             fontWeight: FontWeight.w600,
@@ -392,13 +390,11 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ] else
                                     const SizedBox(height: 20),
 
-                                  // Главная кнопка действия
+                                  // Submit button
                                   Container(
                                     height: 56,
                                     decoration: BoxDecoration(
-                                      gradient: const LinearGradient(
-                                        colors: AppColors.primaryGradient,
-                                      ),
+                                      gradient: const LinearGradient(colors: AppColors.primaryGradient),
                                       borderRadius: BorderRadius.circular(20),
                                       boxShadow: [
                                         BoxShadow(
@@ -422,7 +418,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                         child: CircularProgressIndicator(strokeWidth: 2.5, color: Colors.white),
                                       )
                                           : Text(
-                                        _getSubmitButtonText(),
+                                        _getSubmitButtonText(l10n),
                                         style: GoogleFonts.inter(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w700,
@@ -432,13 +428,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                     ),
                                   ),
 
-                                  // Вернуться ко входу (Восстановление)
                                   if (_mode == AuthMode.forgotPassword) ...[
                                     const SizedBox(height: 12),
                                     TextButton(
                                       onPressed: () => _switchMode(AuthMode.login),
                                       child: Text(
-                                        'Вернуться ко входу',
+                                        l10n.authBackToLogin,
                                         style: GoogleFonts.inter(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
@@ -455,7 +450,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       ),
                     ).animate().fadeIn(delay: 300.ms).slideY(begin: 0.1),
 
-                    // ── 5. СОЦИАЛЬНЫЕ СЕТИ (Google / Apple) ─────────────────
+                    // Social
                     if (_mode != AuthMode.forgotPassword) ...[
                       const SizedBox(height: 24),
                       Row(
@@ -464,7 +459,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
-                              'или через',
+                              l10n.authOrContinueWith,
                               style: GoogleFonts.inter(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
@@ -483,7 +478,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           Expanded(
                             child: _SocialIconButton(
                               icon: Iconsax.support,
-                              label: 'Google',
+                              label: l10n.authGoogle,
                               isDark: isDark,
                               onPressed: () => _handleSocialAuth(_authService.signInWithGoogle),
                             ),
@@ -492,7 +487,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           Expanded(
                             child: _SocialIconButton(
                               icon: Icons.apple,
-                              label: 'Apple',
+                              label: l10n.authApple,
                               isDark: isDark,
                               onPressed: () => _handleSocialAuth(_authService.signInWithApple),
                             ),
@@ -510,42 +505,42 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
-  String _getHeaderTitle() {
+  String _getHeaderTitle(AppLocalizations l10n) {
     switch (_mode) {
       case AuthMode.login:
-        return 'С возвращением!';
+        return l10n.authWelcomeBack;
       case AuthMode.register:
-        return 'Создать аккаунт';
+        return l10n.authCreateAccount;
       case AuthMode.forgotPassword:
-        return 'Сброс пароля';
+        return l10n.authResetPassword;
     }
   }
 
-  String _getHeaderSubtitle() {
+  String _getHeaderSubtitle(AppLocalizations l10n) {
     switch (_mode) {
       case AuthMode.login:
-        return 'Войдите, чтобы продолжить путь к цели';
+        return l10n.authLoginSubtitle;
       case AuthMode.register:
-        return 'Начните новую жизнь без курения уже сегодня';
+        return l10n.authRegisterSubtitle;
       case AuthMode.forgotPassword:
-        return 'Укажите ваш Email, и мы отправим инструкцию';
+        return l10n.authForgotSubtitle;
     }
   }
 
-  String _getSubmitButtonText() {
+  String _getSubmitButtonText(AppLocalizations l10n) {
     switch (_mode) {
       case AuthMode.login:
-        return 'Войти';
+        return l10n.authLoginButton;
       case AuthMode.register:
-        return 'Зарегистрироваться';
+        return l10n.authRegisterButton;
       case AuthMode.forgotPassword:
-        return 'Отправить ссылку';
+        return l10n.authSendLinkButton;
     }
   }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-// КАСТОМНЫЕ ВИДЖЕТЫ (ТЕКСТОВОЕ ПОЛЕ, ТАБЫ И СОЦСЕТИ)
+// Custom widgets (unchanged)
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _TabButton extends StatelessWidget {
@@ -569,9 +564,7 @@ class _TabButton extends StatelessWidget {
         duration: const Duration(milliseconds: 250),
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          color: isActive
-              ? (isDark ? AppColors.cardDark : Colors.white)
-              : Colors.transparent,
+          color: isActive ? (isDark ? AppColors.cardDark : Colors.white) : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
           boxShadow: isActive
               ? [

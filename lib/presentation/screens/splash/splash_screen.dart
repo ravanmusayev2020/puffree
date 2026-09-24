@@ -366,50 +366,30 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ),
 
-          // Glass outer container.
+          // NEW PUFFREE LOGO
           ClipRRect(
-            borderRadius: BorderRadius.circular(43),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 16,
-                sigmaY: 16,
+            borderRadius: BorderRadius.circular(36),
+            child: Container(
+              width: 112,
+              height: 112,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(36),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withValues(
+                      alpha: isDark ? 0.32 : 0.23,
+                    ),
+                    blurRadius: 38,
+                    offset: const Offset(0, 16),
+                  ),
+                ],
               ),
-              child: Container(
+              child: Image.asset(
+                'assets/images/app_icon.png',
                 width: 112,
                 height: 112,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      AppColors.primary,
-                      AppColors.primaryLight,
-                    ],
-                  ),
-                  borderRadius: BorderRadius.circular(36),
-                  border: Border.all(
-                    color: Colors.white.withValues(
-                      alpha: 0.22,
-                    ),
-                    width: 1.2,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.primary.withValues(
-                        alpha: isDark ? 0.32 : 0.23,
-                      ),
-                      blurRadius: 38,
-                      offset: const Offset(0, 16),
-                    ),
-                  ],
-                ),
-                child: CustomPaint(
-                  painter: _PuffreeLogoPainter(
-                    color: Colors.white.withValues(
-                      alpha: 0.96,
-                    ),
-                  ),
-                ),
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
               ),
             ),
           ),

@@ -9,23 +9,19 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/services/auth_service.dart';
+import '../../../l10n/app_localizations.dart';
 
 class ProfileEditScreen extends StatefulWidget {
-  const ProfileEditScreen({
-    super.key,
-  });
+  const ProfileEditScreen({super.key});
 
   @override
-  State<ProfileEditScreen> createState() =>
-      _ProfileEditScreenState();
+  State<ProfileEditScreen> createState() => _ProfileEditScreenState();
 }
 
 class _ProfileEditScreenState extends State<ProfileEditScreen> {
   final AuthService _authService = AuthService();
   final ImagePicker _imagePicker = ImagePicker();
-
-  final TextEditingController _nameController =
-  TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
 
   File? _selectedImage;
   bool _isSaving = false;
@@ -33,9 +29,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   @override
   void initState() {
     super.initState();
-
     final user = FirebaseAuth.instance.currentUser;
-
     _nameController.text = user?.displayName ?? '';
   }
 
@@ -46,6 +40,8 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
   }
 
   Future<void> _pickImage() async {
+    final l10n = AppLocalizations.of(context)!;
+
     try {
       final XFile? pickedFile = await _imagePicker.pickImage(
         source: ImageSource.gallery,
@@ -54,30 +50,21 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         maxHeight: 1200,
       );
 
-      // Пользователь нажал "Назад" / отменил выбор.
-      if (pickedFile == null) {
-        return;
-      }
+      // User cancelled / pressed back
+      if (pickedFile == null) return;
 
       final file = File(pickedFile.path);
 
       if (!await file.exists()) {
         if (!mounted) return;
-
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Не удалось получить выбранную фотографию'),
-          ),
+          SnackBar(content: Text(l10n.profileEditErrorPhotoNotFound)),
         );
-
         return;
       }
 
       if (!mounted) return;
-
-      setState(() {
-        _selectedImage = file;
-      });
+      setState(() => _selectedImage = file);
     } on PlatformException catch (e) {
       if (!mounted) return;
 
@@ -91,7 +78,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
           content: Text(
             e.message?.isNotEmpty == true
                 ? e.message!
-                : 'Не удалось открыть галерею',
+                : l10n.profileEditErrorOpenGallery,
           ),
         ),
       );
@@ -100,32 +87,24 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
       debugPrintStack(stackTrace: stackTrace);
 
       if (!mounted) return;
-
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Произошла ошибка при выборе фотографии',
-          ),
-        ),
+        SnackBar(content: Text(l10n.profileEditErrorPickPhoto)),
       );
     }
   }
 
   Future<void> _saveProfile() async {
+    final l10n = AppLocalizations.of(context)!;
     final name = _nameController.text.trim();
 
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Введите имя'),
-        ),
+        SnackBar(content: Text(l10n.profileEditErrorEmptyName)),
       );
       return;
     }
 
-    setState(() {
-      _isSaving = true;
-    });
+    setState(() => _isSaving = true);
 
     try {
       await _authService.updateProfile(
@@ -136,9 +115,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Профиль успешно обновлён'),
-        ),
+        SnackBar(content: Text(l10n.profileEditSuccessUpdated)),
       );
 
       Navigator.of(context).pop(true);
@@ -147,46 +124,32 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Ошибка обновления профиля: $e',
-          ),
+          content: Text(l10n.profileEditErrorUpdate(e.toString())),
         ),
       );
     } finally {
       if (mounted) {
-        setState(() {
-          _isSaving = false;
-        });
+        setState(() => _isSaving = false);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final isDark =
-        Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context)!;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     final user = FirebaseAuth.instance.currentUser;
     final photoUrl = user?.photoURL;
 
-    final backgroundColor = isDark
-        ? AppColors.backgroundDark
-        : AppColors.backgroundLight;
+    final backgroundColor =
+    isDark ? AppColors.backgroundDark : AppColors.backgroundLight;
+    final titleColor =
+    isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight;
+    final secondaryColor =
+    isDark ? AppColors.textSecondaryDark : AppColors.textSecondaryLight;
 
-    final titleColor = isDark
-        ? AppColors.textPrimaryDark
-        : AppColors.textPrimaryLight;
-
-    final secondaryColor = isDark
-        ? AppColors.textSecondaryDark
-        : AppColors.textSecondaryLight;
-
-    // ----------------------------------------------------------
-    // ВАЖНО:
-    // Явно указываем ImageProvider<Object>?,
-    // чтобы Dart не выводил Object?.
-    // ----------------------------------------------------------
-
+    // Explicit ImageProvider to avoid Object? inference
     ImageProvider<Object>? profileImage;
 
     if (_selectedImage != null) {
@@ -199,14 +162,12 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
     return Scaffold(
       backgroundColor: backgroundColor,
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
-
         title: Text(
-          'Профиль',
+          l10n.profileEditTitle,
           style: GoogleFonts.outfit(
             fontSize: 24,
             fontWeight: FontWeight.w700,
@@ -214,20 +175,13 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
           ),
         ),
       ),
-
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(
-            24,
-            20,
-            24,
-            32,
-          ),
+          padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
           children: [
             // ==================================================
             // PROFILE PHOTO
             // ==================================================
-
             Center(
               child: GestureDetector(
                 onTap: _isSaving ? null : _pickImage,
@@ -236,14 +190,9 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   children: [
                     CircleAvatar(
                       radius: 66,
-
                       backgroundColor:
-                      AppColors.primary.withValues(
-                        alpha: 0.12,
-                      ),
-
+                      AppColors.primary.withValues(alpha: 0.12),
                       backgroundImage: profileImage,
-
                       child: profileImage == null
                           ? Icon(
                         Iconsax.profile,
@@ -253,7 +202,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                           : null,
                     ),
 
-                    // CAMERA BUTTON
+                    // Camera button
                     Container(
                       width: 42,
                       height: 42,
@@ -280,7 +229,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
 
             Center(
               child: Text(
-                'Нажмите на фото, чтобы изменить',
+                l10n.profileEditTapToChangePhoto,
                 style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -294,9 +243,8 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
             // ==================================================
             // NAME
             // ==================================================
-
             Text(
-              'Имя',
+              l10n.profileEditNameLabel,
               style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
@@ -310,33 +258,22 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               controller: _nameController,
               enabled: !_isSaving,
               textInputAction: TextInputAction.done,
-
               decoration: InputDecoration(
-                hintText: 'Введите имя',
-
-                prefixIcon: const Icon(
-                  Iconsax.user,
-                ),
-
+                hintText: l10n.profileEditNameHint,
+                prefixIcon: const Icon(Iconsax.user),
                 filled: true,
-
-                fillColor: isDark
-                    ? AppColors.cardDark
-                    : AppColors.cardLight,
-
+                fillColor: isDark ? AppColors.cardDark : AppColors.cardLight,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(17),
                   borderSide: BorderSide.none,
                 ),
-
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(17),
                   borderSide: BorderSide.none,
                 ),
-
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(17),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: AppColors.primary,
                     width: 1.2,
                   ),
@@ -349,26 +286,20 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
             // ==================================================
             // SAVE BUTTON
             // ==================================================
-
             SizedBox(
               height: 54,
               child: ElevatedButton(
                 onPressed: _isSaving ? null : _saveProfile,
-
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
                   disabledBackgroundColor:
-                  AppColors.primary.withValues(
-                    alpha: 0.5,
-                  ),
+                  AppColors.primary.withValues(alpha: 0.5),
                   elevation: 0,
-
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(17),
                   ),
                 ),
-
                 child: _isSaving
                     ? const SizedBox(
                   width: 23,
@@ -379,7 +310,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                   ),
                 )
                     : Text(
-                  'Сохранить изменения',
+                  l10n.profileEditSaveButton,
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,

@@ -1813,6 +1813,1302 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You don\'t have to be perfect. Just take the next step.'**
   String get notificationInactive3Body;
+
+  /// No description provided for @onbTitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you use?'**
+  String get onbTitle1;
+
+  /// No description provided for @onbSubtitle1.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll personalize everything based on your habit.'**
+  String get onbSubtitle1;
+
+  /// No description provided for @onbTitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'How much do you use?'**
+  String get onbTitle2;
+
+  /// No description provided for @onbSubtitle2.
+  ///
+  /// In en, this message translates to:
+  /// **'Honest numbers help us calculate your real progress.'**
+  String get onbSubtitle2;
+
+  /// No description provided for @onbTitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'What does it cost you?'**
+  String get onbTitle3;
+
+  /// No description provided for @onbSubtitle3.
+  ///
+  /// In en, this message translates to:
+  /// **'See how much money you can save every month.'**
+  String get onbSubtitle3;
+
+  /// No description provided for @onbTitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'How does your body feel?'**
+  String get onbTitle4;
+
+  /// No description provided for @onbSubtitle4.
+  ///
+  /// In en, this message translates to:
+  /// **'Select the symptoms you notice most often.'**
+  String get onbSubtitle4;
+
+  /// No description provided for @onbTitle5.
+  ///
+  /// In en, this message translates to:
+  /// **'Why do you want to quit?'**
+  String get onbTitle5;
+
+  /// No description provided for @onbSubtitle5.
+  ///
+  /// In en, this message translates to:
+  /// **'Your reasons will power the plan we build for you.'**
+  String get onbSubtitle5;
+
+  /// No description provided for @onbTitle6.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your plan'**
+  String get onbTitle6;
+
+  /// No description provided for @onbSubtitle6.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'re creating a personalized path just for you.'**
+  String get onbSubtitle6;
+
+  /// No description provided for @onbTitle7.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan is ready'**
+  String get onbTitle7;
+
+  /// No description provided for @onbSubtitle7.
+  ///
+  /// In en, this message translates to:
+  /// **'Start your journey with a plan made for you.'**
+  String get onbSubtitle7;
+
+  /// No description provided for @onbEyebrowBeforeStart.
+  ///
+  /// In en, this message translates to:
+  /// **'BEFORE WE START'**
+  String get onbEyebrowBeforeStart;
+
+  /// No description provided for @onbEyebrowStartingPoint.
+  ///
+  /// In en, this message translates to:
+  /// **'STARTING POINT'**
+  String get onbEyebrowStartingPoint;
+
+  /// No description provided for @onbEyebrowRealCost.
+  ///
+  /// In en, this message translates to:
+  /// **'REAL COST'**
+  String get onbEyebrowRealCost;
+
+  /// No description provided for @onbEyebrowSelfAwareness.
+  ///
+  /// In en, this message translates to:
+  /// **'SELF-AWARENESS'**
+  String get onbEyebrowSelfAwareness;
+
+  /// No description provided for @onbEyebrowYourReason.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR REASON'**
+  String get onbEyebrowYourReason;
+
+  /// No description provided for @onbEyebrowPersonalization.
+  ///
+  /// In en, this message translates to:
+  /// **'PERSONALIZATION'**
+  String get onbEyebrowPersonalization;
+
+  /// No description provided for @onbEyebrowDone.
+  ///
+  /// In en, this message translates to:
+  /// **'YOU\'RE READY'**
+  String get onbEyebrowDone;
+
+  /// No description provided for @onbHabitCigarettesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cigarettes'**
+  String get onbHabitCigarettesTitle;
+
+  /// No description provided for @onbHabitCigarettesSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Regular or rolled cigarettes'**
+  String get onbHabitCigarettesSubtitle;
+
+  /// No description provided for @onbHabitVapeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vape / Pods'**
+  String get onbHabitVapeTitle;
+
+  /// No description provided for @onbHabitVapeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Electronic cigarettes and pod systems'**
+  String get onbHabitVapeSubtitle;
+
+  /// No description provided for @onbPodsPerWeekLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Pods per week'**
+  String get onbPodsPerWeekLabel;
+
+  /// No description provided for @onbCigarettesPerDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cigarettes per day'**
+  String get onbCigarettesPerDayLabel;
+
+  /// No description provided for @onbYearsSmokedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Years smoked'**
+  String get onbYearsSmokedLabel;
+
+  /// No description provided for @onbUnitPieces.
+  ///
+  /// In en, this message translates to:
+  /// **'pcs'**
+  String get onbUnitPieces;
+
+  /// No description provided for @onbUnitYears.
+  ///
+  /// In en, this message translates to:
+  /// **'years'**
+  String get onbUnitYears;
+
+  /// No description provided for @onbAmountVapeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This helps us estimate your weekly cost and progress.'**
+  String get onbAmountVapeHint;
+
+  /// No description provided for @onbPotentialSavingsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Potential monthly savings'**
+  String get onbPotentialSavingsLabel;
+
+  /// No description provided for @onbPerMonthQuitting.
+  ///
+  /// In en, this message translates to:
+  /// **'per month when you quit'**
+  String get onbPerMonthQuitting;
+
+  /// No description provided for @onbPricePerPodLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Price per pod'**
+  String get onbPricePerPodLabel;
+
+  /// No description provided for @onbPricePerPackLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Price per pack'**
+  String get onbPricePerPackLabel;
+
+  /// No description provided for @onbCigarettesPerPackLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cigarettes per pack'**
+  String get onbCigarettesPerPackLabel;
+
+  /// No description provided for @onbCurrencyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get onbCurrencyLabel;
+
+  /// No description provided for @onbSymptomBreath.
+  ///
+  /// In en, this message translates to:
+  /// **'Shortness of breath'**
+  String get onbSymptomBreath;
+
+  /// No description provided for @onbSymptomAnxiety.
+  ///
+  /// In en, this message translates to:
+  /// **'Anxiety / restlessness'**
+  String get onbSymptomAnxiety;
+
+  /// No description provided for @onbSymptomPulse.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast or irregular heartbeat'**
+  String get onbSymptomPulse;
+
+  /// No description provided for @onbSymptomMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning cough / phlegm'**
+  String get onbSymptomMorning;
+
+  /// No description provided for @onbSymptomCough.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequent cough'**
+  String get onbSymptomCough;
+
+  /// No description provided for @onbBodyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can select several. This helps us focus on what matters to you.'**
+  String get onbBodyHint;
+
+  /// No description provided for @onbMotivationHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Better health & energy'**
+  String get onbMotivationHealth;
+
+  /// No description provided for @onbMotivationFreedom.
+  ///
+  /// In en, this message translates to:
+  /// **'Freedom from addiction'**
+  String get onbMotivationFreedom;
+
+  /// No description provided for @onbMotivationMoney.
+  ///
+  /// In en, this message translates to:
+  /// **'Save money'**
+  String get onbMotivationMoney;
+
+  /// No description provided for @onbMotivationFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'For my family / kids'**
+  String get onbMotivationFamily;
+
+  /// No description provided for @onbMotivationControl.
+  ///
+  /// In en, this message translates to:
+  /// **'Regain control of my life'**
+  String get onbMotivationControl;
+
+  /// No description provided for @onbMotivationFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'A healthier future'**
+  String get onbMotivationFuture;
+
+  /// No description provided for @onbSelectMultipleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can select multiple reasons'**
+  String get onbSelectMultipleHint;
+
+  /// No description provided for @onbStartingMapLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your map'**
+  String get onbStartingMapLabel;
+
+  /// No description provided for @onbBuildingStepSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating your savings'**
+  String get onbBuildingStepSave;
+
+  /// No description provided for @onbBuildingStepGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Setting your main goal'**
+  String get onbBuildingStepGoal;
+
+  /// No description provided for @onbBuildingStepScenarios.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating personal scenarios'**
+  String get onbBuildingStepScenarios;
+
+  /// No description provided for @onbBuildingStepSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing first steps'**
+  String get onbBuildingStepSteps;
+
+  /// No description provided for @onbBuildingHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This usually takes just a few seconds.'**
+  String get onbBuildingHint;
+
+  /// No description provided for @onbPleaseWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait a moment…'**
+  String get onbPleaseWait;
+
+  /// No description provided for @onbCreatingPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating your plan…'**
+  String get onbCreatingPlan;
+
+  /// No description provided for @onbFirst30DaysLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'First 30 days'**
+  String get onbFirst30DaysLabel;
+
+  /// No description provided for @onbLessExpensesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Less expenses'**
+  String get onbLessExpensesLabel;
+
+  /// No description provided for @onbSavingsPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved per month'**
+  String get onbSavingsPerMonth;
+
+  /// No description provided for @onbSavingsPerYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved per year'**
+  String get onbSavingsPerYear;
+
+  /// No description provided for @onbPlanPersonalizedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized plan'**
+  String get onbPlanPersonalizedTitle;
+
+  /// No description provided for @onbPlanPersonalizedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on {motivations} reasons and {symptoms} symptoms'**
+  String onbPlanPersonalizedSubtitle(int motivations, int symptoms);
+
+  /// No description provided for @onbResultHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can always adjust these numbers later in settings.'**
+  String get onbResultHint;
+
+  /// No description provided for @onbBreathingHint.
+  ///
+  /// In en, this message translates to:
+  /// **'BREATHE'**
+  String get onbBreathingHint;
+
+  /// No description provided for @onbContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get onbContinue;
+
+  /// No description provided for @onbStartJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Start my journey'**
+  String get onbStartJourney;
+
+  /// No description provided for @onboardingHabitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to take back control?'**
+  String get onboardingHabitTitle;
+
+  /// No description provided for @onboardingHabitSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First, let\'s understand your habit. No long forms — a few precise answers, and Puffree will build your path.'**
+  String get onboardingHabitSubtitle;
+
+  /// No description provided for @onboardingAmountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe your typical day'**
+  String get onboardingAmountTitle;
+
+  /// No description provided for @onboardingAmountSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This is not to judge you. It\'s the starting point from which we\'ll measure progress.'**
+  String get onboardingAmountSubtitle;
+
+  /// No description provided for @onboardingMoneyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How much does the habit take from you?'**
+  String get onboardingMoneyTitle;
+
+  /// No description provided for @onboardingMoneySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The price updates live on the screen — you see not an abstract number, but the real cost of the habit.'**
+  String get onboardingMoneySubtitle;
+
+  /// No description provided for @onboardingBodyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you notice in yourself?'**
+  String get onboardingBodyTitle;
+
+  /// No description provided for @onboardingBodySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark what applies to you. You can select several options or none.'**
+  String get onboardingBodySubtitle;
+
+  /// No description provided for @onboardingMotivationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What are you doing this for?'**
+  String get onboardingMotivationTitle;
+
+  /// No description provided for @onboardingMotivationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This will become your personal anchor. Puffree will bring you back to this reason when you need it.'**
+  String get onboardingMotivationSubtitle;
+
+  /// No description provided for @onboardingBuildingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Building your path'**
+  String get onboardingBuildingTitle;
+
+  /// No description provided for @onboardingBuildingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Not a medical diagnosis and not a promise of a perfect day. Just your starting point and clear next steps.'**
+  String get onboardingBuildingSubtitle;
+
+  /// No description provided for @onboardingResultTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first progress screen is already here'**
+  String get onboardingResultTitle;
+
+  /// No description provided for @onboardingResultSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We save the starting data on the device and turn it into measurable progress.'**
+  String get onboardingResultSubtitle;
+
+  /// No description provided for @onboardingEyebrowBeforeStart.
+  ///
+  /// In en, this message translates to:
+  /// **'BEFORE YOU START'**
+  String get onboardingEyebrowBeforeStart;
+
+  /// No description provided for @onboardingEyebrowStartPoint.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR STARTING POINT'**
+  String get onboardingEyebrowStartPoint;
+
+  /// No description provided for @onboardingEyebrowRealCost.
+  ///
+  /// In en, this message translates to:
+  /// **'THE REAL COST'**
+  String get onboardingEyebrowRealCost;
+
+  /// No description provided for @onboardingEyebrowSelfFeeling.
+  ///
+  /// In en, this message translates to:
+  /// **'HOW YOU FEEL'**
+  String get onboardingEyebrowSelfFeeling;
+
+  /// No description provided for @onboardingEyebrowYourReason.
+  ///
+  /// In en, this message translates to:
+  /// **'YOUR REASON'**
+  String get onboardingEyebrowYourReason;
+
+  /// No description provided for @onboardingEyebrowPersonalization.
+  ///
+  /// In en, this message translates to:
+  /// **'PERSONALIZATION'**
+  String get onboardingEyebrowPersonalization;
+
+  /// No description provided for @onboardingEyebrowDone.
+  ///
+  /// In en, this message translates to:
+  /// **'DONE'**
+  String get onboardingEyebrowDone;
+
+  /// No description provided for @onboardingCigarettesChoice.
+  ///
+  /// In en, this message translates to:
+  /// **'I smoke cigarettes'**
+  String get onboardingCigarettesChoice;
+
+  /// No description provided for @onboardingCigarettesChoiceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The main Puffree scenario'**
+  String get onboardingCigarettesChoiceSubtitle;
+
+  /// No description provided for @onboardingVapeChoice.
+  ///
+  /// In en, this message translates to:
+  /// **'I use a vape'**
+  String get onboardingVapeChoice;
+
+  /// No description provided for @onboardingVapeChoiceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll save this choice for your profile'**
+  String get onboardingVapeChoiceSubtitle;
+
+  /// No description provided for @onboardingPodsPerWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'Pods / disposables per week'**
+  String get onboardingPodsPerWeek;
+
+  /// No description provided for @onboardingUnitPcs.
+  ///
+  /// In en, this message translates to:
+  /// **'pcs'**
+  String get onboardingUnitPcs;
+
+  /// No description provided for @onboardingVapeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Later, the Puffree profile will be able to separate cigarette and vape scenarios without losing history.'**
+  String get onboardingVapeHint;
+
+  /// No description provided for @onboardingCigarettesPerDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Cigarettes per day'**
+  String get onboardingCigarettesPerDay;
+
+  /// No description provided for @onboardingYearsSmoked.
+  ///
+  /// In en, this message translates to:
+  /// **'How many years has this been going on'**
+  String get onboardingYearsSmoked;
+
+  /// No description provided for @onboardingUnitYears.
+  ///
+  /// In en, this message translates to:
+  /// **'years'**
+  String get onboardingUnitYears;
+
+  /// No description provided for @onboardingPricePerPod.
+  ///
+  /// In en, this message translates to:
+  /// **'Price of one pod'**
+  String get onboardingPricePerPod;
+
+  /// No description provided for @onboardingPricePerPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Pack price'**
+  String get onboardingPricePerPack;
+
+  /// No description provided for @onboardingCigarettesPerPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Cigarettes per pack'**
+  String get onboardingCigarettesPerPack;
+
+  /// No description provided for @onboardingPotentialSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Potential savings'**
+  String get onboardingPotentialSavings;
+
+  /// No description provided for @onboardingPerMonthIfQuit.
+  ///
+  /// In en, this message translates to:
+  /// **'per month if you quit the habit'**
+  String get onboardingPerMonthIfQuit;
+
+  /// No description provided for @onboardingCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get onboardingCurrency;
+
+  /// No description provided for @onboardingSymptomBreath.
+  ///
+  /// In en, this message translates to:
+  /// **'I feel that breathing has become heavier'**
+  String get onboardingSymptomBreath;
+
+  /// No description provided for @onboardingSymptomAnxiety.
+  ///
+  /// In en, this message translates to:
+  /// **'I sometimes feel strong anxiety'**
+  String get onboardingSymptomAnxiety;
+
+  /// No description provided for @onboardingSymptomPulse.
+  ///
+  /// In en, this message translates to:
+  /// **'I notice a faster pulse'**
+  String get onboardingSymptomPulse;
+
+  /// No description provided for @onboardingSymptomMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'I especially crave the first cigarette in the morning'**
+  String get onboardingSymptomMorning;
+
+  /// No description provided for @onboardingSymptomCough.
+  ///
+  /// In en, this message translates to:
+  /// **'I have a morning cough'**
+  String get onboardingSymptomCough;
+
+  /// No description provided for @onboardingBodyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'This is self-description, not a diagnosis. If symptoms worry you, it\'s better to discuss them with a doctor.'**
+  String get onboardingBodyHint;
+
+  /// No description provided for @onboardingMotivationHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to take better care of my health'**
+  String get onboardingMotivationHealth;
+
+  /// No description provided for @onboardingMotivationFreedom.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to feel freer'**
+  String get onboardingMotivationFreedom;
+
+  /// No description provided for @onboardingMotivationMoney.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to stop spending money on this'**
+  String get onboardingMotivationMoney;
+
+  /// No description provided for @onboardingMotivationFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to depend less on the habit around loved ones'**
+  String get onboardingMotivationFamily;
+
+  /// No description provided for @onboardingMotivationControl.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to regain a sense of control'**
+  String get onboardingMotivationControl;
+
+  /// No description provided for @onboardingMotivationFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to do this for my future'**
+  String get onboardingMotivationFuture;
+
+  /// No description provided for @onboardingCanSelectSeveral.
+  ///
+  /// In en, this message translates to:
+  /// **'You can select several'**
+  String get onboardingCanSelectSeveral;
+
+  /// No description provided for @onboardingYourStartCard.
+  ///
+  /// In en, this message translates to:
+  /// **'your starting card'**
+  String get onboardingYourStartCard;
+
+  /// No description provided for @onboardingStepSaveAnswers.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving your answers'**
+  String get onboardingStepSaveAnswers;
+
+  /// No description provided for @onboardingStepFinancialGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculating the financial goal'**
+  String get onboardingStepFinancialGoal;
+
+  /// No description provided for @onboardingStepCravingScenarios.
+  ///
+  /// In en, this message translates to:
+  /// **'Building craving scenarios'**
+  String get onboardingStepCravingScenarios;
+
+  /// No description provided for @onboardingStepFirstSteps.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing the first steps'**
+  String get onboardingStepFirstSteps;
+
+  /// No description provided for @onboardingBuildingHint.
+  ///
+  /// In en, this message translates to:
+  /// **'We deliberately do not promise “lung regeneration in X hours” — Puffree shows measurable things and separates fact from motivation.'**
+  String get onboardingBuildingHint;
+
+  /// No description provided for @onboardingSavingsPerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'savings / month'**
+  String get onboardingSavingsPerMonth;
+
+  /// No description provided for @onboardingSavingsPerYear.
+  ///
+  /// In en, this message translates to:
+  /// **'savings / year'**
+  String get onboardingSavingsPerYear;
+
+  /// No description provided for @onboardingResultHint.
+  ///
+  /// In en, this message translates to:
+  /// **'These numbers are a calculation based on your answers, not a promise of results. Real progress depends on your behavior.'**
+  String get onboardingResultHint;
+
+  /// No description provided for @onboardingFirst30Days.
+  ///
+  /// In en, this message translates to:
+  /// **'First 30 days'**
+  String get onboardingFirst30Days;
+
+  /// No description provided for @onboardingLessSpendMoreControl.
+  ///
+  /// In en, this message translates to:
+  /// **'less spending → more control'**
+  String get onboardingLessSpendMoreControl;
+
+  /// No description provided for @onboardingPlanPersonalized.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan is personalized'**
+  String get onboardingPlanPersonalized;
+
+  /// No description provided for @onboardingMotivationsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} personal motivations'**
+  String onboardingMotivationsCount(int count);
+
+  /// No description provided for @onboardingSymptomsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} noted states'**
+  String onboardingSymptomsCount(int count);
+
+  /// No description provided for @onboardingTakeFirstStep.
+  ///
+  /// In en, this message translates to:
+  /// **'take the first step'**
+  String get onboardingTakeFirstStep;
+
+  /// No description provided for @onboardingPleaseWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait a few seconds…'**
+  String get onboardingPleaseWait;
+
+  /// No description provided for @onboardingCreatingPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating plan…'**
+  String get onboardingCreatingPlan;
+
+  /// No description provided for @onboardingStartMyJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Start my journey'**
+  String get onboardingStartMyJourney;
+
+  /// No description provided for @onboardingContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get onboardingContinue;
+
+  /// No description provided for @premiumTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree Premium'**
+  String get premiumTitle;
+
+  /// No description provided for @premiumSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'More tools for your journey.\nChoose the plan that fits you.'**
+  String get premiumSubtitle;
+
+  /// No description provided for @oneMembership.
+  ///
+  /// In en, this message translates to:
+  /// **'One Premium access for everything'**
+  String get oneMembership;
+
+  /// No description provided for @everythingIncluded.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything included'**
+  String get everythingIncluded;
+
+  /// No description provided for @everythingIncludedSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium unlocks the full Puffree experience.'**
+  String get everythingIncludedSubtitle;
+
+  /// No description provided for @choosePlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your plan'**
+  String get choosePlan;
+
+  /// No description provided for @choosePlanSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You can change your choice before purchasing.'**
+  String get choosePlanSubtitle;
+
+  /// No description provided for @featureTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Extended missions'**
+  String get featureTasks;
+
+  /// No description provided for @featureTasksSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'More practices and challenges'**
+  String get featureTasksSubtitle;
+
+  /// No description provided for @featureStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Full statistics'**
+  String get featureStats;
+
+  /// No description provided for @featureStatsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed progress insights'**
+  String get featureStatsSubtitle;
+
+  /// No description provided for @profileEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileEditTitle;
+
+  /// No description provided for @profileEditTapToChangePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap photo to change'**
+  String get profileEditTapToChangePhoto;
+
+  /// No description provided for @profileEditNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get profileEditNameLabel;
+
+  /// No description provided for @profileEditNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get profileEditNameHint;
+
+  /// No description provided for @profileEditSaveButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get profileEditSaveButton;
+
+  /// No description provided for @profileEditErrorEmptyName.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a name'**
+  String get profileEditErrorEmptyName;
+
+  /// No description provided for @profileEditSuccessUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile updated successfully'**
+  String get profileEditSuccessUpdated;
+
+  /// No description provided for @profileEditErrorUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update profile: {error}'**
+  String profileEditErrorUpdate(String error);
+
+  /// No description provided for @authWelcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back!'**
+  String get authWelcomeBack;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authResetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get authResetPassword;
+
+  /// No description provided for @authLoginSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to continue your journey'**
+  String get authLoginSubtitle;
+
+  /// No description provided for @authRegisterSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a new smoke-free life today'**
+  String get authRegisterSubtitle;
+
+  /// No description provided for @authForgotSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email and we\'ll send you instructions'**
+  String get authForgotSubtitle;
+
+  /// No description provided for @authTabLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get authTabLogin;
+
+  /// No description provided for @authTabRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get authTabRegister;
+
+  /// No description provided for @authNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your name'**
+  String get authNameHint;
+
+  /// No description provided for @authNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get authNameRequired;
+
+  /// No description provided for @authEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get authEmailHint;
+
+  /// No description provided for @authEmailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter email'**
+  String get authEmailRequired;
+
+  /// No description provided for @authEmailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid email'**
+  String get authEmailInvalid;
+
+  /// No description provided for @authPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get authPasswordHint;
+
+  /// No description provided for @authPasswordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get authPasswordRequired;
+
+  /// No description provided for @authPasswordMinLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters'**
+  String get authPasswordMinLength;
+
+  /// No description provided for @authConfirmPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get authConfirmPasswordHint;
+
+  /// No description provided for @authPasswordsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get authPasswordsDoNotMatch;
+
+  /// No description provided for @authForgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get authForgotPassword;
+
+  /// No description provided for @authLoginButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get authLoginButton;
+
+  /// No description provided for @authRegisterButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign up'**
+  String get authRegisterButton;
+
+  /// No description provided for @authSendLinkButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Send link'**
+  String get authSendLinkButton;
+
+  /// No description provided for @authBackToLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to login'**
+  String get authBackToLogin;
+
+  /// No description provided for @authOrContinueWith.
+  ///
+  /// In en, this message translates to:
+  /// **'or continue with'**
+  String get authOrContinueWith;
+
+  /// No description provided for @authGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google'**
+  String get authGoogle;
+
+  /// No description provided for @authApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple'**
+  String get authApple;
+
+  /// No description provided for @authResetLinkSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Password reset link has been sent to your email!'**
+  String get authResetLinkSent;
+
+  /// No description provided for @authErrorGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please check your details.'**
+  String get authErrorGeneric;
+
+  /// No description provided for @authErrorSocial.
+  ///
+  /// In en, this message translates to:
+  /// **'Social sign-in failed.'**
+  String get authErrorSocial;
+
+  /// No description provided for @profileEditErrorPhotoNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not get the selected photo'**
+  String get profileEditErrorPhotoNotFound;
+
+  /// No description provided for @profileEditErrorOpenGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open gallery'**
+  String get profileEditErrorOpenGallery;
+
+  /// No description provided for @profileEditErrorPickPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred while selecting a photo'**
+  String get profileEditErrorPickPhoto;
+
+  /// No description provided for @featureMotivation.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal motivation'**
+  String get featureMotivation;
+
+  /// No description provided for @featureMotivationSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Guidance for your journey'**
+  String get featureMotivationSubtitle;
+
+  /// No description provided for @featureSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra support tools'**
+  String get featureSupport;
+
+  /// No description provided for @featureSupportSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'More tools when you need them'**
+  String get featureSupportSubtitle;
+
+  /// No description provided for @featureNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart reminders'**
+  String get featureNotifications;
+
+  /// No description provided for @featureNotificationsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Motivation at the right time'**
+  String get featureNotificationsSubtitle;
+
+  /// No description provided for @featureAds.
+  ///
+  /// In en, this message translates to:
+  /// **'Ad-free'**
+  String get featureAds;
+
+  /// No description provided for @featureAdsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'A calm, clean experience'**
+  String get featureAdsSubtitle;
+
+  /// No description provided for @planMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get planMonthly;
+
+  /// No description provided for @planMonthlySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Flexible with no long commitment'**
+  String get planMonthlySubtitle;
+
+  /// No description provided for @planYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get planYearly;
+
+  /// No description provided for @planYearlySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Best balance of value and features'**
+  String get planYearlySubtitle;
+
+  /// No description provided for @planLifetime.
+  ///
+  /// In en, this message translates to:
+  /// **'Lifetime'**
+  String get planLifetime;
+
+  /// No description provided for @planLifetimeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'One payment — Premium forever'**
+  String get planLifetimeSubtitle;
+
+  /// No description provided for @perMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'/ month'**
+  String get perMonth;
+
+  /// No description provided for @perYear.
+  ///
+  /// In en, this message translates to:
+  /// **'/ year'**
+  String get perYear;
+
+  /// No description provided for @bestValue.
+  ///
+  /// In en, this message translates to:
+  /// **'BEST VALUE'**
+  String get bestValue;
+
+  /// No description provided for @oneTime.
+  ///
+  /// In en, this message translates to:
+  /// **'ONE-TIME'**
+  String get oneTime;
+
+  /// No description provided for @buyMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Premium monthly'**
+  String get buyMonthly;
+
+  /// No description provided for @buyYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Premium yearly'**
+  String get buyYearly;
+
+  /// No description provided for @buyLifetime.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Premium forever'**
+  String get buyLifetime;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @securePurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure purchase'**
+  String get securePurchase;
+
+  /// No description provided for @cancelAnytime.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel anytime'**
+  String get cancelAnytime;
+
+  /// No description provided for @restoreAnytime.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchases can be restored'**
+  String get restoreAnytime;
+
+  /// No description provided for @legalMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'The subscription renews automatically every month. You can cancel through your App Store or Google Play settings. The price is shown before purchase confirmation.'**
+  String get legalMonthly;
+
+  /// No description provided for @legalYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'The subscription renews automatically every year. You can cancel through your App Store or Google Play settings. The price is shown before purchase confirmation.'**
+  String get legalYearly;
+
+  /// No description provided for @legalLifetime.
+  ///
+  /// In en, this message translates to:
+  /// **'This is a one-time purchase and does not renew automatically. The price is shown before purchase confirmation.'**
+  String get legalLifetime;
 }
 
 class _AppLocalizationsDelegate

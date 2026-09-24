@@ -8,6 +8,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/premium/premium_bloc.dart';
 import '../../../data/bloc/premium/premium_event.dart';
 import '../../../data/bloc/premium/premium_state.dart';
+import '../../../l10n/app_localizations.dart';
 
 class PremiumScreen extends StatefulWidget {
   const PremiumScreen({super.key});
@@ -23,16 +24,13 @@ class _PremiumScreenState extends State<PremiumScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-    final t = _PremiumStrings.fromContext(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      backgroundColor: isDark
-          ? const Color(0xFF06100F)
-          : const Color(0xFFF7FAF9),
+      backgroundColor: isDark ? const Color(0xFF06100F) : const Color(0xFFF5F9F8),
       body: BlocConsumer<PremiumBloc, PremiumState>(
         listener: (context, state) {
           final error = state.errorMessage;
-
           if (error != null && error.trim().isNotEmpty) {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
@@ -40,18 +38,11 @@ class _PremiumScreenState extends State<PremiumScreen> {
                 SnackBar(
                   content: Text(
                     error,
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: GoogleFonts.inter(fontWeight: FontWeight.w600),
                   ),
                   backgroundColor: AppColors.error,
                   behavior: SnackBarBehavior.floating,
-                  margin: const EdgeInsets.fromLTRB(
-                    16,
-                    0,
-                    16,
-                    16,
-                  ),
+                  margin: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
@@ -63,13 +54,13 @@ class _PremiumScreenState extends State<PremiumScreen> {
           return Stack(
             children: [
               _BackgroundGlow(isDark: isDark),
-
               SafeArea(
                 child: CustomScrollView(
                   physics: const BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics(),
                   ),
                   slivers: [
+                    // Top bar
                     SliverToBoxAdapter(
                       child: _TopBar(
                         isDark: isDark,
@@ -83,150 +74,103 @@ class _PremiumScreenState extends State<PremiumScreen> {
                       ),
                     ),
 
+                    // Hero with app logo
+                    const SliverToBoxAdapter(child: SizedBox(height: 8)),
                     SliverToBoxAdapter(
-                      child: _Hero(
-                        isDark: isDark,
-                        strings: t,
-                      ),
+                      child: _HeroHeader(l10n: l10n, isDark: isDark),
                     ),
 
+                    // Content
                     SliverPadding(
-                      padding: const EdgeInsets.fromLTRB(
-                        20,
-                        34,
-                        20,
-                        0,
-                      ),
+                      padding: const EdgeInsets.fromLTRB(20, 28, 20, 0),
                       sliver: SliverList(
                         delegate: SliverChildListDelegate(
                           [
                             _SectionTitle(
-                              title: t.everythingIncluded,
-                              subtitle: t.everythingIncludedSubtitle,
+                              title: l10n.everythingIncluded,
+                              subtitle: l10n.everythingIncludedSubtitle,
                               isDark: isDark,
                             ),
-
-                            const SizedBox(height: 18),
-
-                            _FeatureGrid(
-                              isDark: isDark,
-                              strings: t,
-                            ),
-
-                            const SizedBox(height: 34),
-
+                            const SizedBox(height: 16),
+                            _FeatureGrid(isDark: isDark, l10n: l10n),
+                            const SizedBox(height: 32),
                             _SectionTitle(
-                              title: t.choosePlan,
-                              subtitle: t.choosePlanSubtitle,
+                              title: l10n.choosePlan,
+                              subtitle: l10n.choosePlanSubtitle,
                               isDark: isDark,
                             ),
+                            const SizedBox(height: 16),
 
-                            const SizedBox(height: 18),
-
+                            // Plans
                             _PlanCard(
                               plan: PremiumPlan.monthly,
-                              selected:
-                              _selectedPlan == PremiumPlan.monthly,
+                              selected: _selectedPlan == PremiumPlan.monthly,
                               isDark: isDark,
-                              strings: t,
-                              onTap: () {
-                                setState(() {
-                                  _selectedPlan =
-                                      PremiumPlan.monthly;
-                                });
-                              },
+                              l10n: l10n,
+                              onTap: () => setState(() => _selectedPlan = PremiumPlan.monthly),
                             ),
-
                             const SizedBox(height: 12),
-
                             _PlanCard(
                               plan: PremiumPlan.yearly,
-                              selected:
-                              _selectedPlan == PremiumPlan.yearly,
+                              selected: _selectedPlan == PremiumPlan.yearly,
                               isDark: isDark,
-                              strings: t,
-                              onTap: () {
-                                setState(() {
-                                  _selectedPlan =
-                                      PremiumPlan.yearly;
-                                });
-                              },
+                              l10n: l10n,
+                              onTap: () => setState(() => _selectedPlan = PremiumPlan.yearly),
                             ),
-
                             const SizedBox(height: 12),
-
                             _PlanCard(
                               plan: PremiumPlan.lifetime,
-                              selected:
-                              _selectedPlan ==
-                                  PremiumPlan.lifetime,
+                              selected: _selectedPlan == PremiumPlan.lifetime,
                               isDark: isDark,
-                              strings: t,
-                              onTap: () {
-                                setState(() {
-                                  _selectedPlan =
-                                      PremiumPlan.lifetime;
-                                });
-                              },
+                              l10n: l10n,
+                              onTap: () => setState(() => _selectedPlan = PremiumPlan.lifetime),
                             ),
 
-                            const SizedBox(height: 22),
+                            const SizedBox(height: 24),
 
+                            // Purchase button
                             _PurchaseButton(
                               plan: _selectedPlan,
                               isDark: isDark,
                               isLoading: state.isLoading,
-                              strings: t,
+                              l10n: l10n,
                               onPressed: state.isLoading
                                   ? null
                                   : () {
-                                context
-                                    .read<PremiumBloc>()
-                                    .add(
-                                  PurchasePremium(
-                                    _selectedPlan
-                                        .purchaseId,
-                                  ),
+                                context.read<PremiumBloc>().add(
+                                  PurchasePremium(_selectedPlan.purchaseId),
                                 );
                               },
                             ),
 
-                            const SizedBox(height: 14),
+                            const SizedBox(height: 16),
 
                             if (state.hasAccess)
                               _ActivePremiumCard(
                                 isDark: isDark,
-                                strings: t,
+                                l10n: l10n,
                                 isPremium: state.isPremium,
                               )
                             else
-                              _TrustRow(
-                                isDark: isDark,
-                                strings: t,
-                              ),
+                              _TrustRow(isDark: isDark, l10n: l10n),
 
-                            const SizedBox(height: 16),
+                            const SizedBox(height: 14),
 
+                            // Restore
                             Center(
                               child: TextButton(
                                 onPressed: state.isLoading
                                     ? null
                                     : () {
-                                  context
-                                      .read<PremiumBloc>()
-                                      .add(
-                                    RestorePurchases(),
-                                  );
+                                  context.read<PremiumBloc>().add(RestorePurchases());
                                 },
                                 style: TextButton.styleFrom(
-                                  foregroundColor:
-                                  isDark
+                                  foregroundColor: isDark
                                       ? Colors.white70
-                                      : AppColors
-                                      .textSecondaryLight,
+                                      : AppColors.textSecondaryLight,
                                 ),
                                 child: Text(
-                                  t.restorePurchases,
+                                  l10n.restorePurchases,
                                   style: GoogleFonts.inter(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w600,
@@ -235,15 +179,16 @@ class _PremiumScreenState extends State<PremiumScreen> {
                               ),
                             ),
 
-                            const SizedBox(height: 6),
+                            const SizedBox(height: 4),
 
+                            // Legal
                             _LegalText(
                               isDark: isDark,
-                              strings: t,
+                              l10n: l10n,
                               selectedPlan: _selectedPlan,
                             ),
 
-                            const SizedBox(height: 42),
+                            const SizedBox(height: 48),
                           ],
                         ),
                       ),
@@ -272,10 +217,8 @@ enum PremiumPlan {
     switch (this) {
       case PremiumPlan.monthly:
         return 'monthly';
-
       case PremiumPlan.yearly:
         return 'yearly';
-
       case PremiumPlan.lifetime:
         return 'lifetime';
     }
@@ -287,9 +230,7 @@ enum PremiumPlan {
 // -----------------------------------------------------------------------------
 
 class _BackgroundGlow extends StatelessWidget {
-  const _BackgroundGlow({
-    required this.isDark,
-  });
+  const _BackgroundGlow({required this.isDark});
 
   final bool isDark;
 
@@ -299,18 +240,16 @@ class _BackgroundGlow extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: -120,
-            left: -80,
+            top: -140,
+            left: -90,
             child: Container(
-              width: 360,
-              height: 360,
+              width: 380,
+              height: 380,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.primary.withValues(
-                      alpha: isDark ? 0.20 : 0.11,
-                    ),
+                    AppColors.primary.withValues(alpha: isDark ? 0.22 : 0.12),
                     Colors.transparent,
                   ],
                 ),
@@ -318,18 +257,16 @@ class _BackgroundGlow extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 180,
-            right: -150,
+            top: 220,
+            right: -160,
             child: Container(
-              width: 330,
-              height: 330,
+              width: 340,
+              height: 340,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.accent.withValues(
-                      alpha: isDark ? 0.08 : 0.045,
-                    ),
+                    AppColors.accent.withValues(alpha: isDark ? 0.09 : 0.05),
                     Colors.transparent,
                   ],
                 ),
@@ -362,12 +299,7 @@ class _TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        12,
-        8,
-        18,
-        0,
-      ),
+      padding: const EdgeInsets.fromLTRB(12, 8, 18, 0),
       child: Row(
         children: [
           _RoundIconButton(
@@ -378,29 +310,18 @@ class _TopBar extends StatelessWidget {
           const Spacer(),
           if (hasAccess)
             Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 7,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
               decoration: BoxDecoration(
-                color: AppColors.success.withValues(
-                  alpha: 0.12,
-                ),
+                color: AppColors.success.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(999),
                 border: Border.all(
-                  color: AppColors.success.withValues(
-                    alpha: 0.18,
-                  ),
+                  color: AppColors.success.withValues(alpha: 0.18),
                 ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(
-                    Iconsax.tick_circle5,
-                    size: 14,
-                    color: AppColors.success,
-                  ),
+                  const Icon(Iconsax.tick_circle5, size: 14, color: AppColors.success),
                   const SizedBox(width: 6),
                   Text(
                     isPremium ? 'PREMIUM' : 'ACTIVE',
@@ -442,33 +363,27 @@ class _RoundIconButton extends StatelessWidget {
           width: 46,
           height: 46,
           decoration: BoxDecoration(
-            color: isDark
-                ? Colors.white.withValues(alpha: 0.055)
-                : Colors.white,
+            color: isDark ? Colors.white.withValues(alpha: 0.06) : Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(
               color: isDark
-                  ? Colors.white.withValues(alpha: 0.07)
-                  : Colors.black.withValues(alpha: 0.045),
+                  ? Colors.white.withValues(alpha: 0.08)
+                  : Colors.black.withValues(alpha: 0.05),
             ),
             boxShadow: isDark
                 ? null
                 : [
               BoxShadow(
-                color: Colors.black.withValues(
-                  alpha: 0.045,
-                ),
-                blurRadius: 18,
-                offset: const Offset(0, 7),
+                color: Colors.black.withValues(alpha: 0.04),
+                blurRadius: 16,
+                offset: const Offset(0, 6),
               ),
             ],
           ),
           child: Icon(
             icon,
             size: 19,
-            color: isDark
-                ? Colors.white
-                : AppColors.textPrimaryLight,
+            color: isDark ? Colors.white : AppColors.textPrimaryLight,
           ),
         ),
       ),
@@ -477,171 +392,133 @@ class _RoundIconButton extends StatelessWidget {
 }
 
 // -----------------------------------------------------------------------------
-// HERO
+// HERO with APP LOGO
 // -----------------------------------------------------------------------------
 
-class _Hero extends StatelessWidget {
-  const _Hero({
+class _HeroHeader extends StatelessWidget {
+  const _HeroHeader({
+    required this.l10n,
     required this.isDark,
-    required this.strings,
   });
 
+  final AppLocalizations l10n;
   final bool isDark;
-  final _PremiumStrings strings;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
-        24,
-        22,
-        24,
-        0,
-      ),
+      padding: const EdgeInsets.fromLTRB(24, 12, 24, 0),
       child: Column(
         children: [
+          // Logo
           Stack(
             alignment: Alignment.center,
             children: [
               Container(
-                width: 138,
-                height: 138,
+                width: 128,
+                height: 128,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.primary.withValues(
-                    alpha: isDark ? 0.055 : 0.035,
-                  ),
+                  color: AppColors.primary.withValues(alpha: isDark ? 0.08 : 0.06),
                 ),
               ),
               Container(
-                width: 112,
-                height: 112,
+                width: 96,
+                height: 96,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: AppColors.primary.withValues(
-                      alpha: 0.12,
-                    ),
-                    width: 1,
-                  ),
-                ),
-              ),
-              Container(
-                width: 88,
-                height: 88,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFF0F9D8E),
-                      Color(0xFF0EA5E9),
-                    ],
-                  ),
                   borderRadius: BorderRadius.circular(28),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withValues(
-                        alpha: 0.32,
-                      ),
-                      blurRadius: 34,
-                      spreadRadius: -3,
-                      offset: const Offset(0, 14),
+                      color: AppColors.primary.withValues(alpha: 0.28),
+                      blurRadius: 28,
+                      spreadRadius: -4,
+                      offset: const Offset(0, 12),
                     ),
                   ],
                 ),
-                child: const Center(
-                  child: Icon(
-                    Iconsax.crown_15,
-                    size: 38,
-                    color: Colors.white,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(28),
+                  child: Image.asset(
+                    'assets/images/app_icon.png',
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0xFF0F9D8E), Color(0xFF0EA5E9)],
+                        ),
+                      ),
+                      child: const Icon(Iconsax.crown_15, size: 42, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
             ],
           )
               .animate()
-              .scale(
-            duration: 600.ms,
-            curve: Curves.easeOutBack,
-          )
+              .scale(duration: 600.ms, curve: Curves.easeOutBack)
               .fadeIn(),
 
-          const SizedBox(height: 25),
+          const SizedBox(height: 22),
 
           Text(
-            strings.title,
+            l10n.premiumTitle,
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
-              fontSize: 32,
-              height: 1.05,
+              fontSize: 30,
+              height: 1.1,
               fontWeight: FontWeight.w900,
-              letterSpacing: -1.2,
-              color: isDark
-                  ? Colors.white
-                  : AppColors.textPrimaryLight,
+              letterSpacing: -1.1,
+              color: isDark ? Colors.white : AppColors.textPrimaryLight,
             ),
           )
               .animate()
-              .fadeIn(delay: 100.ms)
-              .slideY(
-            begin: 0.12,
-            end: 0,
-          ),
+              .fadeIn(delay: 80.ms)
+              .slideY(begin: 0.1, end: 0),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
 
           Text(
-            strings.subtitle,
+            l10n.premiumSubtitle,
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               fontSize: 14.5,
-              height: 1.55,
+              height: 1.5,
               fontWeight: FontWeight.w500,
               color: isDark
                   ? AppColors.textSecondaryDark
                   : AppColors.textSecondaryLight,
             ),
-          ).animate().fadeIn(delay: 180.ms),
+          ).animate().fadeIn(delay: 140.ms),
 
-          const SizedBox(height: 18),
+          const SizedBox(height: 16),
 
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 13,
-              vertical: 7,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
             decoration: BoxDecoration(
-              color: AppColors.primary.withValues(
-                alpha: isDark ? 0.11 : 0.075,
-              ),
+              color: AppColors.primary.withValues(alpha: isDark ? 0.12 : 0.08),
               borderRadius: BorderRadius.circular(999),
               border: Border.all(
-                color: AppColors.primary.withValues(
-                  alpha: 0.13,
-                ),
+                color: AppColors.primary.withValues(alpha: 0.15),
               ),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
-                  Iconsax.flash_15,
-                  size: 14,
-                  color: AppColors.primary,
-                ),
+                const Icon(Iconsax.flash_15, size: 14, color: AppColors.primary),
                 const SizedBox(width: 6),
                 Text(
-                  strings.oneMembership,
+                  l10n.oneMembership,
                   style: GoogleFonts.inter(
-                    fontSize: 11.5,
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                     color: AppColors.primary,
                   ),
                 ),
               ],
             ),
-          ).animate().fadeIn(delay: 260.ms),
+          ).animate().fadeIn(delay: 200.ms),
         ],
       ),
     );
@@ -673,17 +550,15 @@ class _SectionTitle extends StatelessWidget {
           style: GoogleFonts.inter(
             fontSize: 19,
             fontWeight: FontWeight.w800,
-            letterSpacing: -0.45,
-            color: isDark
-                ? Colors.white
-                : AppColors.textPrimaryLight,
+            letterSpacing: -0.4,
+            color: isDark ? Colors.white : AppColors.textPrimaryLight,
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 4),
         Text(
           subtitle,
           style: GoogleFonts.inter(
-            fontSize: 12,
+            fontSize: 12.5,
             fontWeight: FontWeight.w500,
             color: isDark
                 ? AppColors.textSecondaryDark
@@ -702,45 +577,21 @@ class _SectionTitle extends StatelessWidget {
 class _FeatureGrid extends StatelessWidget {
   const _FeatureGrid({
     required this.isDark,
-    required this.strings,
+    required this.l10n,
   });
 
   final bool isDark;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final features = [
-      _FeatureData(
-        Iconsax.task_square,
-        strings.featureTasks,
-        strings.featureTasksSubtitle,
-      ),
-      _FeatureData(
-        Iconsax.chart_2,
-        strings.featureStats,
-        strings.featureStatsSubtitle,
-      ),
-      _FeatureData(
-        Iconsax.message_text,
-        strings.featureMotivation,
-        strings.featureMotivationSubtitle,
-      ),
-      _FeatureData(
-        Iconsax.heart_circle,
-        strings.featureSupport,
-        strings.featureSupportSubtitle,
-      ),
-      _FeatureData(
-        Iconsax.notification,
-        strings.featureNotifications,
-        strings.featureNotificationsSubtitle,
-      ),
-      _FeatureData(
-        Iconsax.slash,
-        strings.featureAds,
-        strings.featureAdsSubtitle,
-      ),
+      _FeatureData(Iconsax.task_square, l10n.featureTasks, l10n.featureTasksSubtitle),
+      _FeatureData(Iconsax.chart_2, l10n.featureStats, l10n.featureStatsSubtitle),
+      _FeatureData(Iconsax.message_text, l10n.featureMotivation, l10n.featureMotivationSubtitle),
+      _FeatureData(Iconsax.heart_circle, l10n.featureSupport, l10n.featureSupportSubtitle),
+      _FeatureData(Iconsax.notification, l10n.featureNotifications, l10n.featureNotificationsSubtitle),
+      _FeatureData(Iconsax.slash, l10n.featureAds, l10n.featureAdsSubtitle),
     ];
 
     return Column(
@@ -751,19 +602,9 @@ class _FeatureGrid extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: _FeatureCard(
-                    data: features[i],
-                    isDark: isDark,
-                  ),
-                ),
+                Expanded(child: _FeatureCard(data: features[i], isDark: isDark)),
                 const SizedBox(width: 10),
-                Expanded(
-                  child: _FeatureCard(
-                    data: features[i + 1],
-                    isDark: isDark,
-                  ),
-                ),
+                Expanded(child: _FeatureCard(data: features[i + 1], isDark: isDark)),
               ],
             ),
           ),
@@ -773,12 +614,7 @@ class _FeatureGrid extends StatelessWidget {
 }
 
 class _FeatureData {
-  const _FeatureData(
-      this.icon,
-      this.title,
-      this.subtitle,
-      );
-
+  const _FeatureData(this.icon, this.title, this.subtitle);
   final IconData icon;
   final String title;
   final String subtitle;
@@ -796,29 +632,23 @@ class _FeatureCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(
-        minHeight: 128,
-      ),
+      constraints: const BoxConstraints(minHeight: 122),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: isDark
-            ? Colors.white.withValues(alpha: 0.035)
-            : Colors.white,
+        color: isDark ? Colors.white.withValues(alpha: 0.04) : Colors.white,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: isDark
-              ? Colors.white.withValues(alpha: 0.055)
+              ? Colors.white.withValues(alpha: 0.06)
               : Colors.black.withValues(alpha: 0.045),
         ),
         boxShadow: isDark
             ? null
             : [
           BoxShadow(
-            color: Colors.black.withValues(
-              alpha: 0.025,
-            ),
-            blurRadius: 18,
-            offset: const Offset(0, 7),
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
@@ -826,21 +656,15 @@ class _FeatureCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 38,
-            height: 38,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
-              color: AppColors.primary.withValues(
-                alpha: isDark ? 0.13 : 0.08,
-              ),
-              borderRadius: BorderRadius.circular(12),
+              color: AppColors.primary.withValues(alpha: isDark ? 0.14 : 0.09),
+              borderRadius: BorderRadius.circular(11),
             ),
-            child: Icon(
-              data.icon,
-              size: 18,
-              color: AppColors.primary,
-            ),
+            child: Icon(data.icon, size: 17, color: AppColors.primary),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 11),
           Text(
             data.title,
             maxLines: 2,
@@ -849,18 +673,16 @@ class _FeatureCard extends StatelessWidget {
               fontSize: 12.5,
               height: 1.2,
               fontWeight: FontWeight.w800,
-              color: isDark
-                  ? Colors.white
-                  : AppColors.textPrimaryLight,
+              color: isDark ? Colors.white : AppColors.textPrimaryLight,
             ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 3),
           Text(
             data.subtitle,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.inter(
-              fontSize: 10,
+              fontSize: 10.5,
               height: 1.25,
               fontWeight: FontWeight.w500,
               color: isDark
@@ -883,14 +705,14 @@ class _PlanCard extends StatelessWidget {
     required this.plan,
     required this.selected,
     required this.isDark,
-    required this.strings,
+    required this.l10n,
     required this.onTap,
   });
 
   final PremiumPlan plan;
   final bool selected;
   final bool isDark;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
   final VoidCallback onTap;
 
   @override
@@ -898,67 +720,75 @@ class _PlanCard extends StatelessWidget {
     final isYearly = plan == PremiumPlan.yearly;
     final isLifetime = plan == PremiumPlan.lifetime;
 
-    final title = strings.planTitle(plan);
-    final subtitle = strings.planSubtitle(plan);
-    final price = strings.planPrice(plan);
-    final period = strings.planPeriod(plan);
+    final title = switch (plan) {
+      PremiumPlan.monthly => l10n.planMonthly,
+      PremiumPlan.yearly => l10n.planYearly,
+      PremiumPlan.lifetime => l10n.planLifetime,
+    };
+
+    final subtitle = switch (plan) {
+      PremiumPlan.monthly => l10n.planMonthlySubtitle,
+      PremiumPlan.yearly => l10n.planYearlySubtitle,
+      PremiumPlan.lifetime => l10n.planLifetimeSubtitle,
+    };
+
+    final price = switch (plan) {
+      PremiumPlan.monthly => '€4.99',
+      PremiumPlan.yearly => '€29.99',
+      PremiumPlan.lifetime => '€59.99',
+    };
+
+    final period = switch (plan) {
+      PremiumPlan.monthly => l10n.perMonth,
+      PremiumPlan.yearly => l10n.perYear,
+      PremiumPlan.lifetime => '',
+    };
 
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(22),
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 220),
+          duration: const Duration(milliseconds: 240),
           curve: Curves.easeOutCubic,
           width: double.infinity,
-          padding: const EdgeInsets.all(17),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             gradient: selected
                 ? LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: isLifetime
-                  ? [
-                const Color(0xFF251A48),
-                const Color(0xFF15102D),
-              ]
+                  ? const [Color(0xFF2A1F4E), Color(0xFF15102D)]
                   : [
-                AppColors.primary.withValues(
-                  alpha: isDark ? 0.18 : 0.10,
-                ),
-                isDark
-                    ? const Color(0xFF10201F)
-                    : Colors.white,
+                AppColors.primary.withValues(alpha: isDark ? 0.20 : 0.12),
+                isDark ? const Color(0xFF0E1C1B) : Colors.white,
               ],
             )
                 : null,
             color: selected
                 ? null
                 : isDark
-                ? Colors.white.withValues(alpha: 0.035)
+                ? Colors.white.withValues(alpha: 0.04)
                 : Colors.white,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(22),
             border: Border.all(
-              width: selected ? 1.4 : 1,
+              width: selected ? 1.6 : 1,
               color: selected
-                  ? (isLifetime
-                  ? AppColors.accent
-                  : AppColors.primary)
+                  ? (isLifetime ? AppColors.accent : AppColors.primary)
                   : isDark
-                  ? Colors.white.withValues(alpha: 0.065)
-                  : Colors.black.withValues(alpha: 0.045),
+                  ? Colors.white.withValues(alpha: 0.07)
+                  : Colors.black.withValues(alpha: 0.05),
             ),
             boxShadow: selected
                 ? [
               BoxShadow(
-                color: (isLifetime
-                    ? AppColors.accent
-                    : AppColors.primary)
-                    .withValues(alpha: 0.14),
-                blurRadius: 25,
-                spreadRadius: -5,
-                offset: const Offset(0, 10),
+                color: (isLifetime ? AppColors.accent : AppColors.primary)
+                    .withValues(alpha: 0.16),
+                blurRadius: 22,
+                spreadRadius: -4,
+                offset: const Offset(0, 8),
               ),
             ]
                 : null,
@@ -966,40 +796,29 @@ class _PlanCard extends StatelessWidget {
           child: Row(
             children: [
               AnimatedContainer(
-                duration: const Duration(milliseconds: 220),
-                width: 44,
-                height: 44,
+                duration: const Duration(milliseconds: 240),
+                width: 42,
+                height: 42,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: selected
-                      ? (isLifetime
-                      ? AppColors.accent
-                      : AppColors.primary)
+                      ? (isLifetime ? AppColors.accent : AppColors.primary)
                       : isDark
-                      ? Colors.white.withValues(alpha: 0.055)
-                      : Colors.black.withValues(alpha: 0.035),
+                      ? Colors.white.withValues(alpha: 0.06)
+                      : Colors.black.withValues(alpha: 0.04),
                 ),
                 child: selected
-                    ? const Icon(
-                  Icons.check,
-                  size: 20,
-                  color: Colors.white,
-                )
+                    ? const Icon(Icons.check_rounded, size: 20, color: Colors.white)
                     : Icon(
-                  isLifetime
-                      ? Iconsax.crown
-                      : Iconsax.calendar_1,
-                  size: 19,
-                  color: isDark
-                      ? Colors.white60
-                      : AppColors.textSecondaryLight,
+                  isLifetime ? Iconsax.crown : Iconsax.calendar_1,
+                  size: 18,
+                  color: isDark ? Colors.white60 : AppColors.textSecondaryLight,
                 ),
               ),
-              const SizedBox(width: 13),
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -1011,28 +830,21 @@ class _PlanCard extends StatelessWidget {
                             style: GoogleFonts.inter(
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
-                              color: isDark
-                                  ? Colors.white
-                                  : AppColors.textPrimaryLight,
+                              color: isDark ? Colors.white : AppColors.textPrimaryLight,
                             ),
                           ),
                         ),
                         if (isYearly) ...[
                           const SizedBox(width: 8),
-                          _PlanBadge(
-                            text: strings.bestValue,
-                          ),
+                          _PlanBadge(text: l10n.bestValue),
                         ],
                         if (isLifetime) ...[
                           const SizedBox(width: 8),
-                          _PlanBadge(
-                            text: strings.oneTime,
-                            color: AppColors.accent,
-                          ),
+                          _PlanBadge(text: l10n.oneTime, color: AppColors.accent),
                         ],
                       ],
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 3),
                     Text(
                       subtitle,
                       maxLines: 1,
@@ -1048,20 +860,18 @@ class _PlanCard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     price,
                     style: GoogleFonts.outfit(
-                      fontSize: 20,
+                      fontSize: 19,
                       fontWeight: FontWeight.w800,
-                      letterSpacing: -0.5,
+                      letterSpacing: -0.4,
                       color: selected
-                          ? (isLifetime
-                          ? AppColors.accent
-                          : AppColors.primary)
+                          ? (isLifetime ? AppColors.accent : AppColors.primary)
                           : isDark
                           ? Colors.white
                           : AppColors.textPrimaryLight,
@@ -1071,7 +881,7 @@ class _PlanCard extends StatelessWidget {
                     Text(
                       period,
                       style: GoogleFonts.inter(
-                        fontSize: 9.5,
+                        fontSize: 10,
                         fontWeight: FontWeight.w600,
                         color: isDark
                             ? AppColors.textSecondaryDark
@@ -1100,20 +910,17 @@ class _PlanBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 7,
-        vertical: 4,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3.5),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.11),
-        borderRadius: BorderRadius.circular(7),
+        color: color.withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         text,
         style: GoogleFonts.inter(
-          fontSize: 8,
+          fontSize: 8.5,
           fontWeight: FontWeight.w900,
-          letterSpacing: 0.5,
+          letterSpacing: 0.4,
           color: color,
         ),
       ),
@@ -1130,98 +937,89 @@ class _PurchaseButton extends StatelessWidget {
     required this.plan,
     required this.isDark,
     required this.isLoading,
-    required this.strings,
+    required this.l10n,
     required this.onPressed,
   });
 
   final PremiumPlan plan;
   final bool isDark;
   final bool isLoading;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
   final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     final isLifetime = plan == PremiumPlan.lifetime;
 
+    final buttonText = switch (plan) {
+      PremiumPlan.monthly => l10n.buyMonthly,
+      PremiumPlan.yearly => l10n.buyYearly,
+      PremiumPlan.lifetime => l10n.buyLifetime,
+    };
+
     final gradient = isLifetime
         ? const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF7B6CDB),
-        Color(0xFF9B8FF0),
-      ],
+      colors: [Color(0xFF7B6CDB), Color(0xFF9B8FF0)],
     )
         : const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF0F9D8E),
-        Color(0xFF3BC4B5),
-      ],
+      colors: [Color(0xFF0F9D8E), Color(0xFF3BC4B5)],
     );
 
-    final shadowColor = isLifetime
-        ? AppColors.accent
-        : AppColors.primary;
+    final shadowColor = isLifetime ? AppColors.accent : AppColors.primary;
 
     return SizedBox(
       width: double.infinity,
-      height: 60,
+      height: 58,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
           onTap: onPressed,
-          borderRadius: BorderRadius.circular(19),
+          borderRadius: BorderRadius.circular(18),
           child: Ink(
             decoration: BoxDecoration(
-              gradient: onPressed == null
-                  ? null
-                  : gradient,
+              gradient: onPressed == null ? null : gradient,
               color: onPressed == null
                   ? (isDark
                   ? Colors.white.withValues(alpha: 0.08)
                   : Colors.black.withValues(alpha: 0.06))
                   : null,
-              borderRadius: BorderRadius.circular(19),
+              borderRadius: BorderRadius.circular(18),
               boxShadow: onPressed == null
                   ? null
                   : [
                 BoxShadow(
-                  color: shadowColor.withValues(
-                    alpha: 0.22,
-                  ),
-                  blurRadius: 24,
-                  spreadRadius: -6,
-                  offset: const Offset(0, 9),
+                  color: shadowColor.withValues(alpha: 0.25),
+                  blurRadius: 22,
+                  spreadRadius: -5,
+                  offset: const Offset(0, 8),
                 ),
               ],
             ),
             child: Center(
               child: isLoading
                   ? const SizedBox(
-                width: 23,
-                height: 23,
+                width: 22,
+                height: 22,
                 child: CircularProgressIndicator(
-                  strokeWidth: 2.5,
+                  strokeWidth: 2.4,
                   color: Colors.white,
                 ),
               )
                   : Row(
-                mainAxisAlignment:
-                MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    isLifetime
-                        ? Iconsax.crown_15
-                        : Iconsax.flash_15,
-                    size: 19,
+                    isLifetime ? Iconsax.crown_15 : Iconsax.flash_15,
+                    size: 18,
                     color: Colors.white,
                   ),
-                  const SizedBox(width: 9),
+                  const SizedBox(width: 8),
                   Text(
-                    strings.purchaseButton(plan),
+                    buttonText,
                     style: GoogleFonts.inter(
                       fontSize: 15.5,
                       fontWeight: FontWeight.w800,
@@ -1245,53 +1043,41 @@ class _PurchaseButton extends StatelessWidget {
 class _ActivePremiumCard extends StatelessWidget {
   const _ActivePremiumCard({
     required this.isDark,
-    required this.strings,
+    required this.l10n,
     required this.isPremium,
   });
 
   final bool isDark;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
   final bool isPremium;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: AppColors.success.withValues(
-          alpha: isDark ? 0.10 : 0.07,
-        ),
-        borderRadius: BorderRadius.circular(18),
+        color: AppColors.success.withValues(alpha: isDark ? 0.10 : 0.07),
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.success.withValues(
-            alpha: 0.18,
-          ),
+          color: AppColors.success.withValues(alpha: 0.18),
         ),
       ),
       child: Row(
         children: [
           Container(
-            width: 38,
-            height: 38,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
-              color: AppColors.success.withValues(
-                alpha: 0.13,
-              ),
+              color: AppColors.success.withValues(alpha: 0.13),
               shape: BoxShape.circle,
             ),
-            child: const Icon(
-              Iconsax.tick_circle5,
-              color: AppColors.success,
-              size: 20,
-            ),
+            child: const Icon(Iconsax.tick_circle5, color: AppColors.success, size: 19),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: Text(
-              isPremium
-                  ? strings.premiumActive
-                  : strings.trialActive,
+              isPremium ? l10n.premiumActive : l10n.trialActive,
               style: GoogleFonts.inter(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
@@ -1312,27 +1098,18 @@ class _ActivePremiumCard extends StatelessWidget {
 class _TrustRow extends StatelessWidget {
   const _TrustRow({
     required this.isDark,
-    required this.strings,
+    required this.l10n,
   });
 
   final bool isDark;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final items = [
-      (
-      Iconsax.shield_tick,
-      strings.securePurchase,
-      ),
-      (
-      Iconsax.refresh,
-      strings.cancelAnytime,
-      ),
-      (
-      Iconsax.cloud_change,
-      strings.restoreAnytime,
-      ),
+      (Iconsax.shield_tick, l10n.securePurchase),
+      (Iconsax.refresh, l10n.cancelAnytime),
+      (Iconsax.cloud_change, l10n.restoreAnytime),
     ];
 
     return Row(
@@ -1343,12 +1120,10 @@ class _TrustRow extends StatelessWidget {
               children: [
                 Icon(
                   items[i].$1,
-                  size: 18,
-                  color: isDark
-                      ? Colors.white38
-                      : Colors.black38,
+                  size: 17,
+                  color: isDark ? Colors.white38 : Colors.black38,
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 5),
                 Text(
                   items[i].$2,
                   textAlign: TextAlign.center,
@@ -1358,9 +1133,7 @@ class _TrustRow extends StatelessWidget {
                     fontSize: 9.5,
                     height: 1.25,
                     fontWeight: FontWeight.w600,
-                    color: isDark
-                        ? Colors.white38
-                        : Colors.black45,
+                    color: isDark ? Colors.white38 : Colors.black45,
                   ),
                 ),
               ],
@@ -1369,7 +1142,7 @@ class _TrustRow extends StatelessWidget {
           if (i < items.length - 1)
             Container(
               width: 1,
-              height: 34,
+              height: 32,
               color: isDark
                   ? Colors.white.withValues(alpha: 0.06)
                   : Colors.black.withValues(alpha: 0.06),
@@ -1387,22 +1160,26 @@ class _TrustRow extends StatelessWidget {
 class _LegalText extends StatelessWidget {
   const _LegalText({
     required this.isDark,
-    required this.strings,
+    required this.l10n,
     required this.selectedPlan,
   });
 
   final bool isDark;
-  final _PremiumStrings strings;
+  final AppLocalizations l10n;
   final PremiumPlan selectedPlan;
 
   @override
   Widget build(BuildContext context) {
+    final text = switch (selectedPlan) {
+      PremiumPlan.monthly => l10n.legalMonthly,
+      PremiumPlan.yearly => l10n.legalYearly,
+      PremiumPlan.lifetime => l10n.legalLifetime,
+    };
+
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 6,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Text(
-        strings.legalText(selectedPlan),
+        text,
         textAlign: TextAlign.center,
         style: GoogleFonts.inter(
           fontSize: 10,
@@ -1415,412 +1192,4 @@ class _LegalText extends StatelessWidget {
       ),
     );
   }
-}
-
-// -----------------------------------------------------------------------------
-// LOCALIZATION
-// -----------------------------------------------------------------------------
-
-class _PremiumStrings {
-  const _PremiumStrings({
-    required this.title,
-    required this.subtitle,
-    required this.oneMembership,
-    required this.everythingIncluded,
-    required this.everythingIncludedSubtitle,
-    required this.choosePlan,
-    required this.choosePlanSubtitle,
-    required this.featureTasks,
-    required this.featureTasksSubtitle,
-    required this.featureStats,
-    required this.featureStatsSubtitle,
-    required this.featureMotivation,
-    required this.featureMotivationSubtitle,
-    required this.featureSupport,
-    required this.featureSupportSubtitle,
-    required this.featureNotifications,
-    required this.featureNotificationsSubtitle,
-    required this.featureAds,
-    required this.featureAdsSubtitle,
-    required this.monthly,
-    required this.monthlySubtitle,
-    required this.yearly,
-    required this.yearlySubtitle,
-    required this.lifetime,
-    required this.lifetimeSubtitle,
-    required this.month,
-    required this.year,
-    required this.bestValue,
-    required this.oneTime,
-    required this.buyMonthly,
-    required this.buyYearly,
-    required this.buyLifetime,
-    required this.restorePurchases,
-    required this.premiumActive,
-    required this.trialActive,
-    required this.securePurchase,
-    required this.cancelAnytime,
-    required this.restoreAnytime,
-    required this.legalMonthly,
-    required this.legalYearly,
-    required this.legalLifetime,
-  });
-
-  final String title;
-  final String subtitle;
-  final String oneMembership;
-
-  final String everythingIncluded;
-  final String everythingIncludedSubtitle;
-
-  final String choosePlan;
-  final String choosePlanSubtitle;
-
-  final String featureTasks;
-  final String featureTasksSubtitle;
-
-  final String featureStats;
-  final String featureStatsSubtitle;
-
-  final String featureMotivation;
-  final String featureMotivationSubtitle;
-
-  final String featureSupport;
-  final String featureSupportSubtitle;
-
-  final String featureNotifications;
-  final String featureNotificationsSubtitle;
-
-  final String featureAds;
-  final String featureAdsSubtitle;
-
-  final String monthly;
-  final String monthlySubtitle;
-
-  final String yearly;
-  final String yearlySubtitle;
-
-  final String lifetime;
-  final String lifetimeSubtitle;
-
-  final String month;
-  final String year;
-
-  final String bestValue;
-  final String oneTime;
-
-  final String buyMonthly;
-  final String buyYearly;
-  final String buyLifetime;
-
-  final String restorePurchases;
-
-  final String premiumActive;
-  final String trialActive;
-
-  final String securePurchase;
-  final String cancelAnytime;
-  final String restoreAnytime;
-
-  final String legalMonthly;
-  final String legalYearly;
-  final String legalLifetime;
-
-  static _PremiumStrings fromContext(
-      BuildContext context,
-      ) {
-    final languageCode =
-        Localizations.localeOf(context).languageCode;
-
-    if (languageCode == 'en') {
-      return _english;
-    }
-
-    if (languageCode == 'az') {
-      return _azerbaijani;
-    }
-
-    return _russian;
-  }
-
-  String planTitle(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return monthly;
-      case PremiumPlan.yearly:
-        return yearly;
-      case PremiumPlan.lifetime:
-        return lifetime;
-    }
-  }
-
-  String planSubtitle(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return monthlySubtitle;
-      case PremiumPlan.yearly:
-        return yearlySubtitle;
-      case PremiumPlan.lifetime:
-        return lifetimeSubtitle;
-    }
-  }
-
-  String planPrice(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return '€4.99';
-
-      case PremiumPlan.yearly:
-        return '€29.99';
-
-      case PremiumPlan.lifetime:
-        return '€59.99';
-    }
-  }
-
-  String planPeriod(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return month;
-
-      case PremiumPlan.yearly:
-        return year;
-
-      case PremiumPlan.lifetime:
-        return '';
-    }
-  }
-
-  String purchaseButton(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return buyMonthly;
-
-      case PremiumPlan.yearly:
-        return buyYearly;
-
-      case PremiumPlan.lifetime:
-        return buyLifetime;
-    }
-  }
-
-  String legalText(PremiumPlan plan) {
-    switch (plan) {
-      case PremiumPlan.monthly:
-        return legalMonthly;
-
-      case PremiumPlan.yearly:
-        return legalYearly;
-
-      case PremiumPlan.lifetime:
-        return legalLifetime;
-    }
-  }
-
-  static const _russian = _PremiumStrings(
-    title: 'Puffree Premium',
-    subtitle:
-    'Больше возможностей для твоего пути.\n'
-        'Выбери формат, который подходит тебе.',
-    oneMembership: 'Все Premium-функции в одном доступе',
-    everythingIncluded: 'Всё включено',
-    everythingIncludedSubtitle:
-    'Premium открывает полный набор возможностей Puffree.',
-    choosePlan: 'Выбери свой план',
-    choosePlanSubtitle:
-    'Можно изменить выбор перед покупкой.',
-
-    featureTasks: 'Расширенные задания',
-    featureTasksSubtitle: 'Больше практик и миссий',
-    featureStats: 'Полная статистика',
-    featureStatsSubtitle: 'Детали и динамика прогресса',
-    featureMotivation: 'Персональная мотивация',
-    featureMotivationSubtitle: 'Подсказки под твой путь',
-    featureSupport: 'Помощь при тяге+',
-    featureSupportSubtitle: 'Расширенные инструменты',
-    featureNotifications: 'Умные напоминания',
-    featureNotificationsSubtitle: 'Мотивация в нужный момент',
-    featureAds: 'Без рекламы',
-    featureAdsSubtitle: 'Спокойный интерфейс',
-
-    monthly: 'Ежемесячно',
-    monthlySubtitle: 'Гибкий вариант без долгих обязательств',
-
-    yearly: 'Ежегодно',
-    yearlySubtitle: 'Лучший баланс цены и возможностей',
-
-    lifetime: 'Навсегда',
-    lifetimeSubtitle: 'Одна покупка — Premium навсегда',
-
-    month: '/ месяц',
-    year: '/ год',
-
-    bestValue: 'ВЫГОДНО',
-    oneTime: 'РАЗОВО',
-
-    buyMonthly: 'Оформить Premium на месяц',
-    buyYearly: 'Выбрать Premium на год',
-    buyLifetime: 'Получить Premium навсегда',
-
-    restorePurchases: 'Восстановить покупки',
-
-    premiumActive: 'Premium активен',
-    trialActive: 'Пробный период активен',
-
-    securePurchase: 'Безопасная покупка',
-    cancelAnytime: 'Отмена в любой момент',
-    restoreAnytime: 'Покупки можно восстановить',
-
-    legalMonthly:
-    'Подписка списывается автоматически каждый месяц. '
-        'Отменить подписку можно через настройки App Store или Google Play. '
-        'Цена отображается перед подтверждением покупки.',
-
-    legalYearly:
-    'Подписка списывается автоматически каждый год. '
-        'Отменить подписку можно через настройки App Store или Google Play. '
-        'Цена отображается перед подтверждением покупки.',
-
-    legalLifetime:
-    'Разовая покупка не является подпиской и не продлевается автоматически. '
-        'Цена отображается перед подтверждением покупки.',
-  );
-
-  static const _english = _PremiumStrings(
-    title: 'Puffree Premium',
-    subtitle:
-    'More tools for your journey.\n'
-        'Choose the plan that fits you.',
-    oneMembership: 'One Premium access for everything',
-    everythingIncluded: 'Everything included',
-    everythingIncludedSubtitle:
-    'Premium unlocks the full Puffree experience.',
-    choosePlan: 'Choose your plan',
-    choosePlanSubtitle:
-    'You can change your choice before purchasing.',
-
-    featureTasks: 'Extended missions',
-    featureTasksSubtitle: 'More practices and challenges',
-    featureStats: 'Full statistics',
-    featureStatsSubtitle: 'Detailed progress insights',
-    featureMotivation: 'Personal motivation',
-    featureMotivationSubtitle: 'Guidance for your journey',
-    featureSupport: 'Extra support tools',
-    featureSupportSubtitle: 'More tools when you need them',
-    featureNotifications: 'Smart reminders',
-    featureNotificationsSubtitle: 'Motivation at the right time',
-    featureAds: 'Ad-free',
-    featureAdsSubtitle: 'A calm, clean experience',
-
-    monthly: 'Monthly',
-    monthlySubtitle: 'Flexible with no long commitment',
-
-    yearly: 'Yearly',
-    yearlySubtitle: 'Best balance of value and features',
-
-    lifetime: 'Lifetime',
-    lifetimeSubtitle: 'One payment — Premium forever',
-
-    month: '/ month',
-    year: '/ year',
-
-    bestValue: 'BEST VALUE',
-    oneTime: 'ONE-TIME',
-
-    buyMonthly: 'Get Premium monthly',
-    buyYearly: 'Get Premium yearly',
-    buyLifetime: 'Get Premium forever',
-
-    restorePurchases: 'Restore purchases',
-
-    premiumActive: 'Premium is active',
-    trialActive: 'Trial period is active',
-
-    securePurchase: 'Secure purchase',
-    cancelAnytime: 'Cancel anytime',
-    restoreAnytime: 'Purchases can be restored',
-
-    legalMonthly:
-    'The subscription renews automatically every month. '
-        'You can cancel through your App Store or Google Play settings. '
-        'The price is shown before purchase confirmation.',
-
-    legalYearly:
-    'The subscription renews automatically every year. '
-        'You can cancel through your App Store or Google Play settings. '
-        'The price is shown before purchase confirmation.',
-
-    legalLifetime:
-    'This is a one-time purchase and does not renew automatically. '
-        'The price is shown before purchase confirmation.',
-  );
-
-  static const _azerbaijani = _PremiumStrings(
-    title: 'Puffree Premium',
-    subtitle:
-    'Səyahətin üçün daha çox imkan.\n'
-        'Sənə uyğun planı seç.',
-    oneMembership: 'Bütün Premium imkanları bir girişdə',
-    everythingIncluded: 'Hər şey daxildir',
-    everythingIncludedSubtitle:
-    'Premium Puffree-nin bütün imkanlarını açır.',
-    choosePlan: 'Planını seç',
-    choosePlanSubtitle:
-    'Satın almadan əvvəl seçimini dəyişə bilərsən.',
-
-    featureTasks: 'Genişləndirilmiş tapşırıqlar',
-    featureTasksSubtitle: 'Daha çox praktika və missiya',
-    featureStats: 'Tam statistika',
-    featureStatsSubtitle: 'Ətraflı inkişaf məlumatları',
-    featureMotivation: 'Fərdi motivasiya',
-    featureMotivationSubtitle: 'Sənin yoluna uyğun tövsiyələr',
-    featureSupport: 'Əlavə dəstək alətləri',
-    featureSupportSubtitle: 'Daha çox faydalı alət',
-    featureNotifications: 'Ağıllı bildirişlər',
-    featureNotificationsSubtitle: 'Doğru zamanda motivasiya',
-    featureAds: 'Reklamsız',
-    featureAdsSubtitle: 'Sakit və təmiz interfeys',
-
-    monthly: 'Aylıq',
-    monthlySubtitle: 'Çevik seçim',
-
-    yearly: 'İllik',
-    yearlySubtitle: 'Qiymət və imkanlar üçün ən yaxşı seçim',
-
-    lifetime: 'Ömürlük',
-    lifetimeSubtitle: 'Bir ödəniş — Premium həmişəlik',
-
-    month: '/ ay',
-    year: '/ il',
-
-    bestValue: 'SƏRFƏLİ',
-    oneTime: 'BİR DƏFƏ',
-
-    buyMonthly: 'Aylıq Premium al',
-    buyYearly: 'İllik Premium al',
-    buyLifetime: 'Premium-u həmişəlik al',
-
-    restorePurchases: 'Satınalmaları bərpa et',
-
-    premiumActive: 'Premium aktivdir',
-    trialActive: 'Sınaq müddəti aktivdir',
-
-    securePurchase: 'Təhlükəsiz ödəniş',
-    cancelAnytime: 'İstənilən vaxt ləğv et',
-    restoreAnytime: 'Satınalmaları bərpa etmək olar',
-
-    legalMonthly:
-    'Abunəlik hər ay avtomatik yenilənir. '
-        'Abunəliyi App Store və ya Google Play ayarlarından ləğv edə bilərsən. '
-        'Qiymət alışın təsdiqindən əvvəl göstərilir.',
-
-    legalYearly:
-    'Abunəlik hər il avtomatik yenilənir. '
-        'Abunəliyi App Store və ya Google Play ayarlarından ləğv edə bilərsən. '
-        'Qiymət alışın təsdiqindən əvvəl göstərilir.',
-
-    legalLifetime:
-    'Bu birdəfəlik alışdır və avtomatik yenilənmir. '
-        'Qiymət alışın təsdiqindən əvvəl göstərilir.',
-  );
 }

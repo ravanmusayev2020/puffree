@@ -919,4 +919,695 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get notificationInactive3Body =>
       'You don\'t have to be perfect. Just take the next step.';
+
+  @override
+  String get onbTitle1 => 'Ne kullanıyorsun?';
+
+  @override
+  String get onbSubtitle1 => 'Her şeyi alışkanlığına göre kişiselleştireceğiz.';
+
+  @override
+  String get onbTitle2 => 'Ne kadar kullanıyorsun?';
+
+  @override
+  String get onbSubtitle2 =>
+      'Dürüst rakamlar gerçek ilerlemeni hesaplamamıza yardımcı olur.';
+
+  @override
+  String get onbTitle3 => 'Bu sana ne kadara mal oluyor?';
+
+  @override
+  String get onbSubtitle3 => 'Her ay ne kadar para tasarruf edebileceğini gör.';
+
+  @override
+  String get onbTitle4 => 'Bedenin nasıl hissediyor?';
+
+  @override
+  String get onbSubtitle4 => 'En sık fark ettiğin belirtileri seç.';
+
+  @override
+  String get onbTitle5 => 'Neden bırakmak istiyorsun?';
+
+  @override
+  String get onbSubtitle5 =>
+      'Sebeplerin senin için oluşturduğumuz plana güç verecek.';
+
+  @override
+  String get onbTitle6 => 'Planın oluşturuluyor';
+
+  @override
+  String get onbSubtitle6 =>
+      'Sadece senin için kişiselleştirilmiş bir yol oluşturuyoruz.';
+
+  @override
+  String get onbTitle7 => 'Planın hazır';
+
+  @override
+  String get onbSubtitle7 => 'Senin için yapılmış planla yolculuğuna başla.';
+
+  @override
+  String get onbEyebrowBeforeStart => 'BAŞLAMADAN ÖNCE';
+
+  @override
+  String get onbEyebrowStartingPoint => 'BAŞLANGIÇ NOKTASI';
+
+  @override
+  String get onbEyebrowRealCost => 'GERÇEK MALİYET';
+
+  @override
+  String get onbEyebrowSelfAwareness => 'ÖZ FARKINDALIK';
+
+  @override
+  String get onbEyebrowYourReason => 'SEBEBİN';
+
+  @override
+  String get onbEyebrowPersonalization => 'KİŞİSELLEŞTİRME';
+
+  @override
+  String get onbEyebrowDone => 'HAZIRSIN';
+
+  @override
+  String get onbHabitCigarettesTitle => 'Sigara';
+
+  @override
+  String get onbHabitCigarettesSubtitle => 'Normal veya sarılan sigaralar';
+
+  @override
+  String get onbHabitVapeTitle => 'Vape / Pod';
+
+  @override
+  String get onbHabitVapeSubtitle => 'Elektronik sigara ve pod sistemleri';
+
+  @override
+  String get onbPodsPerWeekLabel => 'Haftada pod sayısı';
+
+  @override
+  String get onbCigarettesPerDayLabel => 'Günde sigara sayısı';
+
+  @override
+  String get onbYearsSmokedLabel => 'Sigara içilen yıllar';
+
+  @override
+  String get onbUnitPieces => 'adet';
+
+  @override
+  String get onbUnitYears => 'yıl';
+
+  @override
+  String get onbAmountVapeHint =>
+      'Bu, haftalık maliyetini ve ilerlemeni tahmin etmemize yardımcı olur.';
+
+  @override
+  String get onbPotentialSavingsLabel => 'Potansiyel aylık tasarruf';
+
+  @override
+  String get onbPerMonthQuitting => 'bıraktığında aylık';
+
+  @override
+  String get onbPricePerPodLabel => 'Pod başına fiyat';
+
+  @override
+  String get onbPricePerPackLabel => 'Paket başına fiyat';
+
+  @override
+  String get onbCigarettesPerPackLabel => 'Paket başına sigara sayısı';
+
+  @override
+  String get onbCurrencyLabel => 'Para birimi';
+
+  @override
+  String get onbSymptomBreath => 'Nefes darlığı';
+
+  @override
+  String get onbSymptomAnxiety => 'Kaygı / huzursuzluk';
+
+  @override
+  String get onbSymptomPulse => 'Hızlı veya düzensiz kalp atışı';
+
+  @override
+  String get onbSymptomMorning => 'Sabah öksürüğü / balgam';
+
+  @override
+  String get onbSymptomCough => 'Sık öksürük';
+
+  @override
+  String get onbBodyHint =>
+      'Birden fazla seçebilirsin. Bu, senin için önemli olana odaklanmamıza yardımcı olur.';
+
+  @override
+  String get onbMotivationHealth => 'Daha iyi sağlık ve enerji';
+
+  @override
+  String get onbMotivationFreedom => 'Bağımlılıktan özgürlük';
+
+  @override
+  String get onbMotivationMoney => 'Para biriktirmek';
+
+  @override
+  String get onbMotivationFamily => 'Ailem / çocuklarım için';
+
+  @override
+  String get onbMotivationControl => 'Hayatımın kontrolünü yeniden kazanmak';
+
+  @override
+  String get onbMotivationFuture => 'Daha sağlıklı bir gelecek';
+
+  @override
+  String get onbSelectMultipleHint => 'Birden fazla neden seçebilirsin';
+
+  @override
+  String get onbStartingMapLabel => 'Haritan oluşturuluyor';
+
+  @override
+  String get onbBuildingStepSave => 'Tasarrufların hesaplanıyor';
+
+  @override
+  String get onbBuildingStepGoal => 'Ana hedefin belirleniyor';
+
+  @override
+  String get onbBuildingStepScenarios => 'Kişisel senaryolar oluşturuluyor';
+
+  @override
+  String get onbBuildingStepSteps => 'İlk adımlar hazırlanıyor';
+
+  @override
+  String get onbBuildingHint => 'Bu genellikle sadece birkaç saniye sürer.';
+
+  @override
+  String get onbPleaseWait => 'Lütfen bir süre bekle…';
+
+  @override
+  String get onbCreatingPlan => 'Planın oluşturuluyor…';
+
+  @override
+  String get onbFirst30DaysLabel => 'İlk 30 gün';
+
+  @override
+  String get onbLessExpensesLabel => 'Daha az harcama';
+
+  @override
+  String get onbSavingsPerMonth => 'Aylık tasarruf';
+
+  @override
+  String get onbSavingsPerYear => 'Yıllık tasarruf';
+
+  @override
+  String get onbPlanPersonalizedTitle => 'Kişiselleştirilmiş planın';
+
+  @override
+  String onbPlanPersonalizedSubtitle(int motivations, int symptoms) {
+    return '$motivations neden ve $symptoms belirtiye dayalı';
+  }
+
+  @override
+  String get onbResultHint =>
+      'Bu rakamları daha sonra ayarlardan her zaman değiştirebilirsin.';
+
+  @override
+  String get onbBreathingHint => 'NEFES AL';
+
+  @override
+  String get onbContinue => 'Devam et';
+
+  @override
+  String get onbStartJourney => 'Yolculuğuma başla';
+
+  @override
+  String get onboardingHabitTitle => 'Kontrolü geri almaya hazır mısın?';
+
+  @override
+  String get onboardingHabitSubtitle =>
+      'Önce alışkanlığını anlayalım. Uzun formlar yok — birkaç net cevap, Puffree yolunu oluşturur.';
+
+  @override
+  String get onboardingAmountTitle => 'Tipik bir gününü anlat';
+
+  @override
+  String get onboardingAmountSubtitle =>
+      'Seni yargılamak için değil. İlerlemeyi ölçeceğimiz başlangıç noktası.';
+
+  @override
+  String get onboardingMoneyTitle => 'Alışkanlık senden ne kadar alıyor?';
+
+  @override
+  String get onboardingMoneySubtitle =>
+      'Fiyat ekranda hemen değişir — soyut bir rakam değil, alışkanlığın gerçek maliyetini görürsün.';
+
+  @override
+  String get onboardingBodyTitle => 'Kendinde ne fark ediyorsun?';
+
+  @override
+  String get onboardingBodySubtitle =>
+      'Sana uyanları işaretle. Birden fazla seçebilir veya hiç seçmeyebilirsin.';
+
+  @override
+  String get onboardingMotivationTitle => 'Bunu ne için yapıyorsun?';
+
+  @override
+  String get onboardingMotivationSubtitle =>
+      'Bu senin kişisel dayanağın olacak. Puffree seni gerektiğinde bu nedene geri getirecek.';
+
+  @override
+  String get onboardingBuildingTitle => 'Yolunu oluşturuyoruz';
+
+  @override
+  String get onboardingBuildingSubtitle =>
+      'Tıbbi teşhis değil ve mükemmel bir gün vaadi değil. Sadece başlangıç noktan ve net sonraki adımlar.';
+
+  @override
+  String get onboardingResultTitle => 'İlk ilerleme ekranın zaten burada';
+
+  @override
+  String get onboardingResultSubtitle =>
+      'Başlangıç verilerini cihazda kaydediyoruz ve ölçülebilir ilerlemeye dönüştürüyoruz.';
+
+  @override
+  String get onboardingEyebrowBeforeStart => 'BAŞLAMADAN ÖNCE';
+
+  @override
+  String get onboardingEyebrowStartPoint => 'BAŞLANGIÇ NOKTAN';
+
+  @override
+  String get onboardingEyebrowRealCost => 'GERÇEK MALİYET';
+
+  @override
+  String get onboardingEyebrowSelfFeeling => 'NASIL HİSSEDİYORSUN';
+
+  @override
+  String get onboardingEyebrowYourReason => 'NEDENİN';
+
+  @override
+  String get onboardingEyebrowPersonalization => 'KİŞİSELLEŞTİRME';
+
+  @override
+  String get onboardingEyebrowDone => 'TAMAM';
+
+  @override
+  String get onboardingCigarettesChoice => 'Sigara içiyorum';
+
+  @override
+  String get onboardingCigarettesChoiceSubtitle => 'Puffree’nin ana senaryosu';
+
+  @override
+  String get onboardingVapeChoice => 'Elektronik sigara kullanıyorum';
+
+  @override
+  String get onboardingVapeChoiceSubtitle => 'Bu seçimi profiline kaydedeceğiz';
+
+  @override
+  String get onboardingPodsPerWeek => 'Haftada pod / tek kullanımlık';
+
+  @override
+  String get onboardingUnitPcs => 'adet';
+
+  @override
+  String get onboardingVapeHint =>
+      'Sonra Puffree profili sigara ve vape senaryolarını geçmişi kaybetmeden ayırabilir.';
+
+  @override
+  String get onboardingCigarettesPerDay => 'Günde sigara';
+
+  @override
+  String get onboardingYearsSmoked => 'Kaç yıldır devam ediyor';
+
+  @override
+  String get onboardingUnitYears => 'yıl';
+
+  @override
+  String get onboardingPricePerPod => 'Bir podun fiyatı';
+
+  @override
+  String get onboardingPricePerPack => 'Paket fiyatı';
+
+  @override
+  String get onboardingCigarettesPerPack => 'Paketteki sigara';
+
+  @override
+  String get onboardingPotentialSavings => 'Potansiyel tasarruf';
+
+  @override
+  String get onboardingPerMonthIfQuit => 'alışkanlığı bırakırsan aylık';
+
+  @override
+  String get onboardingCurrency => 'Para birimi';
+
+  @override
+  String get onboardingSymptomBreath => 'Nefesimin ağırlaştığını hissediyorum';
+
+  @override
+  String get onboardingSymptomAnxiety => 'Bazen güçlü kaygı hissediyorum';
+
+  @override
+  String get onboardingSymptomPulse => 'Nabzımın hızlandığını fark ediyorum';
+
+  @override
+  String get onboardingSymptomMorning =>
+      'Sabah ilk sigaraya özellikle çekiliyorum';
+
+  @override
+  String get onboardingSymptomCough => 'Sabah öksürüğüm var';
+
+  @override
+  String get onboardingBodyHint =>
+      'Bu bir öz-tanımlama, teşhis değil. Belirtiler endişelendiriyorsa doktorla konuşmak daha iyi.';
+
+  @override
+  String get onboardingMotivationHealth =>
+      'Sağlığıma daha iyi bakmak istiyorum';
+
+  @override
+  String get onboardingMotivationFreedom => 'Daha özgür hissetmek istiyorum';
+
+  @override
+  String get onboardingMotivationMoney =>
+      'Buna para harcamayı bırakmak istiyorum';
+
+  @override
+  String get onboardingMotivationFamily =>
+      'Sevdiklerimin yanında alışkanlığa daha az bağımlı olmak istiyorum';
+
+  @override
+  String get onboardingMotivationControl =>
+      'Kontrol hissini geri kazanmak istiyorum';
+
+  @override
+  String get onboardingMotivationFuture =>
+      'Geleceğim için bunu yapmak istiyorum';
+
+  @override
+  String get onboardingCanSelectSeveral => 'Birden fazla seçebilirsin';
+
+  @override
+  String get onboardingYourStartCard => 'başlangıç kartın';
+
+  @override
+  String get onboardingStepSaveAnswers => 'Cevapların kaydediliyor';
+
+  @override
+  String get onboardingStepFinancialGoal => 'Finansal hedef hesaplanıyor';
+
+  @override
+  String get onboardingStepCravingScenarios =>
+      'İstek senaryoları oluşturuluyor';
+
+  @override
+  String get onboardingStepFirstSteps => 'İlk adımlar hazırlanıyor';
+
+  @override
+  String get onboardingBuildingHint =>
+      'Kasten «X saatte akciğer yenilenmesi» vaat etmiyoruz — Puffree ölçülebilir şeyleri gösterir ve gerçeği motivasyondan ayırır.';
+
+  @override
+  String get onboardingSavingsPerMonth => 'tasarruf / ay';
+
+  @override
+  String get onboardingSavingsPerYear => 'tasarruf / yıl';
+
+  @override
+  String get onboardingResultHint =>
+      'Bu rakamlar cevaplarına dayalı bir hesaplamadır, sonuç vaadi değil. Gerçek ilerleme davranışına bağlıdır.';
+
+  @override
+  String get onboardingFirst30Days => 'İlk 30 gün';
+
+  @override
+  String get onboardingLessSpendMoreControl =>
+      'daha az harcama → daha fazla kontrol';
+
+  @override
+  String get onboardingPlanPersonalized => 'Plan kişiselleştirildi';
+
+  @override
+  String onboardingMotivationsCount(int count) {
+    return '$count kişisel motivasyon';
+  }
+
+  @override
+  String onboardingSymptomsCount(int count) {
+    return '$count işaretli durum';
+  }
+
+  @override
+  String get onboardingTakeFirstStep => 'ilk adımı at';
+
+  @override
+  String get onboardingPleaseWait => 'Lütfen birkaç saniye bekle…';
+
+  @override
+  String get onboardingCreatingPlan => 'Plan oluşturuluyor…';
+
+  @override
+  String get onboardingStartMyJourney => 'Yolculuğumu başlat';
+
+  @override
+  String get onboardingContinue => 'Devam';
+
+  @override
+  String get premiumTitle => 'Puffree Premium';
+
+  @override
+  String get premiumSubtitle =>
+      'Yolculuğunuz için daha fazla araç.\nSize uygun planı seçin.';
+
+  @override
+  String get oneMembership => 'Her şey için tek Premium erişim';
+
+  @override
+  String get everythingIncluded => 'Her şey dahil';
+
+  @override
+  String get everythingIncludedSubtitle =>
+      'Premium, Puffree\'nin tam deneyimini açar.';
+
+  @override
+  String get choosePlan => 'Planınızı seçin';
+
+  @override
+  String get choosePlanSubtitle =>
+      'Satın almadan önce seçiminizi değiştirebilirsiniz.';
+
+  @override
+  String get featureTasks => 'Genişletilmiş görevler';
+
+  @override
+  String get featureTasksSubtitle => 'Daha fazla pratik ve meydan okuma';
+
+  @override
+  String get featureStats => 'Tam istatistikler';
+
+  @override
+  String get featureStatsSubtitle => 'Detaylı ilerleme bilgileri';
+
+  @override
+  String get profileEditTitle => 'Profil';
+
+  @override
+  String get profileEditTapToChangePhoto =>
+      'Değiştirmek için fotoğrafa dokunun';
+
+  @override
+  String get profileEditNameLabel => 'Ad';
+
+  @override
+  String get profileEditNameHint => 'Adınızı girin';
+
+  @override
+  String get profileEditSaveButton => 'Değişiklikleri kaydet';
+
+  @override
+  String get profileEditErrorEmptyName => 'Lütfen bir ad girin';
+
+  @override
+  String get profileEditSuccessUpdated => 'Profil başarıyla güncellendi';
+
+  @override
+  String profileEditErrorUpdate(String error) {
+    return 'Profil güncellenemedi: $error';
+  }
+
+  @override
+  String get authWelcomeBack => 'Tekrar hoş geldiniz!';
+
+  @override
+  String get authCreateAccount => 'Hesap oluştur';
+
+  @override
+  String get authResetPassword => 'Şifreyi sıfırla';
+
+  @override
+  String get authLoginSubtitle => 'Yolculuğunuza devam etmek için giriş yapın';
+
+  @override
+  String get authRegisterSubtitle => 'Bugün dumansız bir hayata başlayın';
+
+  @override
+  String get authForgotSubtitle =>
+      'E-postanızı girin, talimatları göndereceğiz';
+
+  @override
+  String get authTabLogin => 'Giriş';
+
+  @override
+  String get authTabRegister => 'Kayıt ol';
+
+  @override
+  String get authNameHint => 'Adınız';
+
+  @override
+  String get authNameRequired => 'Adınızı girin';
+
+  @override
+  String get authEmailHint => 'E-posta adresi';
+
+  @override
+  String get authEmailRequired => 'E-posta girin';
+
+  @override
+  String get authEmailInvalid => 'Geçersiz e-posta';
+
+  @override
+  String get authPasswordHint => 'Şifre';
+
+  @override
+  String get authPasswordRequired => 'Şifre girin';
+
+  @override
+  String get authPasswordMinLength => 'Şifre en az 6 karakter olmalıdır';
+
+  @override
+  String get authConfirmPasswordHint => 'Şifreyi tekrar girin';
+
+  @override
+  String get authPasswordsDoNotMatch => 'Şifreler eşleşmiyor';
+
+  @override
+  String get authForgotPassword => 'Şifrenizi mi unuttunuz?';
+
+  @override
+  String get authLoginButton => 'Giriş yap';
+
+  @override
+  String get authRegisterButton => 'Kayıt ol';
+
+  @override
+  String get authSendLinkButton => 'Bağlantı gönder';
+
+  @override
+  String get authBackToLogin => 'Girişe dön';
+
+  @override
+  String get authOrContinueWith => 'veya şununla devam et';
+
+  @override
+  String get authGoogle => 'Google';
+
+  @override
+  String get authApple => 'Apple';
+
+  @override
+  String get authResetLinkSent =>
+      'Şifre sıfırlama bağlantısı e-postanıza gönderildi!';
+
+  @override
+  String get authErrorGeneric =>
+      'Bir hata oluştu. Lütfen bilgileri kontrol edin.';
+
+  @override
+  String get authErrorSocial => 'Sosyal giriş başarısız.';
+
+  @override
+  String get profileEditErrorPhotoNotFound => 'Seçilen fotoğraf alınamadı';
+
+  @override
+  String get profileEditErrorOpenGallery => 'Galeri açılamadı';
+
+  @override
+  String get profileEditErrorPickPhoto => 'Fotoğraf seçilirken bir hata oluştu';
+
+  @override
+  String get featureMotivation => 'Kişisel motivasyon';
+
+  @override
+  String get featureMotivationSubtitle => 'Yolculuğunuz için rehberlik';
+
+  @override
+  String get featureSupport => 'Ekstra destek araçları';
+
+  @override
+  String get featureSupportSubtitle => 'İhtiyaç duyduğunuzda daha fazla yardım';
+
+  @override
+  String get featureNotifications => 'Akıllı hatırlatmalar';
+
+  @override
+  String get featureNotificationsSubtitle => 'Doğru zamanda motivasyon';
+
+  @override
+  String get featureAds => 'Reklamsız';
+
+  @override
+  String get featureAdsSubtitle => 'Sakin ve temiz bir deneyim';
+
+  @override
+  String get planMonthly => 'Aylık';
+
+  @override
+  String get planMonthlySubtitle => 'Uzun taahhüt olmadan esnek';
+
+  @override
+  String get planYearly => 'Yıllık';
+
+  @override
+  String get planYearlySubtitle => 'Fiyat ve özelliklerin en iyi dengesi';
+
+  @override
+  String get planLifetime => 'Ömür boyu';
+
+  @override
+  String get planLifetimeSubtitle => 'Tek ödeme — Premium sonsuza kadar';
+
+  @override
+  String get perMonth => '/ ay';
+
+  @override
+  String get perYear => '/ yıl';
+
+  @override
+  String get bestValue => 'EN İYİ DEĞER';
+
+  @override
+  String get oneTime => 'TEK SEFERLİK';
+
+  @override
+  String get buyMonthly => 'Aylık Premium al';
+
+  @override
+  String get buyYearly => 'Yıllık Premium al';
+
+  @override
+  String get buyLifetime => 'Ömür boyu Premium al';
+
+  @override
+  String get restorePurchases => 'Satın almaları geri yükle';
+
+  @override
+  String get securePurchase => 'Güvenli satın alma';
+
+  @override
+  String get cancelAnytime => 'İstediğiniz zaman iptal edin';
+
+  @override
+  String get restoreAnytime => 'Satın almalar geri yüklenebilir';
+
+  @override
+  String get legalMonthly =>
+      'Abonelik her ay otomatik olarak yenilenir. App Store veya Google Play ayarlarından iptal edebilirsiniz. Fiyat, satın alma onayı öncesinde gösterilir.';
+
+  @override
+  String get legalYearly =>
+      'Abonelik her yıl otomatik olarak yenilenir. App Store veya Google Play ayarlarından iptal edebilirsiniz. Fiyat, satın alma onayı öncesinde gösterilir.';
+
+  @override
+  String get legalLifetime =>
+      'Bu tek seferlik bir satın almadır ve otomatik olarak yenilenmez. Fiyat, satın alma onayı öncesinde gösterilir.';
 }

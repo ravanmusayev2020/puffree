@@ -9,11 +9,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../core/theme/app_theme.dart';
 import '../../../data/bloc/progress/progress_bloc.dart';
 import '../../../data/bloc/progress/progress_event.dart';
 import '../../../data/models/currency_option.dart';
+import '../../../l10n/app_localizations.dart';
 import '../../widgets/bottom_nav.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -74,50 +74,45 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   String get _selectedCurrencySymbol =>
       CurrencyOption.fromCode(_selectedCurrencyCode).symbol;
 
-  List<_QuestionPage> get _pages => const [
-    _QuestionPage(
-      type: _QuestionType.habit,
-      title: 'Готов вернуть контроль?',
-      subtitle:
-      'Сначала разберём твою привычку. Никаких длинных форм — несколько точных ответов, и Puffree соберёт твой маршрут.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.amount,
-      title: 'Опиши свой обычный день',
-      subtitle:
-      'Это нужна не для оценки тебя. Это стартовая точка, от которой мы будем считать прогресс.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.money,
-      title: 'Сколько привычка забирает у тебя?',
-      subtitle:
-      'Цена меняется сразу на экране — ты видишь не абстрактную цифру, а реальную стоимость привычки.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.body,
-      title: 'Что ты замечаешь в себе?',
-      subtitle:
-      'Отметь то, что бывает у тебя. Можно выбрать несколько вариантов или ничего.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.motivation,
-      title: 'Ради чего ты это делаешь?',
-      subtitle:
-      'Это станет твоей личной опорой. Puffree будет возвращать тебя к этой причине в нужный момент.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.building,
-      title: 'Собираем твой маршрут',
-      subtitle:
-      'Не медицинский диагноз и не обещание идеального дня. Только твоя стартовая точка и понятные следующие шаги.',
-    ),
-    _QuestionPage(
-      type: _QuestionType.result,
-      title: 'Твой первый экран прогресса уже здесь',
-      subtitle:
-      'Сохраняем стартовые данные на устройстве и превращаем их в измеримый прогресс.',
-    ),
-  ];
+  List<_QuestionPage> _buildPages(AppLocalizations l10n) {
+    return [
+      _QuestionPage(
+        type: _QuestionType.habit,
+        title: l10n.onboardingHabitTitle,
+        subtitle: l10n.onboardingHabitSubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.amount,
+        title: l10n.onboardingAmountTitle,
+        subtitle: l10n.onboardingAmountSubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.money,
+        title: l10n.onboardingMoneyTitle,
+        subtitle: l10n.onboardingMoneySubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.body,
+        title: l10n.onboardingBodyTitle,
+        subtitle: l10n.onboardingBodySubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.motivation,
+        title: l10n.onboardingMotivationTitle,
+        subtitle: l10n.onboardingMotivationSubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.building,
+        title: l10n.onboardingBuildingTitle,
+        subtitle: l10n.onboardingBuildingSubtitle,
+      ),
+      _QuestionPage(
+        type: _QuestionType.result,
+        title: l10n.onboardingResultTitle,
+        subtitle: l10n.onboardingResultSubtitle,
+      ),
+    ];
+  }
 
   @override
   void initState() {
@@ -181,7 +176,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           ..addAll(_stringList(map['motivations']));
 
         final savedPage = (map['page'] as num?)?.toInt() ?? 0;
-        _currentPage = savedPage.clamp(0, _pages.length - 1).toInt();
+        _currentPage = savedPage.clamp(0, 6).toInt();
       }
     } catch (_) {
       // Corrupted local onboarding data should never block the app.
@@ -245,7 +240,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   }
 
   Future<void> _changePage(int page) async {
-    final target = page.clamp(0, _pages.length - 1).toInt();
+    final target = page.clamp(0, 6).toInt();
 
     await _save(page: target);
 
@@ -274,7 +269,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       return;
     }
 
-    if (_currentPage < _pages.length - 1) {
+    if (_currentPage < 6) {
       _changePage(_currentPage + 1);
       return;
     }
@@ -306,34 +301,17 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   Future<void> _startJourney() async {
     await _save(page: 6);
 
-    // Keep compatibility with the current ProgressBloc contract.
-    // The selected usage type is also stored locally, so it can be added to
-    // StartQuitJourney later without losing the onboarding decision.
-    if (mounted) {
-      context.read<ProgressBloc>().add(
-        StartQuitJourney(
-          cigarettesPerDay: _cigarettesPerDay,
-          pricePerPack: _pricePerPack,
-          cigarettesPerPack: _cigarettesPerPack.round(),
-        ),
-      );
-
-      Navigator.of(context).pushReplacement(
-        PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const MainShell(),
-          transitionsBuilder: (_, animation, __, child) {
-            return FadeTransition(
-              opacity: CurvedAnimation(
-                parent: animation,
-                curve: Curves.easeOutCubic,
-              ),
-              child: child,
-            );
-          },
-          transitionDuration: const Duration(milliseconds: 650),
-        ),
-      );
+    if (!mounted) {
+      return;
     }
+
+    context.read<ProgressBloc>().add(
+      StartQuitJourney(
+        cigarettesPerDay: _cigarettesPerDay,
+        pricePerPack: _pricePerPack,
+        cigarettesPerPack: _cigarettesPerPack.round(),
+      ),
+    );
   }
 
   void _toggleSetValue(
@@ -350,8 +328,6 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     _save();
   }
 
-  String _currencyLabel() => 'Валюта';
-
   String _formatMoney(double value) {
     final locale = Localizations.localeOf(context).toString();
 
@@ -367,6 +343,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context)!;
+    final pages = _buildPages(l10n);
 
     if (_loadingSavedState) {
       return Scaffold(
@@ -394,15 +372,14 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           return Stack(
             children: [
               _buildAmbientBackground(isDark),
-
               SafeArea(
                 child: Column(
                   children: [
-                    _buildTopBar(isDark),
+                    _buildTopBar(isDark, pages.length),
                     Expanded(
                       child: PageView.builder(
                         controller: _pageController,
-                        itemCount: _pages.length,
+                        itemCount: pages.length,
                         physics: _planLoading
                             ? const NeverScrollableScrollPhysics()
                             : const BouncingScrollPhysics(),
@@ -416,14 +393,15 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                         },
                         itemBuilder: (context, index) {
                           return _buildQuestionPage(
-                            _pages[index],
+                            pages[index],
                             index,
                             isDark,
+                            l10n,
                           );
                         },
                       ),
                     ),
-                    _buildBottomBar(isDark),
+                    _buildBottomBar(isDark, l10n, pages.length),
                   ],
                 ),
               ),
@@ -524,7 +502,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildTopBar(bool isDark) {
+  Widget _buildTopBar(bool isDark, int pageCount) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 14, 20, 6),
       child: Row(
@@ -538,8 +516,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               onTap: _previous,
             ),
           if (_currentPage > 0 && !_planLoading) const SizedBox(width: 9),
-          if (_currentPage < 5)
-            _buildProgressPill(isDark),
+          if (_currentPage < 5) _buildProgressPill(isDark, pageCount),
         ],
       ),
     );
@@ -644,8 +621,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildProgressPill(bool isDark) {
-    final progress = (_currentPage + 1) / (_pages.length - 1);
+  Widget _buildProgressPill(bool isDark, int pageCount) {
+    final progress = (_currentPage + 1) / (pageCount - 1);
 
     return Container(
       width: 102,
@@ -689,7 +666,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           ),
           const SizedBox(width: 7),
           Text(
-            '${_currentPage + 1}/${_pages.length - 1}',
+            '${_currentPage + 1}/${pageCount - 1}',
             style: GoogleFonts.inter(
               fontSize: 10.5,
               fontWeight: FontWeight.w800,
@@ -705,6 +682,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       _QuestionPage page,
       int index,
       bool isDark,
+      AppLocalizations l10n,
       ) {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
@@ -722,9 +700,10 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 subtitle: page.subtitle,
                 pageIndex: index,
                 isDark: isDark,
+                l10n: l10n,
               ),
               const SizedBox(height: 24),
-              _buildQuestionBody(page.type, isDark),
+              _buildQuestionBody(page.type, isDark, l10n),
             ],
           ),
         ),
@@ -745,15 +724,16 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     required String subtitle,
     required int pageIndex,
     required bool isDark,
+    required AppLocalizations l10n,
   }) {
     final eyebrow = switch (pageIndex) {
-      0 => 'ПЕРЕД СТАРТОМ',
-      1 => 'ТВОЯ СТАРТОВАЯ ТОЧКА',
-      2 => 'РЕАЛЬНАЯ ЦЕНА',
-      3 => 'САМООЩУЩЕНИЕ',
-      4 => 'ТВОЯ ПРИЧИНА',
-      5 => 'ПЕРСОНАЛИЗАЦИЯ',
-      _ => 'ГОТОВО',
+      0 => l10n.onboardingEyebrowBeforeStart,
+      1 => l10n.onboardingEyebrowStartPoint,
+      2 => l10n.onboardingEyebrowRealCost,
+      3 => l10n.onboardingEyebrowSelfFeeling,
+      4 => l10n.onboardingEyebrowYourReason,
+      5 => l10n.onboardingEyebrowPersonalization,
+      _ => l10n.onboardingEyebrowDone,
     };
 
     return Column(
@@ -810,35 +790,36 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   Widget _buildQuestionBody(
       _QuestionType type,
       bool isDark,
+      AppLocalizations l10n,
       ) {
     switch (type) {
       case _QuestionType.habit:
-        return _buildHabitPage(isDark);
+        return _buildHabitPage(isDark, l10n);
       case _QuestionType.amount:
-        return _buildAmountPage(isDark);
+        return _buildAmountPage(isDark, l10n);
       case _QuestionType.money:
-        return _buildMoneyPage(isDark);
+        return _buildMoneyPage(isDark, l10n);
       case _QuestionType.body:
-        return _buildBodyPage(isDark);
+        return _buildBodyPage(isDark, l10n);
       case _QuestionType.motivation:
-        return _buildMotivationPage(isDark);
+        return _buildMotivationPage(isDark, l10n);
       case _QuestionType.building:
-        return _buildBuildingPage(isDark);
+        return _buildBuildingPage(isDark, l10n);
       case _QuestionType.result:
-        return _buildResultPage(isDark);
+        return _buildResultPage(isDark, l10n);
     }
   }
 
-  Widget _buildHabitPage(bool isDark) {
+  Widget _buildHabitPage(bool isDark, AppLocalizations l10n) {
     return Column(
       children: [
-        _buildAnimatedLungs(isDark),
+        _buildAnimatedLungs(isDark, l10n),
         const SizedBox(height: 24),
         _choiceCard(
           isDark: isDark,
           selected: _usageType == 'cigarettes',
-          title: 'Я курю сигареты',
-          subtitle: 'Основной сценарий Puffree',
+          title: l10n.onboardingCigarettesChoice,
+          subtitle: l10n.onboardingCigarettesChoiceSubtitle,
           onTap: () {
             setState(() => _usageType = 'cigarettes');
             _save();
@@ -853,8 +834,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         _choiceCard(
           isDark: isDark,
           selected: _usageType == 'vape',
-          title: 'Я использую вейп',
-          subtitle: 'Сохраним этот выбор для твоего профиля',
+          title: l10n.onboardingVapeChoice,
+          subtitle: l10n.onboardingVapeChoiceSubtitle,
           onTap: () {
             setState(() => _usageType = 'vape');
             _save();
@@ -869,15 +850,15 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildAmountPage(bool isDark) {
+  Widget _buildAmountPage(bool isDark, AppLocalizations l10n) {
     if (_isVape) {
       return Column(
         children: [
           _metricCard(
             isDark: isDark,
-            title: 'Поды / одноразки в неделю',
+            title: l10n.onboardingPodsPerWeek,
             value: '${_podsPerWeek.round()}',
-            unit: 'шт.',
+            unit: l10n.onboardingUnitPcs,
             visual: _MiniSparkline(
               progress: (_podsPerWeek / 10).clamp(0.0, 1.0).toDouble(),
               color: AppColors.accent,
@@ -899,7 +880,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           const SizedBox(height: 15),
           _buildMicroHint(
             isDark,
-            'Позже профиль Puffree сможет разделить сценарии для сигарет и вейпа без потери истории.',
+            l10n.onboardingVapeHint,
           ),
         ],
       );
@@ -909,9 +890,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
       children: [
         _metricCard(
           isDark: isDark,
-          title: 'Сигарет в день',
+          title: l10n.onboardingCigarettesPerDay,
           value: '${_cigarettesPerDay.round()}',
-          unit: 'шт.',
+          unit: l10n.onboardingUnitPcs,
           visual: _MiniSparkline(
             progress: (_cigarettesPerDay / 40).clamp(0.0, 1.0).toDouble(),
             color: AppColors.primary,
@@ -933,9 +914,9 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         const SizedBox(height: 22),
         _metricCard(
           isDark: isDark,
-          title: 'Сколько лет это длится',
+          title: l10n.onboardingYearsSmoked,
           value: '${_yearsSmoked.round()}',
-          unit: 'лет',
+          unit: l10n.onboardingUnitYears,
           visual: _YearRing(
             progress: (_yearsSmoked / 40).clamp(0.0, 1.0).toDouble(),
             color: AppColors.coral,
@@ -958,15 +939,15 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildMoneyPage(bool isDark) {
+  Widget _buildMoneyPage(bool isDark, AppLocalizations l10n) {
     return Column(
       children: [
-        _moneyHero(isDark),
+        _moneyHero(isDark, l10n),
         const SizedBox(height: 18),
         if (_isVape)
           _buildMoneySlider(
             isDark: isDark,
-            title: 'Цена одного пода',
+            title: l10n.onboardingPricePerPod,
             value: _pricePerPod,
             min: 100,
             max: 3000,
@@ -981,7 +962,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         else ...[
           _buildMoneySlider(
             isDark: isDark,
-            title: 'Цена пачки',
+            title: l10n.onboardingPricePerPack,
             value: _pricePerPack,
             min: 50,
             max: 600,
@@ -996,12 +977,12 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           const SizedBox(height: 12),
           _buildMoneySlider(
             isDark: isDark,
-            title: 'Сигарет в пачке',
+            title: l10n.onboardingCigarettesPerPack,
             value: _cigarettesPerPack,
             min: 10,
             max: 30,
             divisions: 20,
-            suffix: 'шт.',
+            suffix: l10n.onboardingUnitPcs,
             color: AppColors.primaryLight,
             onChanged: (value) {
               setState(() => _cigarettesPerPack = value);
@@ -1010,12 +991,12 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           ),
         ],
         const SizedBox(height: 14),
-        _buildCurrencyCard(isDark),
+        _buildCurrencyCard(isDark, l10n),
       ],
     );
   }
 
-  Widget _moneyHero(bool isDark) {
+  Widget _moneyHero(bool isDark, AppLocalizations l10n) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
@@ -1060,7 +1041,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Потенциальная экономия',
+                  l10n.onboardingPotentialSavings,
                   style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
@@ -1098,7 +1079,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   ),
                 ),
                 Text(
-                  'в месяц при отказе от привычки',
+                  l10n.onboardingPerMonthIfQuit,
                   style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
@@ -1183,13 +1164,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildCurrencyCard(bool isDark) {
+  Widget _buildCurrencyCard(bool isDark, AppLocalizations l10n) {
     final currency = CurrencyOption.fromCode(_selectedCurrencyCode);
 
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => _showCurrencyPicker(),
+        onTap: () => _showCurrencyPicker(l10n),
         borderRadius: BorderRadius.circular(22),
         child: Ink(
           padding: const EdgeInsets.all(15),
@@ -1221,7 +1202,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      _currencyLabel(),
+                      l10n.onboardingCurrency,
                       style: GoogleFonts.inter(
                         fontSize: 10.5,
                         fontWeight: FontWeight.w700,
@@ -1255,7 +1236,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  void _showCurrencyPicker() {
+  void _showCurrencyPicker(AppLocalizations l10n) {
     const options = CurrencyOption.supported;
 
     showModalBottomSheet<void>(
@@ -1302,7 +1283,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                     children: [
                       Expanded(
                         child: Text(
-                          'Валюта',
+                          l10n.onboardingCurrency,
                           style: GoogleFonts.outfit(
                             fontSize: 24,
                             fontWeight: FontWeight.w800,
@@ -1423,13 +1404,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildBodyPage(bool isDark) {
-    const items = <String, String>{
-      'breath': 'Чувствую, что дыхание стало тяжелее',
-      'anxiety': 'Иногда чувствую сильную тревожность',
-      'pulse': 'Замечаю учащённый пульс',
-      'morning': 'Особенно тянет к первой сигарете утром',
-      'cough': 'Есть утренний кашель',
+  Widget _buildBodyPage(bool isDark, AppLocalizations l10n) {
+    final items = <String, String>{
+      'breath': l10n.onboardingSymptomBreath,
+      'anxiety': l10n.onboardingSymptomAnxiety,
+      'pulse': l10n.onboardingSymptomPulse,
+      'morning': l10n.onboardingSymptomMorning,
+      'cough': l10n.onboardingSymptomCough,
     };
 
     return Column(
@@ -1453,20 +1434,20 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         const SizedBox(height: 2),
         _buildMicroHint(
           isDark,
-          'Это самоописание, а не диагноз. При тревожащих симптомах лучше обсудить их с врачом.',
+          l10n.onboardingBodyHint,
         ),
       ],
     );
   }
 
-  Widget _buildMotivationPage(bool isDark) {
-    const items = <String, String>{
-      'health': 'Хочу лучше заботиться о здоровье',
-      'freedom': 'Хочу чувствовать себя свободнее',
-      'money': 'Хочу перестать тратить деньги на это',
-      'family': 'Хочу меньше зависеть от привычки рядом с близкими',
-      'control': 'Хочу вернуть ощущение контроля',
-      'future': 'Хочу сделать это ради своего будущего',
+  Widget _buildMotivationPage(bool isDark, AppLocalizations l10n) {
+    final items = <String, String>{
+      'health': l10n.onboardingMotivationHealth,
+      'freedom': l10n.onboardingMotivationFreedom,
+      'money': l10n.onboardingMotivationMoney,
+      'family': l10n.onboardingMotivationFamily,
+      'control': l10n.onboardingMotivationControl,
+      'future': l10n.onboardingMotivationFuture,
     };
 
     return Column(
@@ -1489,7 +1470,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         ),
         const SizedBox(height: 6),
         Text(
-          'Можно выбрать несколько',
+          l10n.onboardingCanSelectSeveral,
           style: GoogleFonts.inter(
             fontSize: 11,
             fontWeight: FontWeight.w600,
@@ -1500,7 +1481,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildBuildingPage(bool isDark) {
+  Widget _buildBuildingPage(bool isDark, AppLocalizations l10n) {
     return Column(
       children: [
         SizedBox(
@@ -1538,7 +1519,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'твоя стартовая карта',
+                          l10n.onboardingYourStartCard,
                           style: GoogleFonts.inter(
                             fontSize: 12,
                             fontWeight: FontWeight.w700,
@@ -1559,27 +1540,27 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         _animatedBuildStep(
           isDark,
           index: 0,
-          title: 'Сохраняем твои ответы',
+          title: l10n.onboardingStepSaveAnswers,
         ),
         _animatedBuildStep(
           isDark,
           index: 1,
-          title: 'Считаем финансовую цель',
+          title: l10n.onboardingStepFinancialGoal,
         ),
         _animatedBuildStep(
           isDark,
           index: 2,
-          title: 'Формируем сценарии для тяги',
+          title: l10n.onboardingStepCravingScenarios,
         ),
         _animatedBuildStep(
           isDark,
           index: 3,
-          title: 'Подготавливаем первые шаги',
+          title: l10n.onboardingStepFirstSteps,
         ),
         const SizedBox(height: 16),
         _buildMicroHint(
           isDark,
-          'Мы намеренно не обещаем «регенерацию лёгких за X часов» — Puffree показывает измеримые вещи и отделяет факт от мотивации.',
+          l10n.onboardingBuildingHint,
         ),
       ],
     );
@@ -1639,13 +1620,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildResultPage(bool isDark) {
+  Widget _buildResultPage(bool isDark, AppLocalizations l10n) {
     final monthly = _formatMoney(_monthlySavings);
     final yearly = _formatMoney(_yearlySavings);
 
     return Column(
       children: [
-        _resultHero(isDark),
+        _resultHero(isDark, l10n),
         const SizedBox(height: 18),
         Row(
           children: [
@@ -1653,7 +1634,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               child: _resultMetric(
                 isDark: isDark,
                 value: monthly,
-                label: 'экономия / месяц',
+                label: l10n.onboardingSavingsPerMonth,
                 color: AppColors.primary,
               ),
             ),
@@ -1662,24 +1643,24 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               child: _resultMetric(
                 isDark: isDark,
                 value: yearly,
-                label: 'экономия / год',
+                label: l10n.onboardingSavingsPerYear,
                 color: AppColors.accent,
               ),
             ),
           ],
         ),
         const SizedBox(height: 12),
-        _planPreview(isDark),
+        _planPreview(isDark, l10n),
         const SizedBox(height: 14),
         _buildMicroHint(
           isDark,
-          'Эти цифры — расчёт по твоим ответам, а не обещание результата. Реальный прогресс зависит от твоего поведения.',
+          l10n.onboardingResultHint,
         ),
       ],
     );
   }
 
-  Widget _resultHero(bool isDark) {
+  Widget _resultHero(bool isDark, AppLocalizations l10n) {
     return Container(
       height: 250,
       width: double.infinity,
@@ -1722,7 +1703,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Первые 30 дней',
+                  l10n.onboardingFirst30Days,
                   style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
@@ -1733,7 +1714,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'меньше расходов → больше контроля',
+                  l10n.onboardingLessSpendMoreControl,
                   style: GoogleFonts.outfit(
                     fontSize: 22,
                     fontWeight: FontWeight.w800,
@@ -1801,7 +1782,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _planPreview(bool isDark) {
+  Widget _planPreview(bool isDark, AppLocalizations l10n) {
     final selectedCount = _motivations.length;
 
     return Container(
@@ -1836,7 +1817,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'План персонализирован',
+                  l10n.onboardingPlanPersonalized,
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w800,
@@ -1847,8 +1828,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '$selectedCount личных мотиваций • '
-                      '${_symptoms.length} отмеченных состояний',
+                  '${l10n.onboardingMotivationsCount(selectedCount)} • '
+                      '${l10n.onboardingSymptomsCount(_symptoms.length)}',
                   style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
@@ -2173,7 +2154,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildAnimatedLungs(bool isDark) {
+  Widget _buildAnimatedLungs(bool isDark, AppLocalizations l10n) {
     return SizedBox(
       height: 220,
       child: AnimatedBuilder(
@@ -2193,7 +2174,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
               child: Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Text(
-                  'сделай первый шаг',
+                  l10n.onboardingTakeFirstStep,
                   style: GoogleFonts.inter(
                     fontSize: 11,
                     fontWeight: FontWeight.w800,
@@ -2254,8 +2235,8 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     );
   }
 
-  Widget _buildBottomBar(bool isDark) {
-    final isLast = _currentPage == _pages.length - 1;
+  Widget _buildBottomBar(bool isDark, AppLocalizations l10n, int pageCount) {
+    final isLast = _currentPage == pageCount - 1;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(18, 6, 18, 22),
@@ -2263,7 +2244,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
         children: [
           if (_currentPage == 5)
             Text(
-              'Пожалуйста, подожди несколько секунд…',
+              l10n.onboardingPleaseWait,
               style: GoogleFonts.inter(
                 fontSize: 10.5,
                 fontWeight: FontWeight.w700,
@@ -2273,12 +2254,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
           if (_currentPage == 5) const SizedBox(height: 10),
           _actionButton(
             label: _currentPage == 5
-                ? 'Создаём план…'
+                ? l10n.onboardingCreatingPlan
                 : isLast
-                ? 'Начать мой путь'
-                : 'Продолжить',
+                ? l10n.onboardingStartMyJourney
+                : l10n.onboardingContinue,
             onTap: (_currentPage == 5 || _planLoading) ? null : _next,
             isLoading: _currentPage == 5,
+            isLast: isLast,
           ),
         ],
       ),
@@ -2289,6 +2271,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     required String label,
     required VoidCallback? onTap,
     required bool isLoading,
+    required bool isLast,
   }) {
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -2352,7 +2335,7 @@ class _OnboardingScreenState extends State<OnboardingScreen>
                       color: Colors.white.withValues(alpha: 0.17),
                     ),
                     child: Icon(
-                      _currentPage == _pages.length - 1
+                      isLast
                           ? Icons.auto_awesome_rounded
                           : Icons.arrow_forward_rounded,
                       size: 16,
@@ -2503,6 +2486,8 @@ class _YearRing extends StatelessWidget {
     );
   }
 }
+
+// --- Painters (unchanged from original) ---
 
 class _BreezePainter extends CustomPainter {
   final Color color;
@@ -3127,8 +3112,6 @@ class _MotivationPainter extends CustomPainter {
       );
 
     canvas.drawCircle(center, 66, core);
-
-    final dotPaint = Paint()..color = primary;
 
     final points = <Offset>[
       Offset(center.dx - 64, center.dy - 16),

@@ -107,21 +107,64 @@ class AuthService {
         ],
       );
 
-      final OAuthProvider oauthProvider =
-      OAuthProvider('apple.com');
+      final identityToken = appleCredential.identityToken;
 
-      final AuthCredential credential =
-      oauthProvider.credential(
-        idToken: appleCredential.identityToken,
+      if (identityToken == null || identityToken.isEmpty) {
+        throw Exception('Apple не вернул identityToken');
+      }
+
+      final OAuthProvider appleProvider = OAuthProvider('apple.com');
+
+      final OAuthCredential credential = appleProvider.credential(
+        idToken: identityToken,
         accessToken: appleCredential.authorizationCode,
       );
 
-      return await _auth.signInWithCredential(credential);
-    } catch (e) {
-      log('Ошибка входа через Apple: $e');
+      final UserCredential userCredential =
+      await _auth.signInWithCredential(credential);
+
+      // Apple возвращает имя только при первом входе.
+      // Сохраняем его в Firebase, если оно пришло.
+      final user = userCredential.user;
+
+      if (user != null) {
+        final fullName = appleCredential.givenName != null ||
+            appleCredential.familyName != null
+            ? [
+          appleCredential.givenName,
+          appleCredential.familyName,
+        ].whereType<String>().where((e) => e.isNotEmpty).join(' ')
+            : '';
+
+        if (fullName.isNotEmpty &&
+            (user.displayName == null || user.displayName!.isEmpty)) {
+          await user.updateDisplayName(fullName);
+          await user.reload();
+        }
+      }
+
+      return userCredential;
+    } on SignInWithAppleAuthorizationException catch (e) {
+      log(
+        'Apple авторизация завершена: '
+            'code=${e.code}, message=${e.message}',
+      );
+
+      // Пользователь отменил авторизацию
+      if (e.code == AuthorizationErrorCode.canceled) {
+        return null;
+      }
+
+      rethrow;
+    } catch (e, stackTrace) {
+      log(
+        'Ошибка входа через Apple: $e',
+        stackTrace: stackTrace,
+      );
       rethrow;
     }
   }
+
 
   /// Обновление имени профиля
   Future<User?> updateDisplayName(String name) async {

@@ -920,4 +920,699 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get notificationInactive3Body =>
       'You don\'t have to be perfect. Just take the next step.';
+
+  @override
+  String get onbTitle1 => '¿Qué usas?';
+
+  @override
+  String get onbSubtitle1 => 'Personalizaremos todo según tu hábito.';
+
+  @override
+  String get onbTitle2 => '¿Cuánto usas?';
+
+  @override
+  String get onbSubtitle2 =>
+      'Números honestos nos ayudan a calcular tu progreso real.';
+
+  @override
+  String get onbTitle3 => '¿Cuánto te cuesta?';
+
+  @override
+  String get onbSubtitle3 => 'Descubre cuánto dinero puedes ahorrar cada mes.';
+
+  @override
+  String get onbTitle4 => '¿Cómo se siente tu cuerpo?';
+
+  @override
+  String get onbSubtitle4 =>
+      'Selecciona los síntomas que notes con más frecuencia.';
+
+  @override
+  String get onbTitle5 => '¿Por qué quieres dejarlo?';
+
+  @override
+  String get onbSubtitle5 =>
+      'Tus razones impulsarán el plan que creamos para ti.';
+
+  @override
+  String get onbTitle6 => 'Creando tu plan';
+
+  @override
+  String get onbSubtitle6 =>
+      'Estamos creando un camino personalizado solo para ti.';
+
+  @override
+  String get onbTitle7 => 'Tu plan está listo';
+
+  @override
+  String get onbSubtitle7 => 'Empieza tu viaje con un plan hecho para ti.';
+
+  @override
+  String get onbEyebrowBeforeStart => 'ANTES DE EMPEZAR';
+
+  @override
+  String get onbEyebrowStartingPoint => 'PUNTO DE PARTIDA';
+
+  @override
+  String get onbEyebrowRealCost => 'COSTE REAL';
+
+  @override
+  String get onbEyebrowSelfAwareness => 'AUTOCONOCIMIENTO';
+
+  @override
+  String get onbEyebrowYourReason => 'TU RAZÓN';
+
+  @override
+  String get onbEyebrowPersonalization => 'PERSONALIZACIÓN';
+
+  @override
+  String get onbEyebrowDone => 'ESTÁS LISTO';
+
+  @override
+  String get onbHabitCigarettesTitle => 'Cigarrillos';
+
+  @override
+  String get onbHabitCigarettesSubtitle => 'Cigarrillos normales o liados';
+
+  @override
+  String get onbHabitVapeTitle => 'Vape / Pods';
+
+  @override
+  String get onbHabitVapeSubtitle =>
+      'Cigarrillos electrónicos y sistemas de pods';
+
+  @override
+  String get onbPodsPerWeekLabel => 'Pods por semana';
+
+  @override
+  String get onbCigarettesPerDayLabel => 'Cigarrillos por día';
+
+  @override
+  String get onbYearsSmokedLabel => 'Años fumando';
+
+  @override
+  String get onbUnitPieces => 'uds';
+
+  @override
+  String get onbUnitYears => 'años';
+
+  @override
+  String get onbAmountVapeHint =>
+      'Esto nos ayuda a estimar tu coste semanal y tu progreso.';
+
+  @override
+  String get onbPotentialSavingsLabel => 'Ahorro mensual potencial';
+
+  @override
+  String get onbPerMonthQuitting => 'al mes cuando lo dejes';
+
+  @override
+  String get onbPricePerPodLabel => 'Precio por pod';
+
+  @override
+  String get onbPricePerPackLabel => 'Precio por paquete';
+
+  @override
+  String get onbCigarettesPerPackLabel => 'Cigarrillos por paquete';
+
+  @override
+  String get onbCurrencyLabel => 'Moneda';
+
+  @override
+  String get onbSymptomBreath => 'Falta de aire';
+
+  @override
+  String get onbSymptomAnxiety => 'Ansiedad / inquietud';
+
+  @override
+  String get onbSymptomPulse => 'Latido rápido o irregular';
+
+  @override
+  String get onbSymptomMorning => 'Tos matutina / flema';
+
+  @override
+  String get onbSymptomCough => 'Tos frecuente';
+
+  @override
+  String get onbBodyHint =>
+      'Puedes seleccionar varios. Esto nos ayuda a centrarnos en lo que te importa.';
+
+  @override
+  String get onbMotivationHealth => 'Mejor salud y energía';
+
+  @override
+  String get onbMotivationFreedom => 'Libertad de la adicción';
+
+  @override
+  String get onbMotivationMoney => 'Ahorrar dinero';
+
+  @override
+  String get onbMotivationFamily => 'Por mi familia / hijos';
+
+  @override
+  String get onbMotivationControl => 'Recuperar el control de mi vida';
+
+  @override
+  String get onbMotivationFuture => 'Un futuro más saludable';
+
+  @override
+  String get onbSelectMultipleHint => 'Puedes seleccionar varias razones';
+
+  @override
+  String get onbStartingMapLabel => 'Creando tu mapa';
+
+  @override
+  String get onbBuildingStepSave => 'Calculando tus ahorros';
+
+  @override
+  String get onbBuildingStepGoal => 'Estableciendo tu objetivo principal';
+
+  @override
+  String get onbBuildingStepScenarios => 'Creando escenarios personales';
+
+  @override
+  String get onbBuildingStepSteps => 'Preparando los primeros pasos';
+
+  @override
+  String get onbBuildingHint => 'Esto suele tardar solo unos segundos.';
+
+  @override
+  String get onbPleaseWait => 'Por favor espera un momento…';
+
+  @override
+  String get onbCreatingPlan => 'Creando tu plan…';
+
+  @override
+  String get onbFirst30DaysLabel => 'Primeros 30 días';
+
+  @override
+  String get onbLessExpensesLabel => 'Menos gastos';
+
+  @override
+  String get onbSavingsPerMonth => 'Ahorrado al mes';
+
+  @override
+  String get onbSavingsPerYear => 'Ahorrado al año';
+
+  @override
+  String get onbPlanPersonalizedTitle => 'Tu plan personalizado';
+
+  @override
+  String onbPlanPersonalizedSubtitle(int motivations, int symptoms) {
+    return 'Basado en $motivations razones y $symptoms síntomas';
+  }
+
+  @override
+  String get onbResultHint =>
+      'Siempre puedes ajustar estos números más tarde en la configuración.';
+
+  @override
+  String get onbBreathingHint => 'RESPIRA';
+
+  @override
+  String get onbContinue => 'Continuar';
+
+  @override
+  String get onbStartJourney => 'Empezar mi viaje';
+
+  @override
+  String get onboardingHabitTitle => '¿Listo para recuperar el control?';
+
+  @override
+  String get onboardingHabitSubtitle =>
+      'Primero entendamos tu hábito. Sin formularios largos: unas respuestas precisas y Puffree construirá tu camino.';
+
+  @override
+  String get onboardingAmountTitle => 'Describe tu día típico';
+
+  @override
+  String get onboardingAmountSubtitle =>
+      'Esto no es para juzgarte. Es el punto de partida desde el que mediremos el progreso.';
+
+  @override
+  String get onboardingMoneyTitle => '¿Cuánto te quita el hábito?';
+
+  @override
+  String get onboardingMoneySubtitle =>
+      'El precio cambia al instante en pantalla: ves no un número abstracto, sino el coste real del hábito.';
+
+  @override
+  String get onboardingBodyTitle => '¿Qué notas en ti?';
+
+  @override
+  String get onboardingBodySubtitle =>
+      'Marca lo que te pasa. Puedes elegir varias opciones o ninguna.';
+
+  @override
+  String get onboardingMotivationTitle => '¿Por qué lo haces?';
+
+  @override
+  String get onboardingMotivationSubtitle =>
+      'Esto se convertirá en tu ancla personal. Puffree te devolverá a esta razón cuando lo necesites.';
+
+  @override
+  String get onboardingBuildingTitle => 'Construyendo tu camino';
+
+  @override
+  String get onboardingBuildingSubtitle =>
+      'No es un diagnóstico médico ni la promesa de un día perfecto. Solo tu punto de partida y pasos claros.';
+
+  @override
+  String get onboardingResultTitle =>
+      'Tu primera pantalla de progreso ya está aquí';
+
+  @override
+  String get onboardingResultSubtitle =>
+      'Guardamos los datos iniciales en el dispositivo y los convertimos en progreso medible.';
+
+  @override
+  String get onboardingEyebrowBeforeStart => 'ANTES DE EMPEZAR';
+
+  @override
+  String get onboardingEyebrowStartPoint => 'TU PUNTO DE PARTIDA';
+
+  @override
+  String get onboardingEyebrowRealCost => 'EL COSTE REAL';
+
+  @override
+  String get onboardingEyebrowSelfFeeling => 'CÓMO TE SIENTES';
+
+  @override
+  String get onboardingEyebrowYourReason => 'TU RAZÓN';
+
+  @override
+  String get onboardingEyebrowPersonalization => 'PERSONALIZACIÓN';
+
+  @override
+  String get onboardingEyebrowDone => 'LISTO';
+
+  @override
+  String get onboardingCigarettesChoice => 'Fumo cigarrillos';
+
+  @override
+  String get onboardingCigarettesChoiceSubtitle =>
+      'El escenario principal de Puffree';
+
+  @override
+  String get onboardingVapeChoice => 'Uso un vape';
+
+  @override
+  String get onboardingVapeChoiceSubtitle =>
+      'Guardaremos esta elección en tu perfil';
+
+  @override
+  String get onboardingPodsPerWeek => 'Pods / desechables por semana';
+
+  @override
+  String get onboardingUnitPcs => 'uds.';
+
+  @override
+  String get onboardingVapeHint =>
+      'Más adelante, el perfil de Puffree podrá separar escenarios de cigarrillos y vape sin perder el historial.';
+
+  @override
+  String get onboardingCigarettesPerDay => 'Cigarrillos al día';
+
+  @override
+  String get onboardingYearsSmoked => 'Cuántos años lleva esto';
+
+  @override
+  String get onboardingUnitYears => 'años';
+
+  @override
+  String get onboardingPricePerPod => 'Precio de un pod';
+
+  @override
+  String get onboardingPricePerPack => 'Precio del paquete';
+
+  @override
+  String get onboardingCigarettesPerPack => 'Cigarrillos por paquete';
+
+  @override
+  String get onboardingPotentialSavings => 'Ahorro potencial';
+
+  @override
+  String get onboardingPerMonthIfQuit => 'al mes si dejas el hábito';
+
+  @override
+  String get onboardingCurrency => 'Moneda';
+
+  @override
+  String get onboardingSymptomBreath =>
+      'Siento que la respiración se ha vuelto más pesada';
+
+  @override
+  String get onboardingSymptomAnxiety => 'A veces siento una fuerte ansiedad';
+
+  @override
+  String get onboardingSymptomPulse => 'Noto el pulso acelerado';
+
+  @override
+  String get onboardingSymptomMorning =>
+      'Me apetece especialmente el primer cigarrillo por la mañana';
+
+  @override
+  String get onboardingSymptomCough => 'Tengo tos matutina';
+
+  @override
+  String get onboardingBodyHint =>
+      'Esto es una autodescripción, no un diagnóstico. Si los síntomas te preocupan, es mejor hablarlo con un médico.';
+
+  @override
+  String get onboardingMotivationHealth => 'Quiero cuidar mejor de mi salud';
+
+  @override
+  String get onboardingMotivationFreedom => 'Quiero sentirme más libre';
+
+  @override
+  String get onboardingMotivationMoney =>
+      'Quiero dejar de gastar dinero en esto';
+
+  @override
+  String get onboardingMotivationFamily =>
+      'Quiero depender menos del hábito cerca de mis seres queridos';
+
+  @override
+  String get onboardingMotivationControl =>
+      'Quiero recuperar la sensación de control';
+
+  @override
+  String get onboardingMotivationFuture => 'Quiero hacerlo por mi futuro';
+
+  @override
+  String get onboardingCanSelectSeveral => 'Puedes elegir varias';
+
+  @override
+  String get onboardingYourStartCard => 'tu tarjeta de inicio';
+
+  @override
+  String get onboardingStepSaveAnswers => 'Guardando tus respuestas';
+
+  @override
+  String get onboardingStepFinancialGoal => 'Calculando el objetivo financiero';
+
+  @override
+  String get onboardingStepCravingScenarios =>
+      'Formando escenarios para el craving';
+
+  @override
+  String get onboardingStepFirstSteps => 'Preparando los primeros pasos';
+
+  @override
+  String get onboardingBuildingHint =>
+      'Deliberadamente no prometemos «regeneración pulmonar en X horas»: Puffree muestra cosas medibles y separa el hecho de la motivación.';
+
+  @override
+  String get onboardingSavingsPerMonth => 'ahorro / mes';
+
+  @override
+  String get onboardingSavingsPerYear => 'ahorro / año';
+
+  @override
+  String get onboardingResultHint =>
+      'Estos números son un cálculo según tus respuestas, no una promesa de resultados. El progreso real depende de tu comportamiento.';
+
+  @override
+  String get onboardingFirst30Days => 'Primeros 30 días';
+
+  @override
+  String get onboardingLessSpendMoreControl => 'menos gasto → más control';
+
+  @override
+  String get onboardingPlanPersonalized => 'Plan personalizado';
+
+  @override
+  String onboardingMotivationsCount(int count) {
+    return '$count motivaciones personales';
+  }
+
+  @override
+  String onboardingSymptomsCount(int count) {
+    return '$count estados marcados';
+  }
+
+  @override
+  String get onboardingTakeFirstStep => 'da el primer paso';
+
+  @override
+  String get onboardingPleaseWait => 'Por favor, espera unos segundos…';
+
+  @override
+  String get onboardingCreatingPlan => 'Creando el plan…';
+
+  @override
+  String get onboardingStartMyJourney => 'Empezar mi camino';
+
+  @override
+  String get onboardingContinue => 'Continuar';
+
+  @override
+  String get premiumTitle => 'Puffree Premium';
+
+  @override
+  String get premiumSubtitle =>
+      'Más herramientas para tu camino.\nElige el plan que mejor te convenga.';
+
+  @override
+  String get oneMembership => 'Un acceso Premium para todo';
+
+  @override
+  String get everythingIncluded => 'Todo incluido';
+
+  @override
+  String get everythingIncludedSubtitle =>
+      'Premium desbloquea la experiencia completa de Puffree.';
+
+  @override
+  String get choosePlan => 'Elige tu plan';
+
+  @override
+  String get choosePlanSubtitle =>
+      'Puedes cambiar tu elección antes de comprar.';
+
+  @override
+  String get featureTasks => 'Misiones ampliadas';
+
+  @override
+  String get featureTasksSubtitle => 'Más prácticas y retos';
+
+  @override
+  String get featureStats => 'Estadísticas completas';
+
+  @override
+  String get featureStatsSubtitle => 'Información detallada del progreso';
+
+  @override
+  String get profileEditTitle => 'Perfil';
+
+  @override
+  String get profileEditTapToChangePhoto => 'Toca la foto para cambiarla';
+
+  @override
+  String get profileEditNameLabel => 'Nombre';
+
+  @override
+  String get profileEditNameHint => 'Introduce tu nombre';
+
+  @override
+  String get profileEditSaveButton => 'Guardar cambios';
+
+  @override
+  String get profileEditErrorEmptyName => 'Introduce un nombre';
+
+  @override
+  String get profileEditSuccessUpdated => 'Perfil actualizado correctamente';
+
+  @override
+  String profileEditErrorUpdate(String error) {
+    return 'Error al actualizar el perfil: $error';
+  }
+
+  @override
+  String get authWelcomeBack => '¡Bienvenido de nuevo!';
+
+  @override
+  String get authCreateAccount => 'Crear cuenta';
+
+  @override
+  String get authResetPassword => 'Restablecer contraseña';
+
+  @override
+  String get authLoginSubtitle => 'Inicia sesión para continuar tu camino';
+
+  @override
+  String get authRegisterSubtitle => 'Empieza una vida sin humo hoy';
+
+  @override
+  String get authForgotSubtitle =>
+      'Introduce tu email y te enviaremos instrucciones';
+
+  @override
+  String get authTabLogin => 'Iniciar sesión';
+
+  @override
+  String get authTabRegister => 'Registrarse';
+
+  @override
+  String get authNameHint => 'Tu nombre';
+
+  @override
+  String get authNameRequired => 'Introduce tu nombre';
+
+  @override
+  String get authEmailHint => 'Correo electrónico';
+
+  @override
+  String get authEmailRequired => 'Introduce el email';
+
+  @override
+  String get authEmailInvalid => 'Email no válido';
+
+  @override
+  String get authPasswordHint => 'Contraseña';
+
+  @override
+  String get authPasswordRequired => 'Introduce la contraseña';
+
+  @override
+  String get authPasswordMinLength =>
+      'La contraseña debe tener al menos 6 caracteres';
+
+  @override
+  String get authConfirmPasswordHint => 'Repite la contraseña';
+
+  @override
+  String get authPasswordsDoNotMatch => 'Las contraseñas no coinciden';
+
+  @override
+  String get authForgotPassword => '¿Olvidaste la contraseña?';
+
+  @override
+  String get authLoginButton => 'Iniciar sesión';
+
+  @override
+  String get authRegisterButton => 'Registrarse';
+
+  @override
+  String get authSendLinkButton => 'Enviar enlace';
+
+  @override
+  String get authBackToLogin => 'Volver al inicio de sesión';
+
+  @override
+  String get authOrContinueWith => 'o continuar con';
+
+  @override
+  String get authGoogle => 'Google';
+
+  @override
+  String get authApple => 'Apple';
+
+  @override
+  String get authResetLinkSent =>
+      '¡Enlace de restablecimiento enviado a tu correo!';
+
+  @override
+  String get authErrorGeneric => 'Algo salió mal. Revisa los datos.';
+
+  @override
+  String get authErrorSocial => 'Error de inicio de sesión social.';
+
+  @override
+  String get profileEditErrorPhotoNotFound =>
+      'No se pudo obtener la foto seleccionada';
+
+  @override
+  String get profileEditErrorOpenGallery => 'No se pudo abrir la galería';
+
+  @override
+  String get profileEditErrorPickPhoto =>
+      'Ocurrió un error al seleccionar la foto';
+
+  @override
+  String get featureMotivation => 'Motivación personal';
+
+  @override
+  String get featureMotivationSubtitle => 'Guía para tu camino';
+
+  @override
+  String get featureSupport => 'Herramientas de apoyo extra';
+
+  @override
+  String get featureSupportSubtitle => 'Más ayuda cuando la necesites';
+
+  @override
+  String get featureNotifications => 'Recordatorios inteligentes';
+
+  @override
+  String get featureNotificationsSubtitle => 'Motivación en el momento justo';
+
+  @override
+  String get featureAds => 'Sin anuncios';
+
+  @override
+  String get featureAdsSubtitle => 'Experiencia tranquila y limpia';
+
+  @override
+  String get planMonthly => 'Mensual';
+
+  @override
+  String get planMonthlySubtitle => 'Flexible, sin compromiso largo';
+
+  @override
+  String get planYearly => 'Anual';
+
+  @override
+  String get planYearlySubtitle => 'Mejor equilibrio entre precio y funciones';
+
+  @override
+  String get planLifetime => 'De por vida';
+
+  @override
+  String get planLifetimeSubtitle => 'Un pago — Premium para siempre';
+
+  @override
+  String get perMonth => '/ mes';
+
+  @override
+  String get perYear => '/ año';
+
+  @override
+  String get bestValue => 'MEJOR VALOR';
+
+  @override
+  String get oneTime => 'ÚNICO';
+
+  @override
+  String get buyMonthly => 'Obtener Premium mensual';
+
+  @override
+  String get buyYearly => 'Obtener Premium anual';
+
+  @override
+  String get buyLifetime => 'Obtener Premium para siempre';
+
+  @override
+  String get restorePurchases => 'Restaurar compras';
+
+  @override
+  String get securePurchase => 'Compra segura';
+
+  @override
+  String get cancelAnytime => 'Cancela cuando quieras';
+
+  @override
+  String get restoreAnytime => 'Las compras se pueden restaurar';
+
+  @override
+  String get legalMonthly =>
+      'La suscripción se renueva automáticamente cada mes. Puedes cancelarla en la configuración de App Store o Google Play. El precio se muestra antes de confirmar la compra.';
+
+  @override
+  String get legalYearly =>
+      'La suscripción se renueva automáticamente cada año. Puedes cancelarla en la configuración de App Store o Google Play. El precio se muestra antes de confirmar la compra.';
+
+  @override
+  String get legalLifetime =>
+      'Esta es una compra única y no se renueva automáticamente. El precio se muestra antes de confirmar la compra.';
 }

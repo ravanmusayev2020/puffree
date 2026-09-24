@@ -899,4 +899,682 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get notificationInactive3Body =>
       'You don\'t have to be perfect. Just take the next step.';
+
+  @override
+  String get onbTitle1 => '무엇을 사용하시나요?';
+
+  @override
+  String get onbSubtitle1 => '습관에 맞춰 모든 것을 개인화해 드릴게요.';
+
+  @override
+  String get onbTitle2 => '얼마나 사용하시나요?';
+
+  @override
+  String get onbSubtitle2 => '솔직한 숫자가 실제 진행 상황을 계산하는 데 도움이 됩니다.';
+
+  @override
+  String get onbTitle3 => '비용이 얼마나 드나요?';
+
+  @override
+  String get onbSubtitle3 => '매달 얼마나 절약할 수 있는지 확인해 보세요.';
+
+  @override
+  String get onbTitle4 => '몸이 어떻게 느끼시나요?';
+
+  @override
+  String get onbSubtitle4 => '가장 자주 느끼는 증상을 선택해 주세요.';
+
+  @override
+  String get onbTitle5 => '왜 끊고 싶으신가요?';
+
+  @override
+  String get onbSubtitle5 => '당신의 이유가 우리가 만들어 드릴 계획의 원동력이 됩니다.';
+
+  @override
+  String get onbTitle6 => '계획을 만들고 있어요';
+
+  @override
+  String get onbSubtitle6 => '당신만을 위한 맞춤 경로를 만들고 있습니다.';
+
+  @override
+  String get onbTitle7 => '계획이 준비됐어요';
+
+  @override
+  String get onbSubtitle7 => '당신을 위해 만든 계획으로 여정을 시작하세요.';
+
+  @override
+  String get onbEyebrowBeforeStart => '시작하기 전에';
+
+  @override
+  String get onbEyebrowStartingPoint => '출발점';
+
+  @override
+  String get onbEyebrowRealCost => '실제 비용';
+
+  @override
+  String get onbEyebrowSelfAwareness => '자기 인식';
+
+  @override
+  String get onbEyebrowYourReason => '당신의 이유';
+
+  @override
+  String get onbEyebrowPersonalization => '개인화';
+
+  @override
+  String get onbEyebrowDone => '준비 완료';
+
+  @override
+  String get onbHabitCigarettesTitle => '담배';
+
+  @override
+  String get onbHabitCigarettesSubtitle => '일반 담배 또는 말아 피우는 담배';
+
+  @override
+  String get onbHabitVapeTitle => '베이프 / 팟';
+
+  @override
+  String get onbHabitVapeSubtitle => '전자담배 및 팟 시스템';
+
+  @override
+  String get onbPodsPerWeekLabel => '주당 팟 수';
+
+  @override
+  String get onbCigarettesPerDayLabel => '하루 담배 개비 수';
+
+  @override
+  String get onbYearsSmokedLabel => '흡연 연수';
+
+  @override
+  String get onbUnitPieces => '개';
+
+  @override
+  String get onbUnitYears => '년';
+
+  @override
+  String get onbAmountVapeHint => '주간 비용과 진행 상황을 추정하는 데 도움이 됩니다.';
+
+  @override
+  String get onbPotentialSavingsLabel => '예상 월간 절약액';
+
+  @override
+  String get onbPerMonthQuitting => '끊었을 때 월 기준';
+
+  @override
+  String get onbPricePerPodLabel => '팟 1개 가격';
+
+  @override
+  String get onbPricePerPackLabel => '한 갑 가격';
+
+  @override
+  String get onbCigarettesPerPackLabel => '한 갑당 개비 수';
+
+  @override
+  String get onbCurrencyLabel => '통화';
+
+  @override
+  String get onbSymptomBreath => '숨이 참';
+
+  @override
+  String get onbSymptomAnxiety => '불안 / 초조함';
+
+  @override
+  String get onbSymptomPulse => '빠르거나 불규칙한 심장 박동';
+
+  @override
+  String get onbSymptomMorning => '아침 기침 / 가래';
+
+  @override
+  String get onbSymptomCough => '잦은 기침';
+
+  @override
+  String get onbBodyHint => '여러 개를 선택할 수 있습니다. 당신에게 중요한 것에 집중하는 데 도움이 됩니다.';
+
+  @override
+  String get onbMotivationHealth => '더 나은 건강과 에너지';
+
+  @override
+  String get onbMotivationFreedom => '중독에서의 자유';
+
+  @override
+  String get onbMotivationMoney => '돈 절약';
+
+  @override
+  String get onbMotivationFamily => '가족 / 아이들을 위해';
+
+  @override
+  String get onbMotivationControl => '내 삶의 통제권을 되찾기';
+
+  @override
+  String get onbMotivationFuture => '더 건강한 미래';
+
+  @override
+  String get onbSelectMultipleHint => '여러 이유를 선택할 수 있습니다';
+
+  @override
+  String get onbStartingMapLabel => '지도를 만드는 중';
+
+  @override
+  String get onbBuildingStepSave => '절약액 계산 중';
+
+  @override
+  String get onbBuildingStepGoal => '주요 목표 설정 중';
+
+  @override
+  String get onbBuildingStepScenarios => '개인 시나리오 생성 중';
+
+  @override
+  String get onbBuildingStepSteps => '첫 단계 준비 중';
+
+  @override
+  String get onbBuildingHint => '보통 몇 초밖에 걸리지 않습니다.';
+
+  @override
+  String get onbPleaseWait => '잠시만 기다려 주세요…';
+
+  @override
+  String get onbCreatingPlan => '계획을 만드는 중…';
+
+  @override
+  String get onbFirst30DaysLabel => '첫 30일';
+
+  @override
+  String get onbLessExpensesLabel => '지출 감소';
+
+  @override
+  String get onbSavingsPerMonth => '월간 절약액';
+
+  @override
+  String get onbSavingsPerYear => '연간 절약액';
+
+  @override
+  String get onbPlanPersonalizedTitle => '당신만의 맞춤 계획';
+
+  @override
+  String onbPlanPersonalizedSubtitle(int motivations, int symptoms) {
+    return '$motivations개의 이유와 $symptoms개의 증상 기반';
+  }
+
+  @override
+  String get onbResultHint => '이 숫자들은 나중에 설정에서 언제든 조정할 수 있습니다.';
+
+  @override
+  String get onbBreathingHint => '호흡하세요';
+
+  @override
+  String get onbContinue => '계속';
+
+  @override
+  String get onbStartJourney => '내 여정 시작하기';
+
+  @override
+  String get onboardingHabitTitle => 'Pronto para recuperar o controle?';
+
+  @override
+  String get onboardingHabitSubtitle =>
+      'Primeiro vamos entender seu hábito. Sem formulários longos — algumas respostas precisas e o Puffree montará seu caminho.';
+
+  @override
+  String get onboardingAmountTitle => 'Descreva seu dia típico';
+
+  @override
+  String get onboardingAmountSubtitle =>
+      'Isso não é para te julgar. É o ponto de partida a partir do qual mediremos o progresso.';
+
+  @override
+  String get onboardingMoneyTitle => 'Quanto o hábito te tira?';
+
+  @override
+  String get onboardingMoneySubtitle =>
+      'O preço muda imediatamente na tela — você vê não um número abstrato, mas o custo real do hábito.';
+
+  @override
+  String get onboardingBodyTitle => 'O que você nota em si?';
+
+  @override
+  String get onboardingBodySubtitle =>
+      'Marque o que acontece com você. Pode escolher várias opções ou nenhuma.';
+
+  @override
+  String get onboardingMotivationTitle => 'Por que você faz isso?';
+
+  @override
+  String get onboardingMotivationSubtitle =>
+      'Isso se tornará sua âncora pessoal. O Puffree te trará de volta a essa razão no momento certo.';
+
+  @override
+  String get onboardingBuildingTitle => 'Montando seu caminho';
+
+  @override
+  String get onboardingBuildingSubtitle =>
+      'Não é diagnóstico médico nem promessa de um dia perfeito. Apenas seu ponto de partida e próximos passos claros.';
+
+  @override
+  String get onboardingResultTitle =>
+      'Sua primeira tela de progresso já está aqui';
+
+  @override
+  String get onboardingResultSubtitle =>
+      'Salvamos os dados iniciais no dispositivo e os transformamos em progresso mensurável.';
+
+  @override
+  String get onboardingEyebrowBeforeStart => 'ANTES DE COMEÇAR';
+
+  @override
+  String get onboardingEyebrowStartPoint => 'SEU PONTO DE PARTIDA';
+
+  @override
+  String get onboardingEyebrowRealCost => 'O CUSTO REAL';
+
+  @override
+  String get onboardingEyebrowSelfFeeling => 'COMO VOCÊ SE SENTE';
+
+  @override
+  String get onboardingEyebrowYourReason => 'SUA RAZÃO';
+
+  @override
+  String get onboardingEyebrowPersonalization => 'PERSONALIZAÇÃO';
+
+  @override
+  String get onboardingEyebrowDone => 'PRONTO';
+
+  @override
+  String get onboardingCigarettesChoice => 'Eu fumo cigarros';
+
+  @override
+  String get onboardingCigarettesChoiceSubtitle =>
+      'O cenário principal do Puffree';
+
+  @override
+  String get onboardingVapeChoice => 'Eu uso vape';
+
+  @override
+  String get onboardingVapeChoiceSubtitle =>
+      'Guardaremos esta escolha no seu perfil';
+
+  @override
+  String get onboardingPodsPerWeek => 'Pods / descartáveis por semana';
+
+  @override
+  String get onboardingUnitPcs => 'un.';
+
+  @override
+  String get onboardingVapeHint =>
+      'Mais tarde, o perfil Puffree poderá separar cenários de cigarros e vape sem perder o histórico.';
+
+  @override
+  String get onboardingCigarettesPerDay => 'Cigarros por dia';
+
+  @override
+  String get onboardingYearsSmoked => 'Há quantos anos isso dura';
+
+  @override
+  String get onboardingUnitYears => 'anos';
+
+  @override
+  String get onboardingPricePerPod => 'Preço de um pod';
+
+  @override
+  String get onboardingPricePerPack => 'Preço do maço';
+
+  @override
+  String get onboardingCigarettesPerPack => 'Cigarros por maço';
+
+  @override
+  String get onboardingPotentialSavings => 'Economia potencial';
+
+  @override
+  String get onboardingPerMonthIfQuit => 'por mês se você parar o hábito';
+
+  @override
+  String get onboardingCurrency => 'Moeda';
+
+  @override
+  String get onboardingSymptomBreath =>
+      'Sinto que a respiração ficou mais pesada';
+
+  @override
+  String get onboardingSymptomAnxiety => 'Às vezes sinto forte ansiedade';
+
+  @override
+  String get onboardingSymptomPulse => 'Noto o pulso acelerado';
+
+  @override
+  String get onboardingSymptomMorning =>
+      'De manhã me dá muita vontade do primeiro cigarro';
+
+  @override
+  String get onboardingSymptomCough => 'Tenho tosse matinal';
+
+  @override
+  String get onboardingBodyHint =>
+      'Isto é uma autodescrição, não um diagnóstico. Se os sintomas te preocupam, é melhor falar com um médico.';
+
+  @override
+  String get onboardingMotivationHealth => 'Quero cuidar melhor da saúde';
+
+  @override
+  String get onboardingMotivationFreedom => 'Quero me sentir mais livre';
+
+  @override
+  String get onboardingMotivationMoney =>
+      'Quero parar de gastar dinheiro com isso';
+
+  @override
+  String get onboardingMotivationFamily =>
+      'Quero depender menos do hábito perto dos entes queridos';
+
+  @override
+  String get onboardingMotivationControl =>
+      'Quero recuperar a sensação de controle';
+
+  @override
+  String get onboardingMotivationFuture => 'Quero fazer isso pelo meu futuro';
+
+  @override
+  String get onboardingCanSelectSeveral => 'Pode escolher várias';
+
+  @override
+  String get onboardingYourStartCard => 'seu cartão inicial';
+
+  @override
+  String get onboardingStepSaveAnswers => 'Salvando suas respostas';
+
+  @override
+  String get onboardingStepFinancialGoal => 'Calculando o objetivo financeiro';
+
+  @override
+  String get onboardingStepCravingScenarios =>
+      'Formando cenários para a vontade';
+
+  @override
+  String get onboardingStepFirstSteps => 'Preparando os primeiros passos';
+
+  @override
+  String get onboardingBuildingHint =>
+      'De propósito não prometemos «regeneração dos pulmões em X horas» — o Puffree mostra coisas mensuráveis e separa fato de motivação.';
+
+  @override
+  String get onboardingSavingsPerMonth => 'economia / mês';
+
+  @override
+  String get onboardingSavingsPerYear => 'economia / ano';
+
+  @override
+  String get onboardingResultHint =>
+      'Esses números são um cálculo com base nas suas respostas, não uma promessa de resultados. O progresso real depende do seu comportamento.';
+
+  @override
+  String get onboardingFirst30Days => 'Primeiros 30 dias';
+
+  @override
+  String get onboardingLessSpendMoreControl => 'menos gastos → mais controle';
+
+  @override
+  String get onboardingPlanPersonalized => 'Plano personalizado';
+
+  @override
+  String onboardingMotivationsCount(int count) {
+    return '$count motivações pessoais';
+  }
+
+  @override
+  String onboardingSymptomsCount(int count) {
+    return '$count estados marcados';
+  }
+
+  @override
+  String get onboardingTakeFirstStep => 'dê o primeiro passo';
+
+  @override
+  String get onboardingPleaseWait => 'Por favor, aguarde alguns segundos…';
+
+  @override
+  String get onboardingCreatingPlan => 'Criando o plano…';
+
+  @override
+  String get onboardingStartMyJourney => 'Começar meu caminho';
+
+  @override
+  String get onboardingContinue => 'Continuar';
+
+  @override
+  String get premiumTitle => 'Puffree Premium';
+
+  @override
+  String get premiumSubtitle => '여정을 위한 더 많은 도구.\n나에게 맞는 플랜을 선택하세요.';
+
+  @override
+  String get oneMembership => '모든 것을 위한 하나의 Premium 액세스';
+
+  @override
+  String get everythingIncluded => '모든 기능 포함';
+
+  @override
+  String get everythingIncludedSubtitle => 'Premium은 Puffree의 전체 경험을 잠금 해제합니다.';
+
+  @override
+  String get choosePlan => '플랜 선택';
+
+  @override
+  String get choosePlanSubtitle => '구매 전에 선택을 변경할 수 있습니다.';
+
+  @override
+  String get featureTasks => '확장 미션';
+
+  @override
+  String get featureTasksSubtitle => '더 많은 연습과 도전';
+
+  @override
+  String get featureStats => '전체 통계';
+
+  @override
+  String get featureStatsSubtitle => '상세한 진행 인사이트';
+
+  @override
+  String get profileEditTitle => '프로필';
+
+  @override
+  String get profileEditTapToChangePhoto => '사진을 탭하여 변경';
+
+  @override
+  String get profileEditNameLabel => '이름';
+
+  @override
+  String get profileEditNameHint => '이름을 입력하세요';
+
+  @override
+  String get profileEditSaveButton => '변경 사항 저장';
+
+  @override
+  String get profileEditErrorEmptyName => '이름을 입력해 주세요';
+
+  @override
+  String get profileEditSuccessUpdated => '프로필이 성공적으로 업데이트되었습니다';
+
+  @override
+  String profileEditErrorUpdate(String error) {
+    return '프로필 업데이트 실패: $error';
+  }
+
+  @override
+  String get authWelcomeBack => '다시 오신 것을 환영합니다!';
+
+  @override
+  String get authCreateAccount => '계정 만들기';
+
+  @override
+  String get authResetPassword => '비밀번호 재설정';
+
+  @override
+  String get authLoginSubtitle => '여정을 계속하려면 로그인하세요';
+
+  @override
+  String get authRegisterSubtitle => '오늘부터 금연 생활을 시작하세요';
+
+  @override
+  String get authForgotSubtitle => '이메일을 입력하면 안내를 보내드립니다';
+
+  @override
+  String get authTabLogin => '로그인';
+
+  @override
+  String get authTabRegister => '회원가입';
+
+  @override
+  String get authNameHint => '이름';
+
+  @override
+  String get authNameRequired => '이름을 입력하세요';
+
+  @override
+  String get authEmailHint => '이메일 주소';
+
+  @override
+  String get authEmailRequired => '이메일을 입력하세요';
+
+  @override
+  String get authEmailInvalid => '잘못된 이메일';
+
+  @override
+  String get authPasswordHint => '비밀번호';
+
+  @override
+  String get authPasswordRequired => '비밀번호를 입력하세요';
+
+  @override
+  String get authPasswordMinLength => '비밀번호는 최소 6자 이상이어야 합니다';
+
+  @override
+  String get authConfirmPasswordHint => '비밀번호 확인';
+
+  @override
+  String get authPasswordsDoNotMatch => '비밀번호가 일치하지 않습니다';
+
+  @override
+  String get authForgotPassword => '비밀번호를 잊으셨나요?';
+
+  @override
+  String get authLoginButton => '로그인';
+
+  @override
+  String get authRegisterButton => '회원가입';
+
+  @override
+  String get authSendLinkButton => '링크 보내기';
+
+  @override
+  String get authBackToLogin => '로그인으로 돌아가기';
+
+  @override
+  String get authOrContinueWith => '또는';
+
+  @override
+  String get authGoogle => 'Google';
+
+  @override
+  String get authApple => 'Apple';
+
+  @override
+  String get authResetLinkSent => '비밀번호 재설정 링크가 이메일로 전송되었습니다!';
+
+  @override
+  String get authErrorGeneric => '오류가 발생했습니다. 입력 내용을 확인하세요.';
+
+  @override
+  String get authErrorSocial => '소셜 로그인에 실패했습니다.';
+
+  @override
+  String get profileEditErrorPhotoNotFound => '선택한 사진을 가져올 수 없습니다';
+
+  @override
+  String get profileEditErrorOpenGallery => '갤러리를 열 수 없습니다';
+
+  @override
+  String get profileEditErrorPickPhoto => '사진을 선택하는 중 오류가 발생했습니다';
+
+  @override
+  String get featureMotivation => '개인 동기부여';
+
+  @override
+  String get featureMotivationSubtitle => '여정을 위한 가이드';
+
+  @override
+  String get featureSupport => '추가 지원 도구';
+
+  @override
+  String get featureSupportSubtitle => '필요할 때 더 많은 도움';
+
+  @override
+  String get featureNotifications => '스마트 알림';
+
+  @override
+  String get featureNotificationsSubtitle => '적절한 시점에 동기부여';
+
+  @override
+  String get featureAds => '광고 없음';
+
+  @override
+  String get featureAdsSubtitle => '차분하고 깔끔한 경험';
+
+  @override
+  String get planMonthly => '월간';
+
+  @override
+  String get planMonthlySubtitle => '장기 약정 없는 유연한 플랜';
+
+  @override
+  String get planYearly => '연간';
+
+  @override
+  String get planYearlySubtitle => '가격과 기능의 최적 균형';
+
+  @override
+  String get planLifetime => '평생';
+
+  @override
+  String get planLifetimeSubtitle => '한 번의 결제 — Premium 영구 이용';
+
+  @override
+  String get perMonth => '/ 월';
+
+  @override
+  String get perYear => '/ 년';
+
+  @override
+  String get bestValue => '최고의 가치';
+
+  @override
+  String get oneTime => '일회성';
+
+  @override
+  String get buyMonthly => '월간 Premium 받기';
+
+  @override
+  String get buyYearly => '연간 Premium 받기';
+
+  @override
+  String get buyLifetime => '평생 Premium 받기';
+
+  @override
+  String get restorePurchases => '구매 복원';
+
+  @override
+  String get securePurchase => '안전한 구매';
+
+  @override
+  String get cancelAnytime => '언제든 취소 가능';
+
+  @override
+  String get restoreAnytime => '구매를 복원할 수 있습니다';
+
+  @override
+  String get legalMonthly =>
+      '구독은 매월 자동으로 갱신됩니다. App Store 또는 Google Play 설정에서 취소할 수 있습니다. 가격은 구매 확인 전에 표시됩니다.';
+
+  @override
+  String get legalYearly =>
+      '구독은 매년 자동으로 갱신됩니다. App Store 또는 Google Play 설정에서 취소할 수 있습니다. 가격은 구매 확인 전에 표시됩니다.';
+
+  @override
+  String get legalLifetime => '일회성 구매이며 자동으로 갱신되지 않습니다. 가격은 구매 확인 전에 표시됩니다.';
 }

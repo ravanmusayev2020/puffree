@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:puffree/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:puffree/presentation/widgets/bottom_nav.dart';
 
 import 'core/theme/app_theme.dart';
@@ -15,6 +16,7 @@ import 'data/bloc/premium/premium_bloc.dart';
 import 'data/bloc/progress/progress_bloc.dart';
 import 'data/bloc/progress/progress_event.dart';
 
+import 'data/bloc/progress/progress_state.dart';
 import 'data/services/auth_service.dart';
 import 'data/services/notification_service.dart';
 
@@ -244,14 +246,10 @@ class _AppRootState extends State<_AppRoot> {
   @override
   void initState() {
     super.initState();
-
     _startApp();
   }
 
   Future<void> _startApp() async {
-    // Даём SplashScreen нормально показать
-    // бренд/анимацию приложения.
-
     await Future.delayed(
       const Duration(
         milliseconds: 1800,
@@ -273,6 +271,80 @@ class _AppRootState extends State<_AppRoot> {
       return const SplashScreen();
     }
 
-    return const MainShell();
+    return BlocBuilder<ProgressBloc, ProgressState>(
+      builder: (context, state) {
+        if (state is ProgressInitial ||
+            state is ProgressLoading) {
+          return const _AppLoadingScreen();
+        }
+
+        if (state is ProgressError) {
+          return _AppErrorScreen(
+            message: state.message,
+          );
+        }
+
+        if (state is ProgressLoaded) {
+          final progress = state.progress;
+
+          if (!progress.isOnboardingCompleted) {
+            return const OnboardingScreen();
+          }
+
+          return const MainShell();
+        }
+
+        return const _AppLoadingScreen();
+      },
+    );
+  }
+}
+
+class _AppLoadingScreen extends StatelessWidget {
+  const _AppLoadingScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark =
+        Theme.of(context).brightness == Brightness.dark;
+
+    return Scaffold(
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
+      body: const Center(
+        child: SizedBox(
+          width: 28,
+          height: 28,
+          child: CircularProgressIndicator(
+            strokeWidth: 2.4,
+            color: AppColors.primary,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AppErrorScreen extends StatelessWidget {
+  const _AppErrorScreen({
+    required this.message,
+  });
+
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Text(
+            message,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
   }
 }
