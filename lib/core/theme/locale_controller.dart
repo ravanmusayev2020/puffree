@@ -1,10 +1,12 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocaleController extends ChangeNotifier {
   static const _key = 'puffree_locale';
 
-  Locale _locale = const Locale('ru');
+  // Инициализируем системным языком устройства по умолчанию вместо 'en'
+  Locale _locale = Locale(PlatformDispatcher.instance.locale.languageCode);
 
   Locale get locale => _locale;
 
@@ -30,10 +32,15 @@ class LocaleController extends ChangeNotifier {
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     final code = prefs.getString(_key);
+
     if (code != null && code.isNotEmpty) {
+      // Если пользователь уже выбирал язык ранее — применяем его
       _locale = Locale(code);
-      notifyListeners();
+    } else {
+      // При первом запуске (когда в shared_preferences ничего нет) берем текущий системный язык
+      _locale = Locale(PlatformDispatcher.instance.locale.languageCode);
     }
+    notifyListeners();
   }
 
   Future<void> setLocale(Locale locale) async {

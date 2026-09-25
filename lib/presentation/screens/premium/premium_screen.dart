@@ -733,9 +733,9 @@ class _PlanCard extends StatelessWidget {
     };
 
     final price = switch (plan) {
-      PremiumPlan.monthly => '€4.99',
-      PremiumPlan.yearly => '€29.99',
-      PremiumPlan.lifetime => '€59.99',
+      PremiumPlan.monthly => '${4.99}',
+      PremiumPlan.yearly => '${29.99}',
+      PremiumPlan.lifetime => '${39.99}',
     };
 
     final period = switch (plan) {

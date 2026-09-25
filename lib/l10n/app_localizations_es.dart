@@ -1519,6 +1519,364 @@ class AppLocalizationsEs extends AppLocalizations {
   String get authErrorSocial => 'Error de inicio de sesión social.';
 
   @override
+  String get profileYourProfile => 'Tu perfil';
+
+  @override
+  String get profileEdit => 'Editar perfil';
+
+  @override
+  String get switchAccountTitle => '¿Iniciar sesión en otra cuenta?';
+
+  @override
+  String get switchAccountBody =>
+      'Se abrirá la página de inicio de sesión donde podrás entrar en otra cuenta.';
+
+  @override
+  String get switchAccountButton => 'Iniciar sesión en otra cuenta';
+
+  @override
+  String get switchAccountSubtitle => 'Abrir página de inicio de sesión';
+
+  @override
+  String get continueAction => 'Continuar';
+
+  @override
+  String get logoutTitle => '¿Cerrar sesión?';
+
+  @override
+  String get logoutBody => '¿Seguro que quieres cerrar sesión en tu cuenta?';
+
+  @override
+  String get logoutButton => 'Cerrar sesión';
+
+  @override
+  String get premiumBrand => 'Puffree Premium';
+
+  @override
+  String get motStartJourney =>
+      'Hoy comienza tu nuevo camino. Un solo paso ya importa.';
+
+  @override
+  String get motMilestone1 =>
+      'Primer día. Diste el primer gran paso. Continúa.';
+
+  @override
+  String get motMilestone3 =>
+      'Tres días. Vale la pena celebrarlo. Mantienes tu rumbo.';
+
+  @override
+  String get motMilestone7 =>
+      'Una semana entera. Siete días eligiendo lo mejor para ti.';
+
+  @override
+  String get motMilestone10 =>
+      '10 días. Ya has construido una gran base de confianza.';
+
+  @override
+  String get motMilestone14 =>
+      'Dos semanas. Has superado una etapa clave del camino.';
+
+  @override
+  String get motMilestone21 =>
+      '21 días. Demuestras que eres capaz de cambiar tus hábitos.';
+
+  @override
+  String get motMilestone30 =>
+      '30 días. Un mes entero de nuevas decisiones. Es un gran logro.';
+
+  @override
+  String get motMilestone45 =>
+      '45 días. Un mes y medio avanzando sin detenerte.';
+
+  @override
+  String get motMilestone60 =>
+      '60 días. Dos meses de constancia. Un resultado muy poderoso.';
+
+  @override
+  String get motMilestone90 =>
+      '90 días. Tres meses. Mira lo lejos que has llegado.';
+
+  @override
+  String get motMilestone120 =>
+      '120 días. Sigues eligiendo tu camino cada día.';
+
+  @override
+  String get motMilestone180 =>
+      'Seis meses. 180 días de constancia. Realmente impresionante.';
+
+  @override
+  String get motMilestone270 =>
+      '270 días. Has marcado una distancia enorme con tu antiguo hábito.';
+
+  @override
+  String get motMilestone365 =>
+      'Un año. 365 días en tu camino. No es casualidad, es constancia.';
+
+  @override
+  String get motFirstWeek1 => 'Hoy solo necesitas dar el siguiente paso.';
+
+  @override
+  String get motFirstWeek2 =>
+      'No tienes que recorrer todo el camino hoy. Solo sigue adelante.';
+
+  @override
+  String get motFirstWeek3 => 'Cada día es una victoria. Hoy es la tuya.';
+
+  @override
+  String get motFirstWeek4 => 'Un momento difícil no borra tu progreso.';
+
+  @override
+  String get motFirstWeek5 =>
+      'Ya has empezado. Ahora date la oportunidad de continuar.';
+
+  @override
+  String get motFirstWeek6 =>
+      'Un día a la vez. Así es como se construyen los grandes cambios.';
+
+  @override
+  String get motFirstWeek7 =>
+      'Te eliges a ti mismo una y otra vez. Eso es lo que importa.';
+
+  @override
+  String get motSecondWeek1 => 'Ya no estás donde empezaste. Sigue avanzando.';
+
+  @override
+  String get motSecondWeek2 =>
+      'Dos semanas están más cerca de lo que parece. Mantén tu ritmo.';
+
+  @override
+  String get motSecondWeek3 =>
+      'Tu progreso se construye con pequeñas decisiones.';
+
+  @override
+  String get motSecondWeek4 =>
+      'No busques el día perfecto. Crea el próximo día bueno.';
+
+  @override
+  String get motSecondWeek5 =>
+      'Eres capaz de superar el deseo y volver a tu plan.';
+
+  @override
+  String get motSecondWeek6 => 'Cada nuevo día refuerza tu confianza.';
+
+  @override
+  String get motSecondWeek7 =>
+      'Ya has demostrado que puedes superar momentos difíciles.';
+
+  @override
+  String get motFirstMonth1 =>
+      'Estás construyendo un nuevo hábito paso a paso.';
+
+  @override
+  String get motFirstMonth2 => 'Tu pasado no determina la elección de hoy.';
+
+  @override
+  String get motFirstMonth3 =>
+      'Treinta días comienzan con una decisión: continuar.';
+
+  @override
+  String get motFirstMonth4 => 'La confianza crece con muchos días constantes.';
+
+  @override
+  String get motFirstMonth5 =>
+      'Cada nuevo día añade una página más a tu historia.';
+
+  @override
+  String get motFirstMonth6 =>
+      'Tu progreso te pertenece. Nadie te lo puede quitar.';
+
+  @override
+  String get motFirstMonth7 =>
+      'Ya has avanzado lo suficiente como para estar orgulloso.';
+
+  @override
+  String get motFirstMonth8 =>
+      'Continúa con calma. Los grandes cambios no requieren prisa.';
+
+  @override
+  String get motSecondMonth1 => 'Dos meses ya no son una coincidencia.';
+
+  @override
+  String get motSecondMonth2 =>
+      'Estás convirtiendo la intención en constancia.';
+
+  @override
+  String get motSecondMonth3 =>
+      'Tu fuerza está en las decisiones que tomas cada día.';
+
+  @override
+  String get motSecondMonth4 =>
+      'Ya sabes que puedes manejar los momentos difíciles.';
+
+  @override
+  String get motSecondMonth5 => 'Sigue construyendo la vida que quieres vivir.';
+
+  @override
+  String get motSecondMonth6 =>
+      'Cada día lejos del viejo hábito es un paso más hacia adelante.';
+
+  @override
+  String get motSecondMonth7 =>
+      'No compites con nadie. Este camino es solo tuyo.';
+
+  @override
+  String get motSecondMonth8 =>
+      'Mira atrás y compárate con el primer día. El progreso es claro.';
+
+  @override
+  String get motThirdMonth1 =>
+      'Tres meses es una distancia seria. Y sigues en marcha.';
+
+  @override
+  String get motThirdMonth2 => 'Has creado un nuevo punto de partida para ti.';
+
+  @override
+  String get motThirdMonth3 =>
+      'La constancia es más fuerte que la motivación. Lo estás demostrando.';
+
+  @override
+  String get motThirdMonth4 => 'Sigues eligiendo lo que de verdad te importa.';
+
+  @override
+  String get motThirdMonth5 =>
+      'Con cada día, el viejo patrón pierde importancia.';
+
+  @override
+  String get motThirdMonth6 =>
+      'Ya no esperas el momento adecuado. Lo estás creando.';
+
+  @override
+  String get motThirdMonth7 =>
+      '90 días es una historia hecha de muchas pequeñas victorias.';
+
+  @override
+  String get motThirdMonth8 => 'Has llegado lejos. No te detengas aquí.';
+
+  @override
+  String get motLongTerm1 => 'Estás muy lejos del punto de partida. Continúa.';
+
+  @override
+  String get motLongTerm2 =>
+      'La libertad empieza con una elección y crece cada día.';
+
+  @override
+  String get motLongTerm3 =>
+      'Tu resultado es la suma de todos los días que seguiste adelante.';
+
+  @override
+  String get motLongTerm4 =>
+      'Has creado una distancia que antes creías imposible.';
+
+  @override
+  String get motLongTerm5 => 'No olvides por qué empezaste.';
+
+  @override
+  String get motLongTerm6 => 'Cada nuevo día hace tu historia más fuerte.';
+
+  @override
+  String get motLongTerm7 => 'No estás volviendo atrás. Estás avanzando.';
+
+  @override
+  String get motLongTerm8 =>
+      'Lo que antes parecía difícil, hoy forma parte de tu camino.';
+
+  @override
+  String get motLongTerm9 =>
+      'Ya te has demostrado lo principal: el cambio es posible.';
+
+  @override
+  String get motLongTerm10 => 'Sigue viviendo a tu nuevo ritmo.';
+
+  @override
+  String get motLevelDefault => 'Nuevo nivel. Sigues avanzando.';
+
+  @override
+  String get motLevel1 =>
+      'El viaje ha comenzado. Lo más importante es dar el primer paso.';
+
+  @override
+  String get motLevel2 => 'El brote ha aparecido. Cuida tu progreso cada día.';
+
+  @override
+  String get motLevel3 =>
+      'Estás creciendo. Las pequeñas decisiones crean grandes cambios.';
+
+  @override
+  String get motLevel4 =>
+      'Las raíces se fortalecen. Sigue construyendo tus cimientos.';
+
+  @override
+  String get motLevel5 => 'Tienes más confianza. No bajes el ritmo.';
+
+  @override
+  String get motLevel6 =>
+      'La fuerza surge cuando sigues adelante a pesar de las dificultades.';
+
+  @override
+  String get motLevel7 =>
+      'Tu determinación se convierte en parte de tu historia.';
+
+  @override
+  String get motLevel8 =>
+      'La chispa se ha convertido en un movimiento constante hacia adelante.';
+
+  @override
+  String get motLevel9 => 'Has recorrido un gran camino. Reconoce tu progreso.';
+
+  @override
+  String get motLevel10 => 'Nivel diez. Ya conoces el valor de la constancia.';
+
+  @override
+  String get motLevel11 =>
+      'Sigues creciendo incluso cuando el camino se vuelve difícil.';
+
+  @override
+  String get motLevel12 =>
+      'Te has convertido en un ejemplo para ti mismo. Sigue así.';
+
+  @override
+  String get motLevel13 => 'Has tomado un gran impulso. Ahora mantén el rumbo.';
+
+  @override
+  String get motLevel14 => 'Nivel legendario. Mira todo lo que has logrado.';
+
+  @override
+  String get motShort1 => 'Hoy es un paso más.';
+
+  @override
+  String get motShort2 => 'Continúa tu camino.';
+
+  @override
+  String get motShort3 => 'Lo estás logrando.';
+
+  @override
+  String get motShort4 => 'Tu progreso importa.';
+
+  @override
+  String get motShort5 => 'No te detengas por un momento difícil.';
+
+  @override
+  String get motShort6 => 'Eres más fuerte que tu viejo hábito.';
+
+  @override
+  String get motShort7 => 'Elige el siguiente paso.';
+
+  @override
+  String get motShort8 => 'Ya empezaste. Continúa.';
+
+  @override
+  String get motShort9 => 'La elección de hoy importa.';
+
+  @override
+  String get motShort10 => 'Un día a la vez.';
+
+  @override
+  String get motShort11 => 'Puedes hacer más de lo que crees.';
+
+  @override
+  String get motShort12 => 'Tu camino te pertenece.';
+
+  @override
   String get profileEditErrorPhotoNotFound =>
       'No se pudo obtener la foto seleccionada';
 
@@ -1615,4 +1973,158 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get legalLifetime =>
       'Esta es una compra única y no se renueva automáticamente. El precio se muestra antes de confirmar la compra.';
+
+  @override
+  String get legalContactEmail => 'support@puffreeapp.com';
+
+  @override
+  String get privacyPolicyTitle => 'Política de Privacidad';
+
+  @override
+  String get privacyPolicyLastUpdated => 'Última actualización: enero de 2026';
+
+  @override
+  String get privacyPolicyIntro =>
+      'Puffree (\"nosotros\", \"nuestro\", \"la aplicación\") te ayuda a realizar un seguimiento de tu progreso y mantener la motivación en tu camino para dejar de fumar. Esta política explica qué información recopilamos, cómo la utilizamos y qué opciones tienes.';
+
+  @override
+  String get privacySection1Title => 'Información que Recopilamos';
+
+  @override
+  String get privacySection1Body =>
+      'Datos de la cuenta que proporcionas al iniciar sesión (dirección de correo electrónico, nombre visible y foto de perfil), o un identificador anónimo si utilizas la aplicación sin una cuenta. También almacenamos los datos relacionados con tu progreso sin fumar que introduces tú mismo, como la fecha en que dejaste de fumar, cigarrillos al día, coste por paquete y los deseos de fumar que registras.';
+
+  @override
+  String get privacySection2Title => 'Cómo Utilizamos tu Información';
+
+  @override
+  String get privacySection2Body =>
+      'Para calcular tu racha, tus hitos de salud y el dinero ahorrado; sincronizar tu progreso entre dispositivos; enviarte recordatorios y notificaciones motivacionales opcionales; procesar las compras de suscripciones Premium; diagnosticar errores y mejorar la aplicación.';
+
+  @override
+  String get privacySection3Title => 'Almacenamiento y Seguridad de los Datos';
+
+  @override
+  String get privacySection3Body =>
+      'Tus datos se almacenan mediante Firebase (Google Cloud) con cifrado durante la transmisión. Aplicamos medidas técnicas y organizativas razonables para proteger tus datos, pero ningún método de almacenamiento o transmisión de información a través de Internet es completamente seguro.';
+
+  @override
+  String get privacySection4Title => 'Servicios de Terceros';
+
+  @override
+  String get privacySection4Body =>
+      'Utilizamos Firebase Authentication y Cloud Firestore para gestionar las cuentas y sincronizar los datos, y los sistemas de facturación de Apple App Store o Google Play para procesar las suscripciones Premium. No vendemos tu información personal a terceros.';
+
+  @override
+  String get privacySection5Title => 'Tus Opciones y Derechos';
+
+  @override
+  String get privacySection5Body =>
+      'Puedes revisar o editar tu perfil en cualquier momento, restablecer tu progreso local desde Ajustes, desactivar las notificaciones push desde los ajustes de tu dispositivo y solicitar acceso, corrección o eliminación de tus datos poniéndote en contacto con nosotros.';
+
+  @override
+  String get privacySection6Title => 'Privacidad de los Menores';
+
+  @override
+  String get privacySection6Body =>
+      'Puffree no está dirigido a menores de 13 años (o menores de 16 años en la Unión Europea), y no recopilamos deliberadamente información personal de ellos. Si crees que un menor nos ha proporcionado datos, ponte en contacto con nosotros para que podamos eliminarlos.';
+
+  @override
+  String get privacySection7Title => 'Aviso de Salud';
+
+  @override
+  String get privacySection7Body =>
+      'Puffree es una herramienta de seguimiento de hábitos diseñada para apoyar tu camino hacia una vida sin tabaco. No es un dispositivo médico y no proporciona asesoramiento médico, diagnósticos ni tratamientos. Consulta siempre a un profesional sanitario cualificado sobre cómo dejar de fumar.';
+
+  @override
+  String get privacySection8Title => 'Cambios y Contacto';
+
+  @override
+  String get privacySection8Body =>
+      'Podemos actualizar esta política periódicamente; los cambios importantes se anunciarán en la aplicación. Si tienes preguntas sobre esta política o tus datos, ponte en contacto con nosotros utilizando los datos de contacto que aparecen a continuación.';
+
+  @override
+  String get termsOfUseTitle => 'Términos de Uso';
+
+  @override
+  String get termsOfUseLastUpdated => 'Última actualización: enero de 2026';
+
+  @override
+  String get termsOfUseIntro =>
+      'Estos Términos de Uso regulan tu acceso y uso de Puffree. Al crear una cuenta o utilizar la aplicación, aceptas estos términos. Si no estás de acuerdo, no utilices la aplicación.';
+
+  @override
+  String get termsSection1Title => 'Aceptación de los Términos';
+
+  @override
+  String get termsSection1Body =>
+      'Al descargar, instalar o utilizar Puffree, confirmas que aceptas estos Términos de Uso y nuestra Política de Privacidad, y que tienes capacidad legal para celebrar este acuerdo.';
+
+  @override
+  String get termsSection2Title => 'Descripción del Servicio';
+
+  @override
+  String get termsSection2Body =>
+      'Puffree es una aplicación de seguimiento de hábitos y motivación que te ayuda a controlar tu progreso después de dejar de fumar, incluyendo rachas, hitos de salud, dinero ahorrado y registros de deseos de fumar. Es una herramienta de bienestar personal, no un servicio médico o clínico.';
+
+  @override
+  String get termsSection3Title => 'Requisitos y Cuentas';
+
+  @override
+  String get termsSection3Body =>
+      'Debes tener al menos 13 años (o la edad mínima de consentimiento digital establecida en tu país) para utilizar Puffree. Eres responsable de mantener la confidencialidad de tu cuenta y de toda actividad que se realice a través de ella.';
+
+  @override
+  String get termsSection4Title => 'Suscripciones Premium y Facturación';
+
+  @override
+  String get termsSection4Body =>
+      'Las funciones Premium se ofrecen mediante una suscripción de renovación automática facturada a través de Apple App Store o Google Play. Las suscripciones se renuevan automáticamente salvo que se cancelen al menos 24 horas antes del final del periodo actual, y los reembolsos se gestionan de acuerdo con la política de la tienda correspondiente.';
+
+  @override
+  String get termsSection5Title => 'Aviso de Salud y Medicina';
+
+  @override
+  String get termsSection5Body =>
+      'Puffree no proporciona asesoramiento médico y no sustituye la atención profesional. Dejar de fumar puede implicar síntomas de abstinencia; consulta a un médico o profesional sanitario autorizado antes de tomar decisiones relacionadas con tu salud.';
+
+  @override
+  String get termsSection6Title => 'Uso Aceptable';
+
+  @override
+  String get termsSection6Body =>
+      'Aceptas no utilizar la aplicación de forma indebida, intentar realizar ingeniería inversa o interrumpir sus servicios, subir contenido ilegal o perjudicial, ni utilizar la aplicación de ninguna manera que infrinja las leyes aplicables o los derechos de otras personas.';
+
+  @override
+  String get termsSection7Title =>
+      'Exención de Responsabilidad y Limitación de Responsabilidad';
+
+  @override
+  String get termsSection7Body =>
+      'Puffree se proporciona \"tal cual\", sin garantías de ningún tipo. En la máxima medida permitida por la ley, no somos responsables de ningún daño indirecto, incidental o consecuente derivado del uso de la aplicación.';
+
+  @override
+  String get termsSection8Title => 'Cambios en estos Términos y Contacto';
+
+  @override
+  String get termsSection8Body =>
+      'Podemos actualizar estos Términos periódicamente; el uso continuado de la aplicación después de que los cambios entren en vigor constituye la aceptación de los Términos revisados. Las preguntas pueden enviarse a la dirección de contacto que aparece a continuación.';
+
+  @override
+  String get systemThemeLabel => 'Sistema';
+
+  @override
+  String get notificationsEnabledLabel => 'Notificaciones activadas';
+
+  @override
+  String get notificationsDisabledLabel => 'Notificaciones desactivadas';
+
+  @override
+  String get signInToAnotherAccount => 'Iniciar sesión con otra cuenta';
+
+  @override
+  String get openSignInPage => 'Abrir página de inicio de sesión';
+
+  @override
+  String get securePayment => 'Pago seguro';
 }

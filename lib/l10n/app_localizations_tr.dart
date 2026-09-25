@@ -1516,6 +1516,350 @@ class AppLocalizationsTr extends AppLocalizations {
   String get authErrorSocial => 'Sosyal giriş başarısız.';
 
   @override
+  String get profileYourProfile => 'Profiliniz';
+
+  @override
+  String get profileEdit => 'Profili düzenle';
+
+  @override
+  String get switchAccountTitle => 'Başka bir hesaba giriş yapılsın mı?';
+
+  @override
+  String get switchAccountBody =>
+      'Giriş sayfası açılacak, başka bir hesaba giriş yapabilirsiniz.';
+
+  @override
+  String get switchAccountButton => 'Başka hesaba giriş yap';
+
+  @override
+  String get switchAccountSubtitle => 'Giriş sayfasını aç';
+
+  @override
+  String get continueAction => 'Devam et';
+
+  @override
+  String get logoutTitle => 'Çıkış yapılsın mı?';
+
+  @override
+  String get logoutBody =>
+      'Hesabınızdan çıkış yapmak istediğinize emin misiniz?';
+
+  @override
+  String get logoutButton => 'Çıkış yap';
+
+  @override
+  String get premiumBrand => 'Puffree Premium';
+
+  @override
+  String get motStartJourney =>
+      'Bugün yeni yolculuğun başlıyor. Bir adım bile önemlidir.';
+
+  @override
+  String get motMilestone1 => 'İlk gün. İlk büyük adımı attın. Devam et.';
+
+  @override
+  String get motMilestone3 => 'Üç gün. Kutlamaya değer. Yolunda ilerliyorsun.';
+
+  @override
+  String get motMilestone7 =>
+      'Tam bir hafta. Kendin için verdiğin kararlarla dolu yedi gün.';
+
+  @override
+  String get motMilestone10 =>
+      '10 gün. Şimdiden ciddi bir özgüven biriktirdin.';
+
+  @override
+  String get motMilestone14 =>
+      'İki hafta. Yolun önemli bir kısmını geçtin. Daha da güçleneceksin.';
+
+  @override
+  String get motMilestone21 =>
+      '21 gün. Alışkanlıklarını değiştirebildiğini görüyorsun.';
+
+  @override
+  String get motMilestone30 =>
+      '30 gün. Yeni kararlarla dolu koca bir ay. Bu harika bir sonuç.';
+
+  @override
+  String get motMilestone45 =>
+      '45 gün. Bir buçuk ay — ve ilerlemeye devam ediyorsun.';
+
+  @override
+  String get motMilestone60 => '60 gün. İki aylık istikrar. Güçlü bir başarı.';
+
+  @override
+  String get motMilestone90 => '90 gün. Üç ay. Bak ne kadar yol katettin.';
+
+  @override
+  String get motMilestone120 =>
+      '120 gün. Her gün kendi yolunu seçmeye devam ediyorsun.';
+
+  @override
+  String get motMilestone180 =>
+      'Altı ay. 180 günlük istikrar. Bu gerçekten muazzam.';
+
+  @override
+  String get motMilestone270 =>
+      '270 gün. Eski alışkanlığınla arana dev bir mesafe koydun.';
+
+  @override
+  String get motMilestone365 =>
+      'Bir yıl. Yolculuğunun 365 günü. Bu bir tesadüf değil — bu istikrar.';
+
+  @override
+  String get motFirstWeek1 => 'Bugün sadece bir sonraki adımı atman yeterli.';
+
+  @override
+  String get motFirstWeek2 =>
+      'Bütün yolu bugün tamamlamak zorunda değilsin. Sadece devam et.';
+
+  @override
+  String get motFirstWeek3 => 'Her gün ayrı bir zaferdir. Bugün seninki.';
+
+  @override
+  String get motFirstWeek4 => 'Zor bir an, ilerlemeni yok etmez.';
+
+  @override
+  String get motFirstWeek5 =>
+      'Zaten başladın. Şimdi kendine devam etme şansı ver.';
+
+  @override
+  String get motFirstWeek6 =>
+      'Günden güne. Büyük değişimler işte böyle inşa edilir.';
+
+  @override
+  String get motFirstWeek7 => 'Defalarca kendini seçiyorsun. Bu çok değerli.';
+
+  @override
+  String get motSecondWeek1 =>
+      'Artık başladığın yerde değilsin. İlerlemeye devam et.';
+
+  @override
+  String get motSecondWeek2 =>
+      'İki hafta sandığından daha yakın. Ritmini koru.';
+
+  @override
+  String get motSecondWeek3 =>
+      'İlerlemen, aldığın küçük kararlarla şekillenir.';
+
+  @override
+  String get motSecondWeek4 =>
+      'Mükemmel günü arama. Bir sonraki güzel günü kendin yarat.';
+
+  @override
+  String get motSecondWeek5 =>
+      'Kriz anını atlatıp planına geri dönecek güce sahipsin.';
+
+  @override
+  String get motSecondWeek6 => 'Her yeni gün özgüvenini artıran bir tuğladır.';
+
+  @override
+  String get motSecondWeek7 => 'Zor anlara dayanabileceğini zaten kanıtladın.';
+
+  @override
+  String get motFirstMonth1 => 'Adım adım yeni bir alışkanlık inşa ediyorsun.';
+
+  @override
+  String get motFirstMonth2 => 'Geçmişin, bugünkü seçimini belirlemez.';
+
+  @override
+  String get motFirstMonth3 => 'Otuz gün tek bir kararla başlar: devam etmek.';
+
+  @override
+  String get motFirstMonth4 =>
+      'Özgüven bir günde değil, tutarlı günler sayesinde büyür.';
+
+  @override
+  String get motFirstMonth5 => 'Her yeni gün hikayene bir sayfa daha ekler.';
+
+  @override
+  String get motFirstMonth6 => 'İlerlemen sana ait. Kimse onu senden alamaz.';
+
+  @override
+  String get motFirstMonth7 =>
+      'Kendinle gurur duymak için şimdiden yeterince yol aldın.';
+
+  @override
+  String get motFirstMonth8 =>
+      'Sakin kal ve devam et. Büyük değişimler aceleye gelmez.';
+
+  @override
+  String get motSecondMonth1 => 'İki ay artık bir tesadüf değildir.';
+
+  @override
+  String get motSecondMonth2 => 'Niyeti istikrara dönüştürüyorsun.';
+
+  @override
+  String get motSecondMonth3 => 'Gücün, her gün aldığın kararlarda saklı.';
+
+  @override
+  String get motSecondMonth4 =>
+      'Zor anların üstesinden gelebileceğini artık biliyorsun.';
+
+  @override
+  String get motSecondMonth5 =>
+      'Yaşamak istediğin hayatı inşa etmeye devam et.';
+
+  @override
+  String get motSecondMonth6 =>
+      'Eski alışkanlığa dönmeden geçen her gün ileriye doğru bir adımdır.';
+
+  @override
+  String get motSecondMonth7 =>
+      'Kimseyle yarışmıyorsun. Bu yol sadece sana ait.';
+
+  @override
+  String get motSecondMonth8 =>
+      'Geriye bak ve kendini ilk günle karşılaştır. İlerleme ortada.';
+
+  @override
+  String get motThirdMonth1 =>
+      'Üç ay ciddi bir mesafedir. Ve sen hala ilerliyorsun.';
+
+  @override
+  String get motThirdMonth2 =>
+      'Kendin için yeni bir başlangıç noktası yarattın.';
+
+  @override
+  String get motThirdMonth3 =>
+      'İstikrar motivasyondan daha güçlüdür. Bunu kanıtlıyorsun.';
+
+  @override
+  String get motThirdMonth4 =>
+      'Senin için gerçekten önemli olanı seçmeye devam ediyorsun.';
+
+  @override
+  String get motThirdMonth5 =>
+      'Her geçen gün eski alışkanlığın etkisi azalıyor.';
+
+  @override
+  String get motThirdMonth6 =>
+      'Artık doğru anı beklemiyorsun. Onu sen yaratıyorsun.';
+
+  @override
+  String get motThirdMonth7 => '90 gün, birçok küçük zaferin hikayesidir.';
+
+  @override
+  String get motThirdMonth8 => 'Çok yol katettin. Ulaştığın noktada durma.';
+
+  @override
+  String get motLongTerm1 => 'Başlangıç noktasından çok uzaktasın. Devam et.';
+
+  @override
+  String get motLongTerm2 =>
+      'Özgürlük bir seçimle başlar ve günlük kararlarla büyür.';
+
+  @override
+  String get motLongTerm3 => 'Sonucun, pes etmediğin tüm günlerin toplamıdır.';
+
+  @override
+  String get motLongTerm4 =>
+      'Bir zamanlar imkansız gördüğün bir mesafe yarattın.';
+
+  @override
+  String get motLongTerm5 => 'Neden başladığını unutma.';
+
+  @override
+  String get motLongTerm6 => 'Her yeni gün hikayeni daha da güçlendirir.';
+
+  @override
+  String get motLongTerm7 => 'Geriye dönmüyorsun. İleriye doğru gidiyorsun.';
+
+  @override
+  String get motLongTerm8 =>
+      'Bir zamanlar zor görünen şey, bugün yolculuğunun bir parçası oldu.';
+
+  @override
+  String get motLongTerm9 =>
+      'Kendine en önemli şeyi kanıtladın: değişim mümkün.';
+
+  @override
+  String get motLongTerm10 => 'Yeni ritminle yaşamaya devam et.';
+
+  @override
+  String get motLevelDefault => 'Yeni seviye. İlerlemeye devam ediyorsun.';
+
+  @override
+  String get motLevel1 => 'Yolculuk başladı. En önemlisi ilk adımı atmaktır.';
+
+  @override
+  String get motLevel2 => 'Tohum filizlendi. İlerlemeni her gün koru.';
+
+  @override
+  String get motLevel3 =>
+      'Büyüyorsun. Küçük kararlar büyük değişimler yaratır.';
+
+  @override
+  String get motLevel4 =>
+      'Köklerin güçleniyor. Temelini sağlamlaştırmaya devam et.';
+
+  @override
+  String get motLevel5 => 'Daha özgüvenli oluyorsun. Temponu düşürme.';
+
+  @override
+  String get motLevel6 => 'Güç, zorluklara rağmen devam ettiğin yerde doğar.';
+
+  @override
+  String get motLevel7 => 'Kararlılığın hikayenin bir parçası haline geliyor.';
+
+  @override
+  String get motLevel8 => 'Kıvılcım kararlı bir harekete dönüştü.';
+
+  @override
+  String get motLevel9 => 'Ciddi bir yol katettin. Başarını takdir et.';
+
+  @override
+  String get motLevel10 => 'Onuncu seviye. İstikrarın gücünü artık biliyorsun.';
+
+  @override
+  String get motLevel11 => 'Yol zorlaşsa bile büyümeye devam ediyorsun.';
+
+  @override
+  String get motLevel12 => 'Kendine örnek oldun. Devam et.';
+
+  @override
+  String get motLevel13 => 'Büyük bir ivme yakaladın. Şimdi yönünü koru.';
+
+  @override
+  String get motLevel14 => 'Efsanevi seviye. Bak ne kadar çok şey başardın.';
+
+  @override
+  String get motShort1 => 'Bugün bir adım daha.';
+
+  @override
+  String get motShort2 => 'Yoluna devam et.';
+
+  @override
+  String get motShort3 => 'Harika gidiyorsun.';
+
+  @override
+  String get motShort4 => 'İlerlemen değerli.';
+
+  @override
+  String get motShort5 => 'Zor bir an yüzünden pes etme.';
+
+  @override
+  String get motShort6 => 'Eski alışkanlığından daha güçlüsün.';
+
+  @override
+  String get motShort7 => 'Sonraki adımı seç.';
+
+  @override
+  String get motShort8 => 'Zaten başladın. Devam et.';
+
+  @override
+  String get motShort9 => 'Bugünkü seçimin önemli.';
+
+  @override
+  String get motShort10 => 'Günden güne.';
+
+  @override
+  String get motShort11 => 'Düşündüğünden daha fazlasını yapabilirsin.';
+
+  @override
+  String get motShort12 => 'Senin yolculuğun sana ait.';
+
+  @override
   String get profileEditErrorPhotoNotFound => 'Seçilen fotoğraf alınamadı';
 
   @override
@@ -1610,4 +1954,158 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get legalLifetime =>
       'Bu tek seferlik bir satın almadır ve otomatik olarak yenilenmez. Fiyat, satın alma onayı öncesinde gösterilir.';
+
+  @override
+  String get legalContactEmail => 'support@puffreeapp.com';
+
+  @override
+  String get privacyPolicyTitle => 'Gizlilik Politikası';
+
+  @override
+  String get privacyPolicyLastUpdated => 'Son güncelleme: Ocak 2026';
+
+  @override
+  String get privacyPolicyIntro =>
+      'Puffree (\"biz\", \"bizim\", \"uygulama\"), sigarayı bırakma yolculuğunuzu takip etmenize ve motivasyonunuzu korumanıza yardımcı olur. Bu politika, hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve sahip olduğunuz seçenekleri açıklar.';
+
+  @override
+  String get privacySection1Title => 'Topladığımız Bilgiler';
+
+  @override
+  String get privacySection1Body =>
+      'Giriş yaptığınızda sağladığınız hesap bilgileri (e-posta adresi, görünen ad ve profil fotoğrafı) veya uygulamayı hesap olmadan kullanıyorsanız anonim bir kimlik belirleyici toplarız. Ayrıca bırakma tarihiniz, günlük sigara sayınız, paket başına maliyet ve kaydettiğiniz sigara içme isteği gibi kendi girdiğiniz sigarasızlık verilerini de saklarız.';
+
+  @override
+  String get privacySection2Title => 'Bilgilerinizi Nasıl Kullanıyoruz';
+
+  @override
+  String get privacySection2Body =>
+      'Sigara içmeden geçirdiğiniz süreyi, sağlık dönüm noktalarınızı ve tasarruf ettiğiniz parayı hesaplamak; ilerlemenizi cihazlar arasında senkronize etmek; isteğe bağlı motivasyon hatırlatıcıları ve bildirimleri göndermek; Premium abonelik satın alımlarını işlemek; çökmeleri tespit etmek ve uygulamayı geliştirmek için bilgilerinizi kullanırız.';
+
+  @override
+  String get privacySection3Title => 'Veri Saklama ve Güvenlik';
+
+  @override
+  String get privacySection3Body =>
+      'Verileriniz Firebase (Google Cloud) kullanılarak saklanır ve aktarım sırasında şifrelenir. Makul teknik ve organizasyonel güvenlik önlemleri uygularız, ancak internet üzerinden hiçbir veri saklama veya aktarım yöntemi tamamen güvenli değildir.';
+
+  @override
+  String get privacySection4Title => 'Üçüncü Taraf Hizmetleri';
+
+  @override
+  String get privacySection4Body =>
+      'Hesapları yönetmek ve verileri senkronize etmek için Firebase Authentication ve Cloud Firestore\'u, Premium abonelik ödemelerini işlemek için ise Apple App Store veya Google Play ödeme sistemlerini kullanırız. Kişisel bilgilerinizi üçüncü taraflara satmayız.';
+
+  @override
+  String get privacySection5Title => 'Seçimleriniz ve Haklarınız';
+
+  @override
+  String get privacySection5Body =>
+      'Profilinizi istediğiniz zaman görüntüleyebilir veya düzenleyebilir, Ayarlar üzerinden yerel ilerlemenizi sıfırlayabilir, cihaz ayarlarınızdan anlık bildirimleri devre dışı bırakabilir ve bizimle iletişime geçerek verilerinize erişim, verilerinizin düzeltilmesi veya silinmesi talebinde bulunabilirsiniz.';
+
+  @override
+  String get privacySection6Title => 'Çocukların Gizliliği';
+
+  @override
+  String get privacySection6Body =>
+      'Puffree, 13 yaşın altındaki çocuklara (AB\'de 16 yaşın altındaki çocuklara) yönelik değildir ve bu kişilerden bilerek kişisel bilgi toplamayız. Bir çocuğun bize veri sağladığını düşünüyorsanız, verileri silebilmemiz için lütfen bizimle iletişime geçin.';
+
+  @override
+  String get privacySection7Title => 'Sağlık Sorumluluk Reddi';
+
+  @override
+  String get privacySection7Body =>
+      'Puffree, sigarasız yaşam yolculuğunuzu desteklemek için tasarlanmış bir alışkanlık takip aracıdır. Tıbbi bir cihaz değildir ve tıbbi tavsiye, teşhis veya tedavi sağlamaz. Sigarayı bırakma konusunda her zaman nitelikli bir sağlık uzmanına danışın.';
+
+  @override
+  String get privacySection8Title => 'Değişiklikler ve İletişim';
+
+  @override
+  String get privacySection8Body =>
+      'Bu politikayı zaman zaman güncelleyebiliriz; önemli değişiklikler uygulama içinde duyurulacaktır. Bu politika veya verileriniz hakkında sorularınız varsa aşağıdaki iletişim bilgilerini kullanarak bizimle iletişime geçebilirsiniz.';
+
+  @override
+  String get termsOfUseTitle => 'Kullanım Koşulları';
+
+  @override
+  String get termsOfUseLastUpdated => 'Son güncelleme: Ocak 2026';
+
+  @override
+  String get termsOfUseIntro =>
+      'Bu Kullanım Koşulları, Puffree\'ye erişiminizi ve uygulamayı kullanımınızı düzenler. Bir hesap oluşturarak veya uygulamayı kullanarak bu koşulları kabul etmiş olursunuz. Kabul etmiyorsanız lütfen uygulamayı kullanmayın.';
+
+  @override
+  String get termsSection1Title => 'Koşulların Kabulü';
+
+  @override
+  String get termsSection1Body =>
+      'Puffree\'yi indirerek, yükleyerek veya kullanarak bu Kullanım Koşullarını ve Gizlilik Politikamızı kabul ettiğinizi ve bu sözleşmeyi yapmaya yasal olarak ehil olduğunuzu onaylamış olursunuz.';
+
+  @override
+  String get termsSection2Title => 'Hizmet Açıklaması';
+
+  @override
+  String get termsSection2Body =>
+      'Puffree, sigarayı bıraktıktan sonraki ilerlemenizi takip etmenize yardımcı olan bir alışkanlık takip ve motivasyon uygulamasıdır. Sigara içmeden geçen süre, sağlık dönüm noktaları, tasarruf edilen para ve sigara içme isteği kayıtları gibi bilgileri takip edebilirsiniz. Uygulama kişisel bir sağlık ve iyi yaşam aracıdır; tıbbi veya klinik bir hizmet değildir.';
+
+  @override
+  String get termsSection3Title => 'Uygunluk ve Hesaplar';
+
+  @override
+  String get termsSection3Body =>
+      'Puffree\'yi kullanabilmek için en az 13 yaşında (veya ülkenizde dijital onay için belirlenen minimum yaşta) olmanız gerekir. Hesabınızın gizliliğini korumaktan ve hesabınız üzerinden gerçekleştirilen tüm faaliyetlerden siz sorumlusunuz.';
+
+  @override
+  String get termsSection4Title => 'Premium Abonelikler ve Faturalandırma';
+
+  @override
+  String get termsSection4Body =>
+      'Premium özellikler, Apple App Store veya Google Play üzerinden ücretlendirilen otomatik yenilenen abonelik olarak sunulur. Abonelikler, mevcut dönemin bitiminden en az 24 saat önce iptal edilmediği sürece otomatik olarak yenilenir. Geri ödemeler ilgili mağazanın politikasına göre gerçekleştirilir.';
+
+  @override
+  String get termsSection5Title => 'Sağlık ve Tıbbi Sorumluluk Reddi';
+
+  @override
+  String get termsSection5Body =>
+      'Puffree tıbbi tavsiye sağlamaz ve profesyonel sağlık hizmetinin yerine geçmez. Sigarayı bırakmak yoksunluk belirtilerine neden olabilir; sağlığınızla ilgili kararlar vermeden önce bir doktora veya lisanslı bir sağlık uzmanına danışın.';
+
+  @override
+  String get termsSection6Title => 'Kabul Edilebilir Kullanım';
+
+  @override
+  String get termsSection6Body =>
+      'Uygulamayı kötüye kullanmamayı, uygulamayı tersine mühendislik yoluyla incelemeye veya hizmetlerini kesintiye uğratmaya çalışmamayı, yasa dışı veya zararlı içerik yüklememeyi ve uygulamayı yürürlükteki yasalara veya başkalarının haklarına aykırı herhangi bir şekilde kullanmamayı kabul edersiniz.';
+
+  @override
+  String get termsSection7Title =>
+      'Sorumluluk Reddi ve Sorumluluğun Sınırlandırılması';
+
+  @override
+  String get termsSection7Body =>
+      'Puffree, herhangi bir garanti verilmeksizin \"olduğu gibi\" sunulmaktadır. Yasaların izin verdiği azami ölçüde, uygulamanın kullanımından kaynaklanan dolaylı, arızi veya sonuç olarak ortaya çıkan zararlardan sorumlu değiliz.';
+
+  @override
+  String get termsSection8Title => 'Koşullardaki Değişiklikler ve İletişim';
+
+  @override
+  String get termsSection8Body =>
+      'Bu Koşulları zaman zaman güncelleyebiliriz; değişiklikler yürürlüğe girdikten sonra uygulamayı kullanmaya devam etmeniz, güncellenmiş Koşulları kabul ettiğiniz anlamına gelir. Sorularınızı aşağıdaki iletişim adresine gönderebilirsiniz.';
+
+  @override
+  String get systemThemeLabel => 'Sistem';
+
+  @override
+  String get notificationsEnabledLabel => 'Bildirimler etkin';
+
+  @override
+  String get notificationsDisabledLabel => 'Bildirimler devre dışı';
+
+  @override
+  String get signInToAnotherAccount => 'Başka bir hesaba giriş yap';
+
+  @override
+  String get openSignInPage => 'Giriş sayfasını aç';
+
+  @override
+  String get securePayment => 'Güvenli ödeme';
 }

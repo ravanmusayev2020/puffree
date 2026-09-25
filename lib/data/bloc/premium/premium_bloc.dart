@@ -5,9 +5,29 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../core/constants/revenuecat_config.dart';
 import 'premium_event.dart';
 import 'premium_state.dart';
+
+/// Константы RevenueCat прямо внутри файла
+abstract class RevenueCatConfig {
+  // Вставьте сюда публичный API-ключ из панели (appl_...)
+  static const String appleApiKey = 'test_WfQHJfIvtvVoNHTtfsHsZnpUMDq';
+  static const String googleApiKey = 'goog_ВАШ_КЛЮЧ_ДЛЯ_ANDROID';
+
+  // Entitlement и Offering из мастера настройки Puffree
+  static const String entitlementId = 'Puffree - Quit Smoking Pro';
+  static const String offeringId = 'default';
+
+  // Стандартные идентификаторы пакетов RevenueCat
+  static const String monthlyPackageId = '\$rc_monthly';
+  static const String annualPackageId = '\$rc_annual';
+  static const String lifetimePackageId = '\$rc_lifetime';
+
+  // Идентификаторы продуктов в App Store Connect
+  static const String monthlyProductId = 'puffree_monthly';
+  static const String annualProductId = 'puffree_annual';
+  static const String lifetimeProductId = 'puffree_lifetime';
+}
 
 class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
   static const String _trialKey = 'puffree_trial_end';
@@ -56,15 +76,13 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
         ? RevenueCatConfig.appleApiKey
         : RevenueCatConfig.googleApiKey;
 
-    if (apiKey.trim().isEmpty ||
-        apiKey.contains('YOUR_')) {
+    if (apiKey.trim().isEmpty || apiKey.contains('YOUR_')) {
       throw const PremiumException(
         'RevenueCat API key is not configured.',
       );
     }
 
     final configuration = PurchasesConfiguration(apiKey);
-
     await Purchases.configure(configuration);
 
     _configured = true;
@@ -100,18 +118,13 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     bool isPremium = false;
 
     try {
-      final customerInfo =
-      await Purchases.getCustomerInfo();
-
+      final customerInfo = await Purchases.getCustomerInfo();
       isPremium = customerInfo.entitlements.active
           .containsKey(RevenueCatConfig.entitlementId);
     } catch (_) {}
 
     final trial = await _loadTrial();
-
-    final trialActive =
-        !isPremium &&
-            trial.isActive;
+    final trialActive = !isPremium && trial.isActive;
 
     emit(
       state.copyWith(
@@ -142,8 +155,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
         emit(
           state.copyWith(
             status: PremiumStatus.error,
-            errorMessage:
-            'Пробный период уже был использован.',
+            errorMessage: 'Пробный период уже был использован.',
           ),
         );
         return;
@@ -153,18 +165,9 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
         const Duration(days: 3),
       );
 
-      final prefs =
-      await SharedPreferences.getInstance();
-
-      await prefs.setString(
-        _trialKey,
-        trialEnd.toIso8601String(),
-      );
-
-      await prefs.setBool(
-        _trialUsedKey,
-        true,
-      );
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_trialKey, trialEnd.toIso8601String());
+      await prefs.setBool(_trialUsedKey, true);
 
       emit(
         state.copyWith(
@@ -178,8 +181,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
       emit(
         state.copyWith(
           status: PremiumStatus.error,
-          errorMessage:
-          'Не удалось активировать пробный период.',
+          errorMessage: 'Не удалось активировать пробный период.',
         ),
       );
     }
@@ -199,33 +201,25 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     try {
       await _ensureConfigured();
 
-      final offerings =
-      await Purchases.getOfferings();
+      final offerings = await Purchases.getOfferings();
+      final current = offerings.current ??
+          offerings.getOffering(RevenueCatConfig.offeringId);
 
-      final current =
-          offerings.current ??
-              offerings.getOffering(
-                RevenueCatConfig.offeringId,
-              );
-
-      if (current == null ||
-          current.availablePackages.isEmpty) {
+      if (current == null || current.availablePackages.isEmpty) {
         throw const PremiumException(
           'Subscription is unavailable.',
         );
       }
 
+      // Подбор пакета по ID (месяц, год, разовая покупка)
       final package = _findPackage(
         current.availablePackages,
         event.packageId,
       );
 
-      final customerInfo =
-      await Purchases.purchasePackage(package);
+      final customerInfo = await Purchases.purchasePackage(package);
 
-      final isPremium =
-      customerInfo.entitlements.active
-          .containsKey(
+      final isPremium = customerInfo.entitlements.active.containsKey(
         RevenueCatConfig.entitlementId,
       );
 
@@ -233,8 +227,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
         emit(
           state.copyWith(
             status: PremiumStatus.error,
-            errorMessage:
-            'Покупка завершена, но Premium ещё не активирован.',
+            errorMessage: 'Покупка завершена, но Premium ещё не активирован.',
           ),
         );
         return;
@@ -253,12 +246,9 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
         ),
       );
     } on PlatformException catch (error) {
-      final code = PurchasesErrorHelper.getErrorCode(
-        error,
-      );
+      final code = PurchasesErrorHelper.getErrorCode(error);
 
-      if (code ==
-          PurchasesErrorCode.purchaseCancelledError) {
+      if (code == PurchasesErrorCode.purchaseCancelledError) {
         emit(
           state.copyWith(
             status: PremiumStatus.loaded,
@@ -271,8 +261,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
       emit(
         state.copyWith(
           status: PremiumStatus.error,
-          errorMessage:
-          'Не удалось завершить покупку. Попробуйте ещё раз.',
+          errorMessage: 'Не удалось завершить покупку. Попробуйте ещё раз.',
         ),
       );
     } catch (error) {
@@ -299,12 +288,9 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     try {
       await _ensureConfigured();
 
-      final customerInfo =
-      await Purchases.restorePurchases();
+      final customerInfo = await Purchases.restorePurchases();
 
-      final isPremium =
-      customerInfo.entitlements.active
-          .containsKey(
+      final isPremium = customerInfo.entitlements.active.containsKey(
         RevenueCatConfig.entitlementId,
       );
 
@@ -330,8 +316,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
             isTrialActive: trial.isActive,
             trialEndDate: trial.endDate,
             status: PremiumStatus.loaded,
-            errorMessage:
-            'Активных покупок не найдено.',
+            errorMessage: 'Активных покупок не найдено.',
           ),
         );
       }
@@ -339,8 +324,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
       emit(
         state.copyWith(
           status: PremiumStatus.error,
-          errorMessage:
-          'Не удалось восстановить покупки.',
+          errorMessage: 'Не удалось восстановить покупки.',
         ),
       );
     }
@@ -352,35 +336,47 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     }
   }
 
+  /// Метод поиска нужного пакета подписки или единоразовой покупки
   Package _findPackage(
       List<Package> packages,
       String requestedId,
       ) {
     if (requestedId.isNotEmpty) {
+      // 1. Поиск по прямому совпадению ID пакета или Product ID
       for (final package in packages) {
-        if (package.identifier == requestedId) {
+        if (package.identifier == requestedId ||
+            package.storeProduct.identifier == requestedId) {
           return package;
         }
+      }
 
-        if (package.storeProduct.identifier ==
-            requestedId) {
-          return package;
-        }
+      // 2. Поиск по ключам (month, year/annual, lifetime)
+      final lowerRequestedId = requestedId.toLowerCase();
+      if (lowerRequestedId.contains('month')) {
+        return packages.firstWhere(
+              (p) => p.packageType == PackageType.monthly,
+          orElse: () => packages.first,
+        );
+      }
+      if (lowerRequestedId.contains('annual') || lowerRequestedId.contains('year')) {
+        return packages.firstWhere(
+              (p) => p.packageType == PackageType.annual,
+          orElse: () => packages.first,
+        );
+      }
+      if (lowerRequestedId.contains('lifetime') || lowerRequestedId.contains('once')) {
+        return packages.firstWhere(
+              (p) => p.packageType == PackageType.lifetime,
+          orElse: () => packages.first,
+        );
       }
     }
 
+    // 3. Фолбэк на годовую или первую доступную подписку
     for (final package in packages) {
-      if (package.identifier ==
-          RevenueCatConfig.annualPackageId) {
-        return package;
-      }
-
-      if (package.storeProduct.identifier ==
-          RevenueCatConfig.annualProductId) {
-        return package;
-      }
-
-      if (package.packageType == PackageType.monthly) {
+      if (package.identifier == RevenueCatConfig.annualPackageId ||
+          package.storeProduct.identifier == RevenueCatConfig.annualProductId ||
+          package.packageType == PackageType.annual) {
         return package;
       }
     }
@@ -389,14 +385,9 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
   }
 
   Future<_TrialInfo> _loadTrial() async {
-    final prefs =
-    await SharedPreferences.getInstance();
-
-    final used =
-        prefs.getBool(_trialUsedKey) ?? false;
-
-    final rawEnd =
-    prefs.getString(_trialKey);
+    final prefs = await SharedPreferences.getInstance();
+    final used = prefs.getBool(_trialUsedKey) ?? false;
+    final rawEnd = prefs.getString(_trialKey);
 
     if (rawEnd == null || rawEnd.isEmpty) {
       return _TrialInfo(
@@ -407,18 +398,10 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
 
     try {
       final endDate = DateTime.parse(rawEnd);
-      final active =
-          used && DateTime.now().isBefore(endDate);
-
-      if (!active) {
-        return _TrialInfo(
-          used: used,
-          endDate: endDate,
-        );
-      }
+      final active = used && DateTime.now().isBefore(endDate);
 
       return _TrialInfo(
-        used: true,
+        used: active || used,
         endDate: endDate,
       );
     } catch (_) {
@@ -430,9 +413,7 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
   }
 
   Future<void> _finishTrial() async {
-    final prefs =
-    await SharedPreferences.getInstance();
-
+    final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_trialKey);
   }
 
@@ -442,7 +423,6 @@ class PremiumBloc extends Bloc<PremiumEvent, PremiumState> {
     }
 
     final message = error.toString().trim();
-
     if (message.isEmpty) {
       return 'Произошла ошибка. Попробуйте ещё раз.';
     }
@@ -471,7 +451,6 @@ class _TrialInfo {
 
   bool get isActive {
     final end = endDate;
-
     if (!used || end == null) {
       return false;
     }
@@ -479,3 +458,4 @@ class _TrialInfo {
     return DateTime.now().isBefore(end);
   }
 }
+

@@ -1,5 +1,4 @@
 import 'dart:ui' as ui;
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -18,6 +17,8 @@ import '../../../l10n/app_localizations.dart';
 import '../../widgets/notification_tile.dart';
 import '../auth/auth_screen.dart';
 import '../premium/premium_screen.dart';
+import '../privacy/privacy_policy_screen.dart';
+import '../privacy/term_of_use_screen.dart';
 import '../profile/profile_edit_screen.dart';
 import 'language_tile.dart';
 
@@ -29,43 +30,46 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context)!;
 
-    return Scaffold(
-        backgroundColor:
-        isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
-        body: Stack(
-            children: [
-        Positioned.fill(child: _AmbientBackground(isDark: isDark)),
-    SafeArea(
-    bottom: false,
-    child: CustomScrollView(
-    physics: const BouncingScrollPhysics(
-    parent: AlwaysScrollableScrollPhysics(),
-    ),
-    slivers: [
-    // ─── HEADER ───────────────────────────────────────────────
-    SliverToBoxAdapter(
-    child: _TopBar(isDark: isDark, l10n: l10n)
-        .animate()
-        .fadeIn(duration: 450.ms)
-        .slideY(
-    begin: -0.06,
-    end: 0,
-    curve: Curves.easeOutCubic,
-    ),
-    ),
 
-    // ─── CONTENT ──────────────────────────────────────────────
-    SliverPadding(
-    padding: const EdgeInsets.fromLTRB(18, 20, 18, 120),
-    sliver: SliverList(
-    delegate: SliverChildListDelegate(
-    [
-    // PROFILE
+
+    return Scaffold(
+      backgroundColor:
+      isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      body: Stack(
+        children: [
+          Positioned.fill(child: _AmbientBackground(isDark: isDark)),
+          SafeArea(
+            bottom: false,
+            child: CustomScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
+              slivers: [
+                // ─── HEADER ───────────────────────────────────────────────
+                SliverToBoxAdapter(
+                  child: _TopBar(isDark: isDark, l10n: l10n)
+                      .animate()
+                      .fadeIn(duration: 450.ms)
+                      .slideY(
+                    begin: -0.06,
+                    end: 0,
+                    curve: Curves.easeOutCubic,
+                  ),
+                ),
+
+                // ─── CONTENT ──────────────────────────────────────────────
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(18, 20, 18, 120),
+                  sliver: SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        /*// PROFILE
     const _ProfileCard()
         .animate()
         .fadeIn(delay: 50.ms, duration: 500.ms)
@@ -77,170 +81,168 @@ class _SettingsScreenState extends State<SettingsScreen> {
     curve: Curves.easeOutCubic,
     ),
 
-    const SizedBox(height: 26),
+    const SizedBox(height: 26),*/
 
-    // PREMIUM
-    BlocBuilder<PremiumBloc, PremiumState>(
-    builder: (context, state) {
-    return _PremiumCard(state: state)
-        .animate()
-        .fadeIn(delay: 80.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.06,
-    end: 0,
-    delay: 80.ms,
-    duration: 500.ms,
-    curve: Curves.easeOutCubic,
-    );
-    },
-    ),
+                        // PREMIUM
+                        BlocBuilder<PremiumBloc, PremiumState>(
+                          builder: (context, state) {
+                            return _PremiumCard(state: state)
+                                .animate()
+                                .fadeIn(delay: 80.ms, duration: 500.ms)
+                                .slideY(
+                              begin: 0.06,
+                              end: 0,
+                              delay: 80.ms,
+                              duration: 500.ms,
+                              curve: Curves.easeOutCubic,
+                            );
+                          },
+                        ),
 
-    const SizedBox(height: 30),
+                        const SizedBox(height: 30),
 
-    // APP SECTION
-    _SectionHeader(
-    title: l10n.sectionApp,
-    subtitle: '',
-    isDark: isDark,
-    ),
+                        // APP SECTION
+                        _SectionHeader(
+                          title: l10n.sectionApp,
+                          subtitle: '',
+                          isDark: isDark,
+                        ),
 
-    const SizedBox(height: 13),
+                        const SizedBox(height: 13),
 
-    _SettingsGroup(
-    isDark: isDark,
-    children: const [
-    _ThemeTile(),
-    LanguageTile(),
-    NotificationTile(),
-    ],
-    )
-        .animate()
-        .fadeIn(delay: 150.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.05,
-    end: 0,
-    delay: 150.ms,
-    duration: 500.ms,
-    curve: Curves.easeOutCubic,
-    ),
+                        _SettingsGroup(
+                          isDark: isDark,
+                          children: const [
+                            _ThemeTile(),
+                            LanguageTile(),
+                            NotificationTile(),
+                          ],
+                        )
+                            .animate()
+                            .fadeIn(delay: 150.ms, duration: 500.ms)
+                            .slideY(
+                          begin: 0.05,
+                          end: 0,
+                          delay: 150.ms,
+                          duration: 500.ms,
+                          curve: Curves.easeOutCubic,
+                        ),
 
-    const SizedBox(height: 28),
+                        const SizedBox(height: 28),
 
-    // DATA SECTION
-    _SectionHeader(
-    title: l10n.sectionData,
-    subtitle: '',
-    isDark: isDark,
-    ),
+                        // DATA SECTION
+                        _SectionHeader(
+                          title: l10n.sectionData,
+                          subtitle: '',
+                          isDark: isDark,
+                        ),
 
-    const SizedBox(height: 13),
+                        const SizedBox(height: 13),
 
-    _SettingsGroup(
-    isDark: isDark,
-    children: [
-    _SettingsTile(
-    icon: Icons.refresh_rounded,
-    title: l10n.resetProgress,
-    subtitle: l10n.resetProgressSubtitle,
-    gradient: AppColors.sosGradient,
-    isDark: isDark,
-    showDivider: false,
-    onTap: () => _showResetDialog(context),
-    ),
-    ],
-    )
-        .animate()
-        .fadeIn(delay: 220.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.05,
-    end: 0,
-    delay: 220.ms,
-    duration: 500.ms,
-    curve: Curves.easeOutCubic,
-    ),
+                        _SettingsGroup(
+                          isDark: isDark,
+                          children: [
+                            _SettingsTile(
+                              icon: Icons.refresh_rounded,
+                              title: l10n.resetProgress,
+                              subtitle: l10n.resetProgressSubtitle,
+                              gradient: AppColors.sosGradient,
+                              isDark: isDark,
+                              showDivider: false,
+                              onTap: () => _showResetDialog(context),
+                            ),
+                          ],
+                        )
+                            .animate()
+                            .fadeIn(delay: 220.ms, duration: 500.ms)
+                            .slideY(
+                          begin: 0.05,
+                          end: 0,
+                          delay: 220.ms,
+                          duration: 500.ms,
+                          curve: Curves.easeOutCubic,
+                        ),
 
-    const SizedBox(height: 28),
+                        const SizedBox(height: 28),
 
-    // ABOUT SECTION
-    _SectionHeader(
-    title: l10n.sectionAbout,
-    subtitle: '',
-    isDark: isDark,
-    ),
+                        // ABOUT SECTION
+                        _SectionHeader(
+                          title: l10n.sectionAbout,
+                          subtitle: '',
+                          isDark: isDark,
+                        ),
 
-    const SizedBox(height: 13),
+                        const SizedBox(height: 13),
 
-    _SettingsGroup(
-    isDark: isDark,
-    children: [
-    _SettingsTile(
-    icon: Icons.phone_iphone_rounded,
-    title: l10n.version,
-    subtitle: '1.0.0',
-    gradient: AppColors.levelGradient,
-    isDark: isDark,
-    ),
-    _SettingsTile(
-    icon: Icons.description_rounded,
-    title: l10n.privacy,
-    gradient: AppColors.levelGradient,
-    isDark: isDark,
-    ),
-    _SettingsTile(
-    icon: Icons.article_rounded,
-    title: l10n.terms,
-    gradient: AppColors.levelGradient,
-    isDark: isDark,
-    showDivider: false,
-    ),
-    ],
-    )
-        .animate()
-        .fadeIn(delay: 280.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.05,
-    end: 0,
-    delay: 280.ms,
-    duration: 500.ms,
-    curve: Curves.easeOutCubic,
-    ),
+                        _SettingsGroup(
+                          isDark: isDark,
+                          children: [
+                            _SettingsTile(
+                              icon: Icons.description_rounded,
+                              title: l10n.privacy,
+                              gradient: AppColors.levelGradient,
+                              isDark: isDark,
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen()),
+                              ),
+                            ),
+                            _SettingsTile(
+                              icon: Icons.article_rounded,
+                              title: l10n.terms,
+                              gradient: AppColors.levelGradient,
+                              isDark: isDark,
+                              showDivider: false,
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(builder: (_) => const TermsOfUseScreen()),
+                              ),
+                            ),
+                          ],
+                        )
+                            .animate()
+                            .fadeIn(delay: 280.ms, duration: 500.ms)
+                            .slideY(
+                          begin: 0.05,
+                          end: 0,
+                          delay: 280.ms,
+                          duration: 500.ms,
+                          curve: Curves.easeOutCubic,
+                        ),
 
-    const SizedBox(height: 26),
+                        const SizedBox(height: 26),
 
-    // DISCLAIMER
-    const _DisclaimerCard()
-        .animate()
-        .fadeIn(delay: 340.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.04,
-    end: 0,
-    delay: 340.ms,
-    duration: 500.ms,
-    ),
+                        // DISCLAIMER
+                        const _DisclaimerCard()
+                            .animate()
+                            .fadeIn(delay: 340.ms, duration: 500.ms)
+                            .slideY(
+                          begin: 0.04,
+                          end: 0,
+                          delay: 340.ms,
+                          duration: 500.ms,
+                        ),
 
-    const SizedBox(height: 28),
+                        const SizedBox(height: 28),
 
-    // FOOTER
-    const _Footer(),
+                        // FOOTER
+                        const _Footer(),
 
-    const SizedBox(height: 24),
+                        const SizedBox(height: 24),
 
-    // SWITCH ACCOUNT
-    const _SwitchAccountButton()
-        .animate()
-        .fadeIn(delay: 390.ms, duration: 500.ms)
-        .slideY(
-    begin: 0.04,
-    end: 0,
-    delay: 390.ms,
-    duration: 500.ms,
-    curve: Curves.easeOutCubic,
-    ),
+                        // SWITCH ACCOUNT
+                        const _SwitchAccountButton()
+                            .animate()
+                            .fadeIn(delay: 390.ms, duration: 500.ms)
+                            .slideY(
+                          begin: 0.04,
+                          end: 0,
+                          delay: 390.ms,
+                          duration: 500.ms,
+                          curve: Curves.easeOutCubic,
+                        ),
 
-    const SizedBox(height: 12),
 
-    // LOGOUT
-    const _LogoutButton()
+                        // LOGOUT
+                        /* const _LogoutButton()
         .animate()
         .fadeIn(delay: 430.ms, duration: 500.ms)
         .slideY(
@@ -249,19 +251,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
     delay: 430.ms,
     duration: 500.ms,
     curve: Curves.easeOutCubic,
-    ),
+    ),*/
 
-    // один отступ внизу (дубль убран)
-    const SizedBox(height: 36),
-    ],
-    ),
-    ),
-    ),
-    ],
-    ),
-    ),
-    ],
-    ),
+                        // один отступ внизу (дубль убран)
+                        const SizedBox(height: 36),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -581,151 +583,150 @@ class _IconWell extends StatelessWidget {
 // PROFILE CARD
 // ═══════════════════════════════════════════════════════════════════════════
 
-class _ProfileCard extends StatefulWidget {
+class _ProfileCard extends StatelessWidget {
   const _ProfileCard();
 
   @override
-  State<_ProfileCard> createState() => _ProfileCardState();
-}
-
-class _ProfileCardState extends State<_ProfileCard> {
-  @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final user = FirebaseAuth.instance.currentUser;
-
-    final displayName = user?.displayName?.trim();
-    final name = (displayName != null && displayName.isNotEmpty)
-        ? displayName
-        : 'Ваш профиль';
-    final email = user?.email ?? '';
-    final photoUrl = user?.photoURL;
-
     final primaryText =
     isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight;
     final secondaryText =
     isDark ? AppColors.textSecondaryDark : AppColors.textSecondaryLight;
 
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () async {
-          final result = await Navigator.of(context).push<bool>(
-            MaterialPageRoute(builder: (_) => const ProfileEditScreen()),
-          );
-          if (!mounted) return;
-          setState(() {}); // обновляем после редактирования
-        },
-        borderRadius: BorderRadius.circular(24),
-        splashColor: AppColors.primary.withValues(alpha: 0.08),
-        highlightColor: AppColors.primary.withValues(alpha: 0.04),
-        child: Ink(
-          padding: const EdgeInsets.all(18),
-          decoration: BoxDecoration(
-            color: isDark ? AppColors.cardDark : AppColors.cardLight,
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        final user = snapshot.data;
+
+        final displayName = user?.displayName?.trim();
+        final name = (displayName != null && displayName.isNotEmpty)
+            ? displayName
+            : 'Ваш профиль';
+        final email = user?.email ?? '';
+        final photoUrl = user?.photoURL;
+
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () async {
+              await Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const ProfileEditScreen()),
+              );
+              // StreamBuilder сам обновится после изменения профиля
+            },
             borderRadius: BorderRadius.circular(24),
-            border: Border.all(
-              color: AppColors.primary.withValues(alpha: isDark ? 0.18 : 0.12),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.primary.withValues(alpha: isDark ? 0.14 : 0.07),
-                blurRadius: 22,
-                spreadRadius: -4,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
-          child: Row(
-            children: [
-              // Avatar with gradient ring
-              Container(
-                width: 62,
-                height: 62,
-                padding: const EdgeInsets.all(2.5),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: const LinearGradient(
-                    colors: AppColors.levelGradient,
+            splashColor: AppColors.primary.withValues(alpha: 0.08),
+            highlightColor: AppColors.primary.withValues(alpha: 0.04),
+            child: Ink(
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                color: isDark ? AppColors.cardDark : AppColors.cardLight,
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(
+                  color: AppColors.primary.withValues(alpha: isDark ? 0.18 : 0.12),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.primary.withValues(alpha: isDark ? 0.14 : 0.07),
+                    blurRadius: 22,
+                    spreadRadius: -4,
+                    offset: const Offset(0, 10),
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.primary.withValues(alpha: 0.28),
-                      blurRadius: 14,
-                      spreadRadius: -3,
-                    ),
-                  ],
-                ),
-                child: CircleAvatar(
-                  backgroundColor:
-                  isDark ? AppColors.cardDark : AppColors.cardLight,
-                  backgroundImage:
-                  (photoUrl != null && photoUrl.isNotEmpty)
-                      ? NetworkImage(photoUrl)
-                      : null,
-                  child: (photoUrl == null || photoUrl.isEmpty)
-                      ? Icon(
-                    Icons.person_rounded,
-                    color: AppColors.primary,
-                    size: 28,
-                  )
-                      : null,
-                ),
+                ],
               ),
-
-              const SizedBox(width: 14),
-
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.outfit(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                        color: primaryText,
+              child: Row(
+                children: [
+                  // Avatar with gradient ring
+                  Container(
+                    width: 62,
+                    height: 62,
+                    padding: const EdgeInsets.all(2.5),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: const LinearGradient(
+                        colors: AppColors.levelGradient,
                       ),
-                    ),
-                    if (email.isNotEmpty) ...[
-                      const SizedBox(height: 4),
-                      Text(
-                        email,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                          fontSize: 11.5,
-                          fontWeight: FontWeight.w500,
-                          color: secondaryText,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.primary.withValues(alpha: 0.28),
+                          blurRadius: 14,
+                          spreadRadius: -3,
                         ),
-                      ),
-                    ],
-                    const SizedBox(height: 6),
-                    Text(
-                      'Редактировать профиль',
-                      style: GoogleFonts.inter(
-                        fontSize: 11.5,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.primary,
-                      ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                    child: CircleAvatar(
+                      backgroundColor:
+                      isDark ? AppColors.cardDark : AppColors.cardLight,
+                      backgroundImage:
+                      (photoUrl != null && photoUrl.isNotEmpty)
+                          ? NetworkImage(photoUrl)
+                          : null,
+                      child: (photoUrl == null || photoUrl.isEmpty)
+                          ? Icon(
+                        Icons.person_rounded,
+                        color: AppColors.primary,
+                        size: 28,
+                      )
+                          : null,
+                    ),
+                  ),
 
-              const SizedBox(width: 8),
+                  const SizedBox(width: 14),
 
-              Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 14,
-                color: secondaryText.withValues(alpha: 0.55),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.outfit(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: primaryText,
+                          ),
+                        ),
+                        if (email.isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            email,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(
+                              fontSize: 11.5,
+                              fontWeight: FontWeight.w500,
+                              color: secondaryText,
+                            ),
+                          ),
+                        ],
+                        const SizedBox(height: 6),
+                        Text(
+                          'Редактировать профиль',
+                          style: GoogleFonts.inter(
+                            fontSize: 11.5,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(width: 8),
+
+                  Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 14,
+                    color: secondaryText.withValues(alpha: 0.55),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
@@ -1074,13 +1075,26 @@ class _ThemeTile extends StatelessWidget {
         return _SettingsTile(
           icon: _themeIcon(controller.mode),
           title: l10n.theme,
-          subtitle: controller.themeLabel,
-          gradient: AppColors.levelGradient,
+          subtitle: _localizedThemeLabel(controller.mode, l10n),          gradient: AppColors.levelGradient,
           isDark: isDark,
           onTap: () => _showThemeSheet(context, controller),
         );
       },
     );
+
+  }
+  String _localizedThemeLabel(
+      AppThemeMode mode,
+      AppLocalizations l10n,
+      ) {
+    switch (mode) {
+      case AppThemeMode.system:
+        return l10n.systemThemeLabel;
+      case AppThemeMode.light:
+        return l10n.lightTheme;
+      case AppThemeMode.dark:
+        return l10n.darkTheme;
+    }
   }
 
   ThemeController _findThemeController(BuildContext context) {
@@ -1343,6 +1357,7 @@ class _SwitchAccountButton extends StatelessWidget {
 
   Future<void> _openAuthScreen(BuildContext context) async {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context)!;
 
     final confirmed = await showDialog<bool>(
       context: context,
@@ -1381,7 +1396,7 @@ class _SwitchAccountButton extends StatelessWidget {
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'Войти в другой аккаунт?',
+                  l10n.switchAccountTitle,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.outfit(
                     fontSize: 21,
@@ -1394,8 +1409,7 @@ class _SwitchAccountButton extends StatelessWidget {
                 ),
                 const SizedBox(height: 9),
                 Text(
-                  'Откроется страница входа, где ты '
-                      'сможешь войти в другой аккаунт.',
+                  l10n.switchAccountBody,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.inter(
                     fontSize: 12.5,
@@ -1429,7 +1443,7 @@ class _SwitchAccountButton extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Отмена',
+                            l10n.cancel,
                             style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: FontWeight.w700,
@@ -1455,7 +1469,7 @@ class _SwitchAccountButton extends StatelessWidget {
                             ),
                           ),
                           child: Text(
-                            'Продолжить',
+                            l10n.continueAction,
                             style: GoogleFonts.inter(
                               fontSize: 13,
                               fontWeight: FontWeight.w800,
@@ -1487,7 +1501,7 @@ class _SwitchAccountButton extends StatelessWidget {
     isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight;
     final secondaryText =
     isDark ? AppColors.textSecondaryDark : AppColors.textSecondaryLight;
-
+    final l10n = AppLocalizations.of(context)!;
     return SizedBox(
       width: double.infinity,
       height: 66,
@@ -1546,7 +1560,7 @@ class _SwitchAccountButton extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Войти в другой аккаунт',
+                          l10n.signInToAnotherAccount,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.inter(
@@ -1557,7 +1571,7 @@ class _SwitchAccountButton extends StatelessWidget {
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          'Открыть страницу входа',
+                          l10n.openSignInPage,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.inter(

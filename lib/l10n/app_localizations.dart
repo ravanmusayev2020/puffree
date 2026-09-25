@@ -2924,6 +2924,612 @@ abstract class AppLocalizations {
   /// **'Social sign-in failed.'**
   String get authErrorSocial;
 
+  /// No description provided for @profileYourProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Your profile'**
+  String get profileYourProfile;
+
+  /// No description provided for @profileEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get profileEdit;
+
+  /// No description provided for @switchAccountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to another account?'**
+  String get switchAccountTitle;
+
+  /// No description provided for @switchAccountBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The login page will open where you can sign in to another account.'**
+  String get switchAccountBody;
+
+  /// No description provided for @switchAccountButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to another account'**
+  String get switchAccountButton;
+
+  /// No description provided for @switchAccountSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Open login page'**
+  String get switchAccountSubtitle;
+
+  /// No description provided for @continueAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueAction;
+
+  /// No description provided for @logoutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out?'**
+  String get logoutTitle;
+
+  /// No description provided for @logoutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to sign out of your account?'**
+  String get logoutBody;
+
+  /// No description provided for @logoutButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get logoutButton;
+
+  /// No description provided for @premiumBrand.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree Premium'**
+  String get premiumBrand;
+
+  /// No description provided for @motStartJourney.
+  ///
+  /// In en, this message translates to:
+  /// **'Today begins your new journey. One step already matters.'**
+  String get motStartJourney;
+
+  /// No description provided for @motMilestone1.
+  ///
+  /// In en, this message translates to:
+  /// **'Your first day. You took the first big step. Keep going.'**
+  String get motMilestone1;
+
+  /// No description provided for @motMilestone3.
+  ///
+  /// In en, this message translates to:
+  /// **'Three days. That is worth celebrating. You are staying on course.'**
+  String get motMilestone3;
+
+  /// No description provided for @motMilestone7.
+  ///
+  /// In en, this message translates to:
+  /// **'A full week. Seven days of choosing yourself.'**
+  String get motMilestone7;
+
+  /// No description provided for @motMilestone10.
+  ///
+  /// In en, this message translates to:
+  /// **'10 days. You have already built serious momentum.'**
+  String get motMilestone10;
+
+  /// No description provided for @motMilestone14.
+  ///
+  /// In en, this message translates to:
+  /// **'Two weeks. You have made it through an important part of the journey.'**
+  String get motMilestone14;
+
+  /// No description provided for @motMilestone21.
+  ///
+  /// In en, this message translates to:
+  /// **'21 days. You are proving that your habits can change.'**
+  String get motMilestone21;
+
+  /// No description provided for @motMilestone30.
+  ///
+  /// In en, this message translates to:
+  /// **'30 days. A full month of new decisions. That is a big achievement.'**
+  String get motMilestone30;
+
+  /// No description provided for @motMilestone45.
+  ///
+  /// In en, this message translates to:
+  /// **'45 days. A month and a half of moving forward.'**
+  String get motMilestone45;
+
+  /// No description provided for @motMilestone60.
+  ///
+  /// In en, this message translates to:
+  /// **'60 days. Two months of consistency. That is powerful.'**
+  String get motMilestone60;
+
+  /// No description provided for @motMilestone90.
+  ///
+  /// In en, this message translates to:
+  /// **'90 days. Three months. Look how far you have come.'**
+  String get motMilestone90;
+
+  /// No description provided for @motMilestone120.
+  ///
+  /// In en, this message translates to:
+  /// **'120 days. You keep choosing your path every day.'**
+  String get motMilestone120;
+
+  /// No description provided for @motMilestone180.
+  ///
+  /// In en, this message translates to:
+  /// **'Six months. 180 days of consistency. That is seriously impressive.'**
+  String get motMilestone180;
+
+  /// No description provided for @motMilestone270.
+  ///
+  /// In en, this message translates to:
+  /// **'270 days. You have created a huge distance from your old habit.'**
+  String get motMilestone270;
+
+  /// No description provided for @motMilestone365.
+  ///
+  /// In en, this message translates to:
+  /// **'One year. 365 days of your journey. This is consistency, not luck.'**
+  String get motMilestone365;
+
+  /// No description provided for @motFirstWeek1.
+  ///
+  /// In en, this message translates to:
+  /// **'Today, you only need to take the next step.'**
+  String get motFirstWeek1;
+
+  /// No description provided for @motFirstWeek2.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have to finish the whole journey today. Just keep going.'**
+  String get motFirstWeek2;
+
+  /// No description provided for @motFirstWeek3.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day is its own win. Today is yours.'**
+  String get motFirstWeek3;
+
+  /// No description provided for @motFirstWeek4.
+  ///
+  /// In en, this message translates to:
+  /// **'A difficult moment does not erase your progress.'**
+  String get motFirstWeek4;
+
+  /// No description provided for @motFirstWeek5.
+  ///
+  /// In en, this message translates to:
+  /// **'You already started. Now give yourself a chance to continue.'**
+  String get motFirstWeek5;
+
+  /// No description provided for @motFirstWeek6.
+  ///
+  /// In en, this message translates to:
+  /// **'One day at a time. That is how big changes are built.'**
+  String get motFirstWeek6;
+
+  /// No description provided for @motFirstWeek7.
+  ///
+  /// In en, this message translates to:
+  /// **'You keep choosing yourself. That matters.'**
+  String get motFirstWeek7;
+
+  /// No description provided for @motSecondWeek1.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not where you started anymore. Keep moving.'**
+  String get motSecondWeek1;
+
+  /// No description provided for @motSecondWeek2.
+  ///
+  /// In en, this message translates to:
+  /// **'Two weeks are closer than they seem. Keep your rhythm.'**
+  String get motSecondWeek2;
+
+  /// No description provided for @motSecondWeek3.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress is built from small decisions.'**
+  String get motSecondWeek3;
+
+  /// No description provided for @motSecondWeek4.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not wait for a perfect day. Create the next good one.'**
+  String get motSecondWeek4;
+
+  /// No description provided for @motSecondWeek5.
+  ///
+  /// In en, this message translates to:
+  /// **'You can get through a difficult craving and return to your plan.'**
+  String get motSecondWeek5;
+
+  /// No description provided for @motSecondWeek6.
+  ///
+  /// In en, this message translates to:
+  /// **'Every new day builds more confidence.'**
+  String get motSecondWeek6;
+
+  /// No description provided for @motSecondWeek7.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already proven that you can handle difficult moments.'**
+  String get motSecondWeek7;
+
+  /// No description provided for @motFirstMonth1.
+  ///
+  /// In en, this message translates to:
+  /// **'You are building a new habit one step at a time.'**
+  String get motFirstMonth1;
+
+  /// No description provided for @motFirstMonth2.
+  ///
+  /// In en, this message translates to:
+  /// **'Your past does not define today’s choice.'**
+  String get motFirstMonth2;
+
+  /// No description provided for @motFirstMonth3.
+  ///
+  /// In en, this message translates to:
+  /// **'Thirty days begin with one decision: keep going.'**
+  String get motFirstMonth3;
+
+  /// No description provided for @motFirstMonth4.
+  ///
+  /// In en, this message translates to:
+  /// **'Confidence grows through many consistent days.'**
+  String get motFirstMonth4;
+
+  /// No description provided for @motFirstMonth5.
+  ///
+  /// In en, this message translates to:
+  /// **'Every new day adds another page to your story.'**
+  String get motFirstMonth5;
+
+  /// No description provided for @motFirstMonth6.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress belongs to you. Nobody can take it away.'**
+  String get motFirstMonth6;
+
+  /// No description provided for @motFirstMonth7.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already come far enough to be proud of yourself.'**
+  String get motFirstMonth7;
+
+  /// No description provided for @motFirstMonth8.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going calmly. Big changes do not require rushing.'**
+  String get motFirstMonth8;
+
+  /// No description provided for @motSecondMonth1.
+  ///
+  /// In en, this message translates to:
+  /// **'Two months is no longer a coincidence.'**
+  String get motSecondMonth1;
+
+  /// No description provided for @motSecondMonth2.
+  ///
+  /// In en, this message translates to:
+  /// **'You are turning intention into consistency.'**
+  String get motSecondMonth2;
+
+  /// No description provided for @motSecondMonth3.
+  ///
+  /// In en, this message translates to:
+  /// **'Your strength is in the decisions you make every day.'**
+  String get motSecondMonth3;
+
+  /// No description provided for @motSecondMonth4.
+  ///
+  /// In en, this message translates to:
+  /// **'You already know you can handle difficult moments.'**
+  String get motSecondMonth4;
+
+  /// No description provided for @motSecondMonth5.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep building the life you want to live.'**
+  String get motSecondMonth5;
+
+  /// No description provided for @motSecondMonth6.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day away from the old habit is another step forward.'**
+  String get motSecondMonth6;
+
+  /// No description provided for @motSecondMonth7.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not competing with anyone. This path is yours.'**
+  String get motSecondMonth7;
+
+  /// No description provided for @motSecondMonth8.
+  ///
+  /// In en, this message translates to:
+  /// **'Look back at day one. The progress is real.'**
+  String get motSecondMonth8;
+
+  /// No description provided for @motThirdMonth1.
+  ///
+  /// In en, this message translates to:
+  /// **'Three months is serious distance. And you are still moving.'**
+  String get motThirdMonth1;
+
+  /// No description provided for @motThirdMonth2.
+  ///
+  /// In en, this message translates to:
+  /// **'You have created a new starting point for yourself.'**
+  String get motThirdMonth2;
+
+  /// No description provided for @motThirdMonth3.
+  ///
+  /// In en, this message translates to:
+  /// **'Consistency is stronger than motivation. You are proving it.'**
+  String get motThirdMonth3;
+
+  /// No description provided for @motThirdMonth4.
+  ///
+  /// In en, this message translates to:
+  /// **'You keep choosing what matters to you.'**
+  String get motThirdMonth4;
+
+  /// No description provided for @motThirdMonth5.
+  ///
+  /// In en, this message translates to:
+  /// **'With every day, the old pattern becomes less important.'**
+  String get motThirdMonth5;
+
+  /// No description provided for @motThirdMonth6.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not waiting for the right moment. You are creating it.'**
+  String get motThirdMonth6;
+
+  /// No description provided for @motThirdMonth7.
+  ///
+  /// In en, this message translates to:
+  /// **'90 days is a story made of many small wins.'**
+  String get motThirdMonth7;
+
+  /// No description provided for @motThirdMonth8.
+  ///
+  /// In en, this message translates to:
+  /// **'You have come a long way. Keep building on it.'**
+  String get motThirdMonth8;
+
+  /// No description provided for @motLongTerm1.
+  ///
+  /// In en, this message translates to:
+  /// **'You are far from where you started. Keep going.'**
+  String get motLongTerm1;
+
+  /// No description provided for @motLongTerm2.
+  ///
+  /// In en, this message translates to:
+  /// **'Freedom starts with a choice and grows through daily decisions.'**
+  String get motLongTerm2;
+
+  /// No description provided for @motLongTerm3.
+  ///
+  /// In en, this message translates to:
+  /// **'Your result is the sum of every day you kept going.'**
+  String get motLongTerm3;
+
+  /// No description provided for @motLongTerm4.
+  ///
+  /// In en, this message translates to:
+  /// **'You have created a distance you may once have thought impossible.'**
+  String get motLongTerm4;
+
+  /// No description provided for @motLongTerm5.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember why you started.'**
+  String get motLongTerm5;
+
+  /// No description provided for @motLongTerm6.
+  ///
+  /// In en, this message translates to:
+  /// **'Every new day makes your story stronger.'**
+  String get motLongTerm6;
+
+  /// No description provided for @motLongTerm7.
+  ///
+  /// In en, this message translates to:
+  /// **'You are not going backward. You are moving forward.'**
+  String get motLongTerm7;
+
+  /// No description provided for @motLongTerm8.
+  ///
+  /// In en, this message translates to:
+  /// **'What once felt difficult is now part of your journey.'**
+  String get motLongTerm8;
+
+  /// No description provided for @motLongTerm9.
+  ///
+  /// In en, this message translates to:
+  /// **'You have already proven something important: change is possible.'**
+  String get motLongTerm9;
+
+  /// No description provided for @motLongTerm10.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep living at your new rhythm.'**
+  String get motLongTerm10;
+
+  /// No description provided for @motLevelDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'New level. You keep moving forward.'**
+  String get motLevelDefault;
+
+  /// No description provided for @motLevel1.
+  ///
+  /// In en, this message translates to:
+  /// **'The journey has begun. The most important thing is taking the first step.'**
+  String get motLevel1;
+
+  /// No description provided for @motLevel2.
+  ///
+  /// In en, this message translates to:
+  /// **'The seed is growing. Protect your progress every day.'**
+  String get motLevel2;
+
+  /// No description provided for @motLevel3.
+  ///
+  /// In en, this message translates to:
+  /// **'You are growing. Small decisions create big changes.'**
+  String get motLevel3;
+
+  /// No description provided for @motLevel4.
+  ///
+  /// In en, this message translates to:
+  /// **'Your roots are getting stronger. Keep building your foundation.'**
+  String get motLevel4;
+
+  /// No description provided for @motLevel5.
+  ///
+  /// In en, this message translates to:
+  /// **'You are becoming more confident. Keep your momentum.'**
+  String get motLevel5;
+
+  /// No description provided for @motLevel6.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength grows when you keep going through difficult moments.'**
+  String get motLevel6;
+
+  /// No description provided for @motLevel7.
+  ///
+  /// In en, this message translates to:
+  /// **'Your determination is becoming part of your story.'**
+  String get motLevel7;
+
+  /// No description provided for @motLevel8.
+  ///
+  /// In en, this message translates to:
+  /// **'The spark has become steady forward movement.'**
+  String get motLevel8;
+
+  /// No description provided for @motLevel9.
+  ///
+  /// In en, this message translates to:
+  /// **'You have come a long way. Give yourself credit.'**
+  String get motLevel9;
+
+  /// No description provided for @motLevel10.
+  ///
+  /// In en, this message translates to:
+  /// **'Level ten. You already understand the power of consistency.'**
+  String get motLevel10;
+
+  /// No description provided for @motLevel11.
+  ///
+  /// In en, this message translates to:
+  /// **'You keep growing even when the path gets difficult.'**
+  String get motLevel11;
+
+  /// No description provided for @motLevel12.
+  ///
+  /// In en, this message translates to:
+  /// **'You have become an example to yourself. Keep going.'**
+  String get motLevel12;
+
+  /// No description provided for @motLevel13.
+  ///
+  /// In en, this message translates to:
+  /// **'You have built serious momentum. Now protect your direction.'**
+  String get motLevel13;
+
+  /// No description provided for @motLevel14.
+  ///
+  /// In en, this message translates to:
+  /// **'Legendary level. Look at how far you have come.'**
+  String get motLevel14;
+
+  /// No description provided for @motShort1.
+  ///
+  /// In en, this message translates to:
+  /// **'Today is another step.'**
+  String get motShort1;
+
+  /// No description provided for @motShort2.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep moving forward.'**
+  String get motShort2;
+
+  /// No description provided for @motShort3.
+  ///
+  /// In en, this message translates to:
+  /// **'You are doing it.'**
+  String get motShort3;
+
+  /// No description provided for @motShort4.
+  ///
+  /// In en, this message translates to:
+  /// **'Your progress matters.'**
+  String get motShort4;
+
+  /// No description provided for @motShort5.
+  ///
+  /// In en, this message translates to:
+  /// **'Do not let one difficult moment define the day.'**
+  String get motShort5;
+
+  /// No description provided for @motShort6.
+  ///
+  /// In en, this message translates to:
+  /// **'You are stronger than your old habit.'**
+  String get motShort6;
+
+  /// No description provided for @motShort7.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the next step.'**
+  String get motShort7;
+
+  /// No description provided for @motShort8.
+  ///
+  /// In en, this message translates to:
+  /// **'You already started. Keep going.'**
+  String get motShort8;
+
+  /// No description provided for @motShort9.
+  ///
+  /// In en, this message translates to:
+  /// **'Today’s choice matters.'**
+  String get motShort9;
+
+  /// No description provided for @motShort10.
+  ///
+  /// In en, this message translates to:
+  /// **'One day at a time.'**
+  String get motShort10;
+
+  /// No description provided for @motShort11.
+  ///
+  /// In en, this message translates to:
+  /// **'You can do more than you think.'**
+  String get motShort11;
+
+  /// No description provided for @motShort12.
+  ///
+  /// In en, this message translates to:
+  /// **'Your journey belongs to you.'**
+  String get motShort12;
+
   /// No description provided for @profileEditErrorPhotoNotFound.
   ///
   /// In en, this message translates to:
@@ -3109,6 +3715,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'This is a one-time purchase and does not renew automatically. The price is shown before purchase confirmation.'**
   String get legalLifetime;
+
+  /// Support email shown on legal pages — replace with your real address
+  ///
+  /// In en, this message translates to:
+  /// **'support@puffreeapp.com'**
+  String get legalContactEmail;
+
+  /// No description provided for @privacyPolicyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicyTitle;
+
+  /// No description provided for @privacyPolicyLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated: January 2026'**
+  String get privacyPolicyLastUpdated;
+
+  /// No description provided for @privacyPolicyIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree (\"we\", \"our\", \"the app\") helps you track and stay motivated on your journey to quit smoking. This policy explains what information we collect, how we use it, and the choices you have.'**
+  String get privacyPolicyIntro;
+
+  /// No description provided for @privacySection1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Information We Collect'**
+  String get privacySection1Title;
+
+  /// No description provided for @privacySection1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Account details you provide when you sign in (email address, display name, and profile photo), or an anonymous identifier if you use the app without an account. We also store the smoke-free data you enter yourself, such as your quit date, cigarettes per day, cost per pack, and cravings you log.'**
+  String get privacySection1Body;
+
+  /// No description provided for @privacySection2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'How We Use Your Information'**
+  String get privacySection2Title;
+
+  /// No description provided for @privacySection2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'To calculate your streak, health milestones, and money saved; to sync your progress across devices; to send optional motivational reminders and notifications; to process Premium subscription purchases; and to diagnose crashes and improve the app.'**
+  String get privacySection2Body;
+
+  /// No description provided for @privacySection3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Data Storage & Security'**
+  String get privacySection3Title;
+
+  /// No description provided for @privacySection3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data is stored using Firebase (Google Cloud) with encryption in transit. We apply reasonable technical and organizational safeguards, but no method of storage or transmission over the internet is completely secure.'**
+  String get privacySection3Body;
+
+  /// No description provided for @privacySection4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Third-Party Services'**
+  String get privacySection4Title;
+
+  /// No description provided for @privacySection4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We use Firebase Authentication and Cloud Firestore to manage accounts and sync data, and the Apple App Store or Google Play billing systems to process Premium subscriptions. We do not sell your personal information to third parties.'**
+  String get privacySection4Body;
+
+  /// No description provided for @privacySection5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Choices & Rights'**
+  String get privacySection5Title;
+
+  /// No description provided for @privacySection5Body.
+  ///
+  /// In en, this message translates to:
+  /// **'You can review or edit your profile at any time, reset your local progress from Settings, disable push notifications in your device settings, and request access to, correction of, or deletion of your data by contacting us.'**
+  String get privacySection5Body;
+
+  /// No description provided for @privacySection6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Children\'s Privacy'**
+  String get privacySection6Title;
+
+  /// No description provided for @privacySection6Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree is not directed at children under 13 (or under 16 in the EU), and we do not knowingly collect personal information from them. If you believe a child has provided us data, please contact us so we can delete it.'**
+  String get privacySection6Body;
+
+  /// No description provided for @privacySection7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Health Disclaimer'**
+  String get privacySection7Title;
+
+  /// No description provided for @privacySection7Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree is a habit-tracking tool designed to support your smoke-free journey. It is not a medical device and does not provide medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional about quitting smoking.'**
+  String get privacySection7Body;
+
+  /// No description provided for @privacySection8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes & Contact'**
+  String get privacySection8Title;
+
+  /// No description provided for @privacySection8Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We may update this policy from time to time; significant changes will be announced in the app. If you have questions about this policy or your data, please reach out using the contact details below.'**
+  String get privacySection8Body;
+
+  /// No description provided for @termsOfUseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of Use'**
+  String get termsOfUseTitle;
+
+  /// No description provided for @termsOfUseLastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated: January 2026'**
+  String get termsOfUseLastUpdated;
+
+  /// No description provided for @termsOfUseIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'These Terms of Use govern your access to and use of Puffree. By creating an account or using the app, you agree to these terms. If you do not agree, please do not use the app.'**
+  String get termsOfUseIntro;
+
+  /// No description provided for @termsSection1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptance of Terms'**
+  String get termsSection1Title;
+
+  /// No description provided for @termsSection1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'By downloading, installing, or using Puffree, you confirm that you accept these Terms of Use and our Privacy Policy, and that you have the legal capacity to enter into this agreement.'**
+  String get termsSection1Body;
+
+  /// No description provided for @termsSection2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Description of Service'**
+  String get termsSection2Title;
+
+  /// No description provided for @termsSection2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree is a habit-tracking and motivation app that helps you monitor progress after quitting smoking, including streaks, health milestones, money saved, and craving logs. It is a personal wellness tool, not a medical or clinical service.'**
+  String get termsSection2Body;
+
+  /// No description provided for @termsSection3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Eligibility & Accounts'**
+  String get termsSection3Title;
+
+  /// No description provided for @termsSection3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be at least 13 years old (or the minimum age of digital consent in your country) to use Puffree. You are responsible for maintaining the confidentiality of your account and for all activity that occurs under it.'**
+  String get termsSection3Body;
+
+  /// No description provided for @termsSection4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Subscriptions & Billing'**
+  String get termsSection4Title;
+
+  /// No description provided for @termsSection4Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium features are offered as an auto-renewing subscription billed through the Apple App Store or Google Play. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period, and refunds are handled according to the relevant store\'s policy.'**
+  String get termsSection4Body;
+
+  /// No description provided for @termsSection5Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Health & Medical Disclaimer'**
+  String get termsSection5Title;
+
+  /// No description provided for @termsSection5Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree does not provide medical advice and is not a substitute for professional care. Quitting smoking can involve withdrawal symptoms; please consult a doctor or licensed healthcare provider before making decisions about your health.'**
+  String get termsSection5Body;
+
+  /// No description provided for @termsSection6Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptable Use'**
+  String get termsSection6Title;
+
+  /// No description provided for @termsSection6Body.
+  ///
+  /// In en, this message translates to:
+  /// **'You agree not to misuse the app, attempt to reverse-engineer or disrupt its services, upload unlawful or harmful content, or use the app in any way that violates applicable laws or the rights of others.'**
+  String get termsSection6Body;
+
+  /// No description provided for @termsSection7Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Disclaimer & Limitation of Liability'**
+  String get termsSection7Title;
+
+  /// No description provided for @termsSection7Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Puffree is provided \"as is\" without warranties of any kind. To the maximum extent permitted by law, we are not liable for any indirect, incidental, or consequential damages arising from your use of the app.'**
+  String get termsSection7Body;
+
+  /// No description provided for @termsSection8Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Changes to These Terms & Contact'**
+  String get termsSection8Title;
+
+  /// No description provided for @termsSection8Body.
+  ///
+  /// In en, this message translates to:
+  /// **'We may update these Terms from time to time; continued use of the app after changes take effect constitutes acceptance of the revised Terms. Questions can be sent to the contact address below.'**
+  String get termsSection8Body;
+
+  /// No description provided for @systemThemeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get systemThemeLabel;
+
+  /// No description provided for @notificationsEnabledLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications enabled'**
+  String get notificationsEnabledLabel;
+
+  /// No description provided for @notificationsDisabledLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications disabled'**
+  String get notificationsDisabledLabel;
+
+  /// No description provided for @signInToAnotherAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to another account'**
+  String get signInToAnotherAccount;
+
+  /// No description provided for @openSignInPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Open sign-in page'**
+  String get openSignInPage;
+
+  /// No description provided for @securePayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Pago seguro'**
+  String get securePayment;
 }
 
 class _AppLocalizationsDelegate

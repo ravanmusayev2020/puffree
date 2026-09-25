@@ -200,7 +200,7 @@ class _HomeBody extends StatelessWidget {
     final money = CurrencyOption.formatPrice(
       progress.moneySaved,
       code: progress.currencyCode,
-      locale: ru ? 'ru' : 'en',
+      locale: ru ? 'ru' : 'en' ,
     );
 
     return Stack(
@@ -247,12 +247,12 @@ class _HomeBody extends StatelessWidget {
                 isDark,
                 ru,
               ),
-              const SizedBox(height: 20),
+              /*const SizedBox(height: 20),
               _buildMotivation(
                 state,
                 l10n,
                 isDark,
-              ),
+              ),*/
               const SizedBox(height: 20),
               _buildPremium(
                 context,
@@ -394,10 +394,10 @@ class _HomeBody extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 14),
-        _ProfileAvatar(
+        /*_ProfileAvatar(
           photoUrl: photoUrl,
           isDark: isDark,
-        ),
+        ),*/
       ],
     ).animate().fadeIn(
       duration: 450.ms,

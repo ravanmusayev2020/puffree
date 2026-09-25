@@ -61,12 +61,16 @@ class _AuthScreenState extends State<AuthScreen> {
           _emailController.text.trim(),
           _passwordController.text,
         );
+        if (!mounted) return;
+        Navigator.of(context).pop(true); // ← ВАЖНО
       } else if (_mode == AuthMode.register) {
         await _authService.signUpWithEmail(
           name: _nameController.text.trim(),
           email: _emailController.text.trim(),
           password: _passwordController.text,
         );
+        if (!mounted) return;
+        Navigator.of(context).pop(true); // ← ВАЖНО
       } else if (_mode == AuthMode.forgotPassword) {
         await _authService.sendPasswordResetEmail(_emailController.text.trim());
         _showSuccessSnackBar(l10n.authResetLinkSent);
@@ -79,12 +83,22 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
-  Future<void> _handleSocialAuth(Future<void> Function() authMethod) async {
+  Future<void> _handleSocialAuth(
+      Future<dynamic> Function() authMethod,
+      ) async {
     final l10n = AppLocalizations.of(context)!;
     setState(() => _isLoading = true);
+
     try {
-      await authMethod();
+      final result = await authMethod();
+
+      // Пользователь отменил (Apple/Google вернули null)
+      if (result == null) return;
+
+      if (!mounted) return;
+      Navigator.of(context).pop(true); // ← ВАЖНО: закрываем AuthScreen
     } catch (e) {
+      debugPrint('Social auth error: $e');
       _showErrorSnackBar(l10n.authErrorSocial);
     } finally {
       if (mounted) setState(() => _isLoading = false);
@@ -121,7 +135,20 @@ class _AuthScreenState extends State<AuthScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
+
       backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: _isLoading ? null : () => Navigator.of(context).pop(),
+          icon: Icon(
+            Iconsax.arrow_left,
+            color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimaryLight,
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           // Background orbs

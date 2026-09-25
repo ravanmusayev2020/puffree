@@ -1471,6 +1471,309 @@ class AppLocalizationsJa extends AppLocalizations {
   String get authErrorSocial => 'ソーシャルログインに失敗しました。';
 
   @override
+  String get profileYourProfile => 'あなたのプロフィール';
+
+  @override
+  String get profileEdit => 'プロフィールを編集';
+
+  @override
+  String get switchAccountTitle => '別のアカウントでログインしますか？';
+
+  @override
+  String get switchAccountBody => 'ログインページが開き、別のアカウントでログインできます。';
+
+  @override
+  String get switchAccountButton => '別のアカウントでログイン';
+
+  @override
+  String get switchAccountSubtitle => 'ログインページを開く';
+
+  @override
+  String get continueAction => '続行';
+
+  @override
+  String get logoutTitle => 'ログアウトしますか？';
+
+  @override
+  String get logoutBody => '本当にアカウントからログアウトしますか？';
+
+  @override
+  String get logoutButton => 'ログアウト';
+
+  @override
+  String get premiumBrand => 'Puffree Premium';
+
+  @override
+  String get motStartJourney => '今日、あなたの新しい道が始まります。一歩踏み出したこと自体が大きな価値です。';
+
+  @override
+  String get motMilestone1 => '最初の1日。大きな一歩を踏み出しましたね。そのまま進みましょう。';
+
+  @override
+  String get motMilestone3 => '3日達成。お祝いしましょう。正しいコースを進んでいます。';
+
+  @override
+  String get motMilestone7 => '丸1週間。自分自身のための決断を続けた7日間です。';
+
+  @override
+  String get motMilestone10 => '10日達成。自信の大きな土台ができました。';
+
+  @override
+  String get motMilestone14 => '2週間。道のりの大切な部分を乗り越えました。もっと強くなれます。';
+
+  @override
+  String get motMilestone21 => '21日達成。習慣を変える力があることを証明しています。';
+
+  @override
+  String get motMilestone30 => '30日達成。新しい選択で満たされた丸1ヶ月。素晴らしい成果です。';
+
+  @override
+  String get motMilestone45 => '45日達成。1ヶ月半、たゆまぬ前進を続けています。';
+
+  @override
+  String get motMilestone60 => '60日達成。2ヶ月間の継続。力強い結果です。';
+
+  @override
+  String get motMilestone90 => '90日達成。3ヶ月。自分がどれほど遠くまで来たか振り返ってみてください。';
+
+  @override
+  String get motMilestone120 => '120日達成。毎日、自分の道を選び続けています。';
+
+  @override
+  String get motMilestone180 => '半年。180日間の継続。本当に素晴らしいことです。';
+
+  @override
+  String get motMilestone270 => '270日達成。古い習慣との間に大きな距離を作ることができました。';
+
+  @override
+  String get motMilestone365 => '1年達成。365日の歩み。これは偶然ではなく、あなたの継続の力です。';
+
+  @override
+  String get motFirstWeek1 => '今日は次の1歩を踏み出すだけで十分です。';
+
+  @override
+  String get motFirstWeek2 => '今日中にすべての道のりを歩む必要はありません。ただ続けましょう。';
+
+  @override
+  String get motFirstWeek3 => '毎日が1つの勝利です。今日はあなたの勝ちです。';
+
+  @override
+  String get motFirstWeek4 => 'つらい瞬間があっても、これまでの進歩が消えるわけではありません。';
+
+  @override
+  String get motFirstWeek5 => 'すでにスタートを切りました。自分に続けるチャンスを与えましょう。';
+
+  @override
+  String get motFirstWeek6 => '1日1日の積み重ね。大きな変化はそうして作られます。';
+
+  @override
+  String get motFirstWeek7 => 'あなたは何度も自分自身を選んでいます。それが何より大切です。';
+
+  @override
+  String get motSecondWeek1 => 'もうスタート地点にはいません。前へ進みましょう。';
+
+  @override
+  String get motSecondWeek2 => '2週間は思ったよりすぐそこです。自分のリズムを保ちましょう。';
+
+  @override
+  String get motSecondWeek3 => 'あなたの進歩は、毎日の小さな決断から作られます。';
+
+  @override
+  String get motSecondWeek4 => '完璧な日を探す必要はありません。今日という日を良い日にしましょう。';
+
+  @override
+  String get motSecondWeek5 => '欲求の波を乗り越えて、計画に戻る力があなたにはあります。';
+
+  @override
+  String get motSecondWeek6 => '新しい一日を迎えるたびに、自信が深まります。';
+
+  @override
+  String get motSecondWeek7 => '困難な瞬間を乗り越えられることを、あなたはすでに証明しました。';
+
+  @override
+  String get motFirstMonth1 => '一歩一歩、新しい習慣を作り上げています。';
+
+  @override
+  String get motFirstMonth2 => '過去が今日の選択を決めるわけではありません。';
+
+  @override
+  String get motFirstMonth3 => '30日も「続ける」という1つの決意から始まります。';
+
+  @override
+  String get motFirstMonth4 => '自信は1日ではなく、継続する日々によって育まれます。';
+
+  @override
+  String get motFirstMonth5 => '新しい1日が、あなたの物語に新しい1ページを加えます。';
+
+  @override
+  String get motFirstMonth6 => 'あなたの進歩はあなたのものです。誰も奪うことはできません。';
+
+  @override
+  String get motFirstMonth7 => '自分を誇りに思うのに十分なほど、あなたは歩んできました。';
+
+  @override
+  String get motFirstMonth8 => '落ち着いて進みましょう。大きな変化に焦りは禁物です。';
+
+  @override
+  String get motSecondMonth1 => '2ヶ月の継続は、もう偶然ではありません。';
+
+  @override
+  String get motSecondMonth2 => '意思を確かな習慣へと変えています。';
+
+  @override
+  String get motSecondMonth3 => 'あなたの強さは、毎日下す決断の中にあります。';
+
+  @override
+  String get motSecondMonth4 => '困難な瞬間も乗り越えられることを、あなたはもう知っています。';
+
+  @override
+  String get motSecondMonth5 => 'あなたが望む人生を、これからも築いていきましょう。';
+
+  @override
+  String get motSecondMonth6 => '古い習慣なしで過ごす毎日は、前進への1歩です。';
+
+  @override
+  String get motSecondMonth7 => '誰かと競う必要はありません。これはあなただけの道です。';
+
+  @override
+  String get motSecondMonth8 => '初日と今の自分を比べてみてください。進歩は明らかです。';
+
+  @override
+  String get motThirdMonth1 => '3ヶ月という大きな節目。そしてあなたは今も進んでいます。';
+
+  @override
+  String get motThirdMonth2 => '自分の中に新しいスタート地点を作りました。';
+
+  @override
+  String get motThirdMonth3 => '継続はモチベーションよりも強力です。それを証明していますね。';
+
+  @override
+  String get motThirdMonth4 => '自分にとって本当に大切なものを選択し続けています。';
+
+  @override
+  String get motThirdMonth5 => '日が経つにつれて、古い習慣は意味を失っていきます。';
+
+  @override
+  String get motThirdMonth6 => '適切な瞬間を待つのではなく、自分で作っているのです。';
+
+  @override
+  String get motThirdMonth7 => '90日は、たくさんの小さな勝利で紡がれた物語です。';
+
+  @override
+  String get motThirdMonth8 => '遠くまで来ました。ここで立ち止まらず進みましょう。';
+
+  @override
+  String get motLongTerm1 => 'スタート地点からはるか遠くまで来ました。進み続けましょう。';
+
+  @override
+  String get motLongTerm2 => '自由は選択から始まり、毎日の決断によって育まれます。';
+
+  @override
+  String get motLongTerm3 => 'あなたの成果は、あきらめずに継続した毎日の積み重ねです。';
+
+  @override
+  String get motLongTerm4 => 'かつては想像もできなかったほどの距離を歩んできました。';
+
+  @override
+  String get motLongTerm5 => '始めた理由を忘れないでください。';
+
+  @override
+  String get motLongTerm6 => '新しい一日ごとに、あなたの物語はより強くなります。';
+
+  @override
+  String get motLongTerm7 => '後ろを振り向く必要はありません。前だけを見て進みましょう。';
+
+  @override
+  String get motLongTerm8 => 'かつて難しく思えたことが、今ではあなたの歩みの一部になりました。';
+
+  @override
+  String get motLongTerm9 => '一番大切なことを自分自身に証明しました。「変化は可能だ」と。';
+
+  @override
+  String get motLongTerm10 => '新しいリズムで、自分らしく歩み続けましょう。';
+
+  @override
+  String get motLevelDefault => '新しいレベルです。前進を続けていますね。';
+
+  @override
+  String get motLevel1 => '旅が始まりました。最も大切なのは最初の一歩を踏み出すことです。';
+
+  @override
+  String get motLevel2 => '芽が出ました。毎日の進歩を大切に育てましょう。';
+
+  @override
+  String get motLevel3 => '成長しています。小さな決断が大きな変化を生み出します。';
+
+  @override
+  String get motLevel4 => '根がしっかり張ってきました。土台を作り続けましょう。';
+
+  @override
+  String get motLevel5 => '自信がついてきました。このペースを維持しましょう。';
+
+  @override
+  String get motLevel6 => '困難に負けず継続するとき、本当の強さが生まれます。';
+
+  @override
+  String get motLevel7 => 'あなたの決意が、物語の一部になっていきます。';
+
+  @override
+  String get motLevel8 => '小さな火花が、確かな前進の動きに変わりました。';
+
+  @override
+  String get motLevel9 => '長い道のりを歩んできました。自分の進歩を認めましょう。';
+
+  @override
+  String get motLevel10 => 'レベル10。継続の真の価値をあなたは知っています。';
+
+  @override
+  String get motLevel11 => '道が険しくなっても、あなたは成長し続けています。';
+
+  @override
+  String get motLevel12 => '自分自身の素晴らしい手本になりました。そのまま進みましょう。';
+
+  @override
+  String get motLevel13 => '素晴らしい勢いがついています。正しい方向を維持しましょう。';
+
+  @override
+  String get motLevel14 => '伝説的なレベルです。あなたが成し遂げたことを見つめてみてください。';
+
+  @override
+  String get motShort1 => '今日もまた一歩。';
+
+  @override
+  String get motShort2 => '自分の道を進みましょう。';
+
+  @override
+  String get motShort3 => 'うまくいっていますよ。';
+
+  @override
+  String get motShort4 => 'あなたの進歩には価値があります。';
+
+  @override
+  String get motShort5 => '一度のつまずきで立ち止まらないで。';
+
+  @override
+  String get motShort6 => 'あなたは古い習慣より強いです。';
+
+  @override
+  String get motShort7 => '次の選択をしましょう。';
+
+  @override
+  String get motShort8 => '始めたのだから、続けましょう。';
+
+  @override
+  String get motShort9 => '今日の選択が大切です。';
+
+  @override
+  String get motShort10 => '一日一日を大切に。';
+
+  @override
+  String get motShort11 => '自分で思う以上の力があります。';
+
+  @override
+  String get motShort12 => 'あなたの道は、あなたのものです。';
+
+  @override
   String get profileEditErrorPhotoNotFound => '選択した写真を取得できませんでした';
 
   @override
@@ -1564,4 +1867,157 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get legalLifetime => 'これは一回限りの購入で、自動更新されません。価格は購入確認前に表示されます。';
+
+  @override
+  String get legalContactEmail => 'support@puffreeapp.com';
+
+  @override
+  String get privacyPolicyTitle => 'プライバシーポリシー';
+
+  @override
+  String get privacyPolicyLastUpdated => '最終更新日：2026年1月';
+
+  @override
+  String get privacyPolicyIntro =>
+      'Puffree（「当社」「私たち」「アプリ」）は、禁煙への取り組みを記録し、モチベーションを維持するためのサポートを提供します。本ポリシーでは、当社が収集する情報、その利用方法、およびお客様が選択できる事項について説明します。';
+
+  @override
+  String get privacySection1Title => '収集する情報';
+
+  @override
+  String get privacySection1Body =>
+      'サインイン時にお客様が提供するアカウント情報（メールアドレス、表示名、プロフィール写真）、またはアカウントを使用せずにアプリを利用する場合の匿名識別子を収集します。また、禁煙開始日、1日あたりの喫煙本数、1箱あたりの価格、記録した喫煙欲求など、お客様自身が入力する禁煙に関するデータも保存します。';
+
+  @override
+  String get privacySection2Title => '情報の利用方法';
+
+  @override
+  String get privacySection2Body =>
+      '禁煙期間、健康に関するマイルストーン、節約できた金額を計算するため、デバイス間で進捗を同期するため、任意のモチベーションリマインダーや通知を送信するため、Premiumサブスクリプションの購入を処理するため、クラッシュの原因を特定しアプリを改善するために情報を利用します。';
+
+  @override
+  String get privacySection3Title => 'データの保存とセキュリティ';
+
+  @override
+  String get privacySection3Body =>
+      'お客様のデータはFirebase（Google Cloud）を使用して保存され、通信中は暗号化されます。当社は合理的な技術的および組織的な安全対策を講じていますが、インターネット上でのデータの保存または送信方法が完全に安全であるとは限りません。';
+
+  @override
+  String get privacySection4Title => '第三者サービス';
+
+  @override
+  String get privacySection4Body =>
+      'アカウントの管理とデータの同期にはFirebase AuthenticationおよびCloud Firestoreを使用し、Premiumサブスクリプションの決済処理にはApple App StoreまたはGoogle Playの課金システムを使用します。当社はお客様の個人情報を第三者に販売することはありません。';
+
+  @override
+  String get privacySection5Title => 'お客様の選択と権利';
+
+  @override
+  String get privacySection5Body =>
+      'お客様はいつでもプロフィールを確認または編集できます。設定からローカルの進捗をリセットしたり、デバイスの設定からプッシュ通知を無効にしたりできます。また、当社に連絡することで、データへのアクセス、訂正、削除をリクエストできます。';
+
+  @override
+  String get privacySection6Title => 'お子様のプライバシー';
+
+  @override
+  String get privacySection6Body =>
+      'Puffreeは13歳未満のお子様（EUでは16歳未満）を対象としておらず、これらの方から意図的に個人情報を収集することはありません。お子様が当社にデータを提供したと思われる場合は、データを削除できるよう当社までご連絡ください。';
+
+  @override
+  String get privacySection7Title => '健康に関する免責事項';
+
+  @override
+  String get privacySection7Body =>
+      'Puffreeは、禁煙への取り組みをサポートするために設計された習慣管理ツールです。医療機器ではなく、医療上の助言、診断、治療を提供するものではありません。禁煙については、必ず資格を持つ医療専門家にご相談ください。';
+
+  @override
+  String get privacySection8Title => '変更とお問い合わせ';
+
+  @override
+  String get privacySection8Body =>
+      '当社は本ポリシーを随時更新することがあります。重要な変更についてはアプリ内でお知らせします。本ポリシーまたはお客様のデータについてご質問がある場合は、以下の連絡先までお問い合わせください。';
+
+  @override
+  String get termsOfUseTitle => '利用規約';
+
+  @override
+  String get termsOfUseLastUpdated => '最終更新日：2026年1月';
+
+  @override
+  String get termsOfUseIntro =>
+      '本利用規約は、Puffreeへのアクセスおよびアプリの利用について定めるものです。アカウントを作成するかアプリを利用することで、本規約に同意したものとみなされます。同意されない場合は、アプリを利用しないでください。';
+
+  @override
+  String get termsSection1Title => '規約への同意';
+
+  @override
+  String get termsSection1Body =>
+      'Puffreeをダウンロード、インストール、または利用することで、本利用規約およびプライバシーポリシーに同意し、本契約を締結するために必要な法的能力を有していることを確認したものとします。';
+
+  @override
+  String get termsSection2Title => 'サービスの説明';
+
+  @override
+  String get termsSection2Body =>
+      'Puffreeは、禁煙後の進捗を管理するための習慣管理・モチベーションアプリです。禁煙期間、健康に関するマイルストーン、節約できた金額、喫煙欲求の記録などを確認できます。本アプリは個人向けのウェルネスツールであり、医療または臨床サービスではありません。';
+
+  @override
+  String get termsSection3Title => '利用資格とアカウント';
+
+  @override
+  String get termsSection3Body =>
+      'Puffreeを利用するには13歳以上（またはお住まいの国で定められたデジタル同意の最低年齢）である必要があります。アカウントの機密性を維持し、アカウント上で行われるすべての活動について、お客様が責任を負うものとします。';
+
+  @override
+  String get termsSection4Title => 'Premiumサブスクリプションと請求';
+
+  @override
+  String get termsSection4Body =>
+      'Premium機能は、Apple App StoreまたはGoogle Playを通じて請求される自動更新サブスクリプションとして提供されます。サブスクリプションは、現在の期間終了の24時間以上前にキャンセルされない限り自動的に更新されます。返金については、該当するストアのポリシーに従って処理されます。';
+
+  @override
+  String get termsSection5Title => '健康・医療に関する免責事項';
+
+  @override
+  String get termsSection5Body =>
+      'Puffreeは医療上の助言を提供するものではなく、専門的な医療サービスの代替となるものでもありません。禁煙には離脱症状が伴う場合があります。健康に関する判断を行う前に、医師または資格を持つ医療従事者にご相談ください。';
+
+  @override
+  String get termsSection6Title => '許容される利用';
+
+  @override
+  String get termsSection6Body =>
+      'お客様は、アプリを不正に使用したり、リバースエンジニアリングを試みたり、サービスを妨害したり、違法または有害なコンテンツをアップロードしたり、適用される法律や他者の権利を侵害する方法でアプリを使用したりしないことに同意するものとします。';
+
+  @override
+  String get termsSection7Title => '免責事項および責任の制限';
+
+  @override
+  String get termsSection7Body =>
+      'Puffreeは、いかなる種類の保証もなく「現状のまま」提供されます。法律で認められる最大限の範囲において、アプリの利用から生じる間接的、偶発的、または結果的な損害について、当社は責任を負いません。';
+
+  @override
+  String get termsSection8Title => '本規約の変更とお問い合わせ';
+
+  @override
+  String get termsSection8Body =>
+      '当社は本規約を随時更新することがあります。変更が有効になった後もアプリの利用を継続した場合、改訂された本規約に同意したものとみなされます。ご質問は、以下の連絡先までお送りください。';
+
+  @override
+  String get systemThemeLabel => 'システム';
+
+  @override
+  String get notificationsEnabledLabel => '通知が有効です';
+
+  @override
+  String get notificationsDisabledLabel => '通知が無効です';
+
+  @override
+  String get signInToAnotherAccount => '別のアカウントにログイン';
+
+  @override
+  String get openSignInPage => 'ログインページを開く';
+
+  @override
+  String get securePayment => '安全な支払い';
 }

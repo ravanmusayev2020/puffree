@@ -17,7 +17,7 @@ class NotificationTile extends StatefulWidget {
 class _NotificationTileState extends State<NotificationTile> {
   NotificationPrefs _prefs = const NotificationPrefs();
   bool _loading = true;
-  bool _changing = false;
+  bool _changing = true;
 
   @override
   void initState() {
@@ -212,8 +212,8 @@ class _NotificationTileState extends State<NotificationTile> {
                     const Duration(milliseconds: 180),
                     child: Text(
                       _prefs.enabled
-                          ? 'Уведомления включены'
-                          : 'Уведомления отключены',
+                          ? l10n.notificationsEnabledLabel
+                          : l10n.notificationsDisabledLabel,
                       key: ValueKey(_prefs.enabled),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,

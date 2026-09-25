@@ -1466,6 +1466,309 @@ class AppLocalizationsZh extends AppLocalizations {
   String get authErrorSocial => '社交登录失败。';
 
   @override
+  String get profileYourProfile => '你的个人资料';
+
+  @override
+  String get profileEdit => '编辑个人资料';
+
+  @override
+  String get switchAccountTitle => '登录其他账户？';
+
+  @override
+  String get switchAccountBody => '将打开登录页面，你可以登录其他账户。';
+
+  @override
+  String get switchAccountButton => '登录其他账户';
+
+  @override
+  String get switchAccountSubtitle => '打开登录页面';
+
+  @override
+  String get continueAction => '继续';
+
+  @override
+  String get logoutTitle => '退出登录？';
+
+  @override
+  String get logoutBody => '确定要退出当前账户吗？';
+
+  @override
+  String get logoutButton => '退出登录';
+
+  @override
+  String get premiumBrand => 'Puffree Premium';
+
+  @override
+  String get motStartJourney => '今天是你新旅程的开始。迈出一步就很了不起。';
+
+  @override
+  String get motMilestone1 => '第一天。你迈出了勇敢的第一步。继续保持。';
+
+  @override
+  String get motMilestone3 => '三天了。这值得庆祝，你正行驶在正确的轨道上。';
+
+  @override
+  String get motMilestone7 => '整整一周。连续七天你都做出了有利于自己的选择。';
+
+  @override
+  String get motMilestone10 => '10天。你已经积累了相当大的自信。';
+
+  @override
+  String get motMilestone14 => '两周。你度过了旅程中至关重要的一段。你会越来越强大。';
+
+  @override
+  String get motMilestone21 => '21天。你正在用行动证明，自己完全有能力改变习惯。';
+
+  @override
+  String get motMilestone30 => '30天。整整一个月的新选择。这是一个伟大的成就。';
+
+  @override
+  String get motMilestone45 => '45天。一个半月的坚持，你在不断向前迈进。';
+
+  @override
+  String get motMilestone60 => '60天。两个月的自律。非常棒的结果。';
+
+  @override
+  String get motMilestone90 => '90天。三个月。看看你已经走了多远。';
+
+  @override
+  String get motMilestone120 => '120天。每一天你都在坚定地选择属于自己的路。';
+
+  @override
+  String get motMilestone180 => '半年。180天的坚持。这真的很震撼。';
+
+  @override
+  String get motMilestone270 => '270天。你已经与旧习惯拉开了巨大的距离。';
+
+  @override
+  String get motMilestone365 => '一年。365天的历程。这不是偶然，这是不懈的坚持。';
+
+  @override
+  String get motFirstWeek1 => '今天，你只需要迈出下一步。';
+
+  @override
+  String get motFirstWeek2 => '你不需要在今天走完全程，只需一步一步走下去。';
+
+  @override
+  String get motFirstWeek3 => '每一天都是一次独立的胜利。今天属于你。';
+
+  @override
+  String get motFirstWeek4 => '艰难的时刻不会抹去你已取得的进步。';
+
+  @override
+  String get motFirstWeek5 => '你已经开始了，给自己一个继续下去的机会。';
+
+  @override
+  String get motFirstWeek6 => '日复一日。伟大的改变正是这样铸就的。';
+
+  @override
+  String get motFirstWeek7 => '你一次又一次选择战胜自己，这至关重要。';
+
+  @override
+  String get motSecondWeek1 => '你已经远离了起点。继续向前。';
+
+  @override
+  String get motSecondWeek2 => '两周比想象中近得多。保持你的节奏。';
+
+  @override
+  String get motSecondWeek3 => '你的进步是由每一个微小的决定汇聚而成的。';
+
+  @override
+  String get motSecondWeek4 => '不要等待完美的一天，去创造下一个美好的一天。';
+
+  @override
+  String get motSecondWeek5 => '你完全有能力战胜冲动，回归预定计划。';
+
+  @override
+  String get motSecondWeek6 => '每一个新的一天都在巩固你的自信。';
+
+  @override
+  String get motSecondWeek7 => '你已经证明了自己能够挺过艰难时刻。';
+
+  @override
+  String get motFirstMonth1 => '你正在一步步建立全新的习惯。';
+
+  @override
+  String get motFirstMonth2 => '过去并不能决定你今天的选择。';
+
+  @override
+  String get motFirstMonth3 => '三十天始于一个简单的决定：坚持下去。';
+
+  @override
+  String get motFirstMonth4 => '自信不是一天建成的，而是源于日复一日的坚持。';
+
+  @override
+  String get motFirstMonth5 => '每一个新的一天都在为你的故事翻开新的一页。';
+
+  @override
+  String get motFirstMonth6 => '你的进步只属于你，没有人能从你身边拿走。';
+
+  @override
+  String get motFirstMonth7 => '你走得足够远，完全值得为自己感到骄傲。';
+
+  @override
+  String get motFirstMonth8 => '从容前行。伟大的改变不需要急于求成。';
+
+  @override
+  String get motSecondMonth1 => '两个月绝对不再是偶然。';
+
+  @override
+  String get motSecondMonth2 => '你正在把决心转化为长期的习惯。';
+
+  @override
+  String get motSecondMonth3 => '你的力量蕴藏在每天所做的决定中。';
+
+  @override
+  String get motSecondMonth4 => '你已经知道自己有能力应对艰难时刻。';
+
+  @override
+  String get motSecondMonth5 => '继续去构建你渴望的生活。';
+
+  @override
+  String get motSecondMonth6 => '远离旧习惯的每一天，都是向目标迈进的一大步。';
+
+  @override
+  String get motSecondMonth7 => '你不必与任何人竞争，这是只属于你自己的道路。';
+
+  @override
+  String get motSecondMonth8 => '回头看看第一天的自己，进步显而易见。';
+
+  @override
+  String get motThirdMonth1 => '三个月是一段长远的距离。而你依然在坚实前行。';
+
+  @override
+  String get motThirdMonth2 => '你为自己树立了全新的起点。';
+
+  @override
+  String get motThirdMonth3 => '自律比一时冲动的动力更强大，你正在证明这一点。';
+
+  @override
+  String get motThirdMonth4 => '你始终在选择对自己真正重要的事物。';
+
+  @override
+  String get motThirdMonth5 => '随着时光推移，旧的模式正变得越来越无足轻重。';
+
+  @override
+  String get motThirdMonth6 => '你不再等待时机，你在亲自创造时机。';
+
+  @override
+  String get motThirdMonth7 => '90天，是一个由许多微小胜利交织而成的故事。';
+
+  @override
+  String get motThirdMonth8 => '你已经走了很远，不要停下脚步。';
+
+  @override
+  String get motLongTerm1 => '你已经远远抛开了起点。继续前行。';
+
+  @override
+  String get motLongTerm2 => '自由始于选择，源于每日的坚定。';
+
+  @override
+  String get motLongTerm3 => '你的成果，是你坚持走过的每一天累积起来的。';
+
+  @override
+  String get motLongTerm4 => '你创造了曾经甚至不敢想象的距离。';
+
+  @override
+  String get motLongTerm5 => '不要忘记当初为什么出发。';
+
+  @override
+  String get motLongTerm6 => '每一个新的一天都在让你的故事更具力量。';
+
+  @override
+  String get motLongTerm7 => '你没有退路，你在坚定地向前。';
+
+  @override
+  String get motLongTerm8 => '曾经看似艰难的事情，如今已成为你人生道路的一部分。';
+
+  @override
+  String get motLongTerm9 => '你已经向自己证明了最重要的事：改变是完全可能的。';
+
+  @override
+  String get motLongTerm10 => '继续以你的新节奏生活吧。';
+
+  @override
+  String get motLevelDefault => '全新等级。你正在不断前行。';
+
+  @override
+  String get motLevel1 => '旅程已经开启。最重要的是迈出第一步。';
+
+  @override
+  String get motLevel2 => '幼苗已经破土。用心呵护你每一天的进步。';
+
+  @override
+  String get motLevel3 => '你在成长。微小的决定能带来巨大的改变。';
+
+  @override
+  String get motLevel4 => '根基日益稳固。继续构建你的基石。';
+
+  @override
+  String get motLevel5 => '你越来越自信了。保持住这个节奏。';
+
+  @override
+  String get motLevel6 => '力量诞生于你直面困难依然坚持的时刻。';
+
+  @override
+  String get motLevel7 => '你的决心正在成为你人生故事的一部分。';
+
+  @override
+  String get motLevel8 => '星火已成燎原之势，坚定不移地向前。';
+
+  @override
+  String get motLevel9 => '你走过了一段了不起的旅程。肯定你自己的进步。';
+
+  @override
+  String get motLevel10 => '第十级。你已经深刻理解了坚持的力量。';
+
+  @override
+  String get motLevel11 => '即使道路坎坷，你依然在不断成长。';
+
+  @override
+  String get motLevel12 => '你已经成为了自己的榜样。继续加油。';
+
+  @override
+  String get motLevel13 => '你已经积累了巨大的势能，现在保持好方向。';
+
+  @override
+  String get motLevel14 => '传奇等级。看看你所创造的一切奇迹。';
+
+  @override
+  String get motShort1 => '今天又是进步的一步。';
+
+  @override
+  String get motShort2 => '继续你的旅程。';
+
+  @override
+  String get motShort3 => '你做得很好。';
+
+  @override
+  String get motShort4 => '你的进步至关重要。';
+
+  @override
+  String get motShort5 => '不要因为一时艰难而停下脚步。';
+
+  @override
+  String get motShort6 => '你比自己的旧习惯更强大。';
+
+  @override
+  String get motShort7 => '做出属于你的下一步选择。';
+
+  @override
+  String get motShort8 => '既然已经开始，就继续坚持。';
+
+  @override
+  String get motShort9 => '今天的选择很重要。';
+
+  @override
+  String get motShort10 => '一步一个脚印。';
+
+  @override
+  String get motShort11 => '你能做到的远比想象的要多。';
+
+  @override
+  String get motShort12 => '这条路属于你自己。';
+
+  @override
   String get profileEditErrorPhotoNotFound => '无法获取所选照片';
 
   @override
@@ -1559,4 +1862,157 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get legalLifetime => '这是一次性购买，不会自动续订。价格会在确认购买前显示。';
+
+  @override
+  String get legalContactEmail => 'support@puffreeapp.com';
+
+  @override
+  String get privacyPolicyTitle => '隐私政策';
+
+  @override
+  String get privacyPolicyLastUpdated => '最后更新：2026年1月';
+
+  @override
+  String get privacyPolicyIntro =>
+      'Puffree（“我们”、“我们的”、“应用”）旨在帮助您记录戒烟过程并保持动力。本政策说明我们收集哪些信息、如何使用这些信息，以及您拥有的相关选择权。';
+
+  @override
+  String get privacySection1Title => '我们收集的信息';
+
+  @override
+  String get privacySection1Body =>
+      '当您登录时，我们会收集您提供的账户信息（电子邮箱地址、显示名称和个人资料照片）；如果您不使用账户，我们则会使用匿名标识符。我们还会存储您主动输入的无烟进度数据，例如戒烟日期、每天吸烟数量、每包香烟的费用以及您记录的吸烟欲望。';
+
+  @override
+  String get privacySection2Title => '我们如何使用您的信息';
+
+  @override
+  String get privacySection2Body =>
+      '我们使用这些信息来计算您的无烟持续时间、健康里程碑和节省的金额；在不同设备之间同步您的进度；发送可选的激励提醒和通知；处理 Premium 订阅购买；诊断应用崩溃并改进应用。';
+
+  @override
+  String get privacySection3Title => '数据存储与安全';
+
+  @override
+  String get privacySection3Body =>
+      '您的数据通过 Firebase（Google Cloud）进行存储，并在传输过程中进行加密。我们采取合理的技术和组织安全措施，但任何通过互联网进行的数据存储或传输方式都无法保证绝对安全。';
+
+  @override
+  String get privacySection4Title => '第三方服务';
+
+  @override
+  String get privacySection4Body =>
+      '我们使用 Firebase Authentication 和 Cloud Firestore 来管理账户和同步数据，并使用 Apple App Store 或 Google Play 的计费系统来处理 Premium 订阅。我们不会向第三方出售您的个人信息。';
+
+  @override
+  String get privacySection5Title => '您的选择与权利';
+
+  @override
+  String get privacySection5Body =>
+      '您可以随时查看或编辑个人资料，通过“设置”重置本地进度，在设备设置中关闭推送通知，并通过联系我们来请求访问、更正或删除您的数据。';
+
+  @override
+  String get privacySection6Title => '儿童隐私';
+
+  @override
+  String get privacySection6Body =>
+      'Puffree 不面向 13 岁以下的儿童（欧盟地区为 16 岁以下），我们不会在明知的情况下收集这些儿童的个人信息。如果您认为儿童向我们提供了数据，请联系我们，以便我们将其删除。';
+
+  @override
+  String get privacySection7Title => '健康免责声明';
+
+  @override
+  String get privacySection7Body =>
+      'Puffree 是一款旨在支持您无烟生活过程的习惯追踪工具。它不是医疗设备，也不提供医疗建议、诊断或治疗。关于戒烟事宜，请始终咨询合格的医疗专业人员。';
+
+  @override
+  String get privacySection8Title => '政策变更与联系我们';
+
+  @override
+  String get privacySection8Body =>
+      '我们可能会不时更新本政策；重大变更将在应用中公布。如果您对本政策或您的数据有任何疑问，请使用以下联系方式与我们联系。';
+
+  @override
+  String get termsOfUseTitle => '使用条款';
+
+  @override
+  String get termsOfUseLastUpdated => '最后更新：2026年1月';
+
+  @override
+  String get termsOfUseIntro =>
+      '本使用条款规定了您访问和使用 Puffree 的相关事项。创建账户或使用应用即表示您同意这些条款。如果您不同意，请不要使用本应用。';
+
+  @override
+  String get termsSection1Title => '接受条款';
+
+  @override
+  String get termsSection1Body =>
+      '通过下载、安装或使用 Puffree，您确认接受本使用条款和我们的隐私政策，并确认您具备签订本协议所需的法律行为能力。';
+
+  @override
+  String get termsSection2Title => '服务说明';
+
+  @override
+  String get termsSection2Body =>
+      'Puffree 是一款习惯追踪和激励应用，可帮助您在戒烟后监测自己的进度，包括无烟持续时间、健康里程碑、节省的金额以及吸烟欲望记录。它是一款个人健康与福祉工具，而非医疗或临床服务。';
+
+  @override
+  String get termsSection3Title => '使用资格与账户';
+
+  @override
+  String get termsSection3Body =>
+      '您必须年满 13 岁（或达到您所在国家/地区规定的数字同意最低年龄）才能使用 Puffree。您有责任维护账户的机密性，并对通过您的账户进行的所有活动负责。';
+
+  @override
+  String get termsSection4Title => 'Premium 订阅与计费';
+
+  @override
+  String get termsSection4Body =>
+      'Premium 功能以自动续订订阅的形式提供，并通过 Apple App Store 或 Google Play 进行计费。除非您在当前订阅周期结束前至少 24 小时取消订阅，否则订阅将自动续订。退款将按照相关应用商店的政策进行处理。';
+
+  @override
+  String get termsSection5Title => '健康与医疗免责声明';
+
+  @override
+  String get termsSection5Body =>
+      'Puffree 不提供医疗建议，也不能替代专业医疗服务。戒烟可能会引起戒断症状；在做出与健康相关的决定之前，请咨询医生或持证医疗服务提供者。';
+
+  @override
+  String get termsSection6Title => '合理使用';
+
+  @override
+  String get termsSection6Body =>
+      '您同意不会滥用本应用，不会尝试对应用进行逆向工程或干扰其服务，不会上传非法或有害内容，也不会以违反适用法律或他人权利的方式使用本应用。';
+
+  @override
+  String get termsSection7Title => '免责声明与责任限制';
+
+  @override
+  String get termsSection7Body =>
+      'Puffree 按“现状”提供，不提供任何形式的保证。在法律允许的最大范围内，对于因您使用本应用而产生的任何间接、附带或后果性损害，我们不承担责任。';
+
+  @override
+  String get termsSection8Title => '条款变更与联系我们';
+
+  @override
+  String get termsSection8Body =>
+      '我们可能会不时更新本条款；变更生效后继续使用本应用，即表示您接受修订后的条款。如有任何问题，请通过以下联系方式与我们联系。';
+
+  @override
+  String get systemThemeLabel => '系统';
+
+  @override
+  String get notificationsEnabledLabel => '通知已启用';
+
+  @override
+  String get notificationsDisabledLabel => '通知已禁用';
+
+  @override
+  String get signInToAnotherAccount => '登录其他账户';
+
+  @override
+  String get openSignInPage => '打开登录页面';
+
+  @override
+  String get securePayment => '安全支付';
 }

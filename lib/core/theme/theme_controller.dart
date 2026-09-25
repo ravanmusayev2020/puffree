@@ -25,17 +25,6 @@ class ThemeController extends ChangeNotifier {
     }
   }
 
-  String get themeLabel {
-    switch (_mode) {
-      case AppThemeMode.system:
-        return 'Системная';
-      case AppThemeMode.light:
-        return 'Светлая';
-      case AppThemeMode.dark:
-        return 'Тёмная';
-    }
-  }
-
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -50,15 +39,12 @@ class ThemeController extends ChangeNotifier {
       case 'system':
         _mode = AppThemeMode.system;
         break;
-
       case 'light':
         _mode = AppThemeMode.light;
         break;
-
       case 'dark':
         _mode = AppThemeMode.dark;
         break;
-
       default:
         _mode = AppThemeMode.system;
     }
